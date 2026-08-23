@@ -1,10 +1,10 @@
 """
 N6 — Adversarial Verifier. gpt-oss:120b via Ollama Cloud, temp 0.3.
 
-Deliberately a different model family from N5 (gemini-2.5-flash). A model
+Deliberately a different model family from N5 (gemma4:31b). A model
 asked to check its own work agrees with itself far too often (shared-prior
 failure); routing the falsification attempt through an unrelated model
-family (OpenAI's gpt-oss vs. Google's Gemini, no shared training lineage)
+family (OpenAI's gpt-oss vs. Google's Gemma, no shared training lineage)
 breaks that failure mode in a way a single prompt structurally cannot.
 """
 from veritas.clients import LLMResult, call_llm

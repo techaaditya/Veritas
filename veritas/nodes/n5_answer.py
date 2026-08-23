@@ -1,5 +1,5 @@
 """
-N5 — Grounded Answerer (per claim). gemini-2.5-flash, temp 0.0.
+N5 — Grounded Answerer (per claim). gemma4:31b via Ollama Cloud, temp 0.0.
 
 Beyond the prompt's own instruction not to fabricate numbers, we enforce it in
 code: any number appearing in `answer` that is not literally present in
@@ -14,7 +14,7 @@ import re
 
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemma4:31b"
 TEMPERATURE = 0.0
 
 PROMPT_TEMPLATE = """Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.
@@ -82,6 +82,6 @@ def run(claim_id: str, claim_question: str, evidence_chunks: list) -> LLMResult:
         claim_question=claim_question,
         evidence_chunks_with_urls=_format_evidence(evidence_chunks),
     )
-    result = call_llm("gemini", MODEL, prompt, temperature=TEMPERATURE, node="N5")
+    result = call_llm("ollama", MODEL, prompt, temperature=TEMPERATURE, node="N5")
     result.data = _enforce_numeric_grounding(result.data)
     return result

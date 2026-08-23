@@ -1,7 +1,7 @@
-"""N1 — Language & Intent Normalizer. gemini-2.5-flash, temp 0.1."""
+"""N1 — Language & Intent Normalizer. gemma4:31b via Ollama Cloud, temp 0.1."""
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemma4:31b"
 TEMPERATURE = 0.1
 
 PROMPT_TEMPLATE = """You are a query normalizer for a Nepali/English health-and-legal information system.
@@ -32,4 +32,4 @@ QUESTION: {user_question}
 
 def run(user_question: str) -> LLMResult:
     prompt = PROMPT_TEMPLATE.format(user_question=user_question)
-    return call_llm("gemini", MODEL, prompt, temperature=TEMPERATURE, node="N1")
+    return call_llm("ollama", MODEL, prompt, temperature=TEMPERATURE, node="N1")

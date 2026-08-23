@@ -18,15 +18,15 @@ VERITAS takes a health or legal question in Nepali, romanized Nepali, or English
 
 Nine nodes, nine distinct jobs:
 
-1. **N1** normalizes language and intent (`gemini-2.5-flash`)
-2. **N2** gates risk tier — TIER_0 emergencies halt the pipeline entirely (`gemini-2.5-flash`)
+1. **N1** normalizes language and intent (`gemma4:31b`)
+2. **N2** gates risk tier — TIER_0 emergencies halt the pipeline entirely (`gemma4:31b`)
 3. **N3** decomposes the question into 2–6 atomic claims (`gpt-oss:120b`, Ollama Cloud)
 4. **N4** retrieves evidence only from a whitelisted domain list (Firecrawl, not an LLM)
-5. **N5** answers each claim from evidence alone, with numeric grounding enforced in code (`gemini-2.5-flash`)
+5. **N5** answers each claim from evidence alone, with numeric grounding enforced in code (`gemma4:31b`)
 6. **N6** — a *different model family* — tries to falsify each answer (`gpt-oss:120b`, Ollama Cloud)
 7. **N7** makes the ANSWER / PARTIAL_ANSWER / REFUSE decision deterministically, in plain Python, unit-tested
-8. **N8** synthesizes the final response in the user's own language (`gemini-2.5-flash`)
-9. **N9** back-translates the response to catch drift that only appears in translation, retrying once (`gemini-2.5-flash`)
+8. **N8** synthesizes the final response in the user's own language (`gemma4:31b`)
+9. **N9** back-translates the response to catch drift that only appears in translation, retrying once (`gemma4:31b`)
 
 ## How we built it
 
@@ -34,7 +34,7 @@ Python 3.13, no orchestration framework — nine nodes don't need one, and hand-
 
 The live demo is a FastAPI backend streaming both arms — the single-prompt baseline and the full VERITAS pipeline — over Server-Sent Events to a from-scratch frontend ("The Tribunal"): a node-by-node trace, claim cards that visibly die when a claim fails verification, a physical-stamp-style REFUSE/ANSWER/PARTIAL_ANSWER arbiter decision, and a full-screen red takeover for TIER-0 emergencies.
 
-Cross-model verification runs on Ollama Cloud's hosted `gpt-oss:120b` rather than the same vendor's model family used for the rest of the pipeline (Gemini) — OpenAI-lineage gpt-oss and Google's Gemini share no training lineage, which makes "the verifier can't just agree with itself" a real structural property of the system rather than a hopeful assumption.
+Every LLM node runs through Ollama Cloud, but N6's adversarial verifier deliberately runs a different underlying model family from the rest of the pipeline: `gpt-oss:120b` (OpenAI-lineage) checks answers produced by `gemma4:31b` (Google-lineage) — two model families with no shared training lineage, hosted on the same platform. That's what makes "the verifier can't just agree with itself" a real structural property of the system rather than a hopeful assumption.
 
 ## Challenges we ran into
 
@@ -59,7 +59,7 @@ Expand source coverage to Maithili and Bhojpuri, close the agriculture-domain ev
 
 ## Built with
 
-`python` `fastapi` `gemini-api` `gpt-oss` `ollama-cloud` `firecrawl` `prompt-engineering` `nlp` `low-resource-languages` `ai-safety` `server-sent-events`
+`python` `fastapi` `gemma` `gpt-oss` `ollama-cloud` `firecrawl` `prompt-engineering` `nlp` `low-resource-languages` `ai-safety` `server-sent-events`
 
 ---
 

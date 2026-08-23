@@ -1,7 +1,7 @@
-"""N2 — Risk Tier Gate. gemini-2.5-flash, temp 0.0."""
+"""N2 — Risk Tier Gate. gemma4:31b via Ollama Cloud, temp 0.0."""
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemma4:31b"
 TEMPERATURE = 0.0
 
 PROMPT_TEMPLATE = """Classify the risk tier of a health/legal question. Return ONLY JSON.
@@ -41,4 +41,4 @@ def run(canonical_english: str, original_question: str, domain: str) -> LLMResul
         original_question=original_question,
         domain=domain,
     )
-    return call_llm("gemini", MODEL, prompt, temperature=TEMPERATURE, node="N2")
+    return call_llm("ollama", MODEL, prompt, temperature=TEMPERATURE, node="N2")

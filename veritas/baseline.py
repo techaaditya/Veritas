@@ -3,9 +3,9 @@ The baseline arm — a single, scrupulously fair prompt. This is what VERITAS
 is measured against. It even asks for uncertainty and citations, so beating
 it is a real result, not a strawman comparison.
 """
-from veritas.clients import RawResult, call_llm_raw, stream_gemini_raw
+from veritas.clients import RawResult, call_llm_raw, stream_ollama_raw
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemma4:31b"
 TEMPERATURE = 0.7
 
 PROMPT_TEMPLATE = """You are a helpful health and legal information assistant for users in Nepal.
@@ -19,10 +19,10 @@ QUESTION: {user_question}
 def run(user_question: str) -> RawResult:
     """Blocking call — used by the benchmark runner."""
     prompt = PROMPT_TEMPLATE.format(user_question=user_question)
-    return call_llm_raw("gemini", MODEL, prompt, temperature=TEMPERATURE, node="baseline")
+    return call_llm_raw("ollama", MODEL, prompt, temperature=TEMPERATURE, node="baseline")
 
 
 def run_stream(user_question: str):
     """Token-stream generator — used by the live web UI."""
     prompt = PROMPT_TEMPLATE.format(user_question=user_question)
-    yield from stream_gemini_raw(MODEL, prompt, TEMPERATURE)
+    yield from stream_ollama_raw(MODEL, prompt, TEMPERATURE)

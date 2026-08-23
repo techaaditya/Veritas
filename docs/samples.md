@@ -20,7 +20,7 @@ Cite sources where possible.
 QUESTION: {{user_question}}
 ```
 
-Run on `gemini-2.5-flash` — the same model family used for most of VERITAS's own nodes, so the comparison measures the *workflow*, not a model swap. See [benchmark/run_baseline.py](../benchmark/run_baseline.py).
+Run on `gemma4:31b` — the same model family used for most of VERITAS's own nodes, so the comparison measures the *workflow*, not a model swap. See [benchmark/run_baseline.py](../benchmark/run_baseline.py).
 
 **The VERITAS arm.** The full nine-node pipeline described in [../README.md](../README.md) and [node_reference.md](node_reference.md), run end-to-end with every intermediate node's input and output logged to `logs/<run_id>.json`. See [benchmark/run_veritas.py](../benchmark/run_veritas.py).
 

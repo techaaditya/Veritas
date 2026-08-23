@@ -10,7 +10,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Without this node, every downstream prompt has to individually handle Devanagari, romanized Nepali, and code-mixed input — and every one of them will handle it slightly differently, which is exactly the kind of inconsistency this project exists to eliminate. Centralizing normalization means N2 onward can assume clean, canonical English plus a Devanagari form for the final response.
 
-**Model & parameters.** `gemini-2.5-flash`, temperature 0.1. Low but non-zero — normalization is close to deterministic, but a touch of flexibility helps with genuinely ambiguous romanized spelling. Gemini was chosen here for its strong multilingual grounding, including Devanagari.
+**Model & parameters.** `gemma4:31b` via Ollama Cloud, temperature 0.1. Low but non-zero — normalization is close to deterministic, but a touch of flexibility helps with genuinely ambiguous romanized spelling. Gemma was chosen here for its strong multilingual grounding, including Devanagari.
 
 **Prompt.** See [veritas/nodes/n1_normalize.py](../veritas/nodes/n1_normalize.py).
 
@@ -26,7 +26,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Not every question deserves the same scrutiny. A definitional question ("what is a labour tribunal") doesn't need the same evidentiary bar as a paediatric dosing question, and an in-progress emergency needs the pipeline to get out of the way entirely rather than spend 8 seconds retrieving evidence. This node exists to route those three cases differently before any expensive work happens.
 
-**Model & parameters.** `gemini-2.5-flash`, temperature 0.0. Classification should be as close to deterministic as an LLM gets; temperature 0 minimizes tier-flapping across identical inputs.
+**Model & parameters.** `gemma4:31b`, temperature 0.0. Classification should be as close to deterministic as an LLM gets; temperature 0 minimizes tier-flapping across identical inputs.
 
 **Prompt.** See [veritas/nodes/n2_risk_gate.py](../veritas/nodes/n2_risk_gate.py). Notably instructs the model to bias toward the *higher*-risk tier under genuine uncertainty — an unnecessary escalation costs a user a minute of reading an emergency card; a missed one can cost more.
 
@@ -42,7 +42,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** A compound question like "my 2-year-old has fever and I have paracetamol, how much do I give?" bundles several separately-verifiable sub-facts (correct drug class for paediatric fever, weight-basis of dosing, the actual mg/kg figure, red-flag conditions). A single-prompt system answers the gestalt and hallucinates whichever sub-fact it's weakest on, silently, inside a confident-sounding paragraph. Decomposing first means each sub-claim gets its own evidence and its own verdict — a system with partial knowledge should produce a partial, honest answer, not a complete confident one.
 
-**Model & parameters.** `gpt-oss:120b` via Ollama Cloud, temperature 0.2. This is a reasoning-heavy structuring task, not a factual-recall task, which is why it's routed to the same model family used for N6 rather than Gemini — see [design_decisions.md](design_decisions.md) for why keeping N3 and N5 on different families matters less than keeping N5 and N6 on different families.
+**Model & parameters.** `gpt-oss:120b` via Ollama Cloud, temperature 0.2. This is a reasoning-heavy structuring task, not a factual-recall task, which is why it's routed to the same model family used for N6 rather than the Gemma family used for N5, N8, N9 — see [design_decisions.md](design_decisions.md) for why keeping N3 and N5 on different families matters less than keeping N5 and N6 on different families.
 
 **Prompt.** See [veritas/nodes/n3_decompose.py](../veritas/nodes/n3_decompose.py). Numeric claims (doses, deadlines, thresholds, rates) are always forced `critical` — a wrong number is never merely "supporting" detail.
 
@@ -72,7 +72,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Answers exactly one claim, using only the evidence retrieved for it. This is the node most directly responsible for suppressing hallucination: it is explicitly forbidden from using the model's own world knowledge, forbidden from reasoning "from general principles," and required to copy a verbatim `evidence_span` as proof of grounding.
 
-**Model & parameters.** `gemini-2.5-flash`, temperature 0.0. Zero temperature because this is an extraction task, not a generative one — any creativity here manifests as fabrication.
+**Model & parameters.** `gemma4:31b`, temperature 0.0. Zero temperature because this is an extraction task, not a generative one — any creativity here manifests as fabrication.
 
 **Prompt.** See [veritas/nodes/n5_answer.py](../veritas/nodes/n5_answer.py).
 
@@ -90,7 +90,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** A model asked to check its own work agrees with itself far more often than it should — a well-documented shared-prior failure. N6 exists to break that by routing the falsification attempt through a genuinely different model family.
 
-**Model & parameters.** `gpt-oss:120b` via Ollama Cloud, temperature 0.3. **Deliberately a different family from N5's Gemini** — gpt-oss (OpenAI-lineage, mixture-of-experts) and Gemini (Google, dense) share no training lineage, which is a stronger separation than routing both through two checkpoints of the same vendor's model family. A single prompt has no mechanism to do this at all; a chain that self-checks with the same model is only marginally better.
+**Model & parameters.** `gpt-oss:120b` via Ollama Cloud, temperature 0.3. **Deliberately a different family from N5's Gemma** — gpt-oss (OpenAI-lineage, mixture-of-experts) and Gemma (Google, open-weight dense) share no training lineage, even though both are reached through the same Ollama Cloud API. That's a stronger separation than routing both through two checkpoints of the same vendor's model family. A single prompt has no mechanism to do this at all; a chain that self-checks with the same model is only marginally better.
 
 **Prompt.** See [veritas/nodes/n6_verify.py](../veritas/nodes/n6_verify.py). Framed explicitly as hostile: "assume the answerer made a mistake and find it." The prompt also instructs the model not to manufacture objections when it genuinely can't find one — an adversarial framing that always finds *something* wrong is exactly as useless as one that never does.
 
@@ -122,7 +122,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Composes the final response in the user's own language, built strictly from claims with verdict `SUPPORTED` or `PARTIAL`. Everything not in the verified claim set is explicitly forbidden — no "additionally you should," no helpful general context, because that's exactly the kind of ungrounded addition that reintroduces hallucination one layer downstream of where the rest of the pipeline was fighting it.
 
-**Model & parameters.** `gemini-2.5-flash`, temperature 0.3 — the only generative node in the pipeline with meaningfully above-zero temperature, because natural, register-appropriate Nepali phrasing benefits from it, and the content it's allowed to draw from is already fully constrained.
+**Model & parameters.** `gemma4:31b`, temperature 0.3 — the only generative node in the pipeline with meaningfully above-zero temperature, because natural, register-appropriate Nepali phrasing benefits from it, and the content it's allowed to draw from is already fully constrained.
 
 **Prompt.** See [veritas/nodes/n8_synthesize.py](../veritas/nodes/n8_synthesize.py). Requires an explicit "Could not be verified" section whenever unsupported claims exist, and forbids softening a `REFUSE` decision into a hedged answer.
 
@@ -138,7 +138,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Translation is where safety guarantees quietly die. A pipeline can verify every claim perfectly in English and then produce a Nepali sentence that drops the word "not." Almost no comparable system checks this, because it requires a second, independent verification pass *after* the content is already believed to be finished.
 
-**Model & parameters.** `gemini-2.5-flash`, temperature 0.0 — literal back-translation, not creative restatement.
+**Model & parameters.** `gemma4:31b`, temperature 0.0 — literal back-translation, not creative restatement.
 
 **Prompt.** See [veritas/nodes/n9_fidelity.py](../veritas/nodes/n9_fidelity.py). `fidelity_ok` is forced false on any high-severity drift, with three named danger cases: a changed number, a vanished caveat, or a refusal that became an answer in translation.
 

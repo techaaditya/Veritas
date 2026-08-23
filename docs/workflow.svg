@@ -18,14 +18,14 @@
 <text x="284" y="212" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Question in Nepali / romanized Nepali / English + domain</text>
 <rect x="260" y="285" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
 <text x="284" y="325" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N1 · Language &amp; Intent Normalizer</text>
-<rect x="284" y="335" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
-<text x="294" y="355" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.5-flash</text>
+<rect x="284" y="335" width="270" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="355" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemma4:31b (Ollama Cloud)</text>
 <text x="284" y="387" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Detects language, normalizes to Devanagari + canonical English, flags ambiguities</text>
 <line x1="640.0" y1="230" x2="640.0" y2="285" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
 <rect x="260" y="460" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
 <text x="284" y="500" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N2 · Risk Tier Gate</text>
-<rect x="284" y="510" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
-<text x="294" y="530" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.5-flash</text>
+<rect x="284" y="510" width="270" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="530" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemma4:31b (Ollama Cloud)</text>
 <text x="284" y="562" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Classifies TIER_0 / TIER_1 / TIER_2 risk</text>
 <line x1="640.0" y1="405" x2="640.0" y2="460" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
 <rect x="260" y="635" width="760" height="120" rx="14" fill="#1E9E5A" stroke="#1a1a1a" stroke-width="2"/>
@@ -42,8 +42,8 @@
 <line x1="640.0" y1="755" x2="640.0" y2="810" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
 <rect x="260" y="985" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
 <text x="284" y="1025" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N5 · Grounded Answerer</text>
-<rect x="284" y="1035" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
-<text x="294" y="1055" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.5-flash</text>
+<rect x="284" y="1035" width="270" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1055" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemma4:31b (Ollama Cloud)</text>
 <text x="284" y="1087" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Answers each claim from evidence only; numeric grounding enforced in code</text>
 <line x1="640.0" y1="930" x2="640.0" y2="985" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
 <rect x="260" y="1160" width="760" height="120" rx="14" fill="#1E9E5A" stroke="#1a1a1a" stroke-width="2"/>
@@ -60,14 +60,14 @@
 <line x1="640.0" y1="1280" x2="640.0" y2="1335" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
 <rect x="260" y="1510" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
 <text x="284" y="1550" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N8 · Synthesizer</text>
-<rect x="284" y="1560" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
-<text x="294" y="1580" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.5-flash</text>
+<rect x="284" y="1560" width="270" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1580" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemma4:31b (Ollama Cloud)</text>
 <text x="284" y="1612" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Composes final response in user's language from verified claims only</text>
 <line x1="640.0" y1="1455" x2="640.0" y2="1510" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
 <rect x="260" y="1685" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
 <text x="284" y="1725" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N9 · Back-Translation Fidelity Check</text>
-<rect x="284" y="1735" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
-<text x="294" y="1755" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.5-flash</text>
+<rect x="284" y="1735" width="270" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1755" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemma4:31b (Ollama Cloud)</text>
 <text x="284" y="1787" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Translates answer back to English to catch drift; one retry on failure</text>
 <line x1="640.0" y1="1630" x2="640.0" y2="1685" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
 <rect x="260" y="1860" width="760" height="100" rx="14" fill="#3A3A3A" stroke="#1a1a1a" stroke-width="2"/>
@@ -86,9 +86,9 @@
 <text x="90.0" y="1649.5" font-family="Segoe UI, sans-serif" font-size="15" font-style="italic" fill="#8A5A00">fidelity drift → retry ×1</text>
 <text x="260" y="2030" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#111">Legend</text>
 <rect x="260" y="2064" width="28" height="28" rx="6" fill="#2F6FED"/>
-<text x="300" y="2085" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Gemini node (gemini-2.5-flash)</text>
+<text x="300" y="2085" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Gemma4:31b via Ollama Cloud</text>
 <rect x="260" y="2106" width="28" height="28" rx="6" fill="#1E9E5A"/>
-<text x="300" y="2127" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">gpt-oss:120b via Ollama Cloud — different model family from Gemini</text>
+<text x="300" y="2127" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">gpt-oss:120b via Ollama Cloud — different model family from Gemma</text>
 <rect x="260" y="2148" width="28" height="28" rx="6" fill="#C77D18"/>
 <text x="300" y="2169" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Non-LLM tool (Firecrawl retrieval)</text>
 <rect x="1160" y="2064" width="28" height="28" rx="6" fill="#6B7280"/>

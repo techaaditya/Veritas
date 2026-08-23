@@ -1,7 +1,7 @@
-"""N8 — Synthesizer. gemini-2.5-flash, temp 0.3."""
+"""N8 — Synthesizer. gemma4:31b via Ollama Cloud, temp 0.3."""
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemma4:31b"
 TEMPERATURE = 0.3
 
 PROMPT_TEMPLATE = """Compose the final response in the user's original language ({detected_language}).
@@ -42,4 +42,4 @@ def run(detected_language: str, decision: str, claims_with_verdicts: str, drift_
     )
     if drift_note:
         prompt += f"\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n{drift_note}\n"
-    return call_llm("gemini", MODEL, prompt, temperature=TEMPERATURE, node="N8")
+    return call_llm("ollama", MODEL, prompt, temperature=TEMPERATURE, node="N8")

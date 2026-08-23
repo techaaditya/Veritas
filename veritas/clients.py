@@ -26,7 +26,7 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 # USD per 1M tokens (input, output). Approximate published rates; used only
 # for the benchmark's relative cost comparison, not billing.
 RATE_TABLE = {
-    "gemini-2.5-flash": (0.10, 0.40),
+    "gemma4:31b": (0.10, 0.40),
     "gpt-oss:120b": (0.10, 0.50),
     "llama-3.3-70b": (0.13, 0.40),
 }
@@ -322,3 +322,20 @@ def stream_gemini_raw(model: str, prompt: str, temperature: float):
     ):
         if chunk.text:
             yield chunk.text
+
+
+def stream_ollama_raw(model: str, prompt: str, temperature: float):
+    """Yield text chunks from an Ollama Cloud model as they arrive. Not cached — used for the live UI race."""
+    from openai import OpenAI
+
+    client = OpenAI(base_url="https://ollama.com/v1", api_key=os.environ["OLLAMA_API_KEY"])
+    stream = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=temperature,
+        stream=True,
+    )
+    for chunk in stream:
+        delta = chunk.choices[0].delta.content if chunk.choices else None
+        if delta:
+            yield delta

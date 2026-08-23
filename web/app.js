@@ -1,15 +1,15 @@
 /* VERITAS — "The Tribunal" frontend. Vanilla JS, no build step. */
 
 const NODES = [
-  { id: "N1", label: "Language & Intent Normalizer", model: "gemini-2.5-flash", executor: "gemini", desc: "Detects language, normalizes to Devanagari + canonical English, flags ambiguities." },
-  { id: "N2", label: "Risk Tier Gate", model: "gemini-2.5-flash", executor: "gemini", desc: "Classifies TIER_0 / TIER_1 / TIER_2. TIER_0 halts the pipeline." },
+  { id: "N1", label: "Language & Intent Normalizer", model: "gemma4:31b", executor: "gemini", desc: "Detects language, normalizes to Devanagari + canonical English, flags ambiguities." },
+  { id: "N2", label: "Risk Tier Gate", model: "gemma4:31b", executor: "gemini", desc: "Classifies TIER_0 / TIER_1 / TIER_2. TIER_0 halts the pipeline." },
   { id: "N3", label: "Claim Decomposer", model: "gpt-oss:120b", executor: "ollama", desc: "Splits the question into 2–6 atomic, independently verifiable claims." },
   { id: "N4", label: "Evidence Retrieval", model: "Firecrawl · whitelist", executor: "tool", desc: "Site-restricted search over authoritative domains, per claim." },
-  { id: "N5", label: "Grounded Answerer", model: "gemini-2.5-flash", executor: "gemini", desc: "Answers each claim from evidence only. No evidence, no answer." },
+  { id: "N5", label: "Grounded Answerer", model: "gemma4:31b", executor: "gemini", desc: "Answers each claim from evidence only. No evidence, no answer." },
   { id: "N6", label: "Adversarial Verifier", model: "gpt-oss:120b", executor: "ollama", desc: "A different model family tries to falsify each answer." },
   { id: "N7", label: "Refusal Arbiter", model: "deterministic Python", executor: "python", desc: "Rules-based decision: ANSWER / PARTIAL_ANSWER / REFUSE. No LLM." },
-  { id: "N8", label: "Synthesizer", model: "gemini-2.5-flash", executor: "gemini", desc: "Composes the final response in the user's language, from verified claims only." },
-  { id: "N9", label: "Back-Translation Fidelity Check", model: "gemini-2.5-flash", executor: "gemini", desc: "Translates the answer back to English to catch drift. One retry on failure." },
+  { id: "N8", label: "Synthesizer", model: "gemma4:31b", executor: "gemini", desc: "Composes the final response in the user's language, from verified claims only." },
+  { id: "N9", label: "Back-Translation Fidelity Check", model: "gemma4:31b", executor: "gemini", desc: "Translates the answer back to English to catch drift. One retry on failure." },
 ];
 
 const EXAMPLES = [

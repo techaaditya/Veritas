@@ -1,5 +1,5 @@
 """
-N9 — Back-Translation Fidelity Check. gemini-2.5-flash, temp 0.0.
+N9 — Back-Translation Fidelity Check. gemma4:31b via Ollama Cloud, temp 0.0.
 
 Translation is where safety guarantees quietly die. A pipeline can verify
 everything perfectly in English and then produce a Nepali sentence that
@@ -7,7 +7,7 @@ drops the word "not." Almost nobody checks this.
 """
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemma4:31b"
 TEMPERATURE = 0.0
 
 PROMPT_TEMPLATE = """Translate the Nepali response below back into English, literally.
@@ -38,4 +38,4 @@ def run(final_response: str, claims_with_verdicts: str) -> LLMResult:
         final_response=final_response,
         claims_with_verdicts=claims_with_verdicts,
     )
-    return call_llm("gemini", MODEL, prompt, temperature=TEMPERATURE, node="N9")
+    return call_llm("ollama", MODEL, prompt, temperature=TEMPERATURE, node="N9")
