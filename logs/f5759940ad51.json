@@ -1,0 +1,550 @@
+{
+  "run_id": "f5759940ad51",
+  "question": "bukhar ko lagi k khane",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne-Latn",
+  "decision": "REFUSE",
+  "response_text": "औषधिको मात्रा र सुरक्षा सम्बन्धी जानकारीहरू स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।\n\n---\n[Fidelity check could not be satisfied after retry; showing the verified English claim summary alongside the translation for safety.]\n\n[C1] (critical) Q: What is the recommended adult dosage of acetaminophen for treating a fever?\n  verdict=PARTIAL answer=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  evidence_span=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  source=https://www.goodrx.com/tylenol/dosage\n  caveats=['The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['NUMBER_MISMATCH', 'SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The standard recommended adult dosage of acetaminophen for fever is 650\\u202fmg (or 500\\u202fmg) taken every 4–6\\u202fhours, with a maximum daily dose of 3,000\\u202fmg for OTC products (or 4,000\\u202fmg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300\\u202fmg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300\\u202fmg per dose is unsupported and incorrect.', 'confidence': 0.92}\n[C2] (supporting) Q: Is ibuprofen considered safe for treating fever in adults?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What foods are recommended to eat when having a fever?\n  verdict=PARTIAL answer=To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.\n  evidence_span=A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.\n  source=https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu\n  caveats=['The evidence discusses these recommendations specifically in the context of being sick with the flu.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.93}\n[C4] (critical) Q: How much fluid should an adult consume per day while experiencing a fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C5] (critical) Q: Is acetaminophen safe for treating fever in children under 12 years old?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the recommended adult dosage of acetaminophen for treating a fever?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "acetaminophen adult dose fever",
+        "paracetamol dosage adult fever"
+      ],
+      "verdict": "PARTIAL",
+      "answer": "A typical adult dosage ranges from 650 mg to 1,300 mg per dose.",
+      "evidence_span": "A typical adult dosage ranges from 650 mg to 1,300 mg per dose.",
+      "source_url": "https://www.goodrx.com/tylenol/dosage",
+      "caveats": [
+        "The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "NUMBER_MISMATCH",
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "falsification_attempt": "The standard recommended adult dosage of acetaminophen for fever is 650 mg (or 500 mg) taken every 4–6 hours, with a maximum daily dose of 3,000 mg for OTC products (or 4,000 mg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300 mg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300 mg per dose is unsupported and incorrect.",
+        "confidence": 0.92
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "Is ibuprofen considered safe for treating fever in adults?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "ibuprofen fever safety adult",
+        "ibuprofen contraindications fever"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "What foods are recommended to eat when having a fever?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "fever diet recommendations",
+        "foods to eat with fever"
+      ],
+      "verdict": "PARTIAL",
+      "answer": "To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.",
+      "evidence_span": "A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.",
+      "source_url": "https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu",
+      "caveats": [
+        "The evidence discusses these recommendations specifically in the context of being sick with the flu."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "HOLDS",
+        "flags": [
+          "NONE"
+        ],
+        "falsification_attempt": "",
+        "confidence": 0.93
+      }
+    },
+    {
+      "id": "C4",
+      "claim_question": "How much fluid should an adult consume per day while experiencing a fever?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "fluid intake fever adult",
+        "water recommendation fever"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C5",
+      "claim_question": "Is acetaminophen safe for treating fever in children under 12 years old?",
+      "claim_type": "conditional",
+      "criticality": "critical",
+      "search_terms": [
+        "acetaminophen safety children fever",
+        "paracetamol children fever"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: bukhar ko lagi k khane\n",
+      "raw_response": "{\n  \"detected_language\": \"ne-Latn\",\n  \"devanagari_form\": \"बुखारको लागि के खाने\",\n  \"canonical_english\": \"What should I take/eat for a fever?\",\n  \"domain\": \"health\",\n  \"entities\": [\"fever\"],\n  \"implicit_context\": [\"The user is seeking medication or dietary advice to treat a fever.\"],\n  \"ambiguities\": [\"age of the patient\", \"duration of fever\", \"presence of other symptoms\", \"pregnancy status\", \"existing allergies or medical conditions\"]\n}",
+      "parsed": {
+        "detected_language": "ne-Latn",
+        "devanagari_form": "बुखारको लागि के खाने",
+        "canonical_english": "What should I take/eat for a fever?",
+        "domain": "health",
+        "entities": [
+          "fever"
+        ],
+        "implicit_context": [
+          "The user is seeking medication or dietary advice to treat a fever."
+        ],
+        "ambiguities": [
+          "age of the patient",
+          "duration of fever",
+          "presence of other symptoms",
+          "pregnancy status",
+          "existing allergies or medical conditions"
+        ]
+      },
+      "latency_ms": 2431.5234000096098,
+      "prompt_tokens": 303,
+      "completion_tokens": 126,
+      "cost_usd": 8.070000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: What should I take/eat for a fever?\nORIGINAL: bukhar ko lagi k khane\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"Providing medication or treatment advice for a fever involves drug dosing and potential contraindications, which could cause physical harm if incorrect.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "Providing medication or treatment advice for a fever involves drug dosing and potential contraindications, which could cause physical harm if incorrect.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1916.3409000029787,
+      "prompt_tokens": 324,
+      "completion_tokens": 59,
+      "cost_usd": 5.6000000000000006e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: What should I take/eat for a fever?\nENTITIES: ['fever']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the recommended adult dosage of acetaminophen for treating a fever?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\n        \"acetaminophen adult dose fever\",\n        \"paracetamol dosage adult fever\"\n      ]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Is ibuprofen considered safe for treating fever in adults?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\n        \"ibuprofen fever safety adult\",\n        \"ibuprofen contraindications fever\"\n      ]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"What foods are recommended to eat when having a fever?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\n        \"fever diet recommendations\",\n        \"foods to eat with fever\"\n      ]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"How much fluid should an adult consume per day while experiencing a fever?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\n        \"fluid intake fever adult\",\n        \"water recommendation fever\"\n      ]\n    },\n    {\n      \"id\": \"C5\",\n      \"claim_question\": \"Is acetaminophen safe for treating fever in children under 12 years old?\",\n      \"claim_type\": \"conditional\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\n        \"acetaminophen safety children fever\",\n        \"paracetamol children fever\"\n      ]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the recommended adult dosage of acetaminophen for treating a fever?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "acetaminophen adult dose fever",
+              "paracetamol dosage adult fever"
+            ],
+            "verdict": "PARTIAL",
+            "answer": "A typical adult dosage ranges from 650 mg to 1,300 mg per dose.",
+            "evidence_span": "A typical adult dosage ranges from 650 mg to 1,300 mg per dose.",
+            "source_url": "https://www.goodrx.com/tylenol/dosage",
+            "caveats": [
+              "The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "NUMBER_MISMATCH",
+                "SPAN_DOES_NOT_ESTABLISH",
+                "SOURCE_INAPPROPRIATE"
+              ],
+              "falsification_attempt": "The standard recommended adult dosage of acetaminophen for fever is 650 mg (or 500 mg) taken every 4–6 hours, with a maximum daily dose of 3,000 mg for OTC products (or 4,000 mg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300 mg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300 mg per dose is unsupported and incorrect.",
+              "confidence": 0.92
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "Is ibuprofen considered safe for treating fever in adults?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "ibuprofen fever safety adult",
+              "ibuprofen contraindications fever"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "What foods are recommended to eat when having a fever?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "fever diet recommendations",
+              "foods to eat with fever"
+            ],
+            "verdict": "PARTIAL",
+            "answer": "To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.",
+            "evidence_span": "A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.",
+            "source_url": "https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu",
+            "caveats": [
+              "The evidence discusses these recommendations specifically in the context of being sick with the flu."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "HOLDS",
+              "flags": [
+                "NONE"
+              ],
+              "falsification_attempt": "",
+              "confidence": 0.93
+            }
+          },
+          {
+            "id": "C4",
+            "claim_question": "How much fluid should an adult consume per day while experiencing a fever?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "fluid intake fever adult",
+              "water recommendation fever"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C5",
+            "claim_question": "Is acetaminophen safe for treating fever in children under 12 years old?",
+            "claim_type": "conditional",
+            "criticality": "critical",
+            "search_terms": [
+              "acetaminophen safety children fever",
+              "paracetamol children fever"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 3508.277899993118,
+      "prompt_tokens": 289,
+      "completion_tokens": 1206,
+      "cost_usd": 0.0006319,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is ibuprofen considered safe for treating fever in adults?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.5001/omj.2010.49) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/pdf/OMJ-D-09-00160.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK542299/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nStatPearls \\[Internet\\]. Treasure Island (FL): StatPearls Publishing; 2026 Jan-.\n\n[![Cover of StatPearls](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-statpearls-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/statpearls/ \"Table of Contents Page\")\n\n## StatPearls \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK542299/#__NBK542299_dtls__)\n\nTreasure Island (FL): [StatPearls Publishing](https://www.statpearls.com/); 2026 Jan-.\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK542299/#)\n\n# Ibuprofen\n\nVincent Trung H. Ngo; Tushar Bajaj.\n\n[Author Information and Affiliations](https://www.ncbi.nlm.nih.gov/books/NBK542299/#__NBK542299_ai__)\n\n#### Authors\n\nVincent Trung H. Ngo1; Tushar Bajaj2.\n\n#### Affiliations\n\n1 Ross University\n\n2 US Acute Care Solutions\n\nLast Update: August 11, 2024.\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK542299/# \"Go to other sections in this page\")\n\n## Continuing Education Activity\n\nIbuprofen is a nonsteroidal anti-inflammatory drug (NSAID) used \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK542299/]\nto manage various conditions, including inflammatory diseases, rheumatoid disorders, mild to moderate pain, fever, dysmenorrhea, and osteoarthritis. This drug is available over-the-counter and in prescription strength. This activity reviews ibuprofen's mechanism of action, adverse event profiles, dosing considerations, pharmacokinetics, contraindications, box warnings, and monitoring protocols, which are critical areas of focus.\n\nUnderstanding ibuprofen's pharmacology enables healthcare professionals to optimize dosage regimens and minimize potential adverse effects. This educational activity also discusses the role of the interprofessional healthcare team in providing quality patient care using ibuprofen therapy, improving patient outcomes.\n\n**Objectives:**\n\n- Identify the clinical indications for ibuprofen therapy.\n\n- Evaluate the potential adverse reactions associated with ibuprofen administration.\n\n- Implement effective monitoring strategies for patients receiving ibuprofen therapy.\n\n- Implement effective collaboration and communication between interprofessional team members to improve care for patients who might benefit from ibuprofen therapy.\n\n\n[Access free multiple choice qu\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1282.0455000037327,
+      "prompt_tokens": 1983,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002235,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What foods are recommended to eat when having a fever?\nEVIDENCE:\n[source: https://www.healthline.com/nutrition/15-best-foods-when-sick]\n[Healthline](https://www.healthline.com/)\n\n- Health Conditions\n\n\n\n\nHealth Conditions\n\n[All](https://www.healthline.com/directory/topics)\n\n  - [Breast Cancer](https://www.healthline.com/breast-cancer)\n  - [Cancer Care](https://www.healthline.com/cancer-care)\n  - [Caregiving for Alzheimer's Disease](https://www.healthline.com/alzheimers-disease)\n  - [Chronic Kidney Disease](https://www.healthline.com/ckd)\n  - [Chronic Obstructive Pulmonary Disease (COPD)](https://www.healthline.com/copd)\n  - [Digestive Health](https://www.healthline.com/digestive-health)\n  - [Eye Health](https://www.healthline.com/eye-health)\n  - [Heart Health](https://www.healthline.com/heart-health)\n  - [Menopause](https://www.healthline.com/menopause)\n  - [Mental Health](https://www.healthline.com/mental-health)\n  - [Migraine](https://www.healthline.com/migraine)\n  - [Multiple Sclerosis (MS)](https://www.healthline.com/multiple-sclerosis)\n  - [Parkinson’s Disease](https://www.healthline.com/parkinsons-disease)\n  - [Psoriasis](https://www.healthline.com/psoriasis)\n  - [Rheumatoid Arthritis (RA)](https://www.healthline.com/rheumatoid-arthritis)\n  - [Sleep Health](https://www.healthline.com/sleep)\n  - [Type 2 Diabete\n\n[source: https://www.healthline.com/nutrition/15-best-foods-when-sick]\ns](https://www.healthline.com/type-2-diabetes)\n  - [Weight Management](https://www.healthline.com/weight-management)\n\nCondition Spotlight\n\n[All](https://www.healthline.com/sponsored-topics)\n\n  - [![](https://media.post.rvohealth.io/wp-content/uploads/2024/12/navigation-icons-_controlling-ulcerative-colitis-236x236_360.png)\\\\\n    \\\\\n    Controlling Ulcerative Colitis](https://www.healthline.com/program/controlling-uc)\n  - [![](https://media.post.rvohealth.io/wp-content/uploads/2024/12/navigation-icons_navigating-life-with-biopolar-236x236-1.png)\\\\\n    \\\\\n    Navigating Life with Bipolar Disorder](https://www.healthline.com/program/navigating-life-with-bipolar-disorder)\n  - [![](https://media.post.rvohealth.io/wp-content/uploads/2024/12/navigation-icons-_mastering-your-geographic-atrophy-236x236_360.png)\\\\\n    \\\\\n    Mastering Geographic Atrophy](https://www.healthline.com/program/mastering-your-geographic-atrophy-care)\n  - [![](https://media.post.rvohealth.io/wp-content/uploads/2024/12/navigation-icons_managing-type-2-diabetes-236x236-1.png)\\\\\n    \\\\\n    Managing Type 2 Diabetes](https://www.healthline.com/program/managing-type-2-diabetes-with-food-and-fitness)\n\n- Wellness\n\n\n\n\nWelln\n\n[source: https://international.grupposandonato.com/news/what-to-eat-with-fever-cold-and-flu-the-nutritionist-s-guide]\n![Revisit consent button](https://cdn-cookieyes.com/assets/images/revisit.svg)\n\n![](https://cdn-cookieyes.com/assets/images/close.svg)\n\nWe value your privacy\n\nWe use technical cookies necessary to ensure proper functioning of this website. Subject to obtaining your specific and unambiguous consent, it may also use analytical cookies to understand how visitors interact with the website. For more information about cookies and tracking tools used, please [visit the Cookie Policy page](https://international.grupposandonato.com/cookie-policy). By clicking on:\n\n- \"Accept All”,  you consent the use of cookies on the website,\n- \"Reject All\" or \"X\" of this banner, only technical cookies will be installed,\n- \"Customize\", you accept only certain cookie types of your choice.\n\nCustomizeReject AllAccept All\n\nNecessary\n\nAnalytics\n\nAdvertisement\n\nSave My Preferences\n\nCustomize Consent Preferences![](https://cdn-cookieyes.com/assets/images/close.svg)\n\nWe use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.\n\nThe cookies that are categorized as \"Necessary\" are stored on your browser as they \n\n[source: https://international.grupposandonato.com/news/what-to-eat-with-fever-cold-and-flu-the-nutritionist-s-guide]\nare essential for enabling the basic functionalities of the site. ... Show more\n\nNecessaryAlways Active\n\nNecessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data. These cookie do not need a consent.\n\n- Cookie\n\ncookieyes-\\*\n\n- Duration\n\n1 year\n\n- Description\n\nCookieYes sets this cookie for consent solution management.\n\n\nAnalytics\n\nAnalytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.\n\nWithin this category of cookies are the anonymized cookies from Google Analytics. Google Analytics 4 (“GA4”) basically anonymizes IP addresses, however, this is not sufficient for the purposes of the GDRP but the Data Controller must take all necessary steps to demonstrate that he is using this service in a GDPR-compliant manner.\n\nObtaining the necessary user consent is one of the legal bases for processing personal data under the GDPR, for this reason Data Controller need users' explicit consent to use Google Analy\n\n[source: https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu]\n- [Blog](https://www.osfhealthcare.org/blog)\n- Foods to eat when sick with flu\n\n![https://osf-blog.live.imagescape.com/blog/wp-content/uploads/2022/12/shutterstock_2082680002-1-1.jpg](https://osf-blog.live.imagescape.com/blog/wp-content/uploads/2022/12/shutterstock_2082680002-1-1.jpg)\n\n# Foods to eat when sick with flu\n\nLast updated January 4, 2023\n\nBeing sick with the [flu](https://www.osfhealthcare.org/blog/flu-treatment-tips-for-adults/) is no fun. But if you keep your body well-fed, it can help your body recover from illness.\n\nSo, what are the best foods for flu?\n\nIt’s about introducing healthy vitamins and minerals into your body to keep your immune system strong as it fights the flu.\n\n## Hydration is most important\n\n“The main key to helping your body stay fit to fight the flu is hydration,” said [Mohammed S. Khan,](https://www.osfhealthcare.org/providers/mohammed-khan-2183695) MD, a primary care physician for OSF HealthCare.\n\nA common symptom of the flu is [fever](https://www.osfhealthcare.org/blog/whats-considered-a-fever-and-when-to-see-a-doctor/), and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep yo\n\n[source: https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu]\nur cells functioning properly, you need to replace the water you lose due to sweating.\n\nYou also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water.\n\nBroths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength.\n\nHot tea can help you hydrate. Plus it can help soothe a sore throat.\n\nWhen picking a drink, however, avoid drinks with caffeine or sugar, which can dehydrate you even more.\n\n## Foods to eat when sick\n\n“Avoid things that can cause more problems, like spicy or fried foods,” Dr. Khan said. “Soups and broths can be helpful, and softer foods will be easier to handle. You want to eat healthy things that are easily digestible and not irritating to your stomach.”\n\nLooking for healthy meals to keep up your strength?\n\n[Check out our recipes here](https://apps.osfhealthcare.org/recipes/)\n\nEating fruits and vegetables that are high in vitamin C is a smart move. Vitamin\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"PARTIAL\",\n  \"answer\": \"To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.\",\n  \"evidence_span\": \"A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.\",\n  \"source_url\": \"https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu\",\n  \"caveats\": [\n    \"The evidence discusses these recommendations specifically in the context of being sick with the flu.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "PARTIAL",
+        "answer": "To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.",
+        "evidence_span": "A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.",
+        "source_url": "https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu",
+        "caveats": [
+          "The evidence discusses these recommendations specifically in the context of being sick with the flu."
+        ]
+      },
+      "latency_ms": 2258.9165000244975,
+      "prompt_tokens": 2451,
+      "completion_tokens": 314,
+      "cost_usd": 0.00037069999999999996,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What foods are recommended to eat when having a fever?\nPROPOSED ANSWER: To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.\nEVIDENCE SPAN: A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.\nSOURCE: https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu\n",
+      "raw_response": "{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"\",\n  \"flags\": [\"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\",\n  \"confidence\": 0.93\n}",
+      "parsed": {
+        "claim_id": "C3",
+        "falsification_attempt": "",
+        "flags": [
+          "NONE"
+        ],
+        "verdict_after_challenge": "HOLDS",
+        "confidence": 0.93
+      },
+      "latency_ms": 2157.3216999531724,
+      "prompt_tokens": 623,
+      "completion_tokens": 226,
+      "cost_usd": 0.00017529999999999998,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended adult dosage of acetaminophen for treating a fever?\nEVIDENCE:\n[source: https://www.tylenol.com/safety-dosing/dosage-for-adults]\n[Skip to main content](https://www.tylenol.com/safety-dosing/dosage-for-adults#accessibilitySkipLink)\n\n# Dosing for Adults Acetaminophen Products\n\n![Illustration of forms of Tylenol](https://images.ctfassets.net/g574hlexgjps/3V2HY4Ote1lB4yH7BwojZw/5f794de9aa953e2867c0e8fd28790e45/adult_dosing_reference2x.png?fm=jpg&w=1920&q=80)\n\nTYLENOL® is the #1 Doctor Recommended Brand for pain relief and fever reduction. [TYLENOL® products](https://www.tylenol.com/products) contain the active ingredient acetaminophen and are formulated to temporarily reduce fever and relieve minor aches and pains. Below you will find dosing charts for several adult TYLENOL® products available in different forms – including tablets, liquid gels and dissolve packs – with information for the maximum dose. Use these dosing charts to help ensure safe use. Always read and follow the product label.\n\nFilters\n\nSort by\n\nFilters\n\nSort by\n\n### Age\n\nAdults (36)\n\n### Features\n\nBest Sellers (2)\n\nDye Free (2)\n\nFSA/HSA Eligible (34)\n\nNew (2)\n\nOn the Go (2)\n\n### Flavor\n\nBerry (2)\n\nCherry (2)\n\nDye-Free Cherry (1)\n\nHoney Lemon (1)\n\n### Form\n\nDissolve Pack (1)\n\nLiquid (5)\n\nPatch (1)\n\nPill (25)\n\nTopicals (4)\n\n### Symptoms\n\nArthritis\n\n[source: https://www.tylenol.com/safety-dosing/dosage-for-adults]\n Pain (1)\n\nCold + Flu (16)\n\nHeadache + Muscle Ache (15)\n\nPain + Fever (1)\n\nSinus (9)\n\nSleep + Pain (9)\n\nClear filters36Items\n\n### ![TYLENOL® Extra Strength Liquid Gels](https://images.ctfassets.net/g574hlexgjps/7a79cL8aclAxxnogu5CeVV/6d78624f4d8fe676e2cb59cef098f7f2/Liquid_Gel.webp) TYLENOL® Extra Strength Liquid Gels\n\n### ![TYLENOL® PRECISE® Pain Relieving Patches](https://images.ctfassets.net/g574hlexgjps/5cyegF5Y488ZqnarZrd9M1/fec006913688bebcc358f76bdfc54771/TYL_NA_US_74300353357_51353350_348808_Precise_Pain_Relieving_Patch_LDC_4ct_00000.webp) TYLENOL® PRECISE® Pain Relieving Patches\n\n### ![TYLENOL® Extra Strength Cold + Flu Multi-Symptom Daytime Liquid](https://images.ctfassets.net/g574hlexgjps/7I5uFaZSVim5HAAdORO3aA/49bdb259c5cbaffd3dd56c9b1fd5e1b0/Cold___Flu_Multi-Symptom.webp) TYLENOL® Extra Strength Cold + Flu Multi-Symptom Daytime Liquid\n\n### ![Proactive Support* Muscle & Joint Supplements](https://images.ctfassets.net/g574hlexgjps/Rmqv25bnkZVTQlWdCjxyy/76ac3577fb67b93f1a8b64b4ad4d4d79/TYL_300450119063_NA_US_300450119_304904_Pro_Support_Muscle_Joint_Supplement_30ct_00000_TYL_300450119063_NA_US_300450119_304.webp) Proactive Support\\* Muscle & Joint Supplements\n\n### ![Proac\n\n[source: https://www.goodrx.com/tylenol/dosage]\n[Skip to main content](https://www.goodrx.com/tylenol/dosage#skip-to-content)\n\nAre you a healthcare professional? [Join GoodRx for HCPs](https://www.goodrx.com/hcp/join?redirectTo=%2Ftylenol%2Fdosage%3Fsrsltid%3DAfmBOoquFuYLBapFobgxPrDB18lFrNdz60OFBbJ2TB7T7s2X6f_Y_prO)\n\n## Key takeaways:\n\n- Tylenol (acetaminophen) is available in multiple forms. A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n\n- The maximum daily adult Tylenol dosage is 4,000 mg in 24 hours. But people with some health conditions, such as liver problems, may need to take a lower dose.\n\n- Taking too much Tylenol can damage your liver. Don’t take more than directed, or take it for longer than directed. Don’t take Tylenol with other medications that contain acetaminophen.\n\n- Tylenol is available over the counter (OTC) as a brand-name medication. But you can also find it as a lower-cost generic. If a healthcare professional writes you a prescription for OTC Tylenol, GoodRx can help [save you money](https://www.goodrx.com/tylenol/dosage#how-to-save \"\").\n\n\n#### Save on related medications\n\nPromotional Disclosure\n\n[tylenol](https://www.goodrx.com/tylenol \"tylenol cost and coupons\") [mapap](https://www.good\n\n[source: https://www.goodrx.com/tylenol/dosage]\nrx.com/mapap \"mapap cost and coupons\") [q-pap](https://www.goodrx.com/q-pap \"q-pap cost and coupons\") [acetaminophen](https://www.goodrx.com/acetaminophen \"acetaminophen cost and coupons\")\n\nTylenol ( [acetaminophen](https://www.goodrx.com/acetaminophen/what-is \"\")) is one of the most [popular pain relievers](https://www.goodrx.com/conditions/pain/popular-over-the-counter-pain-relievers \"\") in the U.S. It treats mild to moderate aches and pains, and it can also be used to lower fever. But with multiple Tylenol products available, it can be hard to know how much to take. To help make it easier, below a guide reviewing adult Tylenol dosages.\n\n> **Good to know:** The manufacturers of Tylenol make several combination medications for sleep, cough, cold symptoms, and more. And there are other products besides brand-name Tylenol that contain acetaminophen. This guide will cover dosages for Tylenol and other products that only contain acetaminophen. If you’re unsure how to take the medication you have, ask a healthcare professional.\n\n## What’s the typical Tylenol dosage for adults?\n\nTylenol comes in a few different doses, ranging from 325 mg to 650 mg. Below, you’ll find the standard adult \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK482369/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nStatPearls \\[Internet\\]. Treasure Island (FL): StatPearls Publishing; 2026 Jan-.\n\n[![Cover of StatPearls](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-statpearls-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/statpearls/ \"Table of Contents Page\")\n\n## StatPearls \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK482369/#__NBK482369_dtls__)\n\nTreasure Island (FL): [StatPearls Publishing](https://www.statpearls.com/); 2026 Jan-.\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK482369/#)\n\n# Acetaminophen\n\nValerie Gerriets; Preeti Patel; Thomas M. Nappe.\n\n[Author Information and Affiliations](https://www.ncbi.nlm.nih.gov/books/NBK482369/#__NBK482369_ai__)\n\n#### Authors\n\nValerie Gerriets1; Preeti Patel; Thomas M. Nappe2.\n\n#### Affiliations\n\n1 California Northstate University College of Medicine\n\n2 University of South Florida/Tampa General Hospital\n\nLast Update: January 11, 2024.\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK482369/# \"Go to other sections in this page\")\n\n## \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK482369/]\nContinuing Education Activity\n\nAcetaminophen, also known as _N_-acetyl-para-aminophenol (APAP) or paracetamol in many countries, is a non-opioid analgesic and antipyretic agent utilized for treating pain and fever. Numerous diseases and conditions include pain as a significant component of their presentation. Consequently, effective pain management holds great importance for both clinicians and patients. Clinicians can use acetaminophen for their patients as a single agent for mild-to-moderate pain or in conjunction with an opioid analgesic for severe pain. This activity outlines the utilization, indications, administration, contraindications, and toxicity of acetaminophen, emphasizing the integral role of the interprofessional healthcare team in the care of patients using acetaminophen.\n\n**Objectives:**\n\n- Identify appropriate scenarios for acetaminophen use by distinguishing between mild-to-moderate and severe pain and assessing the patient's overall health status.\n\n- Assess patients for pain relief effectiveness by monitoring for any signs of adverse effects or toxicity related to acetaminophen.\n\n- Select appropriate acetaminophen formulations and routes of administration based \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"PARTIAL\",\n  \"answer\": \"A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\",\n  \"evidence_span\": \"A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\",\n  \"source_url\": \"https://www.goodrx.com/tylenol/dosage\",\n  \"caveats\": [\n    \"The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "PARTIAL",
+        "answer": "A typical adult dosage ranges from 650 mg to 1,300 mg per dose.",
+        "evidence_span": "A typical adult dosage ranges from 650 mg to 1,300 mg per dose.",
+        "source_url": "https://www.goodrx.com/tylenol/dosage",
+        "caveats": [
+          "The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain."
+        ]
+      },
+      "latency_ms": 2680.3529000026174,
+      "prompt_tokens": 2719,
+      "completion_tokens": 157,
+      "cost_usd": 0.0003347,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: How much fluid should an adult consume per day while experiencing a fever?\nEVIDENCE:\n[source: https://www.mdanderson.org/cancerwise/how-much-water-should-you-drink-a-day.h00-159778812.html]\n[Top](https://www.mdanderson.org/cancerwise/how-much-water-should-you-drink-a-day.h00-159778812.html#)\n\n# How much water should you drink a day?\n\nBY\n[Gina Van Thomme](https://www.mdanderson.org/cancerwise.dir.html/author/Gina%20Van%20Thomme)\n\n\\|\n\n5 minute read \\| Published August 19, 2025\n\nMedically Reviewed \\|\n\nLast reviewed by\nLindsey Wohlfordon\nAugust 19, 2025\n\n### Key takeaways:\n\n- Water needs vary from person to person.\n- Water needs can change based on activity level, weather and other factors.\n- Your thirst, energy levels and bathroom use can help you tell if you are drinking enough water.\n- Choose water without added sugar or sweetener.\n\nMost of us have probably heard the advice “drink enough water” more times than we can count. But we promise there are good reasons for that.\n\nYour body is about 60% water, and you need a steady intake of water to survive and function. Water helps your body:\n\n- Keep its temperature normal\n- Maintain blood pressure\n- Digest food\n- Maintain electrolyte balance\n- Get rid of waste\n- Cushion joints and the spinal cord\n- Feel full\n- Keep muscles hydrated\n\nBut even though drinking enough water is important, that doesn’t mean it's easy. How much wat\n\n[source: https://www.mdanderson.org/cancerwise/how-much-water-should-you-drink-a-day.h00-159778812.html]\ner _is_ enough?  What factors impact how much water you need? And how can you tell if you’re hydrated? We spoke to wellness dietitian Lindsey Wohlford to learn more.\n\n## How much water should a person drink each day?\n\nThe [National Academies of Sciences, Engineering, and Medicine](https://www.nationalacademies.org/read/11537/chapter/15) note that women should consume about 2.7 liters of water per day, while men should consume about 3.7 liters per day. That’s about 11.5 cups a day for women and 15.5 cups a day for men. This includes water from both foods and drinks.\n\nHowever, fluid needs can vary by individual, Wohlford says.\n\nYour water needs depend on factors such as your:\n\n- Age\n- Health\n- Medications\n- Body size\n- Climate\n- [Physical activity](https://www.mdanderson.org/prevention-screening/manage-your-risk/physical-activity.html) level and intensity\n\nYou also need more water if you are pregnant or breastfeeding.\n\nRemember to increase the amount of water you drink according to the heat, humidity and amount of exercise you are getting.\n\n## Does cancer or cancer treatment change water intake recommendations?\n\nYes, cancer and cancer treatment can sometimes impact fluid recommendati\n\n[source: https://www.alexandriasinusandear.com/blog/when-you-are-sick-why-do-doctors-always-say-drink-plenty-of-liquids]\n# WHEN YOU ARE SICK, WHY DO DOCTORS ALWAYS SAY, “DRINK PLENTY OF LIQUIDS?”\n\n[Alexandria Sinus, Ear, and Allergy Center](http://www.alexandriasinusandear.com/) [Blog](https://www.alexandriasinusandear.com/blog) [WHEN YOU ARE SICK, WHY DO DOCTORS ALWAYS SAY, “DRINK PLENTY OF LIQUIDS?”](https://www.alexandriasinusandear.com/blog/when-you-are-sick-why-do-doctors-always-say-drink-plenty-of-liquids)\n\n- [Share](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.alexandriasinusandear.com%2Fblog%2Fwhen-you-are-sick-why-do-doctors-always-say-drink-plenty-of-liquids)\n- [![Pin to Pinterest board](https://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png)](https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.alexandriasinusandear.com%2Fblog%2Fwhen-you-are-sick-why-do-doctors-always-say-drink-plenty-of-liquids&description=Alexandria+Sinus%2C+Ear%2C+and+Allergy+Center+Blog%3A+WHEN+YOU+ARE+SICK%2C+WHY+DO+DOCTORS+ALWAYS+SAY%2C+%E2%80%9CDRINK+PLENTY+OF+LIQUIDS%3F%E2%80%9D)\n- Post Button\n\n\nIt’s really common sense because the human body is about 60% water and virtually\n\nall physiologic functions from circulation, breathing, digestion, elimination,\n\nmobility, e\n\n[source: https://www.alexandriasinusandear.com/blog/when-you-are-sick-why-do-doctors-always-say-drink-plenty-of-liquids]\nven thinking require water to function properly. (The brain and heart are\n\nabout 73% water and the lungs about 83%.) When we are sick with a cold,\n\ninfection, allergic response, etc. our immunologic(defense) system requires extra\n\nwater to fight off the problem.\n\nWhen we are attacked by a virus, bacteria or antigen we generally get a fever as part\n\nof the defensive response….. and because of elevated body temperature we lose\n\nwater more rapidly through the lungs and the skin. This in turn can easily lead to\n\ndehydration and all body functions become less effective. In states of dehydration\n\nfever is increased, symptoms such as headache, weakness, muscle and joint aching,\n\netc. are made worse.\n\nSick patients in the hospital are often monitored for “I &amp; O” which means Intake and\n\nOutput. Liquids taken in by mouth and by infusion are measured as is the urinary\n\noutput. Calculations as to how much liquid volume is lost by respirations, sweating,\n\netc. are estimated. The hydration of a sick patient is very important to recovery.\n\nSo how does one monitor I &amp; O at home? The easiest way is to keep an eye on\n\nurinary function. If you are getting dehydrated, your urine output will de\n\n[source: https://www.cdc.gov/healthy-weight-growth/water-healthy-drinks/index.html]\n[Skip directly to site content](https://www.cdc.gov/healthy-weight-growth/water-healthy-drinks/index.html#content) [Skip directly to search](https://www.cdc.gov/healthy-weight-growth/water-healthy-drinks/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/healthy-weight-growth/water-healthy-drinks/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/healthy-weight-growth/water-healthy-drinks/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n# About Water and Healthier Drinks\n\n[Mar. 5, 2026, visit link for details.](https://www.cdc.gov/healthy-weight-growth/water-healthy-drinks/index.html#content\n\n[source: https://www.cdc.gov/healthy-weight-growth/water-healthy-drinks/index.html]\n-sources)\n\nFor Everyone\n\n## Key points\n\n- Getting enough water every day is important for your health.\n- Drinking water can prevent dehydration and helps the body function normally.\n- See tips for drinking more water throughout the day.\n\n![A hand pouring water from a pitcher with fruit and mint into a cup.](https://www.cdc.gov/healthy-weight-growth/media/images/waterpitcher.jpg)\n\n## Benefits of drinking water\n\nGetting enough water every day is important for health. Drinking water can prevent dehydration, which may cause unclear thinking, mood change, overheating, constipation, and kidney stones. Water has no calories, so replacing sugary drinks with plain water can help reduce caloric intake.\n\n### Water helps your body:\n\n- Keep a normal temperature.\n- Lubricate and cushion joints.\n- Protect your spinal cord and other sensitive tissues.\n- Get rid of waste through urination, perspiration, and bowel movements.\n\n### Your body needs more water when you are:\n\n- In hot climates.\n- More physically active.\n- Running a fever.\n- Having diarrhea or vomiting.\n\n## Meeting your water intake every day\n\nDaily water intake recommendations vary by age, sex, pregnancy status, activity level, and breas\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1043.1001000106335,
+      "prompt_tokens": 2535,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002787,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What is the recommended adult dosage of acetaminophen for treating a fever?\nPROPOSED ANSWER: A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\nEVIDENCE SPAN: A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\nSOURCE: https://www.goodrx.com/tylenol/dosage\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The standard recommended adult dosage of acetaminophen for fever is 650 mg (or 500 mg) taken every 4–6 hours, with a maximum daily dose of 3,000 mg for OTC products (or 4,000 mg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300 mg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300 mg per dose is unsupported and incorrect.\",\n  \"flags\": [\"NUMBER_MISMATCH\", \"SPAN_DOES_NOT_ESTABLISH\", \"SOURCE_INAPPROPRIATE\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.92\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The standard recommended adult dosage of acetaminophen for fever is 650 mg (or 500 mg) taken every 4–6 hours, with a maximum daily dose of 3,000 mg for OTC products (or 4,000 mg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300 mg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300 mg per dose is unsupported and incorrect.",
+        "flags": [
+          "NUMBER_MISMATCH",
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.92
+      },
+      "latency_ms": 4614.55629998818,
+      "prompt_tokens": 444,
+      "completion_tokens": 714,
+      "cost_usd": 0.0004014,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is acetaminophen safe for treating fever in children under 12 years old?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3796971/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC3796971/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3796971/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3796971/pdf/0591065.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article permalink icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/share.svg)Permalink\n\n\n\n\n## PERMALINK\n\n\n\n![Copy icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1007/s00431-022-04407-w) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/pdf/431_2022_Article_4407.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- !\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C5",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1277.757500007283,
+      "prompt_tokens": 2300,
+      "completion_tokens": 61,
+      "cost_usd": 0.0002544,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne-Latn).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the recommended adult dosage of acetaminophen for treating a fever?\n  verdict=PARTIAL answer=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  evidence_span=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  source=https://www.goodrx.com/tylenol/dosage\n  caveats=['The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['NUMBER_MISMATCH', 'SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The standard recommended adult dosage of acetaminophen for fever is 650\\u202fmg (or 500\\u202fmg) taken every 4–6\\u202fhours, with a maximum daily dose of 3,000\\u202fmg for OTC products (or 4,000\\u202fmg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300\\u202fmg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300\\u202fmg per dose is unsupported and incorrect.', 'confidence': 0.92}\n[C2] (supporting) Q: Is ibuprofen considered safe for treating fever in adults?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What foods are recommended to eat when having a fever?\n  verdict=PARTIAL answer=To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.\n  evidence_span=A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.\n  source=https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu\n  caveats=['The evidence discusses these recommendations specifically in the context of being sick with the flu.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.93}\n[C4] (critical) Q: How much fluid should an adult consume per day while experiencing a fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C5] (critical) Q: Is acetaminophen safe for treating fever in children under 12 years old?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"औषधिको मात्रा र सुरक्षा सम्बन्धी जानकारीहरू स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "औषधिको मात्रा र सुरक्षा सम्बन्धी जानकारीहरू स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1006.4555000280961,
+      "prompt_tokens": 1169,
+      "completion_tokens": 61,
+      "cost_usd": 0.0001413,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: औषधिको मात्रा र सुरक्षा सम्बन्धी जानकारीहरू स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the recommended adult dosage of acetaminophen for treating a fever?\n  verdict=PARTIAL answer=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  evidence_span=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  source=https://www.goodrx.com/tylenol/dosage\n  caveats=['The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['NUMBER_MISMATCH', 'SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The standard recommended adult dosage of acetaminophen for fever is 650\\u202fmg (or 500\\u202fmg) taken every 4–6\\u202fhours, with a maximum daily dose of 3,000\\u202fmg for OTC products (or 4,000\\u202fmg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300\\u202fmg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300\\u202fmg per dose is unsupported and incorrect.', 'confidence': 0.92}\n[C2] (supporting) Q: Is ibuprofen considered safe for treating fever in adults?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What foods are recommended to eat when having a fever?\n  verdict=PARTIAL answer=To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.\n  evidence_span=A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.\n  source=https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu\n  caveats=['The evidence discusses these recommendations specifically in the context of being sick with the flu.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.93}\n[C4] (critical) Q: How much fluid should an adult consume per day while experiencing a fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C5] (critical) Q: Is acetaminophen safe for treating fever in children under 12 years old?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Information regarding medication dosage and safety could not be established. Please consult a qualified health worker or doctor for this.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response completely omitted the verified information regarding recommended foods and hydration (C3).\",\n      \"severity\": \"high\"\n    },\n    {\n      \"type\": \"ALTERED\",\n      \"detail\": \"The response converted a partial answer about acetaminophen dosage (C1) into a refusal/disclaimer.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Information regarding medication dosage and safety could not be established. Please consult a qualified health worker or doctor for this.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response completely omitted the verified information regarding recommended foods and hydration (C3).",
+            "severity": "high"
+          },
+          {
+            "type": "ALTERED",
+            "detail": "The response converted a partial answer about acetaminophen dosage (C1) into a refusal/disclaimer.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 1393.1619000504725,
+      "prompt_tokens": 1062,
+      "completion_tokens": 152,
+      "cost_usd": 0.00016700000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne-Latn).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the recommended adult dosage of acetaminophen for treating a fever?\n  verdict=PARTIAL answer=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  evidence_span=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  source=https://www.goodrx.com/tylenol/dosage\n  caveats=['The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['NUMBER_MISMATCH', 'SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The standard recommended adult dosage of acetaminophen for fever is 650\\u202fmg (or 500\\u202fmg) taken every 4–6\\u202fhours, with a maximum daily dose of 3,000\\u202fmg for OTC products (or 4,000\\u202fmg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300\\u202fmg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300\\u202fmg per dose is unsupported and incorrect.', 'confidence': 0.92}\n[C2] (supporting) Q: Is ibuprofen considered safe for treating fever in adults?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What foods are recommended to eat when having a fever?\n  verdict=PARTIAL answer=To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.\n  evidence_span=A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.\n  source=https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu\n  caveats=['The evidence discusses these recommendations specifically in the context of being sick with the flu.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.93}\n[C4] (critical) Q: How much fluid should an adult consume per day while experiencing a fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C5] (critical) Q: Is acetaminophen safe for treating fever in children under 12 years old?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n[{\"type\": \"DROPPED\", \"detail\": \"The response completely omitted the verified information regarding recommended foods and hydration (C3).\", \"severity\": \"high\"}, {\"type\": \"ALTERED\", \"detail\": \"The response converted a partial answer about acetaminophen dosage (C1) into a refusal/disclaimer.\", \"severity\": \"high\"}]\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"औषधिको मात्रा र सुरक्षा सम्बन्धी जानकारीहरू स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "औषधिको मात्रा र सुरक्षा सम्बन्धी जानकारीहरू स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 926.6658999840729,
+      "prompt_tokens": 1260,
+      "completion_tokens": 61,
+      "cost_usd": 0.0001504,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: औषधिको मात्रा र सुरक्षा सम्बन्धी जानकारीहरू स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the recommended adult dosage of acetaminophen for treating a fever?\n  verdict=PARTIAL answer=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  evidence_span=A typical adult dosage ranges from 650 mg to 1,300 mg per dose.\n  source=https://www.goodrx.com/tylenol/dosage\n  caveats=['The evidence provides a typical adult dosage for Tylenol (acetaminophen) generally, but does not specify if this dosage differs specifically for treating a fever versus pain.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['NUMBER_MISMATCH', 'SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The standard recommended adult dosage of acetaminophen for fever is 650\\u202fmg (or 500\\u202fmg) taken every 4–6\\u202fhours, with a maximum daily dose of 3,000\\u202fmg for OTC products (or 4,000\\u202fmg for prescription). Reputable sources such as the FDA label and the American Academy of Pediatrics do not endorse a per‑dose range up to 1,300\\u202fmg; that figure is not part of the official dosing guidelines. Therefore the answer’s upper limit of 1,300\\u202fmg per dose is unsupported and incorrect.', 'confidence': 0.92}\n[C2] (supporting) Q: Is ibuprofen considered safe for treating fever in adults?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What foods are recommended to eat when having a fever?\n  verdict=PARTIAL answer=To avoid dehydration caused by fever-induced sweating, it is recommended to replace lost water and electrolytes using beverages like Gatorade and Pedialyte. Additionally, broths (which can be turned into protein-rich chicken noodle soup by adding cooked chicken, noodles, and vegetables) and hot tea are recommended for hydration.\n  evidence_span=A common symptom of the flu is fever, and your body responds to fever by trying to lower your body temperature through sweating. To avoid dehydration, and to keep your cells functioning properly, you need to replace the water you lose due to sweating. You also lose electrolytes like sodium, calcium and potassium when you sweat. Beverages that have electrolytes – Gatorade and Pedialyte, for example – can help you hydrate more quickly than water. Broths can also help you hydrate, while providing important nutrients and being easy on the stomach. Add some cooked chicken, noodles and vegetables to that broth and you’ve got a protein-rich chicken noodle soup to help you keep up your strength. Hot tea can help you hydrate.\n  source=https://www.osfhealthcare.org/blog/foods-to-eat-when-sick-with-flu\n  caveats=['The evidence discusses these recommendations specifically in the context of being sick with the flu.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.93}\n[C4] (critical) Q: How much fluid should an adult consume per day while experiencing a fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C5] (critical) Q: Is acetaminophen safe for treating fever in children under 12 years old?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Information regarding medication dosage and safety could not be established. Please consult a qualified health worker or doctor for this.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response completely omitted the verified information regarding recommended foods and hydration (C3).\",\n      \"severity\": \"high\"\n    },\n    {\n      \"type\": \"ALTERED\",\n      \"detail\": \"The response converted a partial answer about acetaminophen dosage (C1) into a refusal/disclaimer.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Information regarding medication dosage and safety could not be established. Please consult a qualified health worker or doctor for this.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response completely omitted the verified information regarding recommended foods and hydration (C3).",
+            "severity": "high"
+          },
+          {
+            "type": "ALTERED",
+            "detail": "The response converted a partial answer about acetaminophen dosage (C1) into a refusal/disclaimer.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 1393.1619000504725,
+      "prompt_tokens": 1062,
+      "completion_tokens": 152,
+      "cost_usd": 0.00016700000000000002,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0034330000000000003,
+  "total_latency_ms": 36771.21569996234,
+  "degraded_nodes": [
+    "N9"
+  ],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

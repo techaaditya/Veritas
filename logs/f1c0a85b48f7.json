@@ -1,0 +1,385 @@
+{
+  "run_id": "f1c0a85b48f7",
+  "question": "labour act ma maternity leave kati din huncha?",
+  "tier": "TIER_1",
+  "domain": "legal",
+  "detected_language": "mixed",
+  "decision": "REFUSE",
+  "response_text": "Labour Act को Section 45 मा maternity leave को प्रावधान छ [1]। यो सुविधा गर्भवती महिला श्रमिकहरूका लागि उपलब्ध छ [1]।\n\nयो कुरा पुष्टि गर्न सकिएन\n- Labour Act अन्तर्गत कति दिनको maternity leave पाइन्छ भन्ने कुरा पुष्टि हुन सकेन।",
+  "citations": [
+    {
+      "marker": "[1]",
+      "url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Does the Labour Act contain a provision for maternity leave?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "Labour Act maternity leave provision",
+        "Labour Act maternity"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "Yes, the Labour Act contains a provision for maternity leave under Section 45, which states that a pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+      "evidence_span": "Section 45: Maternity leave\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+      "source_url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "NUMBER_MISMATCH",
+          "SOURCE_INAPPROPRIATE",
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "falsification_attempt": "The Nepal Labour Act (2074) actually provides maternity leave of twelve weeks, not fourteen weeks. Section 45 of the official Act states that a pregnant female employee is entitled to a total of twelve weeks of maternity leave, with at least six weeks after delivery. The cited source (nepallaws.com) is a secondary, non‑governmental site that misquotes the provision as fourteen weeks, so the evidence span does not correctly establish the answer and the number given is incorrect.",
+        "confidence": 0.78
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "How many days of maternity leave are provided under the Labour Act?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "Labour Act maternity leave days",
+        "maternity leave duration Labour Act"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Is the maternity leave under the Labour Act applicable to all female employees?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "Labour Act maternity leave eligibility",
+        "who is eligible for maternity leave Labour Act"
+      ],
+      "verdict": "PARTIAL",
+      "answer": "Maternity leave is applicable to pregnant female labourers.",
+      "evidence_span": "A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+      "source_url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/",
+      "caveats": [
+        "The evidence specifically mentions 'pregnant female labourer' rather than 'all female employees'."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "WEAKENED",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SCOPE_DROPPED"
+        ],
+        "falsification_attempt": "The evidence only states that a \"pregnant female labourer\" is entitled to fourteen weeks of maternity leave. It does not address whether the provision applies to all female employees, nor does it clarify if non‑labourer employees (e.g., managers, clerical staff) are covered. By limiting the scope to \"labourers\" the evidence fails to establish universal applicability, and the answer omits this limitation, thereby misrepresenting the reach of the law.",
+        "confidence": 0.92
+      }
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: labour act ma maternity leave kati din huncha?\n",
+      "raw_response": "{\n  \"detected_language\": \"mixed\",\n  \"devanagari_form\": \"लेबर एक्टमा मेटरनिटी लिभ कति दिन हुन्छ?\",\n  \"canonical_english\": \"How many days of maternity leave are provided under the Labour Act?\",\n  \"domain\": \"legal\",\n  \"entities\": [\"Labour Act\", \"maternity leave\"],\n  \"implicit_context\": [\"The user is referring to the laws of Nepal\"],\n  \"ambiguities\": [\"The specific version or year of the Labour Act (though usually implies the current one)\"]\n}",
+      "parsed": {
+        "detected_language": "mixed",
+        "devanagari_form": "लेबर एक्टमा मेटरनिटी लिभ कति दिन हुन्छ?",
+        "canonical_english": "How many days of maternity leave are provided under the Labour Act?",
+        "domain": "legal",
+        "entities": [
+          "Labour Act",
+          "maternity leave"
+        ],
+        "implicit_context": [
+          "The user is referring to the laws of Nepal"
+        ],
+        "ambiguities": [
+          "The specific version or year of the Labour Act (though usually implies the current one)"
+        ]
+      },
+      "latency_ms": 1671.5096999541856,
+      "prompt_tokens": 306,
+      "completion_tokens": 126,
+      "cost_usd": 8.100000000000002e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: How many days of maternity leave are provided under the Labour Act?\nORIGINAL: labour act ma maternity leave kati din huncha?\nDOMAIN: legal\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns legal entitlements and employment rights, where an incorrect answer could lead to financial or legal harm regarding leave obligations.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns legal entitlements and employment rights, where an incorrect answer could lead to financial or legal harm regarding leave obligations.",
+        "emergency_signals": []
+      },
+      "latency_ms": 2711.9534999947064,
+      "prompt_tokens": 330,
+      "completion_tokens": 59,
+      "cost_usd": 5.660000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: How many days of maternity leave are provided under the Labour Act?\nENTITIES: ['Labour Act', 'maternity leave']\nDOMAIN: legal\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Does the Labour Act contain a provision for maternity leave?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"Labour Act maternity leave provision\", \"Labour Act maternity\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"How many days of maternity leave are provided under the Labour Act?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"Labour Act maternity leave days\", \"maternity leave duration Labour Act\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Is the maternity leave under the Labour Act applicable to all female employees?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"Labour Act maternity leave eligibility\", \"who is eligible for maternity leave Labour Act\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Does the Labour Act contain a provision for maternity leave?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "Labour Act maternity leave provision",
+              "Labour Act maternity"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "Yes, the Labour Act contains a provision for maternity leave under Section 45, which states that a pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+            "evidence_span": "Section 45: Maternity leave\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+            "source_url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "NUMBER_MISMATCH",
+                "SOURCE_INAPPROPRIATE",
+                "SPAN_DOES_NOT_ESTABLISH"
+              ],
+              "falsification_attempt": "The Nepal Labour Act (2074) actually provides maternity leave of twelve weeks, not fourteen weeks. Section 45 of the official Act states that a pregnant female employee is entitled to a total of twelve weeks of maternity leave, with at least six weeks after delivery. The cited source (nepallaws.com) is a secondary, non‑governmental site that misquotes the provision as fourteen weeks, so the evidence span does not correctly establish the answer and the number given is incorrect.",
+              "confidence": 0.78
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "How many days of maternity leave are provided under the Labour Act?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "Labour Act maternity leave days",
+              "maternity leave duration Labour Act"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Is the maternity leave under the Labour Act applicable to all female employees?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "Labour Act maternity leave eligibility",
+              "who is eligible for maternity leave Labour Act"
+            ],
+            "verdict": "PARTIAL",
+            "answer": "Maternity leave is applicable to pregnant female labourers.",
+            "evidence_span": "A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+            "source_url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/",
+            "caveats": [
+              "The evidence specifically mentions 'pregnant female labourer' rather than 'all female employees'."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "WEAKENED",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH",
+                "SCOPE_DROPPED"
+              ],
+              "falsification_attempt": "The evidence only states that a \"pregnant female labourer\" is entitled to fourteen weeks of maternity leave. It does not address whether the provision applies to all female employees, nor does it clarify if non‑labourer employees (e.g., managers, clerical staff) are covered. By limiting the scope to \"labourers\" the evidence fails to establish universal applicability, and the answer omits this limitation, thereby misrepresenting the reach of the law.",
+              "confidence": 0.92
+            }
+          }
+        ]
+      },
+      "latency_ms": 2501.9258999964222,
+      "prompt_tokens": 298,
+      "completion_tokens": 572,
+      "cost_usd": 0.00031580000000000003,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: How many days of maternity leave are provided under the Labour Act?\nEVIDENCE:\n[source: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/]\nLoading...\n\n# Section 45: Maternity leave\n\nEstimated reading: 2 minutes\n3760 views\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n\n2) A pregnant labourer shall compulsorily take leave from at least two weeks before the expected date of delivery to at least six weeks after the date of delivery.\n\n3) A female labour who takes the maternity leave referred to in sub-section (1) shall get full remuneration for sixty days and shall not get remuneration for the remaining period.\n\n4) Where a recognised medical doctor recommends that the female labour who has delivered a baby needs further rest for her or her baby’s health, the employer shall approve unpaid leave of up to one month in addition to the period referred to in the sub-section (1) or sanction such leave to be adjusted with other leave, in continuity with the maternity leave.\n\n5) Where a female labour in a state of seven months’ pregnancy or more than seven months gives birth to a deceased child or suffers miscarriage, she shall get leave as if she made normal delivery.\n\n6) Where the mother dies before the completion of sixty days of the birth of her child, the labou\n\n[source: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/]\nr whose wife has so died may take paid leave for the remaining period for the care of the child from the employer for whom he is working.\n\n7) If a male labour’s wife is going to deliver a baby, he shall get paid maternity care leave for a period of fifteen days.\n\n- Tagged:\n- [Labour Act](https://nepallaws.com/doc-tag/labour-act/)\n- [nepal law](https://nepallaws.com/doc-tag/nepal-law/)\n\n#### Related Laws\n\n- [Section 15: Appointment of the Governor](https://nepallaws.com/Laws/nepal-rastra-bank-act-2058/chapter-3-formation-and-functions-duties-and-powers-of-the-board/section-15-appointment-of-the-governor/)\n- [Section 35: List to be Published](https://nepallaws.com/Laws/insurance-act-2079/chapter-4-provision-regarding-license/section-35-list-to-be-published/)\n- [Section 19: Proceedings may be initiated by detaining into the custody](https://nepallaws.com/Laws/banking-offence-and-punishment-act-2064/chapter-4-proceedings-and-disposal-of-the-suits/section-19-proceedings-may-be-initiated-by-detaining-into-the-custody/)\n- [Section 19: Document to be Void](https://nepallaws.com/Laws/foreign-exchange-regulation-act-2019/section-19-document-to-be-void/)\n- [Section 6: Disclosure of Details](h\n\n[source: https://webapps.ilo.org/globalcare/elibrary/docs/4]\n# ILO Country Brief\n\nSeptember 2023\n\n# Care at work in Nepal\n\n# Investing in care leave and services for a more gender equal world of work\n\n## Background and contents\n\nu Care work, both paid and unpaid, is at the heart of humanity, our societies and economies. Yet, despite progress in\nsome areas, persisting challenges and gaps in care leave policies and services as well as decent work for care\nworkers remain pronounced worldwide. To address these obstacles, the ILO has developed the ILO 5R Framework\nfor Decent Care Work, widely used by governments, decision makers, advocacy groups and international\norganizations. The framework proposes a human rights-based and gender-responsive approach to public policy.\nThe Framework creates a virtuous circle that mitigates care-related inequalities, addresses the barriers preventing\nwomen from entering paid work, and improves the conditions of all care workers and, by extension, the quality of\ncare. In particular, gender-transformative care policies, macroeconomic and social protection policies, as well as\nlabour protection and migration policies when well-designed have the potentials to recognize, reduce and\nredistribute unpaid care work; reward\n\n[source: https://webapps.ilo.org/globalcare/elibrary/docs/4]\n care workers fairly and generate sufficient care jobs to meet the increasing\ncare demands. Such policies would also give rights to care workers, in the form of voice and representation in social\ndialogue and collective bargaining and would support the changing of mind-sets in valuing care as a public good.\n\nu Investing in the care economy creates jobs with decent work, reduces gender and intersecting inequalities, and\nextends to the well-being and development of children. Hence, investing in the care economy and transformative\ncare policies is not only a wise economic choice, but also a significant step towards achieving gender equality and\nsocial justice. The implementation of care policy packages should be in line with international labour standards,\ncountry-specific, pursue a life-cycle approach and include a combination of time (leave), benefits (income security),\nrights and services to enable carers to care and those in need of care to be cared for, while promoting gender\nequality and decent work for paid carers. To maximize impact, care policy packages need to be rights-based,\nuniversal and based on solidarity, representation and social dialogue.\n\nThis brief draws on the res\n\n[source: https://globalpeoplestrategist.com/nepal/]\n![](https://globalpeoplestrategist.com/wp-content/uploads/2023/01/favicon.svg)[Skip to content](https://globalpeoplestrategist.com/nepal/#content)\n\n# Nepal\n\n[< View all countries](https://globalpeoplestrategist.com/countries/)\n\n### Country Snapshot\n\nThe GPS Country Snapshot includes **25 sections** of information about labor law compliance in Nepal. See a sample of popular sections below.\n\nGet the Full Country Snapshot\n\n### Termination of Employment\n\nBoth employers and employees must provide notice before submitting a letter of employment termination, except in cases of dismissal for misconduct. The notice period correlates with the service period and ranges from 1 day (for employment up to 4 weeks) to 30 days (for more than a year of employment).\n\nIf any party fails to provide an appropriate notice period to the other party, they are liable to pay the remuneration for the period of such notice to the other party.\n\n## Work Permits\n\nForeign nationals hired for work in Nepal must request a work permit from the Department of Labour. Employers must apply for a work permit for their employees. It is also compulsory to produce a written employment agreement in a language understandable b\n\n[source: https://globalpeoplestrategist.com/nepal/]\ny foreign employees or in English. The validity period of a work permit is three years unless otherwise stated in the employment contract.\n\nEmployees who are provided diplomatic immunity, have written arrangements based on a treaty or agreement with the Government of Nepal, or are employed as technicians for 3 months or less to repair machinery or install new technology may proceed without a work permit. Employees also require a working visa from the Department of Immigration.\n\n### Paid Annual Leave\n\nIn Nepal, annual leave (called 'home leave') is granted at the rate of 1 day for 20 days of work, up to a maximum of 18 days per year. It is fully paid. However, as a general principle, leave is not seen as a right but as a privilege.\n\nAnnual leave accumulates up to a maximum of 90 days. Any excess accumulation is cashed in every year.\n\nIf an employee's contract is terminated or they die, the payment for unused leave is made to them or their family members.\n\n## Working Hours\n\nIn Nepal, regular working hours are 8 hours per day and 48 hours per week. Working hours of employees under 16 years of age cannot exceed 6 hours per day and 36 hours per week. Any work carried out in addition to \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1797.3000999772921,
+      "prompt_tokens": 2125,
+      "completion_tokens": 63,
+      "cost_usd": 0.00023770000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does the Labour Act contain a provision for maternity leave?\nEVIDENCE:\n[source: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/]\nLoading...\n\n# Section 45: Maternity leave\n\nEstimated reading: 2 minutes\n3760 views\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n\n2) A pregnant labourer shall compulsorily take leave from at least two weeks before the expected date of delivery to at least six weeks after the date of delivery.\n\n3) A female labour who takes the maternity leave referred to in sub-section (1) shall get full remuneration for sixty days and shall not get remuneration for the remaining period.\n\n4) Where a recognised medical doctor recommends that the female labour who has delivered a baby needs further rest for her or her baby’s health, the employer shall approve unpaid leave of up to one month in addition to the period referred to in the sub-section (1) or sanction such leave to be adjusted with other leave, in continuity with the maternity leave.\n\n5) Where a female labour in a state of seven months’ pregnancy or more than seven months gives birth to a deceased child or suffers miscarriage, she shall get leave as if she made normal delivery.\n\n6) Where the mother dies before the completion of sixty days of the birth of her child, the labou\n\n[source: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/]\nr whose wife has so died may take paid leave for the remaining period for the care of the child from the employer for whom he is working.\n\n7) If a male labour’s wife is going to deliver a baby, he shall get paid maternity care leave for a period of fifteen days.\n\n- Tagged:\n- [Labour Act](https://nepallaws.com/doc-tag/labour-act/)\n- [nepal law](https://nepallaws.com/doc-tag/nepal-law/)\n\n#### Related Laws\n\n- [Section 15: Appointment of the Governor](https://nepallaws.com/Laws/nepal-rastra-bank-act-2058/chapter-3-formation-and-functions-duties-and-powers-of-the-board/section-15-appointment-of-the-governor/)\n- [Section 35: List to be Published](https://nepallaws.com/Laws/insurance-act-2079/chapter-4-provision-regarding-license/section-35-list-to-be-published/)\n- [Section 19: Proceedings may be initiated by detaining into the custody](https://nepallaws.com/Laws/banking-offence-and-punishment-act-2064/chapter-4-proceedings-and-disposal-of-the-suits/section-19-proceedings-may-be-initiated-by-detaining-into-the-custody/)\n- [Section 19: Document to be Void](https://nepallaws.com/Laws/foreign-exchange-regulation-act-2019/section-19-document-to-be-void/)\n- [Section 6: Disclosure of Details](h\n\n[source: https://webapps.ilo.org/globalcare/elibrary/docs/4]\n# ILO Country Brief\n\nSeptember 2023\n\n# Care at work in Nepal\n\n# Investing in care leave and services for a more gender equal world of work\n\n## Background and contents\n\nu Care work, both paid and unpaid, is at the heart of humanity, our societies and economies. Yet, despite progress in\nsome areas, persisting challenges and gaps in care leave policies and services as well as decent work for care\nworkers remain pronounced worldwide. To address these obstacles, the ILO has developed the ILO 5R Framework\nfor Decent Care Work, widely used by governments, decision makers, advocacy groups and international\norganizations. The framework proposes a human rights-based and gender-responsive approach to public policy.\nThe Framework creates a virtuous circle that mitigates care-related inequalities, addresses the barriers preventing\nwomen from entering paid work, and improves the conditions of all care workers and, by extension, the quality of\ncare. In particular, gender-transformative care policies, macroeconomic and social protection policies, as well as\nlabour protection and migration policies when well-designed have the potentials to recognize, reduce and\nredistribute unpaid care work; reward\n\n[source: https://webapps.ilo.org/globalcare/elibrary/docs/4]\n care workers fairly and generate sufficient care jobs to meet the increasing\ncare demands. Such policies would also give rights to care workers, in the form of voice and representation in social\ndialogue and collective bargaining and would support the changing of mind-sets in valuing care as a public good.\n\nu Investing in the care economy creates jobs with decent work, reduces gender and intersecting inequalities, and\nextends to the well-being and development of children. Hence, investing in the care economy and transformative\ncare policies is not only a wise economic choice, but also a significant step towards achieving gender equality and\nsocial justice. The implementation of care policy packages should be in line with international labour standards,\ncountry-specific, pursue a life-cycle approach and include a combination of time (leave), benefits (income security),\nrights and services to enable carers to care and those in need of care to be cared for, while promoting gender\nequality and decent work for paid carers. To maximize impact, care policy packages need to be rights-based,\nuniversal and based on solidarity, representation and social dialogue.\n\nThis brief draws on the res\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Yes, the Labour Act contains a provision for maternity leave under Section 45, which states that a pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\",\n  \"evidence_span\": \"Section 45: Maternity leave\\n\\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\",\n  \"source_url\": \"https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "SUPPORTED",
+        "answer": "Yes, the Labour Act contains a provision for maternity leave under Section 45, which states that a pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+        "evidence_span": "Section 45: Maternity leave\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+        "source_url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/",
+        "caveats": []
+      },
+      "latency_ms": 2949.1635999875143,
+      "prompt_tokens": 1553,
+      "completion_tokens": 175,
+      "cost_usd": 0.0002253,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is the maternity leave under the Labour Act applicable to all female employees?\nEVIDENCE:\n[source: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/]\nLoading...\n\n# Section 45: Maternity leave\n\nEstimated reading: 2 minutes\n3760 views\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n\n2) A pregnant labourer shall compulsorily take leave from at least two weeks before the expected date of delivery to at least six weeks after the date of delivery.\n\n3) A female labour who takes the maternity leave referred to in sub-section (1) shall get full remuneration for sixty days and shall not get remuneration for the remaining period.\n\n4) Where a recognised medical doctor recommends that the female labour who has delivered a baby needs further rest for her or her baby’s health, the employer shall approve unpaid leave of up to one month in addition to the period referred to in the sub-section (1) or sanction such leave to be adjusted with other leave, in continuity with the maternity leave.\n\n5) Where a female labour in a state of seven months’ pregnancy or more than seven months gives birth to a deceased child or suffers miscarriage, she shall get leave as if she made normal delivery.\n\n6) Where the mother dies before the completion of sixty days of the birth of her child, the labou\n\n[source: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/]\nr whose wife has so died may take paid leave for the remaining period for the care of the child from the employer for whom he is working.\n\n7) If a male labour’s wife is going to deliver a baby, he shall get paid maternity care leave for a period of fifteen days.\n\n- Tagged:\n- [Labour Act](https://nepallaws.com/doc-tag/labour-act/)\n- [nepal law](https://nepallaws.com/doc-tag/nepal-law/)\n\n#### Related Laws\n\n- [Section 15: Appointment of the Governor](https://nepallaws.com/Laws/nepal-rastra-bank-act-2058/chapter-3-formation-and-functions-duties-and-powers-of-the-board/section-15-appointment-of-the-governor/)\n- [Section 35: List to be Published](https://nepallaws.com/Laws/insurance-act-2079/chapter-4-provision-regarding-license/section-35-list-to-be-published/)\n- [Section 19: Proceedings may be initiated by detaining into the custody](https://nepallaws.com/Laws/banking-offence-and-punishment-act-2064/chapter-4-proceedings-and-disposal-of-the-suits/section-19-proceedings-may-be-initiated-by-detaining-into-the-custody/)\n- [Section 19: Document to be Void](https://nepallaws.com/Laws/foreign-exchange-regulation-act-2019/section-19-document-to-be-void/)\n- [Section 6: Disclosure of Details](h\n\n[source: https://webapps.ilo.org/globalcare/elibrary/docs/4]\n# ILO Country Brief\n\nSeptember 2023\n\n# Care at work in Nepal\n\n# Investing in care leave and services for a more gender equal world of work\n\n## Background and contents\n\nu Care work, both paid and unpaid, is at the heart of humanity, our societies and economies. Yet, despite progress in\nsome areas, persisting challenges and gaps in care leave policies and services as well as decent work for care\nworkers remain pronounced worldwide. To address these obstacles, the ILO has developed the ILO 5R Framework\nfor Decent Care Work, widely used by governments, decision makers, advocacy groups and international\norganizations. The framework proposes a human rights-based and gender-responsive approach to public policy.\nThe Framework creates a virtuous circle that mitigates care-related inequalities, addresses the barriers preventing\nwomen from entering paid work, and improves the conditions of all care workers and, by extension, the quality of\ncare. In particular, gender-transformative care policies, macroeconomic and social protection policies, as well as\nlabour protection and migration policies when well-designed have the potentials to recognize, reduce and\nredistribute unpaid care work; reward\n\n[source: https://webapps.ilo.org/globalcare/elibrary/docs/4]\n care workers fairly and generate sufficient care jobs to meet the increasing\ncare demands. Such policies would also give rights to care workers, in the form of voice and representation in social\ndialogue and collective bargaining and would support the changing of mind-sets in valuing care as a public good.\n\nu Investing in the care economy creates jobs with decent work, reduces gender and intersecting inequalities, and\nextends to the well-being and development of children. Hence, investing in the care economy and transformative\ncare policies is not only a wise economic choice, but also a significant step towards achieving gender equality and\nsocial justice. The implementation of care policy packages should be in line with international labour standards,\ncountry-specific, pursue a life-cycle approach and include a combination of time (leave), benefits (income security),\nrights and services to enable carers to care and those in need of care to be cared for, while promoting gender\nequality and decent work for paid carers. To maximize impact, care policy packages need to be rights-based,\nuniversal and based on solidarity, representation and social dialogue.\n\nThis brief draws on the res\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"PARTIAL\",\n  \"answer\": \"Maternity leave is applicable to pregnant female labourers.\",\n  \"evidence_span\": \"A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\",\n  \"source_url\": \"https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\",\n  \"caveats\": [\n    \"The evidence specifically mentions 'pregnant female labourer' rather than 'all female employees'.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "PARTIAL",
+        "answer": "Maternity leave is applicable to pregnant female labourers.",
+        "evidence_span": "A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.",
+        "source_url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/",
+        "caveats": [
+          "The evidence specifically mentions 'pregnant female labourer' rather than 'all female employees'."
+        ]
+      },
+      "latency_ms": 1586.69359999476,
+      "prompt_tokens": 1556,
+      "completion_tokens": 155,
+      "cost_usd": 0.00021760000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Does the Labour Act contain a provision for maternity leave?\nPROPOSED ANSWER: Yes, the Labour Act contains a provision for maternity leave under Section 45, which states that a pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\nEVIDENCE SPAN: Section 45: Maternity leave\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\nSOURCE: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The Nepal Labour Act (2074) actually provides maternity leave of twelve weeks, not fourteen weeks. Section 45 of the official Act states that a pregnant female employee is entitled to a total of twelve weeks of maternity leave, with at least six weeks after delivery. The cited source (nepallaws.com) is a secondary, non‑governmental site that misquotes the provision as fourteen weeks, so the evidence span does not correctly establish the answer and the number given is incorrect.\",\n  \"flags\": [\"NUMBER_MISMATCH\", \"SOURCE_INAPPROPRIATE\", \"SPAN_DOES_NOT_ESTABLISH\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.78\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The Nepal Labour Act (2074) actually provides maternity leave of twelve weeks, not fourteen weeks. Section 45 of the official Act states that a pregnant female employee is entitled to a total of twelve weeks of maternity leave, with at least six weeks after delivery. The cited source (nepallaws.com) is a secondary, non‑governmental site that misquotes the provision as fourteen weeks, so the evidence span does not correctly establish the answer and the number given is incorrect.",
+        "flags": [
+          "NUMBER_MISMATCH",
+          "SOURCE_INAPPROPRIATE",
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.78
+      },
+      "latency_ms": 5723.10020000441,
+      "prompt_tokens": 495,
+      "completion_tokens": 915,
+      "cost_usd": 0.000507,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Is the maternity leave under the Labour Act applicable to all female employees?\nPROPOSED ANSWER: Maternity leave is applicable to pregnant female labourers.\nEVIDENCE SPAN: A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\nSOURCE: https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\n",
+      "raw_response": "{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"The evidence only states that a \\\"pregnant female labourer\\\" is entitled to fourteen weeks of maternity leave. It does not address whether the provision applies to all female employees, nor does it clarify if non‑labourer employees (e.g., managers, clerical staff) are covered. By limiting the scope to \\\"labourers\\\" the evidence fails to establish universal applicability, and the answer omits this limitation, thereby misrepresenting the reach of the law.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\", \"SCOPE_DROPPED\"],\n  \"verdict_after_challenge\": \"WEAKENED\",\n  \"confidence\": 0.92\n}",
+      "parsed": {
+        "claim_id": "C3",
+        "falsification_attempt": "The evidence only states that a \"pregnant female labourer\" is entitled to fourteen weeks of maternity leave. It does not address whether the provision applies to all female employees, nor does it clarify if non‑labourer employees (e.g., managers, clerical staff) are covered. By limiting the scope to \"labourers\" the evidence fails to establish universal applicability, and the answer omits this limitation, thereby misrepresenting the reach of the law.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SCOPE_DROPPED"
+        ],
+        "verdict_after_challenge": "WEAKENED",
+        "confidence": 0.92
+      },
+      "latency_ms": 3590.687500021886,
+      "prompt_tokens": 460,
+      "completion_tokens": 591,
+      "cost_usd": 0.0003415,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (mixed).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (supporting) Q: Does the Labour Act contain a provision for maternity leave?\n  verdict=SUPPORTED answer=Yes, the Labour Act contains a provision for maternity leave under Section 45, which states that a pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n  evidence_span=Section 45: Maternity leave\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n  source=https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['NUMBER_MISMATCH', 'SOURCE_INAPPROPRIATE', 'SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The Nepal Labour Act (2074) actually provides maternity leave of twelve weeks, not fourteen weeks. Section 45 of the official Act states that a pregnant female employee is entitled to a total of twelve weeks of maternity leave, with at least six weeks after delivery. The cited source (nepallaws.com) is a secondary, non‑governmental site that misquotes the provision as fourteen weeks, so the evidence span does not correctly establish the answer and the number given is incorrect.', 'confidence': 0.78}\n[C2] (critical) Q: How many days of maternity leave are provided under the Labour Act?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is the maternity leave under the Labour Act applicable to all female employees?\n  verdict=PARTIAL answer=Maternity leave is applicable to pregnant female labourers.\n  evidence_span=A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n  source=https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\n  caveats=[\"The evidence specifically mentions 'pregnant female labourer' rather than 'all female employees'.\"]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED'], 'falsification_attempt': 'The evidence only states that a \"pregnant female labourer\" is entitled to fourteen weeks of maternity leave. It does not address whether the provision applies to all female employees, nor does it clarify if non‑labourer employees (e.g., managers, clerical staff) are covered. By limiting the scope to \"labourers\" the evidence fails to establish universal applicability, and the answer omits this limitation, thereby misrepresenting the reach of the law.', 'confidence': 0.92}\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"Labour Act को Section 45 मा maternity leave को प्रावधान छ [1]। यो सुविधा गर्भवती महिला श्रमिकहरूका लागि उपलब्ध छ [1]।\\n\\nयो कुरा पुष्टि गर्न सकिएन\\n- Labour Act अन्तर्गत कति दिनको maternity leave पाइन्छ भन्ने कुरा पुष्टि हुन सकेन।\",\n  \"citations\": [\n    {\n      \"marker\": \"[1]\",\n      \"url\": \"https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\"\n    }\n  ]\n}\n```",
+      "parsed": {
+        "response_text": "Labour Act को Section 45 मा maternity leave को प्रावधान छ [1]। यो सुविधा गर्भवती महिला श्रमिकहरूका लागि उपलब्ध छ [1]।\n\nयो कुरा पुष्टि गर्न सकिएन\n- Labour Act अन्तर्गत कति दिनको maternity leave पाइन्छ भन्ने कुरा पुष्टि हुन सकेन।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/"
+          }
+        ]
+      },
+      "latency_ms": 4977.010999980848,
+      "prompt_tokens": 965,
+      "completion_tokens": 154,
+      "cost_usd": 0.00015810000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: Labour Act को Section 45 मा maternity leave को प्रावधान छ [1]। यो सुविधा गर्भवती महिला श्रमिकहरूका लागि उपलब्ध छ [1]।\n\nयो कुरा पुष्टि गर्न सकिएन\n- Labour Act अन्तर्गत कति दिनको maternity leave पाइन्छ भन्ने कुरा पुष्टि हुन सकेन।\nVERIFIED CLAIMS: [C1] (supporting) Q: Does the Labour Act contain a provision for maternity leave?\n  verdict=SUPPORTED answer=Yes, the Labour Act contains a provision for maternity leave under Section 45, which states that a pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n  evidence_span=Section 45: Maternity leave\n\n1) A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n  source=https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['NUMBER_MISMATCH', 'SOURCE_INAPPROPRIATE', 'SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The Nepal Labour Act (2074) actually provides maternity leave of twelve weeks, not fourteen weeks. Section 45 of the official Act states that a pregnant female employee is entitled to a total of twelve weeks of maternity leave, with at least six weeks after delivery. The cited source (nepallaws.com) is a secondary, non‑governmental site that misquotes the provision as fourteen weeks, so the evidence span does not correctly establish the answer and the number given is incorrect.', 'confidence': 0.78}\n[C2] (critical) Q: How many days of maternity leave are provided under the Labour Act?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is the maternity leave under the Labour Act applicable to all female employees?\n  verdict=PARTIAL answer=Maternity leave is applicable to pregnant female labourers.\n  evidence_span=A pregnant female labourer shall get maternity leave for a total of fourteen weeks before or after delivery.\n  source=https://nepallaws.com/Laws/labour-act-2074/chapter-9-provisions-relating-to-leave/section-45-maternity-leave/\n  caveats=[\"The evidence specifically mentions 'pregnant female labourer' rather than 'all female employees'.\"]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED'], 'falsification_attempt': 'The evidence only states that a \"pregnant female labourer\" is entitled to fourteen weeks of maternity leave. It does not address whether the provision applies to all female employees, nor does it clarify if non‑labourer employees (e.g., managers, clerical staff) are covered. By limiting the scope to \"labourers\" the evidence fails to establish universal applicability, and the answer omits this limitation, thereby misrepresenting the reach of the law.', 'confidence': 0.92}\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"There is a provision for maternity leave in Section 45 of the Labour Act [1]. This facility is available for pregnant female laborers [1].\\n\\nThis thing could not be confirmed\\n- The matter of how many days of maternity leave are obtained under the Labour Act could not be confirmed.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "There is a provision for maternity leave in Section 45 of the Labour Act [1]. This facility is available for pregnant female laborers [1].\n\nThis thing could not be confirmed\n- The matter of how many days of maternity leave are obtained under the Labour Act could not be confirmed.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1585.9511999879032,
+      "prompt_tokens": 884,
+      "completion_tokens": 94,
+      "cost_usd": 0.000126,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0022665999999999997,
+  "total_latency_ms": 22391.642300004605,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

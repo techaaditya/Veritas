@@ -1,0 +1,558 @@
+{
+  "run_id": "5738bdbe8ba8",
+  "question": "बच्चालाई ज्वरो आएमा प्यारासिटामोल कति मात्रामा दिने?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "बच्चाहरूको लागि प्यारासिटामोलको मात्रा निर्धारण गर्न सकिएन। कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\n\n---\n[Fidelity check could not be satisfied after retry; showing the verified English claim summary alongside the translation for safety.]\n\n[C1] (critical) Q: What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\n  verdict=SUPPORTED answer=10-15 mg/kg/dose\n  evidence_span=When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C2] (critical) Q: What is the maximum single dose of paracetamol that should not be exceeded in a child?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\n  verdict=SUPPORTED answer=Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.\n  evidence_span=10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\n  source=https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en\n  caveats=[]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.', 'confidence': 0.85}\n[C4] (supporting) Q: For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\n  verdict=SUPPORTED answer=The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).\n  evidence_span=Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C5] (supporting) Q: Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol pediatric dosage per kg",
+        "children fever dose"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "10-15 mg/kg/dose",
+      "evidence_span": "When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.",
+      "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "HOLDS",
+        "flags": [
+          "NONE"
+        ],
+        "falsification_attempt": "",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "What is the maximum single dose of paracetamol that should not be exceeded in a child?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "maximum paracetamol dose child",
+        "paracetamol safe single dose pediatric"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol dosing interval children",
+        "paracetamol frequency pediatric fever"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.",
+      "evidence_span": "10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.",
+      "source_url": "https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "WEAKENED",
+        "flags": [
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "falsification_attempt": "The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.",
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "C4",
+      "claim_question": "For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "paracetamol dosage age range children",
+        "paracetamol weight based dosing pediatric"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).",
+      "evidence_span": "Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])",
+      "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "HOLDS",
+        "flags": [
+          "NONE"
+        ],
+        "falsification_attempt": "",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "C5",
+      "claim_question": "Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "paracetamol fever vs pain dosage children",
+        "paracetamol indication dosage pediatric"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: बच्चालाई ज्वरो आएमा प्यारासिटामोल कति मात्रामा दिने?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"बच्चालाई ज्वरो आएमा प्यारासिटामोल कति मात्रामा दिने?\",\n  \"canonical_english\": \"What is the correct dosage of paracetamol to give to a child who has a fever?\",\n  \"domain\": \"health\",\n  \"entities\": [\n    \"paracetamol\",\n    \"fever\"\n  ],\n  \"implicit_context\": [\n    \"The user is seeking pediatric medication dosage\"\n  ],\n  \"ambiguities\": [\n    \"age of the child\",\n    \"weight of the child\",\n    \"concentration of the paracetamol formulation (e.g., syrup vs drops)\"\n  ]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "बच्चालाई ज्वरो आएमा प्यारासिटामोल कति मात्रामा दिने?",
+        "canonical_english": "What is the correct dosage of paracetamol to give to a child who has a fever?",
+        "domain": "health",
+        "entities": [
+          "paracetamol",
+          "fever"
+        ],
+        "implicit_context": [
+          "The user is seeking pediatric medication dosage"
+        ],
+        "ambiguities": [
+          "age of the child",
+          "weight of the child",
+          "concentration of the paracetamol formulation (e.g., syrup vs drops)"
+        ]
+      },
+      "latency_ms": 8234.985999995843,
+      "prompt_tokens": 314,
+      "completion_tokens": 166,
+      "cost_usd": 9.779999999999999e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: What is the correct dosage of paracetamol to give to a child who has a fever?\nORIGINAL: बच्चालाई ज्वरो आएमा प्यारासिटामोल कति मात्रामा दिने?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question asks for drug dosing for a pediatric patient, which is explicitly listed as a high-stakes risk.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question asks for drug dosing for a pediatric patient, which is explicitly listed as a high-stakes risk.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1738.6463999864645,
+      "prompt_tokens": 343,
+      "completion_tokens": 57,
+      "cost_usd": 5.7100000000000006e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: What is the correct dosage of paracetamol to give to a child who has a fever?\nENTITIES: ['paracetamol', 'fever']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"paracetamol pediatric dosage per kg\", \"children fever dose\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"What is the maximum single dose of paracetamol that should not be exceeded in a child?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"maximum paracetamol dose child\", \"paracetamol safe single dose pediatric\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"paracetamol dosing interval children\", \"paracetamol frequency pediatric fever\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"paracetamol dosage age range children\", \"paracetamol weight based dosing pediatric\"]\n    },\n    {\n      \"id\": \"C5\",\n      \"claim_question\": \"Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"paracetamol fever vs pain dosage children\", \"paracetamol indication dosage pediatric\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol pediatric dosage per kg",
+              "children fever dose"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "10-15 mg/kg/dose",
+            "evidence_span": "When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.",
+            "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "HOLDS",
+              "flags": [
+                "NONE"
+              ],
+              "falsification_attempt": "",
+              "confidence": 0.95
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "What is the maximum single dose of paracetamol that should not be exceeded in a child?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "maximum paracetamol dose child",
+              "paracetamol safe single dose pediatric"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol dosing interval children",
+              "paracetamol frequency pediatric fever"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.",
+            "evidence_span": "10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.",
+            "source_url": "https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "WEAKENED",
+              "flags": [
+                "SOURCE_INAPPROPRIATE"
+              ],
+              "falsification_attempt": "The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.",
+              "confidence": 0.85
+            }
+          },
+          {
+            "id": "C4",
+            "claim_question": "For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "paracetamol dosage age range children",
+              "paracetamol weight based dosing pediatric"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).",
+            "evidence_span": "Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])",
+            "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "HOLDS",
+              "flags": [
+                "NONE"
+              ],
+              "falsification_attempt": "",
+              "confidence": 0.95
+            }
+          },
+          {
+            "id": "C5",
+            "claim_question": "Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "paracetamol fever vs pain dosage children",
+              "paracetamol indication dosage pediatric"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 4461.689199961256,
+      "prompt_tokens": 303,
+      "completion_tokens": 983,
+      "cost_usd": 0.0005218,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\nEVIDENCE:\n[source: https://emedicine.medscape.com/article/2172407-overview]\nprocessing....\n\n[Tools & Reference](https://reference.medscape.com/) > [Protocols](https://reference.medscape.com/guide/protocols)\n\n# Pediatric Acetaminophen Dosing Guidelines\n\nUpdated: Aug 19, 2024\n\n\n- Author: Abimbola Farinde, PharmD, PhD; more...\n\n- 17\n- Print\n- Feedback\n\nClose\n\n- [Facebook](https://emedicine.medscape.com/article/2172407-overview#)\n- [Twitter](https://emedicine.medscape.com/article/2172407-overview#)\n- [LinkedIn](https://emedicine.medscape.com/article/2172407-overview#)\n- [WhatsApp](https://emedicine.medscape.com/article/2172407-overview#)\n- [Email](https://emedicine.medscape.com/article/2172407-overview#)\n\nSections\n\n[Pediatric Acetaminophen Dosing Guidelines](https://emedicine.medscape.com/article/2172407-overview)\n\n- Sections Pediatric Acetaminophen Dosing Guidelines\n\n- [Pediatric Acetaminophen Dosing](https://emedicine.medscape.com/article/2172407-overview#a1)\n- [Show All](https://emedicine.medscape.com/article/2172407-overview#showall)\n- References\n\n## Pediatric Acetaminophen Dosing\n\n### Pediatric acetaminophen (eg, Children's Tylenol)\n\nWhen possible, dose [acetaminophen](https://reference.medscape.com/drug/tylenol-acetaminophen-343346) based on a child’s we\n\n[source: https://emedicine.medscape.com/article/2172407-overview]\night, using 10-15 mg/kg/dose. \\[1, 2, 3, 4, 5, 6\\]  Give PO every 4-6 hours and do not exceed more than 5 doses (2.6 g) in 24 hours. When weight is unknown, the following guidelines based on age may be used. \\[7\\]\n\nAge 0-3 months (weight, 6-11 lbs \\[2.7-5.3 kg\\])\n\n- Dose: 40 mg/dose\n\n- Oral suspension (160 mg/5 mL): 1.25 mL\n\n\nAge 4-11 months (weight, 12-17 lbs \\[5.4-8.1 kg\\])\n\n- Dose: 80 mg/dose\n\n- Oral suspension (160 mg/5 mL): 2.5 mL\n\n\nAge 12-23 months (weight, 18-23 lbs \\[8.2-10.8 kg\\])\n\n- Dose: 120 mg/dose\n\n- Oral suspension (160 mg/5 mL): 3.75 mL\n\n- Chewable tablets (80 mg/tab): 1.5 tablets\n\n\nAge 2-3 years (weight, 24-35 lbs \\[10.9-16.3 kg\\])\n\n- Dose: 160 mg/dose\n\n- Oral suspension (160 mg/5 mL): 5 mL\n\n- Chewable tablets (80 mg/tab): 2 tablets\n\n- Chewable tablets (160 mg/tab): 1 tablet\n\n\nAge 4-5 years (weight, 36-47 lbs \\[16.4-21.7 kg\\])\n\n- Dose: 240 mg/dose\n\n- Oral suspension (160 mg/5 mL): 7.5 mL\n\n- Chewable tablets (80 mg/tab): 3 tablets\n\n- Chewable tablets (160 mg/tab): 1.5 tablets\n\n\nAge 6-8 years (weight, 48-59 lbs \\[21.8-27.2 kg\\])\n\n- Dose: 320 mg/dose\n\n- Oral suspension (160 mg/5 mL): 10 mL\n\n- Chewable tablets (80 mg/tab): 4 tablets\n\n- Chewable tablets (160 mg/tab): 2 t\n\n[source: https://bnfc.nice.org.uk/drugs/paracetamol/]\n# BNFC via NICE is only available to eligible users within the UK\n\nThe NICE British National Formulary for Children (BNFC) site is only available to eligible users in the UK (England, Scotland, Wales and Northern Ireland).\n\n## Content licensing\n\nThe BNF and BNFC is third-party content hosted on the NICE site on behalf of the publishers. It is not [NICE content](https://www.nice.org.uk/re-using-our-content) and is excluded from the NICE UK Open Content Licence. [Please see the licensing terms and conditions for more information](https://bnf.nice.org.uk/eula/).\n\nThis content is only available to NHS and members of the public (for personal reference) within the UK countries of England, Scotland and Wales. Users from countries designated as Crown Dependencies and British Overseas Territories are not permitted to access this content.\n\nPrivate sector/commercial organisations, universities and academic institutions should contact BNF regarding licensing subscriptions [licensing@rpharms.com](mailto:licensing@rpharms.com) or [Medicines Complete](https://www.pharmaceuticalpress.com/contact/sales-and-upgrades-enquiries/).\n\n## Technical support\n\nNICE will only provide technical support on acce\n\n[source: https://bnfc.nice.org.uk/drugs/paracetamol/]\nss to BNF if you are an eligible organisation/individual to access this content.\n\nIP addresses that are not recognised as originating from the UK will be automatically blocked and cannot be granted access. Similarly, data scraping and data mining of the NICE BNF is not permitted and will also result in IP blocking.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"10-15 mg/kg/dose\",\n  \"evidence_span\": \"When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.\",\n  \"source_url\": \"https://emedicine.medscape.com/article/2172407-overview\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "SUPPORTED",
+        "answer": "10-15 mg/kg/dose",
+        "evidence_span": "When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.",
+        "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+        "caveats": []
+      },
+      "latency_ms": 4179.707300034352,
+      "prompt_tokens": 1657,
+      "completion_tokens": 128,
+      "cost_usd": 0.00021690000000000001,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the maximum single dose of paracetamol that should not be exceeded in a child?\nEVIDENCE:\n[source: https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html]\n[Skip to main content](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#main-content)\n\n[MSF.org](https://www.msf.org/ \"go to msf.org site\")\n\n[MSF Staff](https://medicalguidelines.msf.org/en/user/login)\n\nEnglish\n\n- [English](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html)\n- [العربية](https://medicalguidelines.msf.org/ar/node/492)\n- [Español](https://medicalguidelines.msf.org/es/viewport/EssDr/spanish/paracetamol-acetaminofen-oral-22282995.html)\n- [Français](https://medicalguidelines.msf.org/fr/viewport/EssDr/francais/paracetamol-acetaminophene-oral-16686016.html)\n\n.هذه الصفحة غير متاحة باللغة العربية\n\nEsta página no está disponible en este idioma.\n\nCette page n’est pas disponible dans cette langue.\n\nThis page is not available in this language.\n\n# PARACETAMOL = ACETAMINOPHEN oral\n\nSelect language:\n\n\nEnglish\n\n\n(Arabic) العربية\n\n\nEspañol (Spanish)\n\n\nFrançais (French)\n\n\n[Enter](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html)\n\n[Permalink](https://medicalguidelines.msf.org/en/node/492)\n\n## Send feedback about this page \n\n[source: https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html]\nor ask a general question\n\nName\n\nEmail\n\nYour message\n\nThis site is protected by reCAPTCHA and the Google\n[Privacy Policy](https://policies.google.com/privacy \"(opens in a new window)\") and\n[Terms of Service](https://policies.google.com/terms \"(opens in a new window)\") apply.\n\n[Path](https://medicalguidelines.msf.org/en/flag/flag/favorite/492/full?destination=/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html&token=cojiTj9d5uRStpSeQF6J8388BGZoy4s19YxwxQws9A0 \"\")\n\nDownload\n\nComment\n\nReturn to top\n\nOn this page\n\n- [Therapeutic action](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-1)\n- [Indications](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-2)\n- [Forms and strengths](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-3)\n- [Dosage](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-4)\n- [Duration](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen\n\n[source: https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en]\nEmbedded Content![banner](https://www.vinmec.com/static/uploads/Eng_8000x1800_Tim_mach_aaef418b76.jpg)\n\n[Home](https://www.vinmec.com/eng/) [Pharmaceuticals](https://www.vinmec.com/eng/pharmaceuticals/) [Use Medicines Safely](https://www.vinmec.com/eng/use-medicines-safely/)\n\n# The dosage of paracetamol for children based on weight\n\n☰Table of content\n\n- 1\\. What is Paracetamol?\n- 2.Paracetamol dosage\n  - Typical paracetamol dosage for children\n- 3\\. Medication Usage\n\nParacetamol is a widely used antipyretic medication for both adults and children. However, the dosage of paracetamol for children based on weight is not always as straightforward as 10-15 mg/kg for all cases, as parents often believe.\n\n## 1\\. What is Paracetamol?\n\nParacetamol belongs to the pain reliever and fever reducer group, commonly used to treat symptoms such as fever, headache, muscle pain, joint pain, back pain, toothache, and flu-like symptoms. It helps relieve pain in individuals with mild arthritis but does not have an effect on more severe inflammation (such as in Osteoarthritis).\n\n## 2.Paracetamol dosage\n\nParacetamol is an over-the-counter fever-reducing medication that can be purchased without a doctor's \n\n[source: https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en]\nprescription. However, this does not mean the drug is harmless or can be used without caution. Any medication, if overdosed, can lead to serious consequences. For adults, the maximum allowable dose of Paracetamol is 4g/day.\n\n**Oral Paracetamol dosage:**\n\n10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\n\n**Suppository dosage:**\n\nRecommended at 10-20 mg/kg per dose, every 4-6 hours as needed.\n\nDo not exceed 5 doses or 75 mg/kg within 24 hours.\n\nWhen using suppositories, the drug is absorbed into the body and provides rapid fever reduction. Parents must include this form of administration in the total daily dosage, as ignoring it can lead to dangerous overdoses.\n\nCurrently, Paracetamol is available in various formulations such as tablets, sachets, effervescent tablets, liquid forms, and suppositories. Among these, the liquid form is preferred for children due to its ease of use and precise dosing.\n\n![You can measure a dose of liquid paracetamol with a spoon or a specialized dosing device.](https://www.vinmec.com/static/uploads/medium_20190816_110658_014383_chia_siro_max_1800x1800_jpg_dc258f9b77.jpg)\n\nYou can measure a dose of liquid \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 5474.982000014279,
+      "prompt_tokens": 1933,
+      "completion_tokens": 61,
+      "cost_usd": 0.0002177,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\nPROPOSED ANSWER: 10-15 mg/kg/dose\nEVIDENCE SPAN: When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.\nSOURCE: https://emedicine.medscape.com/article/2172407-overview\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"\",\n  \"flags\": [\"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\",\n  \"confidence\": 0.95\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "",
+        "flags": [
+          "NONE"
+        ],
+        "verdict_after_challenge": "HOLDS",
+        "confidence": 0.95
+      },
+      "latency_ms": 2773.635199991986,
+      "prompt_tokens": 455,
+      "completion_tokens": 373,
+      "cost_usd": 0.000232,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\nEVIDENCE:\n[source: https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en]\nEmbedded Content![banner](https://www.vinmec.com/static/uploads/Eng_8000x1800_Tim_mach_aaef418b76.jpg)\n\n[Home](https://www.vinmec.com/eng/) [Pharmaceuticals](https://www.vinmec.com/eng/pharmaceuticals/) [Use Medicines Safely](https://www.vinmec.com/eng/use-medicines-safely/)\n\n# The dosage of paracetamol for children based on weight\n\n☰Table of content\n\n- 1\\. What is Paracetamol?\n- 2.Paracetamol dosage\n  - Typical paracetamol dosage for children\n- 3\\. Medication Usage\n\nParacetamol is a widely used antipyretic medication for both adults and children. However, the dosage of paracetamol for children based on weight is not always as straightforward as 10-15 mg/kg for all cases, as parents often believe.\n\n## 1\\. What is Paracetamol?\n\nParacetamol belongs to the pain reliever and fever reducer group, commonly used to treat symptoms such as fever, headache, muscle pain, joint pain, back pain, toothache, and flu-like symptoms. It helps relieve pain in individuals with mild arthritis but does not have an effect on more severe inflammation (such as in Osteoarthritis).\n\n## 2.Paracetamol dosage\n\nParacetamol is an over-the-counter fever-reducing medication that can be purchased without a doctor's \n\n[source: https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en]\nprescription. However, this does not mean the drug is harmless or can be used without caution. Any medication, if overdosed, can lead to serious consequences. For adults, the maximum allowable dose of Paracetamol is 4g/day.\n\n**Oral Paracetamol dosage:**\n\n10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\n\n**Suppository dosage:**\n\nRecommended at 10-20 mg/kg per dose, every 4-6 hours as needed.\n\nDo not exceed 5 doses or 75 mg/kg within 24 hours.\n\nWhen using suppositories, the drug is absorbed into the body and provides rapid fever reduction. Parents must include this form of administration in the total daily dosage, as ignoring it can lead to dangerous overdoses.\n\nCurrently, Paracetamol is available in various formulations such as tablets, sachets, effervescent tablets, liquid forms, and suppositories. Among these, the liquid form is preferred for children due to its ease of use and precise dosing.\n\n![You can measure a dose of liquid paracetamol with a spoon or a specialized dosing device.](https://www.vinmec.com/static/uploads/medium_20190816_110658_014383_chia_siro_max_1800x1800_jpg_dc258f9b77.jpg)\n\nYou can measure a dose of liquid \n\n[source: https://www.drugs.com/paracetamol.html]\n[Skip to main content](https://www.drugs.com/paracetamol.html#content)\n\nClose\n\nPrint pageMy Meds\n\n# Paracetamol\n\nPlay pronunciation\n\n**Generic name:** [paracetamol](https://www.drugs.com/acetaminophen.html)\n\n**Other brand names** of paracetamol include: Panadol, Calpol, [Tylenol](https://www.drugs.com/tylenol.html), Alvedon\n\n**Dosage form:** effervescent tablet, intravenous (infusion) injection, orally disintegrating tablet, oral capsule, oral powder, oral suspension, oral tablet, suppository\n\n**Drug class:** [Miscellaneous analgesics](https://www.drugs.com/drug-class/miscellaneous-analgesics.html)\n\nMedically reviewed by [Philip Thornton, DipPharm](https://www.drugs.com/support/editor/9/philip-thornton-dippharm.html). Last updated on Sep 23, 2025.\n\n## What is paracetamol?\n\nParacetamol (Panadol, Calpol, Alvedon) is an analgesic and antipyretic drug that is used to temporarily relieve mild-to-moderate pain and fever. It is commonly included as an ingredient in cold and flu medications and is also used on its own.\n\nParacetamol is exactly the same drug as acetaminophen (Tylenol). Paracetamol is the drug's name assigned using the International Nonproprietary Name (INN) generic name syst\n\n[source: https://www.drugs.com/paracetamol.html]\nem. Paracetamol is the name used for the drug in places such as Europe, Australia, New Zealand and India. Acetaminophen is the generic name assigned using the United States Adopted Names (USAN) system. Acetaminophen is the name used in countries such as the US, Canada and Japan. Usually the INN and USAN generic names for a drug are the same and don't differ between countries.\n\nIt is not clear exactly how paracetamol works. However, it is thought to work by blocking chemical messengers in the brain that let us know when we're in pain and by affecting the chemical messengers that regulate our body temperature. The evidence suggests that paracetamol inhibits the production of prostaglandins, which are made by the body to deal with illness and injury. It's also thought to act on the serotonergic, opioid, nitric oxide and cannabinoid pathways.\n\nParacetamol was first made in 1878, but only became more widely used in the 1950s. Today paracetamol is one of the most widely used painkillers in the world. Branded and generic versions of this drug are available.\n\n## What is paracetamol used for?\n\nParacetamol is available over-the-counter (OTC) and also as a prescription medication. It is used \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.\",\n  \"evidence_span\": \"10-15 mg/kg every 4-6 hours\\n\\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\",\n  \"source_url\": \"https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "SUPPORTED",
+        "answer": "Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.",
+        "evidence_span": "10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.",
+        "source_url": "https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en",
+        "caveats": []
+      },
+      "latency_ms": 1697.0807000179775,
+      "prompt_tokens": 1640,
+      "completion_tokens": 152,
+      "cost_usd": 0.00022480000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\nPROPOSED ANSWER: Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.\nEVIDENCE SPAN: 10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\nSOURCE: https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en\n",
+      "raw_response": "{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.\",\n  \"flags\": [\"SOURCE_INAPPROPRIATE\"],\n  \"verdict_after_challenge\": \"WEAKENED\",\n  \"confidence\": 0.85\n}",
+      "parsed": {
+        "claim_id": "C3",
+        "falsification_attempt": "The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.",
+        "flags": [
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "verdict_after_challenge": "WEAKENED",
+        "confidence": 0.85
+      },
+      "latency_ms": 3406.928299984429,
+      "prompt_tokens": 486,
+      "completion_tokens": 615,
+      "cost_usd": 0.0003561,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\nEVIDENCE:\n[source: https://emedicine.medscape.com/article/2172407-overview]\nprocessing....\n\n[Tools & Reference](https://reference.medscape.com/) > [Protocols](https://reference.medscape.com/guide/protocols)\n\n# Pediatric Acetaminophen Dosing Guidelines\n\nUpdated: Aug 19, 2024\n\n\n- Author: Abimbola Farinde, PharmD, PhD; more...\n\n- 17\n- Print\n- Feedback\n\nClose\n\n- [Facebook](https://emedicine.medscape.com/article/2172407-overview#)\n- [Twitter](https://emedicine.medscape.com/article/2172407-overview#)\n- [LinkedIn](https://emedicine.medscape.com/article/2172407-overview#)\n- [WhatsApp](https://emedicine.medscape.com/article/2172407-overview#)\n- [Email](https://emedicine.medscape.com/article/2172407-overview#)\n\nSections\n\n[Pediatric Acetaminophen Dosing Guidelines](https://emedicine.medscape.com/article/2172407-overview)\n\n- Sections Pediatric Acetaminophen Dosing Guidelines\n\n- [Pediatric Acetaminophen Dosing](https://emedicine.medscape.com/article/2172407-overview#a1)\n- [Show All](https://emedicine.medscape.com/article/2172407-overview#showall)\n- References\n\n## Pediatric Acetaminophen Dosing\n\n### Pediatric acetaminophen (eg, Children's Tylenol)\n\nWhen possible, dose [acetaminophen](https://reference.medscape.com/drug/tylenol-acetaminophen-343346) based on a child’s we\n\n[source: https://emedicine.medscape.com/article/2172407-overview]\night, using 10-15 mg/kg/dose. \\[1, 2, 3, 4, 5, 6\\]  Give PO every 4-6 hours and do not exceed more than 5 doses (2.6 g) in 24 hours. When weight is unknown, the following guidelines based on age may be used. \\[7\\]\n\nAge 0-3 months (weight, 6-11 lbs \\[2.7-5.3 kg\\])\n\n- Dose: 40 mg/dose\n\n- Oral suspension (160 mg/5 mL): 1.25 mL\n\n\nAge 4-11 months (weight, 12-17 lbs \\[5.4-8.1 kg\\])\n\n- Dose: 80 mg/dose\n\n- Oral suspension (160 mg/5 mL): 2.5 mL\n\n\nAge 12-23 months (weight, 18-23 lbs \\[8.2-10.8 kg\\])\n\n- Dose: 120 mg/dose\n\n- Oral suspension (160 mg/5 mL): 3.75 mL\n\n- Chewable tablets (80 mg/tab): 1.5 tablets\n\n\nAge 2-3 years (weight, 24-35 lbs \\[10.9-16.3 kg\\])\n\n- Dose: 160 mg/dose\n\n- Oral suspension (160 mg/5 mL): 5 mL\n\n- Chewable tablets (80 mg/tab): 2 tablets\n\n- Chewable tablets (160 mg/tab): 1 tablet\n\n\nAge 4-5 years (weight, 36-47 lbs \\[16.4-21.7 kg\\])\n\n- Dose: 240 mg/dose\n\n- Oral suspension (160 mg/5 mL): 7.5 mL\n\n- Chewable tablets (80 mg/tab): 3 tablets\n\n- Chewable tablets (160 mg/tab): 1.5 tablets\n\n\nAge 6-8 years (weight, 48-59 lbs \\[21.8-27.2 kg\\])\n\n- Dose: 320 mg/dose\n\n- Oral suspension (160 mg/5 mL): 10 mL\n\n- Chewable tablets (80 mg/tab): 4 tablets\n\n- Chewable tablets (160 mg/tab): 2 t\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7529628/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC7529628/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7529628/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1007/s40272-020-00417-z) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC7529628/pdf/40272_2020_Article_417.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).\",\n  \"evidence_span\": \"Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\\n\\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\\n\\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\\n\\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\\n\\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\\n\\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])\",\n  \"source_url\": \"https://emedicine.medscape.com/article/2172407-overview\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "SUPPORTED",
+        "answer": "The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).",
+        "evidence_span": "Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])",
+        "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+        "caveats": []
+      },
+      "latency_ms": 3470.8749999990687,
+      "prompt_tokens": 2297,
+      "completion_tokens": 422,
+      "cost_usd": 0.0003985,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C4\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\nPROPOSED ANSWER: The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).\nEVIDENCE SPAN: Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])\nSOURCE: https://emedicine.medscape.com/article/2172407-overview\n",
+      "raw_response": "{\n  \"claim_id\": \"C4\",\n  \"falsification_attempt\": \"\",\n  \"flags\": [\"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\",\n  \"confidence\": 0.95\n}",
+      "parsed": {
+        "claim_id": "C4",
+        "falsification_attempt": "",
+        "flags": [
+          "NONE"
+        ],
+        "verdict_after_challenge": "HOLDS",
+        "confidence": 0.95
+      },
+      "latency_ms": 2353.56200003298,
+      "prompt_tokens": 687,
+      "completion_tokens": 460,
+      "cost_usd": 0.0002987,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journ\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/]\nal List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1007/s40272-023-00562-1) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/pdf/40272_2023_Article_562.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK482369/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nStatPearls \\[Internet\\]. Treasure Island (FL): StatPearls Publishing; 2026 Jan-.\n\n[![Cover of StatPearls](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-statpearls-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/statpearls/ \"Table of Contents Page\")\n\n## StatPearls \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK482369/#__NBK482369_dtls__)\n\nTreasure Island (FL): [StatPearls Publishing](https://www.statpearls.com/); 2026 Jan-.\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK482369/#)\n\n# Acetaminophen\n\nValerie Gerriets; Preeti Patel; Thomas M. Nappe.\n\n[Author Information and Affiliations](https://www.ncbi.nlm.nih.gov/books/NBK482369/#__NBK482369_ai__)\n\n#### Authors\n\nValerie Gerriets1; Preeti Patel; Thomas M. Nappe2.\n\n#### Affiliations\n\n1 California Northstate University College of Medicine\n\n2 University of South Florida/Tampa General Hospital\n\nLast Update: January 11, 2024.\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK482369/# \"Go to other sections in this page\")\n\n## \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK482369/]\nContinuing Education Activity\n\nAcetaminophen, also known as _N_-acetyl-para-aminophenol (APAP) or paracetamol in many countries, is a non-opioid analgesic and antipyretic agent utilized for treating pain and fever. Numerous diseases and conditions include pain as a significant component of their presentation. Consequently, effective pain management holds great importance for both clinicians and patients. Clinicians can use acetaminophen for their patients as a single agent for mild-to-moderate pain or in conjunction with an opioid analgesic for severe pain. This activity outlines the utilization, indications, administration, contraindications, and toxicity of acetaminophen, emphasizing the integral role of the interprofessional healthcare team in the care of patients using acetaminophen.\n\n**Objectives:**\n\n- Identify appropriate scenarios for acetaminophen use by distinguishing between mild-to-moderate and severe pain and assessing the patient's overall health status.\n\n- Assess patients for pain relief effectiveness by monitoring for any signs of adverse effects or toxicity related to acetaminophen.\n\n- Select appropriate acetaminophen formulations and routes of administration based \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C5",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 980.4203000385314,
+      "prompt_tokens": 2004,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002256,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\n  verdict=SUPPORTED answer=10-15 mg/kg/dose\n  evidence_span=When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C2] (critical) Q: What is the maximum single dose of paracetamol that should not be exceeded in a child?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\n  verdict=SUPPORTED answer=Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.\n  evidence_span=10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\n  source=https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en\n  caveats=[]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.', 'confidence': 0.85}\n[C4] (supporting) Q: For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\n  verdict=SUPPORTED answer=The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).\n  evidence_span=Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C5] (supporting) Q: Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"बच्चाहरूको लागि प्यारासिटामोलको मात्रा र प्रयोग सम्बन्धी जानकारी उपलब्ध गराउन सकिएन। कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "बच्चाहरूको लागि प्यारासिटामोलको मात्रा र प्रयोग सम्बन्धी जानकारी उपलब्ध गराउन सकिएन। कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1057.960300007835,
+      "prompt_tokens": 1263,
+      "completion_tokens": 62,
+      "cost_usd": 0.00015110000000000001,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: बच्चाहरूको लागि प्यारासिटामोलको मात्रा र प्रयोग सम्बन्धी जानकारी उपलब्ध गराउन सकिएन। कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\n  verdict=SUPPORTED answer=10-15 mg/kg/dose\n  evidence_span=When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C2] (critical) Q: What is the maximum single dose of paracetamol that should not be exceeded in a child?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\n  verdict=SUPPORTED answer=Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.\n  evidence_span=10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\n  source=https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en\n  caveats=[]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.', 'confidence': 0.85}\n[C4] (supporting) Q: For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\n  verdict=SUPPORTED answer=The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).\n  evidence_span=Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C5] (supporting) Q: Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Information regarding the dose and use of paracetamol for children could not be provided. Please consult with a qualified health worker or doctor.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response refused to provide any dosage information (C1, C3, C4) despite the verified claims containing specific supported answers.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Information regarding the dose and use of paracetamol for children could not be provided. Please consult with a qualified health worker or doctor.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response refused to provide any dosage information (C1, C3, C4) despite the verified claims containing specific supported answers.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 1542.5183000043035,
+      "prompt_tokens": 1161,
+      "completion_tokens": 117,
+      "cost_usd": 0.0001629,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\n  verdict=SUPPORTED answer=10-15 mg/kg/dose\n  evidence_span=When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C2] (critical) Q: What is the maximum single dose of paracetamol that should not be exceeded in a child?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\n  verdict=SUPPORTED answer=Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.\n  evidence_span=10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\n  source=https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en\n  caveats=[]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.', 'confidence': 0.85}\n[C4] (supporting) Q: For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\n  verdict=SUPPORTED answer=The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).\n  evidence_span=Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C5] (supporting) Q: Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n[{\"type\": \"DROPPED\", \"detail\": \"The response refused to provide any dosage information (C1, C3, C4) despite the verified claims containing specific supported answers.\", \"severity\": \"high\"}]\n",
+      "raw_response": "```json\n{\n \"response_text\": \"बच्चाहरूको लागि प्यारासिटामोलको मात्रा निर्धारण गर्न सकिएन। कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\",\n \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "बच्चाहरूको लागि प्यारासिटामोलको मात्रा निर्धारण गर्न सकिएन। कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 2617.3244999954477,
+      "prompt_tokens": 1327,
+      "completion_tokens": 51,
+      "cost_usd": 0.0001531,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: बच्चाहरूको लागि प्यारासिटामोलको मात्रा निर्धारण गर्न सकिएन। कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the standard recommended dose of paracetamol for children with fever per kilogram of body weight?\n  verdict=SUPPORTED answer=10-15 mg/kg/dose\n  evidence_span=When possible, dose acetaminophen (eg, Children's Tylenol) based on a child’s weight, using 10-15 mg/kg/dose.\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C2] (critical) Q: What is the maximum single dose of paracetamol that should not be exceeded in a child?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: How often can paracetamol be administered to a child with fever, and what is the maximum number of doses in 24 hours?\n  verdict=SUPPORTED answer=Paracetamol can be administered every 4-6 hours, and the maximum number of doses in 24 hours is five.\n  evidence_span=10-15 mg/kg every 4-6 hours\n\nDoctors recommend not exceeding five doses or 75 mg/kg within 24 hours.\n  source=https://www.vinmec.com/eng/blog/dosage-of-paracetamol-for-children-by-weight-en\n  caveats=[]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence does support the dosing interval and the maximum of five doses, but the source is a non‑authoritative blog rather than a primary clinical guideline (e.g., WHO, CDC, national formulary). This weakens confidence in the answer’s reliability.', 'confidence': 0.85}\n[C4] (supporting) Q: For which age and weight ranges are the pediatric paracetamol dosage guidelines applicable?\n  verdict=SUPPORTED answer=The guidelines provide dosing for the following age and weight ranges: 0-3 months (6-11 lbs [2.7-5.3 kg]), 4-11 months (12-17 lbs [5.4-8.1 kg]), 12-23 months (18-23 lbs [8.2-10.8 kg]), 2-3 years (24-35 lbs [10.9-16.3 kg]), 4-5 years (36-47 lbs [16.4-21.7 kg]), and 6-8 years (48-59 lbs [21.8-27.2 kg]).\n  evidence_span=Age 0-3 months (weight, 6-11 lbs [2.7-5.3 kg])\n\nAge 4-11 months (weight, 12-17 lbs [5.4-8.1 kg])\n\nAge 12-23 months (weight, 18-23 lbs [8.2-10.8 kg])\n\nAge 2-3 years (weight, 24-35 lbs [10.9-16.3 kg])\n\nAge 4-5 years (weight, 36-47 lbs [16.4-21.7 kg])\n\nAge 6-8 years (weight, 48-59 lbs [21.8-27.2 kg])\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C5] (supporting) Q: Is the recommended paracetamol dose for fever the same as the dose for mild to moderate pain in children?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"The dose of paracetamol for children could not be determined. Please consult with a qualified health worker or doctor.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response failed to provide the specific dosage (10-15 mg/kg) and frequency (every 4-6 hours) detailed in C1 and C3, opting instead for a refusal/referral.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "The dose of paracetamol for children could not be determined. Please consult with a qualified health worker or doctor.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response failed to provide the specific dosage (10-15 mg/kg) and frequency (every 4-6 hours) detailed in C1 and C3, opting instead for a refusal/referral.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 2729.9126999569125,
+      "prompt_tokens": 1152,
+      "completion_tokens": 131,
+      "cost_usd": 0.0001676,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0034817,
+  "total_latency_ms": 29195.372099988163,
+  "degraded_nodes": [
+    "N9"
+  ],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

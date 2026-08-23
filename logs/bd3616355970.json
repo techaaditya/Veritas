@@ -1,0 +1,381 @@
+{
+  "run_id": "bd3616355970",
+  "question": "बाल श्रमिकले वर्षमा कति दिन सार्वजनिक बिदा पाउँछ?",
+  "tier": "TIER_1",
+  "domain": "legal",
+  "detected_language": "ne",
+  "decision": "PARTIAL_ANSWER",
+  "response_text": "बालश्रममा संलग्न बालबालिकाले वर्षमा कम्तीमा १३ दिन पूर्ण तलबसहितको सार्वजनिक बिदा पाउने व्यवस्था नियम ८ मा गरिएको छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन\n- के कानुनले बालश्रमिकलाई वयस्क कामदार सरहको सार्वजनिक बिदा दिन्छ कि दिँदैन भन्ने कुरा पुष्टि हुन सकेन ।\n\nसावधानी:\nप्रमाणले 'नियम ८' को उल्लेख गरे पनि यो नियम कुन ऐन, अध्यादेश वा नियमावली अन्तर्गत पर्दछ भन्ने स्पष्ट जानकारी दिएको छैन ।",
+  "citations": [
+    {
+      "marker": "[1]",
+      "url": "https://faolex.fao.org/docs/pdf/nep187179.pdf"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What legal provision (e.g., act, ordinance, regulation) defines the entitlement to public holidays for child laborers?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "child labor public holidays law",
+        "Child Labour Act public holidays",
+        "legal provision child labor entitlement holidays"
+      ],
+      "verdict": "PARTIAL",
+      "answer": "Rule 8",
+      "evidence_span": "Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.",
+      "source_url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+      "caveats": [
+        "The evidence identifies the specific 'Rule' but does not provide the name of the overarching act, ordinance, or regulation to which the rule belongs."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SCOPE_DROPPED"
+        ],
+        "falsification_attempt": "The answer only cites \"Rule 8\" without naming the act, ordinance, or regulation that contains this rule. The claim asks for the legal provision (e.g., act, ordinance, regulation) that defines the entitlement. Providing only the rule number drops the necessary contextual scope, making the answer incomplete and not directly identifying the governing legal instrument.",
+        "confidence": 0.93
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "How many days of public holidays per year is a child laborer entitled to under that legal provision?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "public holidays per year child laborer",
+        "child labor holiday entitlement number",
+        "days of public holidays child worker"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "Thirteen days",
+      "evidence_span": "A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.",
+      "source_url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "WEAKENED",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "falsification_attempt": "The evidence states that a child is entitled to \"at least Thirteen days\" of public holidays, implying the entitlement could be greater than thirteen. The proposed answer asserts exactly thirteen days, which omits the \"at least\" qualifier and therefore does not fully reflect the provision.",
+        "confidence": 0.73
+      }
+    },
+    {
+      "id": "C3",
+      "claim_question": "Does the law grant child laborers the same number of public holiday days as adult workers?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "child labor same holidays as adults",
+        "public holiday entitlement adult workers vs child workers",
+        "comparison child labor public holidays"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: बाल श्रमिकले वर्षमा कति दिन सार्वजनिक बिदा पाउँछ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"बाल श्रमिकले वर्षमा कति दिन सार्वजनिक बिदा पाउँछ?\",\n  \"canonical_english\": \"How many days of public holidays per year is a child laborer entitled to?\",\n  \"domain\": \"legal\",\n  \"entities\": [\"बाल श्रमिक (child laborer)\"],\n  \"implicit_context\": [\"The user is referring to the labor laws of Nepal.\"],\n  \"ambiguities\": [\"The specific age of the child (as laws differ for adolescents vs. children)\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "बाल श्रमिकले वर्षमा कति दिन सार्वजनिक बिदा पाउँछ?",
+        "canonical_english": "How many days of public holidays per year is a child laborer entitled to?",
+        "domain": "legal",
+        "entities": [
+          "बाल श्रमिक (child laborer)"
+        ],
+        "implicit_context": [
+          "The user is referring to the labor laws of Nepal."
+        ],
+        "ambiguities": [
+          "The specific age of the child (as laws differ for adolescents vs. children)"
+        ]
+      },
+      "latency_ms": 1283.8537999778055,
+      "prompt_tokens": 311,
+      "completion_tokens": 128,
+      "cost_usd": 8.23e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: How many days of public holidays per year is a child laborer entitled to?\nORIGINAL: बाल श्रमिकले वर्षमा कति दिन सार्वजनिक बिदा पाउँछ?\nDOMAIN: legal\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns legal rights and obligations regarding child labor, where incorrect information could lead to legal harm or rights violations.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns legal rights and obligations regarding child labor, where incorrect information could lead to legal harm or rights violations.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1213.9419000013731,
+      "prompt_tokens": 337,
+      "completion_tokens": 58,
+      "cost_usd": 5.69e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: How many days of public holidays per year is a child laborer entitled to?\nENTITIES: ['बाल श्रमिक (child laborer)']\nDOMAIN: legal\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What legal provision (e.g., act, ordinance, regulation) defines the entitlement to public holidays for child laborers?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"child labor public holidays law\", \"Child Labour Act public holidays\", \"legal provision child labor entitlement holidays\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"How many days of public holidays per year is a child laborer entitled to under that legal provision?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"public holidays per year child laborer\", \"child labor holiday entitlement number\", \"days of public holidays child worker\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Does the law grant child laborers the same number of public holiday days as adult workers?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"child labor same holidays as adults\", \"public holiday entitlement adult workers vs child workers\", \"comparison child labor public holidays\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What legal provision (e.g., act, ordinance, regulation) defines the entitlement to public holidays for child laborers?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "child labor public holidays law",
+              "Child Labour Act public holidays",
+              "legal provision child labor entitlement holidays"
+            ],
+            "verdict": "PARTIAL",
+            "answer": "Rule 8",
+            "evidence_span": "Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.",
+            "source_url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+            "caveats": [
+              "The evidence identifies the specific 'Rule' but does not provide the name of the overarching act, ordinance, or regulation to which the rule belongs."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SCOPE_DROPPED"
+              ],
+              "falsification_attempt": "The answer only cites \"Rule 8\" without naming the act, ordinance, or regulation that contains this rule. The claim asks for the legal provision (e.g., act, ordinance, regulation) that defines the entitlement. Providing only the rule number drops the necessary contextual scope, making the answer incomplete and not directly identifying the governing legal instrument.",
+              "confidence": 0.93
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "How many days of public holidays per year is a child laborer entitled to under that legal provision?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "public holidays per year child laborer",
+              "child labor holiday entitlement number",
+              "days of public holidays child worker"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "Thirteen days",
+            "evidence_span": "A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.",
+            "source_url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "WEAKENED",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH"
+              ],
+              "falsification_attempt": "The evidence states that a child is entitled to \"at least Thirteen days\" of public holidays, implying the entitlement could be greater than thirteen. The proposed answer asserts exactly thirteen days, which omits the \"at least\" qualifier and therefore does not fully reflect the provision.",
+              "confidence": 0.73
+            }
+          },
+          {
+            "id": "C3",
+            "claim_question": "Does the law grant child laborers the same number of public holiday days as adult workers?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "child labor same holidays as adults",
+              "public holiday entitlement adult workers vs child workers",
+              "comparison child labor public holidays"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 3897.1057000453584,
+      "prompt_tokens": 301,
+      "completion_tokens": 706,
+      "cost_usd": 0.00038310000000000004,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What legal provision (e.g., act, ordinance, regulation) defines the entitlement to public holidays for child laborers?\nEVIDENCE:\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year. (2) The annual public holiday of a child so provided pursuant to Sub-rule (1) shall be determined at the beginning of each year.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 9. Home Leave: (1) A child working in an Enterprise shall be entitled to paid home leave at the rate of One day for every twenty days of the period of work performed by him/her. The child shall have to take prior approval from the Manager before going for such a leave. The home leave to be enjoyed pursuant to Sub-rule (1) may be accumulated for a maximum period of Thirty Six days.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 4. Certificate of Eligibility: (1) Before employing a child as a Labour, an application shall be filed in the Labour office to examine his/her health in relation to his/her ability and inability to do the work, mentioning about the nature of the work and the age of the child. (2) After obtaining an application pursuant to Sub-rule (1), the Labour Office shall cause a doctor to examine the health of the child. (3) If on an examination done pursuant to Sub-rule (1), the child is found to be capable for the work, the doctor shall provide a certificate of eligibility pursuant to the Schedule.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"PARTIAL\",\n  \"answer\": \"Rule 8\",\n  \"evidence_span\": \"Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\",\n  \"source_url\": \"https://faolex.fao.org/docs/pdf/nep187179.pdf\",\n  \"caveats\": [\n    \"The evidence identifies the specific 'Rule' but does not provide the name of the overarching act, ordinance, or regulation to which the rule belongs.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "PARTIAL",
+        "answer": "Rule 8",
+        "evidence_span": "Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.",
+        "source_url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+        "caveats": [
+          "The evidence identifies the specific 'Rule' but does not provide the name of the overarching act, ordinance, or regulation to which the rule belongs."
+        ]
+      },
+      "latency_ms": 3376.0659000254236,
+      "prompt_tokens": 669,
+      "completion_tokens": 153,
+      "cost_usd": 0.00012810000000000002,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What legal provision (e.g., act, ordinance, regulation) defines the entitlement to public holidays for child laborers?\nPROPOSED ANSWER: Rule 8\nEVIDENCE SPAN: Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\nSOURCE: https://faolex.fao.org/docs/pdf/nep187179.pdf\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The answer only cites \\\"Rule 8\\\" without naming the act, ordinance, or regulation that contains this rule. The claim asks for the legal provision (e.g., act, ordinance, regulation) that defines the entitlement. Providing only the rule number drops the necessary contextual scope, making the answer incomplete and not directly identifying the governing legal instrument.\",\n  \"flags\": [\"SCOPE_DROPPED\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.93\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The answer only cites \"Rule 8\" without naming the act, ordinance, or regulation that contains this rule. The claim asks for the legal provision (e.g., act, ordinance, regulation) that defines the entitlement. Providing only the rule number drops the necessary contextual scope, making the answer incomplete and not directly identifying the governing legal instrument.",
+        "flags": [
+          "SCOPE_DROPPED"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.93
+      },
+      "latency_ms": 4237.0974000077695,
+      "prompt_tokens": 454,
+      "completion_tokens": 692,
+      "cost_usd": 0.0003914,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: How many days of public holidays per year is a child laborer entitled to under that legal provision?\nEVIDENCE:\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year. (2) The annual public holiday of a child so provided pursuant to Sub-rule (1) shall be determined at the beginning of each year.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 9. Home Leave: (1) A child working in an Enterprise shall be entitled to paid home leave at the rate of One day for every twenty days of the period of work performed by him/her. The child shall have to take prior approval from the Manager before going for such a leave. The home leave to be enjoyed pursuant to Sub-rule (1) may be accumulated for a maximum period of Thirty Six days.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 4. Certificate of Eligibility: (1) Before employing a child as a Labour, an application shall be filed in the Labour office to examine his/her health in relation to his/her ability and inability to do the work, mentioning about the nature of the work and the age of the child. (2) After obtaining an application pursuant to Sub-rule (1), the Labour Office shall cause a doctor to examine the health of the child. (3) If on an examination done pursuant to Sub-rule (1), the child is found to be capable for the work, the doctor shall provide a certificate of eligibility pursuant to the Schedule.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Thirteen days\",\n  \"evidence_span\": \"A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\",\n  \"source_url\": \"https://faolex.fao.org/docs/pdf/nep187179.pdf\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "SUPPORTED",
+        "answer": "Thirteen days",
+        "evidence_span": "A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.",
+        "source_url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+        "caveats": []
+      },
+      "latency_ms": 1194.4891999592073,
+      "prompt_tokens": 664,
+      "completion_tokens": 108,
+      "cost_usd": 0.00010960000000000001,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C2\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: How many days of public holidays per year is a child laborer entitled to under that legal provision?\nPROPOSED ANSWER: Thirteen days\nEVIDENCE SPAN: A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\nSOURCE: https://faolex.fao.org/docs/pdf/nep187179.pdf\n",
+      "raw_response": "{\n  \"claim_id\": \"C2\",\n  \"falsification_attempt\": \"The evidence states that a child is entitled to \\\"at least Thirteen days\\\" of public holidays, implying the entitlement could be greater than thirteen. The proposed answer asserts exactly thirteen days, which omits the \\\"at least\\\" qualifier and therefore does not fully reflect the provision.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\"],\n  \"verdict_after_challenge\": \"WEAKENED\",\n  \"confidence\": 0.73\n}",
+      "parsed": {
+        "claim_id": "C2",
+        "falsification_attempt": "The evidence states that a child is entitled to \"at least Thirteen days\" of public holidays, implying the entitlement could be greater than thirteen. The proposed answer asserts exactly thirteen days, which omits the \"at least\" qualifier and therefore does not fully reflect the provision.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "verdict_after_challenge": "WEAKENED",
+        "confidence": 0.73
+      },
+      "latency_ms": 2687.8129999968223,
+      "prompt_tokens": 440,
+      "completion_tokens": 627,
+      "cost_usd": 0.00035749999999999996,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does the law grant child laborers the same number of public holiday days as adult workers?\nEVIDENCE:\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year. (2) The annual public holiday of a child so provided pursuant to Sub-rule (1) shall be determined at the beginning of each year.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 9. Home Leave: (1) A child working in an Enterprise shall be entitled to paid home leave at the rate of One day for every twenty days of the period of work performed by him/her. The child shall have to take prior approval from the Manager before going for such a leave. The home leave to be enjoyed pursuant to Sub-rule (1) may be accumulated for a maximum period of Thirty Six days.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 4. Certificate of Eligibility: (1) Before employing a child as a Labour, an application shall be filed in the Labour office to examine his/her health in relation to his/her ability and inability to do the work, mentioning about the nature of the work and the age of the child. (2) After obtaining an application pursuant to Sub-rule (1), the Labour Office shall cause a doctor to examine the health of the child. (3) If on an examination done pursuant to Sub-rule (1), the child is found to be capable for the work, the doctor shall provide a certificate of eligibility pursuant to the Schedule.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1222.8328000055626,
+      "prompt_tokens": 662,
+      "completion_tokens": 63,
+      "cost_usd": 9.140000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: PARTIAL_ANSWER\nCLAIMS: [C1] (supporting) Q: What legal provision (e.g., act, ordinance, regulation) defines the entitlement to public holidays for child laborers?\n  verdict=PARTIAL answer=Rule 8\n  evidence_span=Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\n  source=https://faolex.fao.org/docs/pdf/nep187179.pdf\n  caveats=[\"The evidence identifies the specific 'Rule' but does not provide the name of the overarching act, ordinance, or regulation to which the rule belongs.\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SCOPE_DROPPED'], 'falsification_attempt': 'The answer only cites \"Rule 8\" without naming the act, ordinance, or regulation that contains this rule. The claim asks for the legal provision (e.g., act, ordinance, regulation) that defines the entitlement. Providing only the rule number drops the necessary contextual scope, making the answer incomplete and not directly identifying the governing legal instrument.', 'confidence': 0.93}\n[C2] (critical) Q: How many days of public holidays per year is a child laborer entitled to under that legal provision?\n  verdict=SUPPORTED answer=Thirteen days\n  evidence_span=A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\n  source=https://faolex.fao.org/docs/pdf/nep187179.pdf\n  caveats=[]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence states that a child is entitled to \"at least Thirteen days\" of public holidays, implying the entitlement could be greater than thirteen. The proposed answer asserts exactly thirteen days, which omits the \"at least\" qualifier and therefore does not fully reflect the provision.', 'confidence': 0.73}\n[C3] (supporting) Q: Does the law grant child laborers the same number of public holiday days as adult workers?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"बालश्रममा संलग्न बालबालिकाले वर्षमा कम्तीमा १३ दिन पूर्ण तलबसहितको सार्वजनिक बिदा पाउने व्यवस्था नियम ८ मा गरिएको छ [1] ।\\n\\nयो कुरा पुष्टि गर्न सकिएन\\n- के कानुनले बालश्रमिकलाई वयस्क कामदार सरहको सार्वजनिक बिदा दिन्छ कि दिँदैन भन्ने कुरा पुष्टि हुन सकेन ।\\n\\nसावधानी:\\nप्रमाणले 'नियम ८' को उल्लेख गरे पनि यो नियम कुन ऐन, अध्यादेश वा नियमावली अन्तर्गत पर्दछ भन्ने स्पष्ट जानकारी दिएको छैन ।\",\n  \"citations\": [\n    {\n      \"marker\": \"[1]\",\n      \"url\": \"https://faolex.fao.org/docs/pdf/nep187179.pdf\"\n    }\n  ]\n}\n```",
+      "parsed": {
+        "response_text": "बालश्रममा संलग्न बालबालिकाले वर्षमा कम्तीमा १३ दिन पूर्ण तलबसहितको सार्वजनिक बिदा पाउने व्यवस्था नियम ८ मा गरिएको छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन\n- के कानुनले बालश्रमिकलाई वयस्क कामदार सरहको सार्वजनिक बिदा दिन्छ कि दिँदैन भन्ने कुरा पुष्टि हुन सकेन ।\n\nसावधानी:\nप्रमाणले 'नियम ८' को उल्लेख गरे पनि यो नियम कुन ऐन, अध्यादेश वा नियमावली अन्तर्गत पर्दछ भन्ने स्पष्ट जानकारी दिएको छैन ।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://faolex.fao.org/docs/pdf/nep187179.pdf"
+          }
+        ]
+      },
+      "latency_ms": 2219.3891999777406,
+      "prompt_tokens": 823,
+      "completion_tokens": 199,
+      "cost_usd": 0.0001619,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: बालश्रममा संलग्न बालबालिकाले वर्षमा कम्तीमा १३ दिन पूर्ण तलबसहितको सार्वजनिक बिदा पाउने व्यवस्था नियम ८ मा गरिएको छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन\n- के कानुनले बालश्रमिकलाई वयस्क कामदार सरहको सार्वजनिक बिदा दिन्छ कि दिँदैन भन्ने कुरा पुष्टि हुन सकेन ।\n\nसावधानी:\nप्रमाणले 'नियम ८' को उल्लेख गरे पनि यो नियम कुन ऐन, अध्यादेश वा नियमावली अन्तर्गत पर्दछ भन्ने स्पष्ट जानकारी दिएको छैन ।\nVERIFIED CLAIMS: [C1] (supporting) Q: What legal provision (e.g., act, ordinance, regulation) defines the entitlement to public holidays for child laborers?\n  verdict=PARTIAL answer=Rule 8\n  evidence_span=Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\n  source=https://faolex.fao.org/docs/pdf/nep187179.pdf\n  caveats=[\"The evidence identifies the specific 'Rule' but does not provide the name of the overarching act, ordinance, or regulation to which the rule belongs.\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SCOPE_DROPPED'], 'falsification_attempt': 'The answer only cites \"Rule 8\" without naming the act, ordinance, or regulation that contains this rule. The claim asks for the legal provision (e.g., act, ordinance, regulation) that defines the entitlement. Providing only the rule number drops the necessary contextual scope, making the answer incomplete and not directly identifying the governing legal instrument.', 'confidence': 0.93}\n[C2] (critical) Q: How many days of public holidays per year is a child laborer entitled to under that legal provision?\n  verdict=SUPPORTED answer=Thirteen days\n  evidence_span=A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year.\n  source=https://faolex.fao.org/docs/pdf/nep187179.pdf\n  caveats=[]\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence states that a child is entitled to \"at least Thirteen days\" of public holidays, implying the entitlement could be greater than thirteen. The proposed answer asserts exactly thirteen days, which omits the \"at least\" qualifier and therefore does not fully reflect the provision.', 'confidence': 0.73}\n[C3] (supporting) Q: Does the law grant child laborers the same number of public holiday days as adult workers?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Provision has been made in Rule 8 that children engaged in child labor shall get at least 13 days of public holidays with full salary per year [1].\\n\\nThis matter could not be confirmed\\n- Whether the law gives child laborers public holidays equal to adult workers or not could not be confirmed.\\n\\nCaution:\\nAlthough the evidence mentions 'Rule 8', it has not given clear information about which Act, Ordinance, or Regulation this rule falls under.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "Provision has been made in Rule 8 that children engaged in child labor shall get at least 13 days of public holidays with full salary per year [1].\n\nThis matter could not be confirmed\n- Whether the law gives child laborers public holidays equal to adult workers or not could not be confirmed.\n\nCaution:\nAlthough the evidence mentions 'Rule 8', it has not given clear information about which Act, Ordinance, or Regulation this rule falls under.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 2457.0997999981046,
+      "prompt_tokens": 801,
+      "completion_tokens": 130,
+      "cost_usd": 0.00013209999999999999,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0018943,
+  "total_latency_ms": 2795.8295999560505,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

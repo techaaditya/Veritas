@@ -1,0 +1,292 @@
+{
+  "run_id": "7b1615739c4c",
+  "question": "ORS घोल बनाउँदा कति चम्चा चिनी र कति चम्चा नुन मिसाउने?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "एक लिटर पानीमा कति चम्चा चिनी र नुन हाल्नुपर्छ भन्ने कुरा र ती चम्चाहरू लेभल (level) हुनुपर्छ कि हुदैन भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "How many teaspoons of sugar are recommended for a standard oral rehydration solution (ORS) per liter of water?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "ORS sugar teaspoons",
+        "oral rehydration solution recipe sugar",
+        "WHO ORS sugar amount"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "How many teaspoons of salt are recommended for a standard oral rehydration solution (ORS) per liter of water?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "ORS salt teaspoons",
+        "oral rehydration solution recipe salt",
+        "WHO ORS salt amount"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Should the teaspoons of sugar and salt used in the ORS recipe be level (not heaped) teaspoons?",
+      "claim_type": "procedural",
+      "criticality": "supporting",
+      "search_terms": [
+        "ORS level teaspoon",
+        "ORS measurement instructions",
+        "how to measure ORS ingredients"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: ORS घोल बनाउँदा कति चम्चा चिनी र कति चम्चा नुन मिसाउने?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"ORS घोल बनाउँदा कति चम्चा चिनी र कति चम्चा नुन मिसाउने?\",\n  \"canonical_english\": \"How many spoons of sugar and how many spoons of salt should be mixed when making an ORS solution?\",\n  \"domain\": \"health\",\n  \"entities\": [\"ORS\"],\n  \"implicit_context\": [\"The user is referring to a homemade oral rehydration solution (home-made ORS) rather than a pre-packaged sachet.\"],\n  \"ambiguities\": [\"The size/volume of the spoon being used\", \"The total volume of water being used\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "ORS घोल बनाउँदा कति चम्चा चिनी र कति चम्चा नुन मिसाउने?",
+        "canonical_english": "How many spoons of sugar and how many spoons of salt should be mixed when making an ORS solution?",
+        "domain": "health",
+        "entities": [
+          "ORS"
+        ],
+        "implicit_context": [
+          "The user is referring to a homemade oral rehydration solution (home-made ORS) rather than a pre-packaged sachet."
+        ],
+        "ambiguities": [
+          "The size/volume of the spoon being used",
+          "The total volume of water being used"
+        ]
+      },
+      "latency_ms": 2436.5282999933697,
+      "prompt_tokens": 321,
+      "completion_tokens": 156,
+      "cost_usd": 9.449999999999999e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: How many spoons of sugar and how many spoons of salt should be mixed when making an ORS solution?\nORIGINAL: ORS घोल बनाउँदा कति चम्चा चिनी र कति चम्चा नुन मिसाउने?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"Incorrect ratios for Oral Rehydration Salts (ORS) can lead to improper electrolyte balance, posing a physical risk to the patient.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "Incorrect ratios for Oral Rehydration Salts (ORS) can lead to improper electrolyte balance, posing a physical risk to the patient.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1442.7155999583192,
+      "prompt_tokens": 353,
+      "completion_tokens": 60,
+      "cost_usd": 5.9300000000000005e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: How many spoons of sugar and how many spoons of salt should be mixed when making an ORS solution?\nENTITIES: ['ORS']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"How many teaspoons of sugar are recommended for a standard oral rehydration solution (ORS) per liter of water?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"ORS sugar teaspoons\", \"oral rehydration solution recipe sugar\", \"WHO ORS sugar amount\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"How many teaspoons of salt are recommended for a standard oral rehydration solution (ORS) per liter of water?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"ORS salt teaspoons\", \"oral rehydration solution recipe salt\", \"WHO ORS salt amount\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Should the teaspoons of sugar and salt used in the ORS recipe be level (not heaped) teaspoons?\",\n      \"claim_type\": \"procedural\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ORS level teaspoon\", \"ORS measurement instructions\", \"how to measure ORS ingredients\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "How many teaspoons of sugar are recommended for a standard oral rehydration solution (ORS) per liter of water?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "ORS sugar teaspoons",
+              "oral rehydration solution recipe sugar",
+              "WHO ORS sugar amount"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "How many teaspoons of salt are recommended for a standard oral rehydration solution (ORS) per liter of water?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "ORS salt teaspoons",
+              "oral rehydration solution recipe salt",
+              "WHO ORS salt amount"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Should the teaspoons of sugar and salt used in the ORS recipe be level (not heaped) teaspoons?",
+            "claim_type": "procedural",
+            "criticality": "supporting",
+            "search_terms": [
+              "ORS level teaspoon",
+              "ORS measurement instructions",
+              "how to measure ORS ingredients"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 2626.3854000135325,
+      "prompt_tokens": 301,
+      "completion_tokens": 753,
+      "cost_usd": 0.0004066,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: How many teaspoons of sugar are recommended for a standard oral rehydration solution (ORS) per liter of water?\nEVIDENCE:\n[source: https://pubmed.ncbi.nlm.nih.gov/2456720/]\nClipboard, Search History, and several other advanced features are temporarily unavailable.\n\n\n[Skip to main page content](https://pubmed.ncbi.nlm.nih.gov/2456720/#article-details)\n\n![Dot gov](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-dot-gov.svg)\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before\nsharing sensitive information, make sure you’re on a federal\ngovernment site.\n\n\n![Https](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-https.svg)\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the\nofficial website and that any information you provide is encrypted\nand transmitted securely.\n\n\n[Access keys](https://www.ncbi.nlm.nih.gov/guide/browsers/#ncbi_accesskeys) [NCBI Homepage](https://www.ncbi.nlm.nih.gov/) [MyNCBI Homepage](https://pubmed.ncbi.nlm.nih.gov/myncbi/) [Main Content](https://pubmed.ncbi.nlm.nih.gov/2456720/#maincontent) [Main Navigation](https://pubmed.ncbi.nlm.nih.gov/2456720/#)\n\n[![pubmed logo](https://cdn.ncbi.nlm.nih.gov/pubmed/af7de7da-df5d-41c6-8de4-8c266af8ccfb/core/images/pubmed-logo-blue.svg)](https://pubmed.ncbi.nlm.nih.gov/)[Show search bar](https://pubmed.ncbi.nlm.\n\n[source: https://pubmed.ncbi.nlm.nih.gov/2456720/]\nnih.gov/2456720/# \"Show search bar\")\n\nSearch:\n\n\n```\n\n```\n\n[Clear search input](https://pubmed.ncbi.nlm.nih.gov/2456720/# \"Clear search input\") Search\n\n[Advanced](https://pubmed.ncbi.nlm.nih.gov/advanced/) [Clipboard](https://pubmed.ncbi.nlm.nih.gov/clipboard/)\n\n[User Guide](https://pubmed.ncbi.nlm.nih.gov/help/)\n\nSave\n\nEmail\n\n\nSend to\n\n- [Clipboard](https://pubmed.ncbi.nlm.nih.gov/2456720/#)\n- [My Bibliography](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F2456720%2F%23open-bibliography-panel)\n- [Collections](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F2456720%2F%23open-collections-panel)\n- [Citation manager](https://pubmed.ncbi.nlm.nih.gov/2456720/#)\n\nDisplay options\n\nDisplay options\n\n\nFormat\nAbstractPubMedPMID\n\n## Save citation to file\n\nFormat:\nSummary (text)PubMedPMIDAbstract (text)CSV\n\nCreate file\n\nCancel\n\n\n## Email citation\n\nEmail address has not been verified. Go to\n[My NCBI account settings](https://account.ncbi.nlm.nih.gov/settings/)\nto confirm your email and then refresh this page.\n\n\nTo:\n\n\nSubject:\n\n\nBody:\n\n\nFormat:\nSummarySummary (text)AbstractAbstract (text)\n\nMeSH and other data\n\n\nSend email\n\nCan\n\n[source: https://www.sciencedirect.com/topics/nursing-and-health-professions/oral-rehydration-solution]\n[Skip to Main content](https://www.sciencedirect.com/topics/nursing-and-health-professions/oral-rehydration-solution#main_content \"Skip to Main content\")\n\n# Oral Rehydration Solution\n\nIn subject area: [Nursing and Health Professions](https://www.sciencedirect.com/topics/nursing-and-health-professions)\n\nOral rehydration solution is defined as a fluid containing specific electrolytes, such as sodium chloride and potassium chloride, mixed in water to effectively replenish lost fluids and electrolytes in individuals experiencing dehydration.\n\nAI generated definition based on: [Field Guide to Wilderness Medicine (Third Edition), 2008](https://www.sciencedirect.com/science/article/pii/B9781416046981500114)\n\nHow useful is this definition?\n\nPress Enter to select rating, 1 out of 3 starsPress Enter to select rating, 2 out of 3 starsPress Enter to select rating, 3 out of 3 stars\n\nAbout this page\n\n[Add to Mendeley](https://www.mendeley.com/reference-management/web-importer?utm_source=science_direct&utm_campaign=web_importer_cross_sell) Set alert\n\nShare topic\n\n## Also in subject area:\n\n- [Pharmacology, Toxicology and Pharmaceutical Science](https://www.sciencedirect.com/topics/pharmacology-tox\n\n[source: https://www.sciencedirect.com/topics/nursing-and-health-professions/oral-rehydration-solution]\nicology-and-pharmaceutical-science/oral-rehydration-solution)\n\n[Discover more topics](https://www.sciencedirect.com/topics)\n\n## Chapters and Articles\n\nYou might find these chapters and articles relevant to this topic.\n\nChapter\n\n## [International Travel with Infants and Children](https://www.sciencedirect.com/science/article/pii/B9780702034817500128)\n\n[2009, CDC Health Information for International Travel 2010](https://www.sciencedirect.com/book/9780702034817/cdc-health-information-for-international-travel-2010) Nicholas Weinberg, ... Chandy C. John\n\n### Oral Rehydration Solution (ORS) Use and Availability\n\nORS packets are available at stores or pharmacies in almost all developing countries. (See information below regarding ORS availability in the United States.)\n\n•\n\nORS is prepared by adding one packet to boiled or treated water. Travelers should be advised to check packet instructions carefully to ensure that the salts are added to the correct volume of water.\n\n•\n\nORS solution should be consumed or discarded within 12 hours if held at room temperature or 24 hours if kept refrigerated.\n\n•\n\nA dehydrated child will drink ORS avidly; travelers should be advised to give it to the child\n\n[source: https://drkumardiscovery.com/posts/oral-rehydration-for-adults-treatment-guide/]\n[Skip to content](https://drkumardiscovery.com/posts/oral-rehydration-for-adults-treatment-guide/#main-content)\n\n![Glass of oral rehydration solution on a table with salt and sugar ingredients](https://drkumardiscovery.com/img/posts/oral-rehydration-for-adults-treatment-guide.jpg?v=1787505300)\n\n## Dr. Kumar’s Take:\n\nFor adults, dehydration from diarrhea, fever, or heat illness can develop quickly, but it’s preventable. Oral rehydration therapy works by harnessing the body’s sodium glucose transport mechanism. The key is using the correct ratio of ingredients. This post walks through how to make it safely, why it works, and when to seek medical care.\n\n![The Dr Kumar Discovery Podcast](https://drkumardiscovery.com/img/podcast-cover.jpg)\n\nPodcast\n\n### The Dr Kumar Discovery\n\nWhere science meets common sense. Practical, unbiased answers to today's biggest health questions.\n\n[Apple Podcasts](https://podcasts.apple.com/us/podcast/the-dr-kumar-discovery/id1808415094) [Spotify](https://open.spotify.com/show/3UJhg3Y5jjLP8zO6hbpwfT) [YouTube](https://www.youtube.com/@TheDrKumarDiscovery)\n\n[Browse all episodes →](https://drkumardiscovery.com/podcast/)\n\n## Key Takeaways:\n\n✔ **A properly mixed \n\n[source: https://drkumardiscovery.com/posts/oral-rehydration-for-adults-treatment-guide/]\nORS restores hydration as effectively as IV fluids in most mild to moderate cases.**\n\n✔ **The correct ratio of salt, sugar, and clean water is critical, too much salt can worsen dehydration.**\n\n✔ **Homemade ORS can be life-saving when commercial packets are unavailable.**\n\n✔ **Even adults benefit from prompt rehydration during illness or heat exposure.**\n\n### Get Dr. Kumar's free health protocols\n\nEvidence-based playbooks from Dr. Ravi Kumar, MD, a board-certified neurosurgeon, plus a weekly research review.\n\nEmail Address\n\nSend me the guide\n\nBy subscribing, you agree to receive emails from The Dr Kumar Discovery.\nYou can unsubscribe at any time.\n[Privacy Policy](https://drkumardiscovery.com/privacy-policy/)\n\n## Brief Summary:\n\n- **Question:** How can adults safely prepare and use oral rehydration therapy outside the hospital?\n- **Population:** Adults with mild to moderate dehydration from illness or environmental causes.\n- **Design:** Practical clinical synthesis based on WHO and emergency care guidelines.\n- **Focus:** Safe recipe, dosing, and signs for escalation of care.\n- **Outcome:** Effective hydration without IV fluids in appropriate cases.\n\n## Study Design:\n\n✔ **Type:** Cli\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1924.9054999672808,
+      "prompt_tokens": 2510,
+      "completion_tokens": 63,
+      "cost_usd": 0.00027620000000000005,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: How many teaspoons of salt are recommended for a standard oral rehydration solution (ORS) per liter of water?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1002/hsr2.827) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/pdf/HSR2-5-e827.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article permal\n\n[source: https://www.sciencedirect.com/topics/nursing-and-health-professions/oral-rehydration-solution]\n[Skip to Main content](https://www.sciencedirect.com/topics/nursing-and-health-professions/oral-rehydration-solution#main_content \"Skip to Main content\")\n\n# Oral Rehydration Solution\n\nIn subject area: [Nursing and Health Professions](https://www.sciencedirect.com/topics/nursing-and-health-professions)\n\nOral rehydration solution is defined as a fluid containing specific electrolytes, such as sodium chloride and potassium chloride, mixed in water to effectively replenish lost fluids and electrolytes in individuals experiencing dehydration.\n\nAI generated definition based on: [Field Guide to Wilderness Medicine (Third Edition), 2008](https://www.sciencedirect.com/science/article/pii/B9781416046981500114)\n\nHow useful is this definition?\n\nPress Enter to select rating, 1 out of 3 starsPress Enter to select rating, 2 out of 3 starsPress Enter to select rating, 3 out of 3 stars\n\nAbout this page\n\n[Add to Mendeley](https://www.mendeley.com/reference-management/web-importer?utm_source=science_direct&utm_campaign=web_importer_cross_sell) Set alert\n\nShare topic\n\n## Also in subject area:\n\n- [Pharmacology, Toxicology and Pharmaceutical Science](https://www.sciencedirect.com/topics/pharmacology-tox\n\n[source: https://www.sciencedirect.com/topics/nursing-and-health-professions/oral-rehydration-solution]\nicology-and-pharmaceutical-science/oral-rehydration-solution)\n\n[Discover more topics](https://www.sciencedirect.com/topics)\n\n## Chapters and Articles\n\nYou might find these chapters and articles relevant to this topic.\n\nChapter\n\n## [International Travel with Infants and Children](https://www.sciencedirect.com/science/article/pii/B9780702034817500128)\n\n[2009, CDC Health Information for International Travel 2010](https://www.sciencedirect.com/book/9780702034817/cdc-health-information-for-international-travel-2010) Nicholas Weinberg, ... Chandy C. John\n\n### Oral Rehydration Solution (ORS) Use and Availability\n\nORS packets are available at stores or pharmacies in almost all developing countries. (See information below regarding ORS availability in the United States.)\n\n•\n\nORS is prepared by adding one packet to boiled or treated water. Travelers should be advised to check packet instructions carefully to ensure that the salts are added to the correct volume of water.\n\n•\n\nORS solution should be consumed or discarded within 12 hours if held at room temperature or 24 hours if kept refrigerated.\n\n•\n\nA dehydrated child will drink ORS avidly; travelers should be advised to give it to the child\n\n[source: https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors]\n## Cookie settings\n\nCookies are small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Your browser stores each message in a small file, called cookie. When you request another page from the server, your browser sends the cookie back to the server. Cookies were designed to be a reliable mechanism for websites to remember information or to record the user's browsing activity.\n\n×\n\nStrictly Necessary Cookies✔\n\n### Strictly Necessary Cookies\n\nAffected solutions:\n\n- Google Analytics\n\nSave current settingsAccept all cookies and close\n\nBy entering this website, you consent to the use of technologies, such as cookies and analytics. These will be used to analyse traffic to the website, allowing us to understand visitor preferences and improve our services.\n\n[Learn more](https://www.ifrc.org/disclaimer)I accept\n\n✕\n\nDownloading content for offline mode\n\n\n0%\n\nCancel download\n\n[Skip to main content](https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors#main-content)\n\n09\\. Preparing oral rehydration solution (ORS)\n\n[Download full volunteer action packageDownload icon](https://epidemics.ifrc.\n\n[source: https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors]\norg/pdf/154)\n\n![volunter-message-icon](https://epidemics.ifrc.org/themes/custom/ect_theme/images/svg/actions_related_hydration.svg)\n\n# 09\\. Preparing oral rehydration solution (ORS)\n\nLast update: 2023-03-31\n\n\n[Download full volunteer action packageDownload icon](https://epidemics.ifrc.org/pdf/154)\n\nCommunity messages\n\n\n[![](https://epidemics.ifrc.org/sites/default/files/styles/bounding_box_message_thumbnail/public/volunteer/message/2022-04/IFRC_preparing%20ORS%20illustration.png?itok=E74l1vap)](https://epidemics.ifrc.org/volunteer/community-message/01-preparing-and-giving-oral-rehydration-solution-ors)\n\n[![pdf-download-icon](https://epidemics.ifrc.org/themes/custom/ect_theme/images/svg/pdf.svg)](https://epidemics.ifrc.org/pdf/116)[01\\. Preparing and giving oral rehydration solution (ORS)](https://epidemics.ifrc.org/volunteer/community-message/01-preparing-and-giving-oral-rehydration-solution-ors)\n\n### Overview\n\nOral rehydration solution (ORS) is the first step in managing people suffering from diarrhoea and dehydration. ORS can be prepared:\n\n- Either from packets of ORS or\n- At home from traditional remedies, or water, sugar and salt.\n\n### **What to do and how to do it**\n\n1. _**How\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1610.8061000122689,
+      "prompt_tokens": 2694,
+      "completion_tokens": 63,
+      "cost_usd": 0.00029460000000000006,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Should the teaspoons of sugar and salt used in the ORS recipe be level (not heaped) teaspoons?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1002/hsr2.827) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/pdf/HSR2-5-e827.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article permal\n\n[source: https://www.youtube.com/watch?v=xWyqD_C9YV4]\nError 401 (Bad Request)!!1\n\n**401.** That’s an error.\n\nThe server cannot process the request because it is malformed. It should not be retried. That’s all we know.\n\nBack\n\n\n[![](https://www.youtube.com/watch?v=xWyqD_C9YV4)](https://www.youtube.com/ \"YouTube Home\")\n\nSkip navigation\n\nSearch\n\n\nSearch with your voice\n\n[Sign in](https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DxWyqD_C9YV4&hl=en&ec=65620)\n\nHow to make oral rehydration solutions for diarrhoea\n\nTap to unmute\n\n2x\n\n## How to make oral rehydration solutions for diarrhoea\n\nStanford Center for Health Education 96,053 views 2 years ago\n\nCopy link\n\nInfo\n\nShopping\n\n![](https://i.ytimg.com/an/xdM_BlltGbSjch5BVzrhag/featured_channel.jpg?v=5ca63f17)\n\nIf playback doesn't begin shortly, try restarting your device.\n\n•\n\nYou're signed out\n\nVideos you watch may be added to the TV's watch history and influence TV recommendations. To avoid this, cancel and sign in to YouTube on your computer.\n\nCancelConfirm\n\nUp next\n\nLive\n\nUpcoming\n\nCancelPlay Now\n\n\n[source: https://www.youtube.com/watch?v=xWyqD_C9YV4]\n\nShare\n\nInclude playlist\n\nAn error occurred while retrieving sharing information. Please try again later.\n\n0:00\n\n[Next (SHIFT+n)](https://www.youtube.com/watch?v=suq9ZT3S0nw)\n\n0:00 / 4:24\n\nLive\n\n•Watch full video\n\n•\n\n•\n\n[5:39\\\\\nHow to care for a child with diarrhoeaStanford Center for Health Education7.8K views • 2 years agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=suq9ZT3S0nw) [7:57\\\\\nShe’s 12. She Sings Aretha Franklin… Until Simon TELLS Her to Do It Acapella! 😳Top Talent8.7M views • 9 months agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=HLxDp5rZmIs) [24:53\\\\\nPOOR vs RICH Cruise Battle in Minecraft!PrestonPlayz567K views • 1 day agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=Lx_jIEBFxek) [8:01\\\\\nIf Your Dog Stretches When They See You… This Is What It Really MeansTom Davis Dog Training 2.2M views • 4 months agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=wmhR3ZKRBvw) [29:27\\\\\nTherapist Reacts to CLOUDY WITH A CHANCE OF MEATBALLSCinema Therapy218K views • 6 days agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=Bc9BwKAZB8Y) [42:04\\\\\n50 Ways To Use A WatermelonNick DiGiovanni80M views • 2 years agoLivePlaylist ()M\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 2010.6240999884903,
+      "prompt_tokens": 2206,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002458,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: How many teaspoons of sugar are recommended for a standard oral rehydration solution (ORS) per liter of water?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (critical) Q: How many teaspoons of salt are recommended for a standard oral rehydration solution (ORS) per liter of water?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Should the teaspoons of sugar and salt used in the ORS recipe be level (not heaped) teaspoons?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"एक लिटर पानीमा कति चम्चा चिनी र नुन हाल्नुपर्छ भन्ने कुरा र ती चम्चाहरू लेभल (level) हुनुपर्छ कि हुदैन भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "एक लिटर पानीमा कति चम्चा चिनी र नुन हाल्नुपर्छ भन्ने कुरा र ती चम्चाहरू लेभल (level) हुनुपर्छ कि हुदैन भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 2229.6935000340454,
+      "prompt_tokens": 496,
+      "completion_tokens": 95,
+      "cost_usd": 8.760000000000002e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: एक लिटर पानीमा कति चम्चा चिनी र नुन हाल्नुपर्छ भन्ने कुरा र ती चम्चाहरू लेभल (level) हुनुपर्छ कि हुदैन भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: How many teaspoons of sugar are recommended for a standard oral rehydration solution (ORS) per liter of water?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (critical) Q: How many teaspoons of salt are recommended for a standard oral rehydration solution (ORS) per liter of water?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Should the teaspoons of sugar and salt used in the ORS recipe be level (not heaped) teaspoons?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"It could not be confirmed how many spoons of sugar and salt should be put in one liter of water and whether those spoons should be level or not. Please consult a qualified health worker or doctor for this.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "It could not be confirmed how many spoons of sugar and salt should be put in one liter of water and whether those spoons should be level or not. Please consult a qualified health worker or doctor for this.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 905.6016000104137,
+      "prompt_tokens": 427,
+      "completion_tokens": 72,
+      "cost_usd": 7.15e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0015361,
+  "total_latency_ms": 13562.2228999855,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

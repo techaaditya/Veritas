@@ -1,0 +1,387 @@
+{
+  "run_id": "9172c2d2b4be",
+  "question": "पाँच वर्षको बच्चालाई प्यारासिटामोल सिरप कति ml दिने?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "बच्चाहरूका लागि प्यारासिटामोलको सिफारिस गरिएको मात्रा प्रति किलो शरीरको तौल अनुसार १०-१५ mg/kg/dose हुन्छ [1]।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- प्यारासिटामोल सिरपको मानक सांद्रता (concentration) कति हुन्छ।\n- पाँच वर्षको बच्चाको औसत तौल कति हुन्छ।\n- १५ mg/kg को मात्रा, १८ kg तौल र २४ mg/ml सांद्रता भएको सिरप प्रयोग गर्दा एक पटकमा कति मिलिलिटर (ml) औषधि दिनुपर्छ।\n\nऔषधिको सही मात्रा निर्धारण गर्नका लागि कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।",
+  "citations": [
+    {
+      "marker": "[1]",
+      "url": "https://emedicine.medscape.com/article/2172407-overview"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the recommended paracetamol dose for children per kilogram of body weight per dose?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol pediatric dose mg per kg",
+        "acetaminophen child dosage"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "10-15 mg/kg/dose",
+      "evidence_span": "When possible, dose acetaminophen based on a child’s weight, using 10-15 mg/kg/dose.",
+      "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "HOLDS",
+        "flags": [
+          "NONE"
+        ],
+        "falsification_attempt": "",
+        "confidence": 0.93
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "What is the concentration of standard paracetamol syrup (mg of paracetamol per milliliter)?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol syrup concentration mg per ml",
+        "acetaminophen syrup strength"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "What is the typical weight (in kilograms) of a five‑year‑old child?",
+      "claim_type": "numeric",
+      "criticality": "supporting",
+      "search_terms": [
+        "average weight five year old child",
+        "five year old child typical weight kg"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Given a dose of 15 mg/kg, a child weight of 18 kg, and a syrup concentration of 24 mg/ml, how many milliliters of paracetamol syrup constitute one dose?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol dose calculation ml",
+        "convert mg to ml paracetamol syrup"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: पाँच वर्षको बच्चालाई प्यारासिटामोल सिरप कति ml दिने?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"पाँच वर्षको बच्चालाई प्यारासिटामोल सिरप कति ml दिने?\",\n  \"canonical_english\": \"What is the dosage in ml of paracetamol syrup for a five-year-old child?\",\n  \"domain\": \"health\",\n  \"entities\": [\"paracetamol syrup\"],\n  \"implicit_context\": [\"The child has a fever or pain\"],\n  \"ambiguities\": [\"child's weight\", \"concentration of the syrup (mg/ml)\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "पाँच वर्षको बच्चालाई प्यारासिटामोल सिरप कति ml दिने?",
+        "canonical_english": "What is the dosage in ml of paracetamol syrup for a five-year-old child?",
+        "domain": "health",
+        "entities": [
+          "paracetamol syrup"
+        ],
+        "implicit_context": [
+          "The child has a fever or pain"
+        ],
+        "ambiguities": [
+          "child's weight",
+          "concentration of the syrup (mg/ml)"
+        ]
+      },
+      "latency_ms": 1267.2793999663554,
+      "prompt_tokens": 314,
+      "completion_tokens": 129,
+      "cost_usd": 8.3e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: What is the dosage in ml of paracetamol syrup for a five-year-old child?\nORIGINAL: पाँच वर्षको बच्चालाई प्यारासिटामोल सिरप कति ml दिने?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The request asks for specific drug dosing for a pediatric patient, which carries a high risk of physical harm if incorrect.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The request asks for specific drug dosing for a pediatric patient, which carries a high risk of physical harm if incorrect.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1867.520899977535,
+      "prompt_tokens": 344,
+      "completion_tokens": 58,
+      "cost_usd": 5.7600000000000004e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: What is the dosage in ml of paracetamol syrup for a five-year-old child?\nENTITIES: ['paracetamol syrup']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the recommended paracetamol dose for children per kilogram of body weight per dose?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"paracetamol pediatric dose mg per kg\", \"acetaminophen child dosage\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"What is the concentration of standard paracetamol syrup (mg of paracetamol per milliliter)?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"paracetamol syrup concentration mg per ml\", \"acetaminophen syrup strength\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"What is the typical weight (in kilograms) of a five‑year‑old child?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"average weight five year old child\", \"five year old child typical weight kg\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Given a dose of 15 mg/kg, a child weight of 18 kg, and a syrup concentration of 24 mg/ml, how many milliliters of paracetamol syrup constitute one dose?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"paracetamol dose calculation ml\", \"convert mg to ml paracetamol syrup\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the recommended paracetamol dose for children per kilogram of body weight per dose?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol pediatric dose mg per kg",
+              "acetaminophen child dosage"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "10-15 mg/kg/dose",
+            "evidence_span": "When possible, dose acetaminophen based on a child’s weight, using 10-15 mg/kg/dose.",
+            "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "HOLDS",
+              "flags": [
+                "NONE"
+              ],
+              "falsification_attempt": "",
+              "confidence": 0.93
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "What is the concentration of standard paracetamol syrup (mg of paracetamol per milliliter)?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol syrup concentration mg per ml",
+              "acetaminophen syrup strength"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "What is the typical weight (in kilograms) of a five‑year‑old child?",
+            "claim_type": "numeric",
+            "criticality": "supporting",
+            "search_terms": [
+              "average weight five year old child",
+              "five year old child typical weight kg"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Given a dose of 15 mg/kg, a child weight of 18 kg, and a syrup concentration of 24 mg/ml, how many milliliters of paracetamol syrup constitute one dose?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol dose calculation ml",
+              "convert mg to ml paracetamol syrup"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 4108.324599976186,
+      "prompt_tokens": 299,
+      "completion_tokens": 1139,
+      "cost_usd": 0.0005994,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended paracetamol dose for children per kilogram of body weight per dose?\nEVIDENCE:\n[source: https://emedicine.medscape.com/article/2172407-overview]\nprocessing....\n\n[Tools & Reference](https://reference.medscape.com/) > [Protocols](https://reference.medscape.com/guide/protocols)\n\n# Pediatric Acetaminophen Dosing Guidelines\n\nUpdated: Aug 19, 2024\n\n\n- Author: Abimbola Farinde, PharmD, PhD; more...\n\n- 17\n- Print\n- Feedback\n\nClose\n\n- [Facebook](https://emedicine.medscape.com/article/2172407-overview#)\n- [Twitter](https://emedicine.medscape.com/article/2172407-overview#)\n- [LinkedIn](https://emedicine.medscape.com/article/2172407-overview#)\n- [WhatsApp](https://emedicine.medscape.com/article/2172407-overview#)\n- [Email](https://emedicine.medscape.com/article/2172407-overview#)\n\nSections\n\n[Pediatric Acetaminophen Dosing Guidelines](https://emedicine.medscape.com/article/2172407-overview)\n\n- Sections Pediatric Acetaminophen Dosing Guidelines\n\n- [Pediatric Acetaminophen Dosing](https://emedicine.medscape.com/article/2172407-overview#a1)\n- [Show All](https://emedicine.medscape.com/article/2172407-overview#showall)\n- References\n\n## Pediatric Acetaminophen Dosing\n\n### Pediatric acetaminophen (eg, Children's Tylenol)\n\nWhen possible, dose [acetaminophen](https://reference.medscape.com/drug/tylenol-acetaminophen-343346) based on a child’s we\n\n[source: https://emedicine.medscape.com/article/2172407-overview]\night, using 10-15 mg/kg/dose. \\[1, 2, 3, 4, 5, 6\\]  Give PO every 4-6 hours and do not exceed more than 5 doses (2.6 g) in 24 hours. When weight is unknown, the following guidelines based on age may be used. \\[7\\]\n\nAge 0-3 months (weight, 6-11 lbs \\[2.7-5.3 kg\\])\n\n- Dose: 40 mg/dose\n\n- Oral suspension (160 mg/5 mL): 1.25 mL\n\n\nAge 4-11 months (weight, 12-17 lbs \\[5.4-8.1 kg\\])\n\n- Dose: 80 mg/dose\n\n- Oral suspension (160 mg/5 mL): 2.5 mL\n\n\nAge 12-23 months (weight, 18-23 lbs \\[8.2-10.8 kg\\])\n\n- Dose: 120 mg/dose\n\n- Oral suspension (160 mg/5 mL): 3.75 mL\n\n- Chewable tablets (80 mg/tab): 1.5 tablets\n\n\nAge 2-3 years (weight, 24-35 lbs \\[10.9-16.3 kg\\])\n\n- Dose: 160 mg/dose\n\n- Oral suspension (160 mg/5 mL): 5 mL\n\n- Chewable tablets (80 mg/tab): 2 tablets\n\n- Chewable tablets (160 mg/tab): 1 tablet\n\n\nAge 4-5 years (weight, 36-47 lbs \\[16.4-21.7 kg\\])\n\n- Dose: 240 mg/dose\n\n- Oral suspension (160 mg/5 mL): 7.5 mL\n\n- Chewable tablets (80 mg/tab): 3 tablets\n\n- Chewable tablets (160 mg/tab): 1.5 tablets\n\n\nAge 6-8 years (weight, 48-59 lbs \\[21.8-27.2 kg\\])\n\n- Dose: 320 mg/dose\n\n- Oral suspension (160 mg/5 mL): 10 mL\n\n- Chewable tablets (80 mg/tab): 4 tablets\n\n- Chewable tablets (160 mg/tab): 2 t\n\n[source: https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html]\n[Skip to main content](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#main-content)\n\n[MSF.org](https://www.msf.org/ \"go to msf.org site\")\n\n[MSF Staff](https://medicalguidelines.msf.org/en/user/login)\n\nEnglish\n\n- [English](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html)\n- [العربية](https://medicalguidelines.msf.org/ar/node/492)\n- [Español](https://medicalguidelines.msf.org/es/viewport/EssDr/spanish/paracetamol-acetaminofen-oral-22282995.html)\n- [Français](https://medicalguidelines.msf.org/fr/viewport/EssDr/francais/paracetamol-acetaminophene-oral-16686016.html)\n\n.هذه الصفحة غير متاحة باللغة العربية\n\nEsta página no está disponible en este idioma.\n\nCette page n’est pas disponible dans cette langue.\n\nThis page is not available in this language.\n\n# PARACETAMOL = ACETAMINOPHEN oral\n\nSelect language:\n\n\nEnglish\n\n\n(Arabic) العربية\n\n\nEspañol (Spanish)\n\n\nFrançais (French)\n\n\n[Enter](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html)\n\n[Permalink](https://medicalguidelines.msf.org/en/node/492)\n\n## Send feedback about this page \n\n[source: https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html]\nor ask a general question\n\nName\n\nEmail\n\nYour message\n\nThis site is protected by reCAPTCHA and the Google\n[Privacy Policy](https://policies.google.com/privacy \"(opens in a new window)\") and\n[Terms of Service](https://policies.google.com/terms \"(opens in a new window)\") apply.\n\n[Path](https://medicalguidelines.msf.org/en/flag/flag/favorite/492/full?destination=/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html&token=cojiTj9d5uRStpSeQF6J8388BGZoy4s19YxwxQws9A0 \"\")\n\nDownload\n\nComment\n\nReturn to top\n\nOn this page\n\n- [Therapeutic action](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-1)\n- [Indications](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-2)\n- [Forms and strengths](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-3)\n- [Dosage](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-4)\n- [Duration](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"10-15 mg/kg/dose\",\n  \"evidence_span\": \"When possible, dose acetaminophen based on a child’s weight, using 10-15 mg/kg/dose.\",\n  \"source_url\": \"https://emedicine.medscape.com/article/2172407-overview\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "SUPPORTED",
+        "answer": "10-15 mg/kg/dose",
+        "evidence_span": "When possible, dose acetaminophen based on a child’s weight, using 10-15 mg/kg/dose.",
+        "source_url": "https://emedicine.medscape.com/article/2172407-overview",
+        "caveats": []
+      },
+      "latency_ms": 1891.455999983009,
+      "prompt_tokens": 2208,
+      "completion_tokens": 118,
+      "cost_usd": 0.000268,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What is the recommended paracetamol dose for children per kilogram of body weight per dose?\nPROPOSED ANSWER: 10-15 mg/kg/dose\nEVIDENCE SPAN: When possible, dose acetaminophen based on a child’s weight, using 10-15 mg/kg/dose.\nSOURCE: https://emedicine.medscape.com/article/2172407-overview\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"\",\n  \"flags\": [\"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\",\n  \"confidence\": 0.93\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "",
+        "flags": [
+          "NONE"
+        ],
+        "verdict_after_challenge": "HOLDS",
+        "confidence": 0.93
+      },
+      "latency_ms": 3606.5275000291876,
+      "prompt_tokens": 445,
+      "completion_tokens": 482,
+      "cost_usd": 0.0002855,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the typical weight (in kilograms) of a five‑year‑old child?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 3442.610100028105,
+      "prompt_tokens": 447,
+      "completion_tokens": 85,
+      "cost_usd": 7.870000000000002e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Given a dose of 15 mg/kg, a child weight of 18 kg, and a syrup concentration of 24 mg/ml, how many milliliters of paracetamol syrup constitute one dose?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1353.0014000134543,
+      "prompt_tokens": 481,
+      "completion_tokens": 86,
+      "cost_usd": 8.25e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the concentration of standard paracetamol syrup (mg of paracetamol per milliliter)?\nEVIDENCE:\n[source: https://www.drugs.com/paracetamol.html]\n[Skip to main content](https://www.drugs.com/paracetamol.html#content)\n\nClose\n\nPrint pageMy Meds\n\n# Paracetamol\n\nPlay pronunciation\n\n**Generic name:** [paracetamol](https://www.drugs.com/acetaminophen.html)\n\n**Other brand names** of paracetamol include: Panadol, Calpol, [Tylenol](https://www.drugs.com/tylenol.html), Alvedon\n\n**Dosage form:** effervescent tablet, intravenous (infusion) injection, orally disintegrating tablet, oral capsule, oral powder, oral suspension, oral tablet, suppository\n\n**Drug class:** [Miscellaneous analgesics](https://www.drugs.com/drug-class/miscellaneous-analgesics.html)\n\nMedically reviewed by [Philip Thornton, DipPharm](https://www.drugs.com/support/editor/9/philip-thornton-dippharm.html). Last updated on Sep 23, 2025.\n\n## What is paracetamol?\n\nParacetamol (Panadol, Calpol, Alvedon) is an analgesic and antipyretic drug that is used to temporarily relieve mild-to-moderate pain and fever. It is commonly included as an ingredient in cold and flu medications and is also used on its own.\n\nParacetamol is exactly the same drug as acetaminophen (Tylenol). Paracetamol is the drug's name assigned using the International Nonproprietary Name (INN) generic name syst\n\n[source: https://www.drugs.com/paracetamol.html]\nem. Paracetamol is the name used for the drug in places such as Europe, Australia, New Zealand and India. Acetaminophen is the generic name assigned using the United States Adopted Names (USAN) system. Acetaminophen is the name used in countries such as the US, Canada and Japan. Usually the INN and USAN generic names for a drug are the same and don't differ between countries.\n\nIt is not clear exactly how paracetamol works. However, it is thought to work by blocking chemical messengers in the brain that let us know when we're in pain and by affecting the chemical messengers that regulate our body temperature. The evidence suggests that paracetamol inhibits the production of prostaglandins, which are made by the body to deal with illness and injury. It's also thought to act on the serotonergic, opioid, nitric oxide and cannabinoid pathways.\n\nParacetamol was first made in 1878, but only became more widely used in the 1950s. Today paracetamol is one of the most widely used painkillers in the world. Branded and generic versions of this drug are available.\n\n## What is paracetamol used for?\n\nParacetamol is available over-the-counter (OTC) and also as a prescription medication. It is used \n\n[source: https://pubchem.ncbi.nlm.nih.gov/compound/Acetaminophen]\n# Acetaminophen\n\nPubChem CID\n\n1983\n\nStructure\n\n[![Acetaminophen_small.png](https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?cid=1983&t=s)](https://pubchem.ncbi.nlm.nih.gov/compound/Acetaminophen#section=2D-Structure \"Go to 2D Structure section\")\n\n[![Acetaminophen_3D_Structure.png](https://pubchem.ncbi.nlm.nih.gov/image/img3d.cgi?&cid=1983&t=s)](https://pubchem.ncbi.nlm.nih.gov/compound/Acetaminophen#section=3D-Conformer \"Go to 3D Conformer section\")\n\n[![Acetaminophen__Crystal_Structure.png](https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/key/30593018_1)](https://pubchem.ncbi.nlm.nih.gov/compound/Acetaminophen#section=Crystal-Structures \"Go to Crystal Structures section\")\n\nPrimary Hazards\n\n[![Irritant](https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS07.svg)](https://pubchem.ncbi.nlm.nih.gov/compound/Acetaminophen#section=GHS-Classification \"\")\n\n[Laboratory Chemical Safety Summary (LCSS) Datasheet](https://pubchem.ncbi.nlm.nih.gov/compound/Acetaminophen#datasheet=LCSS \"\")\n\nMolecular Formula\n\n- [C8H9NO2](https://pubchem.ncbi.nlm.nih.gov/#query=C8H9NO2 \"Find all compounds that have this formula\")\n- HOC6H4NHCOCH3\n\nSynonyms\n\n- acetaminophen\n- Paracetamol\n- 4-Acetamidophenol\n- 103-90\n\n[source: https://pubchem.ncbi.nlm.nih.gov/compound/Acetaminophen]\n-2\n- N-(4-Hydroxyphenyl)acetamide\n\nView More...\n\nMolecular Weight\n\n151.16 g/mol\n\nComputed by PubChem 2.2 (PubChem release 2025.09.15)\n\nDates\n\n- Create:\n\n2004-09-16\n\n- Modify:\n\n2026-08-22\n\n\nDescription\n\n4-hydroxyacetanilide is an odorless white crystalline solid. Bitter taste. pH (saturated aqueous solution) about 6. (NTP, 1992)\n\nNational Toxicology Program, Institute of Environmental Health Sciences, National Institutes of Health (NTP). 1992. National Toxicology Program Chemical Repository Database. Research Triangle Park, North Carolina.\n\nCAMEO Chemicals\n\nParacetamol is a member of the class of phenols that is [4-aminophenol](https://pubchem.ncbi.nlm.nih.gov/compound/4-aminophenol) in which one of the hydrogens attached to the amino group has been replaced by an acetyl group. It has a role as a ferroptosis inducer, a geroprotector, a non-steroidal anti-inflammatory drug, a non-narcotic analgesic, an antipyretic, a xenobiotic, a cyclooxygenase 2 inhibitor, a cyclooxygenase 1 inhibitor, a hepatotoxic agent, a cyclooxygenase 3 inhibitor, an environmental contaminant and a human blood serum metabolite. It is a member of acetamides and a member of phenols. It is functionally related to\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 6411.5846999920905,
+      "prompt_tokens": 1702,
+      "completion_tokens": 63,
+      "cost_usd": 0.00019540000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the recommended paracetamol dose for children per kilogram of body weight per dose?\n  verdict=SUPPORTED answer=10-15 mg/kg/dose\n  evidence_span=When possible, dose acetaminophen based on a child’s weight, using 10-15 mg/kg/dose.\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.93}\n[C2] (critical) Q: What is the concentration of standard paracetamol syrup (mg of paracetamol per milliliter)?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What is the typical weight (in kilograms) of a five‑year‑old child?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Given a dose of 15 mg/kg, a child weight of 18 kg, and a syrup concentration of 24 mg/ml, how many milliliters of paracetamol syrup constitute one dose?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"बच्चाहरूका लागि प्यारासिटामोलको सिफारिस गरिएको मात्रा प्रति किलो शरीरको तौल अनुसार १०-१५ mg/kg/dose हुन्छ [1]।\\n\\nयो कुरा पुष्टि गर्न सकिएन:\\n- प्यारासिटामोल सिरपको मानक सांद्रता (concentration) कति हुन्छ।\\n- पाँच वर्षको बच्चाको औसत तौल कति हुन्छ।\\n- १५ mg/kg को मात्रा, १८ kg तौल र २४ mg/ml सांद्रता भएको सिरप प्रयोग गर्दा एक पटकमा कति मिलिलिटर (ml) औषधि दिनुपर्छ।\\n\\nऔषधिको सही मात्रा निर्धारण गर्नका लागि कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\",\n  \"citations\": [\n    {\n      \"marker\": \"[1]\",\n      \"url\": \"https://emedicine.medscape.com/article/2172407-overview\"\n    }\n  ]\n}\n```",
+      "parsed": {
+        "response_text": "बच्चाहरूका लागि प्यारासिटामोलको सिफारिस गरिएको मात्रा प्रति किलो शरीरको तौल अनुसार १०-१५ mg/kg/dose हुन्छ [1]।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- प्यारासिटामोल सिरपको मानक सांद्रता (concentration) कति हुन्छ।\n- पाँच वर्षको बच्चाको औसत तौल कति हुन्छ।\n- १५ mg/kg को मात्रा, १८ kg तौल र २४ mg/ml सांद्रता भएको सिरप प्रयोग गर्दा एक पटकमा कति मिलिलिटर (ml) औषधि दिनुपर्छ।\n\nऔषधिको सही मात्रा निर्धारण गर्नका लागि कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://emedicine.medscape.com/article/2172407-overview"
+          }
+        ]
+      },
+      "latency_ms": 5533.946700044908,
+      "prompt_tokens": 710,
+      "completion_tokens": 224,
+      "cost_usd": 0.0001606,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: बच्चाहरूका लागि प्यारासिटामोलको सिफारिस गरिएको मात्रा प्रति किलो शरीरको तौल अनुसार १०-१५ mg/kg/dose हुन्छ [1]।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- प्यारासिटामोल सिरपको मानक सांद्रता (concentration) कति हुन्छ।\n- पाँच वर्षको बच्चाको औसत तौल कति हुन्छ।\n- १५ mg/kg को मात्रा, १८ kg तौल र २४ mg/ml सांद्रता भएको सिरप प्रयोग गर्दा एक पटकमा कति मिलिलिटर (ml) औषधि दिनुपर्छ।\n\nऔषधिको सही मात्रा निर्धारण गर्नका लागि कृपया योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the recommended paracetamol dose for children per kilogram of body weight per dose?\n  verdict=SUPPORTED answer=10-15 mg/kg/dose\n  evidence_span=When possible, dose acetaminophen based on a child’s weight, using 10-15 mg/kg/dose.\n  source=https://emedicine.medscape.com/article/2172407-overview\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.93}\n[C2] (critical) Q: What is the concentration of standard paracetamol syrup (mg of paracetamol per milliliter)?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What is the typical weight (in kilograms) of a five‑year‑old child?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Given a dose of 15 mg/kg, a child weight of 18 kg, and a syrup concentration of 24 mg/ml, how many milliliters of paracetamol syrup constitute one dose?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"The recommended dose of paracetamol for children is 10-15 mg/kg/dose according to body weight per kilogram [1].\\n\\nThese things could not be confirmed:\\n- What the standard concentration of paracetamol syrup is.\\n- What the average weight of a five-year-old child is.\\n- When using a dose of 15 mg/kg, a weight of 18 kg, and a syrup with a concentration of 24 mg/ml, how many milliliters (ml) of medicine should be given at one time.\\n\\nPlease consult a qualified health worker or doctor to determine the correct dose of the medicine.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "The recommended dose of paracetamol for children is 10-15 mg/kg/dose according to body weight per kilogram [1].\n\nThese things could not be confirmed:\n- What the standard concentration of paracetamol syrup is.\n- What the average weight of a five-year-old child is.\n- When using a dose of 15 mg/kg, a weight of 18 kg, and a syrup with a concentration of 24 mg/ml, how many milliliters (ml) of medicine should be given at one time.\n\nPlease consult a qualified health worker or doctor to determine the correct dose of the medicine.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 8180.112299975008,
+      "prompt_tokens": 717,
+      "completion_tokens": 169,
+      "cost_usd": 0.0001393,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0019500000000000001,
+  "total_latency_ms": 27373.825999966357,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

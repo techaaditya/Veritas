@@ -1,0 +1,229 @@
+{
+  "run_id": "f3a4eadb389a",
+  "question": "नेपालको श्रम ऐनले १८ वर्षमुनिका सबैलाई जुनसुकै काममा लगाउन दिन्छ भनिएको छ, यो कुन धारामा लेखिएको छ?",
+  "tier": "TIER_1",
+  "domain": "legal",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "नेपाल श्रम ऐनमा १८ वर्षभन्दा कम उमेरका व्यक्तिहरूलाई जुनसुकै प्रकारको काममा लगाउन सकिने भन्ने व्यवस्थाको बारेमा कुनै जानकारी पुष्टि गर्न सकिएन। कृपया यस विषयमा थप स्पष्टताका लागि सम्बन्धित कानूनी विशेषज्ञ वा श्रम कार्यालयसँग परामर्श गर्नुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Does the Nepal Labor Act contain a provision stating that persons under 18 years of age may be employed in any type of work?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "Nepal Labor Act under 18 employment",
+        "नेपाल श्रम ऐन १८ वर्ष मुनिको रोजगार"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "Which section of the Nepal Labor Act contains the provision that everyone under 18 years of age can be employed in any type of work?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "section Nepal Labor Act under 18 employment",
+        "नेपाल श्रम ऐन धारा १८ वर्ष मुनिको रोजगार"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: नेपालको श्रम ऐनले १८ वर्षमुनिका सबैलाई जुनसुकै काममा लगाउन दिन्छ भनिएको छ, यो कुन धारामा लेखिएको छ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"नेपालको श्रम ऐनले १८ वर्षमुनिका सबैलाई जुनसुकै काममा लगाउन दिन्छ भनिएको छ, यो कुन धारामा लेखिएको छ?\",\n  \"canonical_english\": \"In which section of the Nepal Labor Act is it stated that everyone under 18 years of age can be employed in any type of work?\",\n  \"domain\": \"legal\",\n  \"entities\": [\n    \"नेपालको श्रम ऐन (Nepal Labor Act)\"\n  ],\n  \"implicit_context\": [\n    \"The user believes there is a provision allowing the employment of minors under 18 in any work.\"\n  ],\n  \"ambiguities\": []\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "नेपालको श्रम ऐनले १८ वर्षमुनिका सबैलाई जुनसुकै काममा लगाउन दिन्छ भनिएको छ, यो कुन धारामा लेखिएको छ?",
+        "canonical_english": "In which section of the Nepal Labor Act is it stated that everyone under 18 years of age can be employed in any type of work?",
+        "domain": "legal",
+        "entities": [
+          "नेपालको श्रम ऐन (Nepal Labor Act)"
+        ],
+        "implicit_context": [
+          "The user believes there is a provision allowing the employment of minors under 18 in any work."
+        ],
+        "ambiguities": []
+      },
+      "latency_ms": 2385.8764999895357,
+      "prompt_tokens": 333,
+      "completion_tokens": 173,
+      "cost_usd": 0.0001025,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: In which section of the Nepal Labor Act is it stated that everyone under 18 years of age can be employed in any type of work?\nORIGINAL: नेपालको श्रम ऐनले १८ वर्षमुनिका सबैलाई जुनसुकै काममा लगाउन दिन्छ भनिएको छ, यो कुन धारामा लेखिएको छ?\nDOMAIN: legal\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns legal obligations and rights regarding child labor laws, where an incorrect answer could lead to legal violations or harm to minors.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns legal obligations and rights regarding child labor laws, where an incorrect answer could lead to legal violations or harm to minors.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1915.4616000014357,
+      "prompt_tokens": 373,
+      "completion_tokens": 61,
+      "cost_usd": 6.170000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: In which section of the Nepal Labor Act is it stated that everyone under 18 years of age can be employed in any type of work?\nENTITIES: ['नेपालको श्रम ऐन (Nepal Labor Act)']\nDOMAIN: legal\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Does the Nepal Labor Act contain a provision stating that persons under 18 years of age may be employed in any type of work?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\n        \"Nepal Labor Act under 18 employment\",\n        \"नेपाल श्रम ऐन १८ वर्ष मुनिको रोजगार\"\n      ]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Which section of the Nepal Labor Act contains the provision that everyone under 18 years of age can be employed in any type of work?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\n        \"section Nepal Labor Act under 18 employment\",\n        \"नेपाल श्रम ऐन धारा १८ वर्ष मुनिको रोजगार\"\n      ]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Does the Nepal Labor Act contain a provision stating that persons under 18 years of age may be employed in any type of work?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "Nepal Labor Act under 18 employment",
+              "नेपाल श्रम ऐन १८ वर्ष मुनिको रोजगार"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "Which section of the Nepal Labor Act contains the provision that everyone under 18 years of age can be employed in any type of work?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "section Nepal Labor Act under 18 employment",
+              "नेपाल श्रम ऐन धारा १८ वर्ष मुनिको रोजगार"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 1712.1652999776416,
+      "prompt_tokens": 317,
+      "completion_tokens": 411,
+      "cost_usd": 0.00023720000000000002,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does the Nepal Labor Act contain a provision stating that persons under 18 years of age may be employed in any type of work?\nEVIDENCE:\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 9. Home Leave: (1) A child working in an Enterprise shall be entitled to paid home leave at the rate of One day for every twenty days of the period of work performed by him/her. The child shall have to take prior approval from the Manager before going for such a leave. The home leave to be enjoyed pursuant to Sub-rule (1) may be accumulated for a maximum period of Thirty Six days.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 4. Certificate of Eligibility: (1) Before employing a child as a Labour, an application shall be filed in the Labour office to examine his/her health in relation to his/her ability and inability to do the work, mentioning about the nature of the work and the age of the child. (2) After obtaining an application pursuant to Sub-rule (1), the Labour Office shall cause a doctor to examine the health of the child. (3) If on an examination done pursuant to Sub-rule (1), the child is found to be capable for the work, the doctor shall provide a certificate of eligibility pursuant to the Schedule.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year. (2) The annual public holiday of a child so provided pursuant to Sub-rule (1) shall be determined at the beginning of each year.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1236.6120999795385,
+      "prompt_tokens": 672,
+      "completion_tokens": 63,
+      "cost_usd": 9.24e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Which section of the Nepal Labor Act contains the provision that everyone under 18 years of age can be employed in any type of work?\nEVIDENCE:\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 4. Certificate of Eligibility: (1) Before employing a child as a Labour, an application shall be filed in the Labour office to examine his/her health in relation to his/her ability and inability to do the work, mentioning about the nature of the work and the age of the child. (2) After obtaining an application pursuant to Sub-rule (1), the Labour Office shall cause a doctor to examine the health of the child. (3) If on an examination done pursuant to Sub-rule (1), the child is found to be capable for the work, the doctor shall provide a certificate of eligibility pursuant to the Schedule.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year. (2) The annual public holiday of a child so provided pursuant to Sub-rule (1) shall be determined at the beginning of each year.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 9. Home Leave: (1) A child working in an Enterprise shall be entitled to paid home leave at the rate of One day for every twenty days of the period of work performed by him/her. The child shall have to take prior approval from the Manager before going for such a leave. The home leave to be enjoyed pursuant to Sub-rule (1) may be accumulated for a maximum period of Thirty Six days.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1136.8326000520028,
+      "prompt_tokens": 673,
+      "completion_tokens": 61,
+      "cost_usd": 9.169999999999999e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (supporting) Q: Does the Nepal Labor Act contain a provision stating that persons under 18 years of age may be employed in any type of work?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (critical) Q: Which section of the Nepal Labor Act contains the provision that everyone under 18 years of age can be employed in any type of work?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"नेपाल श्रम ऐनमा १८ वर्षभन्दा कम उमेरका व्यक्तिहरूलाई जुनसुकै प्रकारको काममा लगाउन सकिने भन्ने व्यवस्थाको बारेमा कुनै जानकारी पुष्टि गर्न सकिएन। कृपया यस विषयमा थप स्पष्टताका लागि सम्बन्धित कानूनी विशेषज्ञ वा श्रम कार्यालयसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "नेपाल श्रम ऐनमा १८ वर्षभन्दा कम उमेरका व्यक्तिहरूलाई जुनसुकै प्रकारको काममा लगाउन सकिने भन्ने व्यवस्थाको बारेमा कुनै जानकारी पुष्टि गर्न सकिएन। कृपया यस विषयमा थप स्पष्टताका लागि सम्बन्धित कानूनी विशेषज्ञ वा श्रम कार्यालयसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 3261.6357000079006,
+      "prompt_tokens": 441,
+      "completion_tokens": 87,
+      "cost_usd": 7.89e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: नेपाल श्रम ऐनमा १८ वर्षभन्दा कम उमेरका व्यक्तिहरूलाई जुनसुकै प्रकारको काममा लगाउन सकिने भन्ने व्यवस्थाको बारेमा कुनै जानकारी पुष्टि गर्न सकिएन। कृपया यस विषयमा थप स्पष्टताका लागि सम्बन्धित कानूनी विशेषज्ञ वा श्रम कार्यालयसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (supporting) Q: Does the Nepal Labor Act contain a provision stating that persons under 18 years of age may be employed in any type of work?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (critical) Q: Which section of the Nepal Labor Act contains the provision that everyone under 18 years of age can be employed in any type of work?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"No information could be confirmed regarding the provision in the Nepal Labor Act that persons under 18 years of age can be employed in any type of work. Please consult a relevant legal expert or labor office for further clarity on this subject.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "No information could be confirmed regarding the provision in the Nepal Labor Act that persons under 18 years of age can be employed in any type of work. Please consult a relevant legal expert or labor office for further clarity on this subject.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 3155.1146000274457,
+      "prompt_tokens": 363,
+      "completion_tokens": 78,
+      "cost_usd": 6.75e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0007319,
+  "total_latency_ms": 2163.9477999997325,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

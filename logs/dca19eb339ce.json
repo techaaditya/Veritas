@@ -1,0 +1,397 @@
+{
+  "run_id": "dca19eb339ce",
+  "question": "गर्भवती महिलाले दिनमा कति मिलिग्राम आइरन ट्याब्लेट खानुपर्छ?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "ANSWER",
+  "response_text": "गर्भवती महिलाहरूका लागि मातृ एनिमिया, प्रसूति पछिको सेप्सिस, कम जन्मतौल र समयभन्दा अगाडि हुने जन्म रोक्न दैनिक ३० मि.ग्रा. देखि ६० मि.ग्रा. सम्मको एलीमेन्टल आइरन (elemental iron) र ४०० µg (०.४ मि.ग्रा.) फोलिक एसिड सेवन गर्न सिफारिस गरिन्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन\n- आइरनको कमीले एनिमिया भएका गर्भवती महिलाहरूका लागि फरक मात्रा सिफारिस गरिएको छ कि छैन।\n- गर्भवती महिलाहरूका लागि आइरनको अधिकतम सहनयोग्य सेवन स्तर (upper tolerable intake level) कति हो।\n- कुन-कुन प्रमुख स्वास्थ्य संस्थाहरूले गर्भवती महिलाका लागि दैनिक आइरन सप्लिमेन्टको मात्रा सिफारिस गरेका छन्।",
+  "citations": [
+    {
+      "marker": "[1]",
+      "url": "https://www.who.int/tools/elena/interventions/daily-iron-pregnancy"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the recommended daily amount of iron (in milligrams) that a pregnant woman should take as a supplement?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "pregnant iron supplement dosage",
+        "daily iron mg pregnancy",
+        "recommended iron intake pregnant women"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "30 mg to 60 mg of elemental iron",
+      "evidence_span": "Daily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron* and 400 µg (0.4 mg) folic acid** is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.***",
+      "source_url": "https://www.who.int/tools/elena/interventions/daily-iron-pregnancy",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "HOLDS",
+        "flags": [
+          "NONE"
+        ],
+        "falsification_attempt": "",
+        "confidence": 0.97
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "Do health guidelines recommend a different iron supplement dosage for pregnant women who have been diagnosed with iron‑deficiency anemia?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "iron deficiency anemia pregnancy dosage",
+        "iron supplement guidelines anemia pregnant",
+        "adjusted iron intake pregnant anemia"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "What is the established upper tolerable intake level (UL) for iron for pregnant women, expressed in milligrams per day?",
+      "claim_type": "numeric",
+      "criticality": "supporting",
+      "search_terms": [
+        "iron upper limit pregnancy",
+        "tolerable upper intake level iron pregnant",
+        "maximum safe iron mg per day pregnant"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Which major health organizations (e.g., WHO, CDC, ACOG) provide the recommended daily iron supplement dosage for pregnant women?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "WHO iron pregnancy recommendation",
+        "CDC iron supplement pregnant",
+        "ACOG iron dosage pregnancy"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: गर्भवती महिलाले दिनमा कति मिलिग्राम आइरन ट्याब्लेट खानुपर्छ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"गर्भवती महिलाले दिनमा कति मिलिग्राम आइरन ट्याब्लेट खानुपर्छ?\",\n  \"canonical_english\": \"How many milligrams of iron tablets should a pregnant woman take per day?\",\n  \"domain\": \"health\",\n  \"entities\": [\"iron tablets\", \"pregnant woman\"],\n  \"implicit_context\": [\"The user is seeking standard prenatal supplementation guidelines.\"],\n  \"ambiguities\": [\"Current gestational age (trimester)\", \"Existing iron levels/anemia status\", \"Other prenatal vitamins being taken\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "गर्भवती महिलाले दिनमा कति मिलिग्राम आइरन ट्याब्लेट खानुपर्छ?",
+        "canonical_english": "How many milligrams of iron tablets should a pregnant woman take per day?",
+        "domain": "health",
+        "entities": [
+          "iron tablets",
+          "pregnant woman"
+        ],
+        "implicit_context": [
+          "The user is seeking standard prenatal supplementation guidelines."
+        ],
+        "ambiguities": [
+          "Current gestational age (trimester)",
+          "Existing iron levels/anemia status",
+          "Other prenatal vitamins being taken"
+        ]
+      },
+      "latency_ms": 1742.7052999846637,
+      "prompt_tokens": 317,
+      "completion_tokens": 138,
+      "cost_usd": 8.69e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: How many milligrams of iron tablets should a pregnant woman take per day?\nORIGINAL: गर्भवती महिलाले दिनमा कति मिलिग्राम आइरन ट्याब्लेट खानुपर्छ?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question asks for specific drug dosing for a high-risk population (pregnancy), where errors could cause physical harm.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question asks for specific drug dosing for a high-risk population (pregnancy), where errors could cause physical harm.",
+        "emergency_signals": []
+      },
+      "latency_ms": 2256.513200001791,
+      "prompt_tokens": 342,
+      "completion_tokens": 58,
+      "cost_usd": 5.7400000000000006e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: How many milligrams of iron tablets should a pregnant woman take per day?\nENTITIES: ['iron tablets', 'pregnant woman']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the recommended daily amount of iron (in milligrams) that a pregnant woman should take as a supplement?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"pregnant iron supplement dosage\", \"daily iron mg pregnancy\", \"recommended iron intake pregnant women\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Do health guidelines recommend a different iron supplement dosage for pregnant women who have been diagnosed with iron‑deficiency anemia?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"iron deficiency anemia pregnancy dosage\", \"iron supplement guidelines anemia pregnant\", \"adjusted iron intake pregnant anemia\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"What is the established upper tolerable intake level (UL) for iron for pregnant women, expressed in milligrams per day?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"iron upper limit pregnancy\", \"tolerable upper intake level iron pregnant\", \"maximum safe iron mg per day pregnant\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Which major health organizations (e.g., WHO, CDC, ACOG) provide the recommended daily iron supplement dosage for pregnant women?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"WHO iron pregnancy recommendation\", \"CDC iron supplement pregnant\", \"ACOG iron dosage pregnancy\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the recommended daily amount of iron (in milligrams) that a pregnant woman should take as a supplement?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "pregnant iron supplement dosage",
+              "daily iron mg pregnancy",
+              "recommended iron intake pregnant women"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "30 mg to 60 mg of elemental iron",
+            "evidence_span": "Daily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron* and 400 µg (0.4 mg) folic acid** is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.***",
+            "source_url": "https://www.who.int/tools/elena/interventions/daily-iron-pregnancy",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "HOLDS",
+              "flags": [
+                "NONE"
+              ],
+              "falsification_attempt": "",
+              "confidence": 0.97
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "Do health guidelines recommend a different iron supplement dosage for pregnant women who have been diagnosed with iron‑deficiency anemia?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "iron deficiency anemia pregnancy dosage",
+              "iron supplement guidelines anemia pregnant",
+              "adjusted iron intake pregnant anemia"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "What is the established upper tolerable intake level (UL) for iron for pregnant women, expressed in milligrams per day?",
+            "claim_type": "numeric",
+            "criticality": "supporting",
+            "search_terms": [
+              "iron upper limit pregnancy",
+              "tolerable upper intake level iron pregnant",
+              "maximum safe iron mg per day pregnant"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Which major health organizations (e.g., WHO, CDC, ACOG) provide the recommended daily iron supplement dosage for pregnant women?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "WHO iron pregnancy recommendation",
+              "CDC iron supplement pregnant",
+              "ACOG iron dosage pregnancy"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 5072.6171000278555,
+      "prompt_tokens": 299,
+      "completion_tokens": 690,
+      "cost_usd": 0.0003749,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do health guidelines recommend a different iron supplement dosage for pregnant women who have been diagnosed with iron‑deficiency anemia?\nEVIDENCE:\n[source: https://www.who.int/tools/elena/interventions/daily-iron-pregnancy]\n[Skip to main content](https://www.who.int/tools/elena/interventions/daily-iron-pregnancy#content)\n\n## e-Library of Evidence for Nutrition Actions (eLENA)\n\nAn online library of evidence-informed guidelines for nutrition interventions and single point of reference for the latest nutrition guidelines, recommendations and related information.\n\n[Overview](https://www.who.int/tools/elena/overview)[Interventions](https://www.who.int/tools/elena/interventions)[Glossary](https://www.who.int/tools/elena/glossary)[About](https://www.who.int/tools/elena/about)\n\n[![Alternate Text](https://www.who.int/ResourcePackages/WHO/assets/dist/images/arrow-down-blue.svg) All interventions](https://www.who.int/tools/elena/interventions)\n\n## Daily iron and folic acid supplementation during pregnancy\n\nIntervention \\| Last updated: 26 July 2024\n\n* * *\n\nIt is estimated that more than 40% of pregnant women worldwide are anaemic. At least half of this anaemia burden is assumed to be due to iron deficiency.\n\nPregnant women require additional iron and folic acid to meet their own nutritional needs as well as those of the developing fetus. Deficiencies in iron and folic acid during pregnancy can potentially negati\n\n[source: https://www.who.int/tools/elena/interventions/daily-iron-pregnancy]\nvely impact the health of the mother, her pregnancy, as well as fetal development.\n\nEvidence has shown that the use of iron and folic acid supplements is associated with a reduced risk of iron deficiency and anaemia in pregnant women.\n\n### WHO Recommendations\n\n* * *\n\nDaily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron\\* and 400 µg (0.4 mg) folic acid\\*\\* is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.\\*\\*\\*\n\n\\*The equivalent of 60 mg of elemental iron is 300 mg ferrous sulfate heptahydrate, 180 mg ferrous fumarate or 500 mg of ferrous gluconate.\n\n\\\\*\\\\* Folic acid should be commenced as early as possible (ideally before conception) to prevent neural tube defects.\n\n\\\\*\\\\*\\\\* This recommendation supercedes the previous recommendation found within the WHO guideline _‘Daily iron and folic acid supplementation in pregnant women’_ (2012).\n\n### Guidelines and guidance documents  [Learn More ![Alternate Text](https://www.who.int/ResourcePackages/WHO/assets/dist/images/arrow-down-blue.svg)](https://www.who.int/groups/guidelines-review-committee)\n\n* * *\n\n#### GRC-approved guidelines\n\n* * *\n\n\n[source: https://www.who.int/data/nutrition/nlis/info/antenatal-iron-supplementation]\n[Skip to main content](https://www.who.int/data/nutrition/nlis/info/antenatal-iron-supplementation#content)\n\nNutrition Landscape Information System (NLiS)\n\nNutrition and nutrition-related health and development data\n\nNutrition Landscape Information System (NLiS)\n\n- [Nutrition Data Home](https://www.who.int/teams/nutrition-and-food-safety)\n\n- [NLiS Home](https://www.who.int/teams/nutrition-and-food-safety/databases/nutrition-landscape-information-system)\n\n- NLiS Country Profile\n\n- Global Nutrition Monitoring Framework\n\n- NLiS Data Search\n\n\nNutrition Landscape Information System (NLiS)\n\n- [Nutrition Data Home](https://www.who.int/teams/nutrition-and-food-safety)\n\n- [NLiS Home](https://www.who.int/teams/nutrition-and-food-safety/databases/nutrition-landscape-information-system)\n\n- NLiS Country Profile\n\n- Global Nutrition Monitoring Framework\n\n- NLiS Data Search\n\n\n# Antenatal iron supplementation\n\n**What does this indicator tell us?**\n\nThis indicator reflects the percentage of women who consumed any iron-containing supplements during their current or previous pregnancy within the past 2 years. It provides information about the quality and coverage of perinatal medical services.\n\nDaily \n\n[source: https://www.who.int/data/nutrition/nlis/info/antenatal-iron-supplementation]\niron and folic acid supplementation is currently recommended by WHO as part of antenatal care, to reduce the risk of low birth weight, maternal anaemia and iron deficiency. It is suggested that the supplement contains 30-60 mg of iron, with the higher dose preferred in settings where anaemia in pregnant women is a severe public health problem (≥40%), along with 400 µg of folic acid. Daily supplementation throughout pregnancy, beginning as early as possible after conception, is recommended in all settings. Despite its proven efficacy and wide inclusion in antenatal care programmes, the use of iron and folic acid supplementation has been limited in programme settings. Possible reasons for this include a lack of compliance, concerns about the safety of the intervention among women with an adequate iron intake, and variable availability of the supplements at community level. Intermittent use of iron and folic acid supplements by non-anaemic women is a recommended alternative to prevent anaemia and improve gestational outcomes in areas where the prevalence of anaemia among pregnant women is lower than 20%. The suggested dose is 120 mg elemental iron and 2800 µg (2.8 mg) folic acid provi\n\n[source: https://www.who.int/tools/elena/review-summaries/daily-iron-pregnancy--daily-oral-iron-supplementation-during-pregnancy]\n[Skip to main content](https://www.who.int/tools/elena/review-summaries/daily-iron-pregnancy--daily-oral-iron-supplementation-during-pregnancy#content)\n\n## e-Library of Evidence for Nutrition Actions (eLENA)\n\nAn online library of evidence-informed guidelines for nutrition interventions and single point of reference for the latest nutrition guidelines, recommendations and related information.\n\n[Overview](https://www.who.int/tools/elena/overview)[Interventions](https://www.who.int/tools/elena/interventions)[Glossary](https://www.who.int/tools/elena/glossary)[About](https://www.who.int/tools/elena/about)\n\n## Daily oral iron supplementation during pregnancy\n\nSystematic review summary\n\n* * *\n\nThis document is a summary of findings and some data presented in the systematic review may therefore not be included. Please refer to the original publication cited below for a complete review of findings.\n\n### Key Findings review\n\n- Data included in this review come from a wide range of settings\n- Oral iron supplementation during pregnancy resulted in an increased birth weight and a decreased risk of preterm birth, low birth weight <2500 g, neonatal death, and congenital anomalies, although none \n\n[source: https://www.who.int/tools/elena/review-summaries/daily-iron-pregnancy--daily-oral-iron-supplementation-during-pregnancy]\nof these findings reached statistical significance\n- Women receiving iron supplements were at lower risk of anaemia, iron deficiency and iron deficiency anaemia at term, but were at greater risk of having high haemoglobin concentrations during pregnancy\n- Iron supplementation during pregnancy may be used as a preventive strategy to improve maternal and infant outcomes\n\n#### 1\\. Objectives\n\nTo assess the effects of daily oral iron supplements, either alone or in conjunction with folic acid or other micronutrients, as an antenatal public health intervention in pregnant women\n\n#### 2\\. How studies were identified\n\nThe following databases were searched to January 2015:\n\n- CENTRAL (The Cochrane Library)\n- EMBASE\n- CINAHL\n- MEDLINE\n\nRelevant journals and conference proceedings were handsearched, and relevant organizations were also contacted to identify any ongoing and unpublished studies\n\n#### 3\\. Criteria for including studies in the review\n\n##### 3.1 Study type\n\nRandomized and quasi-randomized trials, including cluster-randomized trials\n\n##### 3.2 Study participants\n\nPregnant women of any gestational age and parity\n\n##### 3.3 Interventions\n\nDaily oral iron supplementation, alone or in\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1143.1768999900669,
+      "prompt_tokens": 2144,
+      "completion_tokens": 63,
+      "cost_usd": 0.00023960000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended daily amount of iron (in milligrams) that a pregnant woman should take as a supplement?\nEVIDENCE:\n[source: https://www.who.int/tools/elena/interventions/daily-iron-pregnancy]\n[Skip to main content](https://www.who.int/tools/elena/interventions/daily-iron-pregnancy#content)\n\n## e-Library of Evidence for Nutrition Actions (eLENA)\n\nAn online library of evidence-informed guidelines for nutrition interventions and single point of reference for the latest nutrition guidelines, recommendations and related information.\n\n[Overview](https://www.who.int/tools/elena/overview)[Interventions](https://www.who.int/tools/elena/interventions)[Glossary](https://www.who.int/tools/elena/glossary)[About](https://www.who.int/tools/elena/about)\n\n[![Alternate Text](https://www.who.int/ResourcePackages/WHO/assets/dist/images/arrow-down-blue.svg) All interventions](https://www.who.int/tools/elena/interventions)\n\n## Daily iron and folic acid supplementation during pregnancy\n\nIntervention \\| Last updated: 26 July 2024\n\n* * *\n\nIt is estimated that more than 40% of pregnant women worldwide are anaemic. At least half of this anaemia burden is assumed to be due to iron deficiency.\n\nPregnant women require additional iron and folic acid to meet their own nutritional needs as well as those of the developing fetus. Deficiencies in iron and folic acid during pregnancy can potentially negati\n\n[source: https://www.who.int/tools/elena/interventions/daily-iron-pregnancy]\nvely impact the health of the mother, her pregnancy, as well as fetal development.\n\nEvidence has shown that the use of iron and folic acid supplements is associated with a reduced risk of iron deficiency and anaemia in pregnant women.\n\n### WHO Recommendations\n\n* * *\n\nDaily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron\\* and 400 µg (0.4 mg) folic acid\\*\\* is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.\\*\\*\\*\n\n\\*The equivalent of 60 mg of elemental iron is 300 mg ferrous sulfate heptahydrate, 180 mg ferrous fumarate or 500 mg of ferrous gluconate.\n\n\\\\*\\\\* Folic acid should be commenced as early as possible (ideally before conception) to prevent neural tube defects.\n\n\\\\*\\\\*\\\\* This recommendation supercedes the previous recommendation found within the WHO guideline _‘Daily iron and folic acid supplementation in pregnant women’_ (2012).\n\n### Guidelines and guidance documents  [Learn More ![Alternate Text](https://www.who.int/ResourcePackages/WHO/assets/dist/images/arrow-down-blue.svg)](https://www.who.int/groups/guidelines-review-committee)\n\n* * *\n\n#### GRC-approved guidelines\n\n* * *\n\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK235217/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nInstitute of Medicine (US) Committee on Nutritional Status During Pregnancy and Lactation. Nutrition During Pregnancy: Part I Weight Gain: Part II Nutrient Supplements. Washington (DC): National Academies Press (US); 1990.\n\n[![Cover of Nutrition During Pregnancy](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-nap1451-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/nap1451/ \"Table of Contents Page\")\n\n## Nutrition During Pregnancy: Part I Weight Gain: Part II Nutrient Supplements.\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK235217/#__NBK235217_dtls__)\n\nInstitute of Medicine (US) Committee on Nutritional Status During Pregnancy and Lactation.\n\nWashington (DC): [National Academies Press (US)](http://www.nap.edu/); 1990.\n\n- [Contents](https://www.ncbi.nlm.nih.gov/books/n/nap1451/)\n- [Hardcopy Version at National Academies Press](http://www.nap.edu/catalog.php?record_id=1451)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK235217/#)\n\n[< Prev](https://www.ncbi.nlm.nih.gov/books/n/nap1\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK235217/]\n451/ddd00202/ \"Previous page in this title\") [Next >](https://www.ncbi.nlm.nih.gov/books/n/nap1451/ddd00240/ \"Next page in this title\")\n\n# 14Iron Nutrition During Pregnancy\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK235217/# \"Go to other sections in this page\")\n\n## Importance of Iron During Pregnancy\n\nAmong healthy human beings, pregnant women and rapidly growing infants are most vulnerable to iron deficiency (Bothwell et al., 1979). Both groups have to absorb substantially more iron than is lost from the body, and both are at a considerable risk of developing iron deficiency under ordinary dietary circumstances. During pregnancy, more iron is needed primarily to supply the growing fetus and placenta and to increase the maternal red cell mass (Hallberg, 1988).\n\nIron deficiency is common among pregnant women in industrialized countries, as shown by numerous studies in which hemoglobin concentrations during the last half of pregnancy were found to be higher in iron-supplemented women than in those given a placebo or no supplement ( [Table 14-1](https://www.ncbi.nlm.nih.gov/books/NBK235217/table/ttt00058/?report=objectonly)) (Chanarin and Rothman, 1971; Dawson and McGanity, 1987;\n\n[source: https://pubmed.ncbi.nlm.nih.gov/17486170/]\nClipboard, Search History, and several other advanced features are temporarily unavailable.\n\n\n[Skip to main page content](https://pubmed.ncbi.nlm.nih.gov/17486170/#article-details)\n\n![Dot gov](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-dot-gov.svg)\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before\nsharing sensitive information, make sure you’re on a federal\ngovernment site.\n\n\n![Https](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-https.svg)\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the\nofficial website and that any information you provide is encrypted\nand transmitted securely.\n\n\n[Access keys](https://www.ncbi.nlm.nih.gov/guide/browsers/#ncbi_accesskeys) [NCBI Homepage](https://www.ncbi.nlm.nih.gov/) [MyNCBI Homepage](https://pubmed.ncbi.nlm.nih.gov/myncbi/) [Main Content](https://pubmed.ncbi.nlm.nih.gov/17486170/#maincontent) [Main Navigation](https://pubmed.ncbi.nlm.nih.gov/17486170/#)\n\n[![pubmed logo](https://cdn.ncbi.nlm.nih.gov/pubmed/af7de7da-df5d-41c6-8de4-8c266af8ccfb/core/images/pubmed-logo-blue.svg)](https://pubmed.ncbi.nlm.nih.gov/)[Show search bar](https://pubmed.ncbi.n\n\n[source: https://pubmed.ncbi.nlm.nih.gov/17486170/]\nlm.nih.gov/17486170/# \"Show search bar\")\n\nSearch:\n[Clear search input](https://pubmed.ncbi.nlm.nih.gov/17486170/# \"Clear search input\") Search\n\n[Advanced](https://pubmed.ncbi.nlm.nih.gov/advanced/) [Clipboard](https://pubmed.ncbi.nlm.nih.gov/clipboard/)\n\n[User Guide](https://pubmed.ncbi.nlm.nih.gov/help/)\n\nSave\n\nEmail\n\n\nSend to\n\n- [Clipboard](https://pubmed.ncbi.nlm.nih.gov/17486170/#)\n- [My Bibliography](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F17486170%2F%23open-bibliography-panel)\n- [Collections](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F17486170%2F%23open-collections-panel)\n- [Citation manager](https://pubmed.ncbi.nlm.nih.gov/17486170/#)\n\nDisplay options\n\nDisplay options\n\n\nFormat\nAbstractPubMedPMID\n\n## Save citation to file\n\nFormat:\nSummary (text)PubMedPMIDAbstract (text)CSV\n\nCreate file\n\nCancel\n\n\n## Email citation\n\nEmail address has not been verified. Go to\n[My NCBI account settings](https://account.ncbi.nlm.nih.gov/settings/)\nto confirm your email and then refresh this page.\n\n\nTo:\n\n\nSubject:\n\n\nBody:\n\n\nFormat:\nSummarySummary (text)AbstractAbstract (text)\n\nMeSH and other data\n\n\nSend email\n\nCancel\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"30 mg to 60 mg of elemental iron\",\n  \"evidence_span\": \"Daily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron* and 400 µg (0.4 mg) folic acid** is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.***\",\n  \"source_url\": \"https://www.who.int/tools/elena/interventions/daily-iron-pregnancy\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "SUPPORTED",
+        "answer": "30 mg to 60 mg of elemental iron",
+        "evidence_span": "Daily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron* and 400 µg (0.4 mg) folic acid** is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.***",
+        "source_url": "https://www.who.int/tools/elena/interventions/daily-iron-pregnancy",
+        "caveats": []
+      },
+      "latency_ms": 1473.6390999751166,
+      "prompt_tokens": 2585,
+      "completion_tokens": 154,
+      "cost_usd": 0.00032010000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What is the recommended daily amount of iron (in milligrams) that a pregnant woman should take as a supplement?\nPROPOSED ANSWER: 30 mg to 60 mg of elemental iron\nEVIDENCE SPAN: Daily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron* and 400 µg (0.4 mg) folic acid** is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.***\nSOURCE: https://www.who.int/tools/elena/interventions/daily-iron-pregnancy\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"\",\n  \"flags\": [\"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\",\n  \"confidence\": 0.97\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "",
+        "flags": [
+          "NONE"
+        ],
+        "verdict_after_challenge": "HOLDS",
+        "confidence": 0.97
+      },
+      "latency_ms": 1880.0670999917202,
+      "prompt_tokens": 494,
+      "completion_tokens": 288,
+      "cost_usd": 0.0001934,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the established upper tolerable intake level (UL) for iron for pregnant women, expressed in milligrams per day?\nEVIDENCE:\n[source: https://www.ncbi.nlm.nih.gov/books/NBK235217/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nInstitute of Medicine (US) Committee on Nutritional Status During Pregnancy and Lactation. Nutrition During Pregnancy: Part I Weight Gain: Part II Nutrient Supplements. Washington (DC): National Academies Press (US); 1990.\n\n[![Cover of Nutrition During Pregnancy](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-nap1451-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/nap1451/ \"Table of Contents Page\")\n\n## Nutrition During Pregnancy: Part I Weight Gain: Part II Nutrient Supplements.\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK235217/#__NBK235217_dtls__)\n\nInstitute of Medicine (US) Committee on Nutritional Status During Pregnancy and Lactation.\n\nWashington (DC): [National Academies Press (US)](http://www.nap.edu/); 1990.\n\n- [Contents](https://www.ncbi.nlm.nih.gov/books/n/nap1451/)\n- [Hardcopy Version at National Academies Press](http://www.nap.edu/catalog.php?record_id=1451)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK235217/#)\n\n[< Prev](https://www.ncbi.nlm.nih.gov/books/n/nap1\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK235217/]\n451/ddd00202/ \"Previous page in this title\") [Next >](https://www.ncbi.nlm.nih.gov/books/n/nap1451/ddd00240/ \"Next page in this title\")\n\n# 14Iron Nutrition During Pregnancy\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK235217/# \"Go to other sections in this page\")\n\n## Importance of Iron During Pregnancy\n\nAmong healthy human beings, pregnant women and rapidly growing infants are most vulnerable to iron deficiency (Bothwell et al., 1979). Both groups have to absorb substantially more iron than is lost from the body, and both are at a considerable risk of developing iron deficiency under ordinary dietary circumstances. During pregnancy, more iron is needed primarily to supply the growing fetus and placenta and to increase the maternal red cell mass (Hallberg, 1988).\n\nIron deficiency is common among pregnant women in industrialized countries, as shown by numerous studies in which hemoglobin concentrations during the last half of pregnancy were found to be higher in iron-supplemented women than in those given a placebo or no supplement ( [Table 14-1](https://www.ncbi.nlm.nih.gov/books/NBK235217/table/ttt00058/?report=objectonly)) (Chanarin and Rothman, 1971; Dawson and McGanity, 1987;\n\n[source: https://mothertobaby.org/fact-sheets/iron/]\n![Spinner: White decorative](https://cdn.userway.org/widgetapp/images/spin_wh.svg)\n\n![](https://cdn.userway.org/widgetapp/images/body_wh.svg)\n\n![Spinner: White decorative](https://cdn.userway.org/widgetapp/images/spin_wh.svg)\n\n- [Skip to primary navigation](https://mothertobaby.org/fact-sheets/iron/#genesis-mobile-nav-primary)\n- [Skip to main content](https://mothertobaby.org/fact-sheets/iron/#genesis-content)\n- [Skip to footer](https://mothertobaby.org/fact-sheets/iron/#genesis-footer-widgets)\n\nThis sheet is about exposure to iron in pregnancy and while breastfeeding. This information is based on available research studies. It should not take the place of medical care and advice from your healthcare provider.\n\n## What is iron?\n\nIron is a mineral that carries oxygen in red blood cells (called hemoglobin). Iron is an essential nutrient (a nutrient that the body cannot make). This means that people need to get iron from their diet or supplements. Iron can be found in meat, seafood, white and kidney beans, lentils, peas, spinach, nuts, and dried fruits. Some cereals and breads have iron added to them. Iron is also available as a dietary supplement. Iron in dietary supplements can come\n\n[source: https://mothertobaby.org/fact-sheets/iron/]\n in different forms.\n\nNot having enough iron can lead to iron deficiency anemia. Iron deficiency can cause symptoms such as tiredness, lack of energy, less ability to fight off germs and infections, and problems with memory and concentration. The World Health Organization (WHO) recommends that women who are pregnant get enough iron throughout their entire pregnancy. There are some health conditions that affect the level of iron that people need. Be sure to talk to your healthcare provider about what amounts of iron are recommended for you.\n\nIf you take iron, talk with your healthcare providers before making changes to how you take your supplement. Your healthcare providers can talk with you about the benefits of maintaining your nutrient levels and the risks of low nutrients during pregnancy. Talk with your healthcare providers about all supplements/vitamins that you take. Have the bottles or photos of the labels with you so that all ingredients and their recommended daily levels can be reviewed.\n\n## How much iron do I need during pregnancy?\n\nThe Recommended Dietary Allowance (RDA) is the average daily level of intake that is enough to meet the nutrient needs for most people. The T\n\n[source: https://www.who.int/data/nutrition/nlis/info/antenatal-iron-supplementation]\n[Skip to main content](https://www.who.int/data/nutrition/nlis/info/antenatal-iron-supplementation#content)\n\nNutrition Landscape Information System (NLiS)\n\nNutrition and nutrition-related health and development data\n\nNutrition Landscape Information System (NLiS)\n\n- [Nutrition Data Home](https://www.who.int/teams/nutrition-and-food-safety)\n\n- [NLiS Home](https://www.who.int/teams/nutrition-and-food-safety/databases/nutrition-landscape-information-system)\n\n- NLiS Country Profile\n\n- Global Nutrition Monitoring Framework\n\n- NLiS Data Search\n\n\nNutrition Landscape Information System (NLiS)\n\n- [Nutrition Data Home](https://www.who.int/teams/nutrition-and-food-safety)\n\n- [NLiS Home](https://www.who.int/teams/nutrition-and-food-safety/databases/nutrition-landscape-information-system)\n\n- NLiS Country Profile\n\n- Global Nutrition Monitoring Framework\n\n- NLiS Data Search\n\n\n# Antenatal iron supplementation\n\n**What does this indicator tell us?**\n\nThis indicator reflects the percentage of women who consumed any iron-containing supplements during their current or previous pregnancy within the past 2 years. It provides information about the quality and coverage of perinatal medical services.\n\nDaily \n\n[source: https://www.who.int/data/nutrition/nlis/info/antenatal-iron-supplementation]\niron and folic acid supplementation is currently recommended by WHO as part of antenatal care, to reduce the risk of low birth weight, maternal anaemia and iron deficiency. It is suggested that the supplement contains 30-60 mg of iron, with the higher dose preferred in settings where anaemia in pregnant women is a severe public health problem (≥40%), along with 400 µg of folic acid. Daily supplementation throughout pregnancy, beginning as early as possible after conception, is recommended in all settings. Despite its proven efficacy and wide inclusion in antenatal care programmes, the use of iron and folic acid supplementation has been limited in programme settings. Possible reasons for this include a lack of compliance, concerns about the safety of the intervention among women with an adequate iron intake, and variable availability of the supplements at community level. Intermittent use of iron and folic acid supplements by non-anaemic women is a recommended alternative to prevent anaemia and improve gestational outcomes in areas where the prevalence of anaemia among pregnant women is lower than 20%. The suggested dose is 120 mg elemental iron and 2800 µg (2.8 mg) folic acid provi\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1151.6227000392973,
+      "prompt_tokens": 2230,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002482,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Which major health organizations (e.g., WHO, CDC, ACOG) provide the recommended daily iron supplement dosage for pregnant women?\nEVIDENCE:\n[source: https://www.ncbi.nlm.nih.gov/books/NBK606260/table/ch1.tab1/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nCantor A, Holmes R, Bougatsos C, et al. Screening and Supplementation for Iron Deficiency and Iron Deficiency Anemia During Pregnancy: Systematic Review to Update the U.S. Preventive Services Task Force Recommendation \\[Internet\\]. Rockville (MD): Agency for Healthcare Research and Quality (US); 2024 Aug. (Evidence Synthesis, No. 239.)\n\n[![Cover of Screening and Supplementation for Iron Deficiency and Iron Deficiency Anemia During Pregnancy: Systematic Review to Update the U.S. Preventive Services Task Force Recommendation](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-es239-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/es239/ \"Table of Contents Page\")\n\n## Screening and Supplementation for Iron Deficiency and Iron Deficiency Anemia During Pregnancy: Systematic Review to Update the U.S. Preventive Services Task Force Recommendation \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK606260/table/ch1.tab1/#__NBK606260_dtls__)\n\nEvidence Synthesis, No. 239.\n\nCantor A, Holmes R, Bougatsos C, et al.\n\nRockville (MD): [Agency for Healthcare Research and Qu\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK606260/table/ch1.tab1/]\nality (US)](https://www.ahrq.gov/); 2024 Aug.\n\n- [Contents](https://www.ncbi.nlm.nih.gov/books/n/es239/)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK606260/table/ch1.tab1/#)\n\n### Table 1Recommendations of Other Groups\n\n[View in own window](https://www.ncbi.nlm.nih.gov/books/NBK606260/table/ch1.tab1/?report=objectonly)\n\n| Organization, year | Recommendations |\n| --- | --- |\n| American Academy of Family Physicians (AAFP), 2013 [44](https://www.ncbi.nlm.nih.gov/books/NBK606260/table/ch1.tab1/#) | All pregnant women should be screened for iron deficiency anemia. Supplemental iron may be given initially, followed by further workup if the patient is not responsive to therapy. In pregnant patients, poor compliance or intolerance should be considered, and parenteral iron may produce a better response. |\n| American College of Obstetricians and Gynecologists (ACOG), 2021 [14](https://www.ncbi.nlm.nih.gov/books/NBK606260/table/ch1.tab1/#) | All pregnant women should be screened for anemia with a complete blood count in the first trimester and again at 24 to 28 weeks of gestation. Patients who meet criteria fo\n\n[source: https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/]\n[Skip navigation links](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/#maincontent)\n\n# Iron\n\nFact Sheet for Consumers\n\nExpand All\n\n## Introduction\n\nIron is a mineral that is naturally present in many foods, added to some food products, and available as a dietary supplement. Iron is an essential component of hemoglobin, an erythrocyte (red blood cell) protein that transfers oxygen from the lungs to the tissues \\[ [1](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/#en1) 1\\. Wessling-Resnick M. Iron. In: Ross AC, Caballero B, Cousins RJ, Tucker KL, Ziegler RG, eds. Modern Nutrition in Health and Disease. 11th ed. Baltimore, MD: Lippincott Williams & Wilkins; 2014:176-88.\\]. As a component of myoglobin, another protein that provides oxygen, iron supports muscle metabolism and healthy connective tissue \\[ [2](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/#en2) 2\\. Aggett PJ. Iron. In: Erdman JW, Macdonald IA, Zeisel SH, eds. Present Knowledge in Nutrition. 10th ed. Washington, DC: Wiley-Blackwell; 2012:506-20.\\]. Iron is also necessary for physical growth, neurological development, cellular functioning, and the synthesis of some hormones \\[ [2\n\n[source: https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/]\n](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/#en2) 2\\. Aggett PJ. Iron. In: Erdman JW, Macdonald IA, Zeisel SH, eds. Present Knowledge in Nutrition. 10th ed. Washington, DC: Wiley-Blackwell; 2012:506-20., [3](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/#en3) 3\\. Murray-Kolbe LE, Beard J. Iron. In: Coates PM, Betz JM, Blackman MR, et al., eds. Encyclopedia of Dietary Supplements. 2nd ed. London and New York: Informa Healthcare; 2010:432-8.\\].\n\nDietary iron has two main forms: heme and nonheme \\[ [1](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/#en1) 1\\. Wessling-Resnick M. Iron. In: Ross AC, Caballero B, Cousins RJ, Tucker KL, Ziegler RG, eds. Modern Nutrition in Health and Disease. 11th ed. Baltimore, MD: Lippincott Williams & Wilkins; 2014:176-88.\\]. Plants and iron-fortified foods contain nonheme iron only, whereas meat, seafood, and poultry contain both heme and nonheme iron \\[ [2](https://ods.od.nih.gov/factsheets/Iron-HealthProfessional%20/#en2) 2\\. Aggett PJ. Iron. In: Erdman JW, Macdonald IA, Zeisel SH, eds. Present Knowledge in Nutrition. 10th ed. Washington, DC: Wiley-Blackwell; 2012:506-20.\\]. Heme iron, which forms when \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK235217/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nInstitute of Medicine (US) Committee on Nutritional Status During Pregnancy and Lactation. Nutrition During Pregnancy: Part I Weight Gain: Part II Nutrient Supplements. Washington (DC): National Academies Press (US); 1990.\n\n[![Cover of Nutrition During Pregnancy](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-nap1451-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/nap1451/ \"Table of Contents Page\")\n\n## Nutrition During Pregnancy: Part I Weight Gain: Part II Nutrient Supplements.\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK235217/#__NBK235217_dtls__)\n\nInstitute of Medicine (US) Committee on Nutritional Status During Pregnancy and Lactation.\n\nWashington (DC): [National Academies Press (US)](http://www.nap.edu/); 1990.\n\n- [Contents](https://www.ncbi.nlm.nih.gov/books/n/nap1451/)\n- [Hardcopy Version at National Academies Press](http://www.nap.edu/catalog.php?record_id=1451)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK235217/#)\n\n[< Prev](https://www.ncbi.nlm.nih.gov/books/n/nap1\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK235217/]\n451/ddd00202/ \"Previous page in this title\") [Next >](https://www.ncbi.nlm.nih.gov/books/n/nap1451/ddd00240/ \"Next page in this title\")\n\n# 14Iron Nutrition During Pregnancy\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK235217/# \"Go to other sections in this page\")\n\n## Importance of Iron During Pregnancy\n\nAmong healthy human beings, pregnant women and rapidly growing infants are most vulnerable to iron deficiency (Bothwell et al., 1979). Both groups have to absorb substantially more iron than is lost from the body, and both are at a considerable risk of developing iron deficiency under ordinary dietary circumstances. During pregnancy, more iron is needed primarily to supply the growing fetus and placenta and to increase the maternal red cell mass (Hallberg, 1988).\n\nIron deficiency is common among pregnant women in industrialized countries, as shown by numerous studies in which hemoglobin concentrations during the last half of pregnancy were found to be higher in iron-supplemented women than in those given a placebo or no supplement ( [Table 14-1](https://www.ncbi.nlm.nih.gov/books/NBK235217/table/ttt00058/?report=objectonly)) (Chanarin and Rothman, 1971; Dawson and McGanity, 1987;\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1665.0429999572225,
+      "prompt_tokens": 2628,
+      "completion_tokens": 63,
+      "cost_usd": 0.00028800000000000006,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: ANSWER\nCLAIMS: [C1] (critical) Q: What is the recommended daily amount of iron (in milligrams) that a pregnant woman should take as a supplement?\n  verdict=SUPPORTED answer=30 mg to 60 mg of elemental iron\n  evidence_span=Daily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron* and 400 µg (0.4 mg) folic acid** is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.***\n  source=https://www.who.int/tools/elena/interventions/daily-iron-pregnancy\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.97}\n[C2] (supporting) Q: Do health guidelines recommend a different iron supplement dosage for pregnant women who have been diagnosed with iron‑deficiency anemia?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What is the established upper tolerable intake level (UL) for iron for pregnant women, expressed in milligrams per day?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Which major health organizations (e.g., WHO, CDC, ACOG) provide the recommended daily iron supplement dosage for pregnant women?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"गर्भवती महिलाहरूका लागि मातृ एनिमिया, प्रसूति पछिको सेप्सिस, कम जन्मतौल र समयभन्दा अगाडि हुने जन्म रोक्न दैनिक ३० मि.ग्रा. देखि ६० मि.ग्रा. सम्मको एलीमेन्टल आइरन (elemental iron) र ४०० µg (०.४ मि.ग्रा.) फोलिक एसिड सेवन गर्न सिफारिस गरिन्छ [1] ।\\n\\nयो कुरा पुष्टि गर्न सकिएन\\n- आइरनको कमीले एनिमिया भएका गर्भवती महिलाहरूका लागि फरक मात्रा सिफारिस गरिएको छ कि छैन।\\n- गर्भवती महिलाहरूका लागि आइरनको अधिकतम सहनयोग्य सेवन स्तर (upper tolerable intake level) कति हो।\\n- कुन-कुन प्रमुख स्वास्थ्य संस्थाहरूले गर्भवती महिलाका लागि दैनिक आइरन सप्लिमेन्टको मात्रा सिफारिस गरेका छन्।\",\n  \"citations\": [\n    {\n      \"marker\": \"[1]\",\n      \"url\": \"https://www.who.int/tools/elena/interventions/daily-iron-pregnancy\"\n    }\n  ]\n}\n```",
+      "parsed": {
+        "response_text": "गर्भवती महिलाहरूका लागि मातृ एनिमिया, प्रसूति पछिको सेप्सिस, कम जन्मतौल र समयभन्दा अगाडि हुने जन्म रोक्न दैनिक ३० मि.ग्रा. देखि ६० मि.ग्रा. सम्मको एलीमेन्टल आइरन (elemental iron) र ४०० µg (०.४ मि.ग्रा.) फोलिक एसिड सेवन गर्न सिफारिस गरिन्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन\n- आइरनको कमीले एनिमिया भएका गर्भवती महिलाहरूका लागि फरक मात्रा सिफारिस गरिएको छ कि छैन।\n- गर्भवती महिलाहरूका लागि आइरनको अधिकतम सहनयोग्य सेवन स्तर (upper tolerable intake level) कति हो।\n- कुन-कुन प्रमुख स्वास्थ्य संस्थाहरूले गर्भवती महिलाका लागि दैनिक आइरन सप्लिमेन्टको मात्रा सिफारिस गरेका छन्।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://www.who.int/tools/elena/interventions/daily-iron-pregnancy"
+          }
+        ]
+      },
+      "latency_ms": 3268.8153000199236,
+      "prompt_tokens": 690,
+      "completion_tokens": 260,
+      "cost_usd": 0.00017299999999999998,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: गर्भवती महिलाहरूका लागि मातृ एनिमिया, प्रसूति पछिको सेप्सिस, कम जन्मतौल र समयभन्दा अगाडि हुने जन्म रोक्न दैनिक ३० मि.ग्रा. देखि ६० मि.ग्रा. सम्मको एलीमेन्टल आइरन (elemental iron) र ४०० µg (०.४ मि.ग्रा.) फोलिक एसिड सेवन गर्न सिफारिस गरिन्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन\n- आइरनको कमीले एनिमिया भएका गर्भवती महिलाहरूका लागि फरक मात्रा सिफारिस गरिएको छ कि छैन।\n- गर्भवती महिलाहरूका लागि आइरनको अधिकतम सहनयोग्य सेवन स्तर (upper tolerable intake level) कति हो।\n- कुन-कुन प्रमुख स्वास्थ्य संस्थाहरूले गर्भवती महिलाका लागि दैनिक आइरन सप्लिमेन्टको मात्रा सिफारिस गरेका छन्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the recommended daily amount of iron (in milligrams) that a pregnant woman should take as a supplement?\n  verdict=SUPPORTED answer=30 mg to 60 mg of elemental iron\n  evidence_span=Daily oral iron and folic acid supplementation with 30 mg to 60 mg of elemental iron* and 400 µg (0.4 mg) folic acid** is recommended for pregnant women to prevent maternal anaemia, puerperal sepsis, low birth weight, and preterm birth.***\n  source=https://www.who.int/tools/elena/interventions/daily-iron-pregnancy\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.97}\n[C2] (supporting) Q: Do health guidelines recommend a different iron supplement dosage for pregnant women who have been diagnosed with iron‑deficiency anemia?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What is the established upper tolerable intake level (UL) for iron for pregnant women, expressed in milligrams per day?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Which major health organizations (e.g., WHO, CDC, ACOG) provide the recommended daily iron supplement dosage for pregnant women?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"For pregnant women, to prevent maternal anemia, postpartum sepsis, low birth weight, and preterm birth, it is recommended to consume 30 mg to 60 mg of elemental iron and 400 µg (0.4 mg) of folic acid daily [1].\\n\\nThis could not be confirmed:\\n- Whether a different amount is recommended for pregnant women with anemia due to iron deficiency.\\n- What the upper tolerable intake level of iron is for pregnant women.\\n- Which major health organizations have recommended the daily iron supplement amount for pregnant women.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "For pregnant women, to prevent maternal anemia, postpartum sepsis, low birth weight, and preterm birth, it is recommended to consume 30 mg to 60 mg of elemental iron and 400 µg (0.4 mg) of folic acid daily [1].\n\nThis could not be confirmed:\n- Whether a different amount is recommended for pregnant women with anemia due to iron deficiency.\n- What the upper tolerable intake level of iron is for pregnant women.\n- Which major health organizations have recommended the daily iron supplement amount for pregnant women.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 2013.1333000026643,
+      "prompt_tokens": 735,
+      "completion_tokens": 148,
+      "cost_usd": 0.0001327,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0021142,
+  "total_latency_ms": 17847.60819998337,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

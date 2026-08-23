@@ -1,0 +1,439 @@
+{
+  "run_id": "58b8b4fc2260",
+  "question": "sarkari chhutti ko din kaam garayo bhane double pay paucha ki paudaina",
+  "tier": "TIER_1",
+  "domain": "legal",
+  "detected_language": "ne-Latn",
+  "decision": "REFUSE",
+  "response_text": "यस विषयमा आवश्यक कानुनी प्रमाणहरू स्थापना गर्न सकिएन। कृपया यसका लागि योग्य कानुनी विशेषज्ञसँग परामर्श गर्नुहोस्।\n\n---\n[Fidelity check could not be satisfied after retry; showing the verified English claim summary alongside the translation for safety.]\n\n[C1] (critical) Q: Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\n  verdict=SUPPORTED answer=Yes, in Estonia, employees working on a public holiday receive double wages.\n  evidence_span=Employees working on a public holiday receive double wages\n  source=https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.', 'confidence': 0.93}\n[C2] (supporting) Q: Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "public holiday double pay law",
+        "statutory holiday overtime pay",
+        "legal entitlement double wages"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "Yes, in Estonia, employees working on a public holiday receive double wages.",
+      "evidence_span": "Employees working on a public holiday receive double wages",
+      "source_url": "https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "falsification_attempt": "The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.",
+        "confidence": 0.93
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "public holiday pay employer policy",
+        "collective agreement holiday pay",
+        "statutory vs contractual holiday pay"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "employment contract modify holiday pay",
+        "award overrides statutory holiday pay",
+        "contractual holiday pay provisions"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "public holiday pay exemptions",
+        "essential services holiday pay",
+        "casual employee holiday pay rules"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: sarkari chhutti ko din kaam garayo bhane double pay paucha ki paudaina\n",
+      "raw_response": "{\n  \"detected_language\": \"ne-Latn\",\n  \"devanagari_form\": \"सरकारी छुट्टी को दिन काम गर्यो भने डबल पे पाउचा कि पाउदैन\",\n  \"canonical_english\": \"Am I entitled to double pay if I work on a public holiday?\",\n  \"domain\": \"legal\",\n  \"entities\": [],\n  \"implicit_context\": [\n    \"The user is likely referring to labor laws in Nepal\",\n    \"The user is an employee\"\n  ],\n  \"ambiguities\": [\n    \"Employment sector (public vs private)\",\n    \"Specific employment contract terms\",\n    \"Jurisdiction (though implied as Nepal)\"\n  ]\n}",
+      "parsed": {
+        "detected_language": "ne-Latn",
+        "devanagari_form": "सरकारी छुट्टी को दिन काम गर्यो भने डबल पे पाउचा कि पाउदैन",
+        "canonical_english": "Am I entitled to double pay if I work on a public holiday?",
+        "domain": "legal",
+        "entities": [],
+        "implicit_context": [
+          "The user is likely referring to labor laws in Nepal",
+          "The user is an employee"
+        ],
+        "ambiguities": [
+          "Employment sector (public vs private)",
+          "Specific employment contract terms",
+          "Jurisdiction (though implied as Nepal)"
+        ]
+      },
+      "latency_ms": 2609.258000040427,
+      "prompt_tokens": 316,
+      "completion_tokens": 154,
+      "cost_usd": 9.320000000000002e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: Am I entitled to double pay if I work on a public holiday?\nORIGINAL: sarkari chhutti ko din kaam garayo bhane double pay paucha ki paudaina\nDOMAIN: legal\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns specific legal rights and financial compensation obligations, where an incorrect answer could lead to financial harm or legal disputes.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns specific legal rights and financial compensation obligations, where an incorrect answer could lead to financial harm or legal disputes.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1126.5880000428297,
+      "prompt_tokens": 341,
+      "completion_tokens": 59,
+      "cost_usd": 5.7700000000000007e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: Am I entitled to double pay if I work on a public holiday?\nENTITIES: []\nDOMAIN: legal\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"public holiday double pay law\", \"statutory holiday overtime pay\", \"legal entitlement double wages\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"public holiday pay employer policy\", \"collective agreement holiday pay\", \"statutory vs contractual holiday pay\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"employment contract modify holiday pay\", \"award overrides statutory holiday pay\", \"contractual holiday pay provisions\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"public holiday pay exemptions\", \"essential services holiday pay\", \"casual employee holiday pay rules\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "public holiday double pay law",
+              "statutory holiday overtime pay",
+              "legal entitlement double wages"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "Yes, in Estonia, employees working on a public holiday receive double wages.",
+            "evidence_span": "Employees working on a public holiday receive double wages",
+            "source_url": "https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH",
+                "SOURCE_INAPPROPRIATE"
+              ],
+              "falsification_attempt": "The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.",
+              "confidence": 0.93
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "public holiday pay employer policy",
+              "collective agreement holiday pay",
+              "statutory vs contractual holiday pay"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "employment contract modify holiday pay",
+              "award overrides statutory holiday pay",
+              "contractual holiday pay provisions"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "public holiday pay exemptions",
+              "essential services holiday pay",
+              "casual employee holiday pay rules"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 3178.4488999983296,
+      "prompt_tokens": 290,
+      "completion_tokens": 911,
+      "cost_usd": 0.0004845,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?\nEVIDENCE:\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year. (2) The annual public holiday of a child so provided pursuant to Sub-rule (1) shall be determined at the beginning of each year.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 9. Home Leave: (1) A child working in an Enterprise shall be entitled to paid home leave at the rate of One day for every twenty days of the period of work performed by him/her. The child shall have to take prior approval from the Manager before going for such a leave. The home leave to be enjoyed pursuant to Sub-rule (1) may be accumulated for a maximum period of Thirty Six days.\n\n[source: https://faolex.fao.org/docs/pdf/nep187179.pdf]\nRule 4. Certificate of Eligibility: (1) Before employing a child as a Labour, an application shall be filed in the Labour office to examine his/her health in relation to his/her ability and inability to do the work, mentioning about the nature of the work and the age of the child. (2) After obtaining an application pursuant to Sub-rule (1), the Labour Office shall cause a doctor to examine the health of the child. (3) If on an examination done pursuant to Sub-rule (1), the child is found to be capable for the work, the doctor shall provide a certificate of eligibility pursuant to the Schedule.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1243.7913000467233,
+      "prompt_tokens": 671,
+      "completion_tokens": 63,
+      "cost_usd": 9.230000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\nEVIDENCE:\n[source: https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/]\n- [Skip to content](https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/#skip-content)\n- [Skip to navigation](https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/#skip-nav)\n\n![](https://www.grantthornton.ee/cdn-cgi/image/format=auto/globalassets/page-banners/banner_c.jpg)\n\nEmployment Contracts Act\n\n# Working on public holidays must be paid at double the rate\n\n![](https://www.grantthornton.ee/globalassets/1.-member-firms/estonia/people/varviline/60x60/kristel-tiits-60x60-eku_1047.png) [Kristel Tiits](https://www.grantthornton.ee/en/meet-our-people1/kristel-tiits/) 04 Jun 2019\n\n#### The midsummer holidays of St. John’s Day and Victory Day are getting closer and it is the right time to look at working on public holidays. When do employees have the right to a shortened workday or a day off work in Estonia? What are the exceptions? To prevent misunderstandings, employers should think about such situations early on.\n\nPursuant to Section 53 of the Employment Contracts Act, employers are obligated to shorten the workday preceding New Year’s Day, Independence Day (24 Feb), Victory Day\n\n[source: https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/]\n (23 Jun) and Christmas Eve by three hours. Obligation to shorten the workday applies regardless of the form of employment ([full or part time or summarised working time](https://www.grantthornton.ee/insights-landing-page/mida-tasub-teada-tooaja-uldisest-normist-ja-uletunnitoost/)). Meaning in cases set forth in legislation, employers are required to shorten the workday.\n\n#### If the day cannot be shortened, overtime work must be paid\n\nThe employee’s workday must also be shortened in a situation where the work process is continuous. For example, it might not be possible to shorten the day by three hours at a retailer or on a factory’s assembly line. Thus, if the nature of the work requires that the employee work the standard number of working hours or pursuant to the schedule, an agreement on this must be concluded. In such a case, the three hours in question must be paid [overtime](https://www.grantthornton.ee/insights-landing-page/mida-tasub-teada-tooaja-uldisest-normist-ja-uletunnitoost/), remunerated in the same extent as a day off or with monetary compensation (1.5 times the wage).\n\n#### Employees working on a public holiday receive double wages\n\nIn general, a public holiday i\n\n[source: https://support.buddy.hr/hc/en-mt/articles/4953355914898-Public-Holidays-and-Related-Settings]\n[Skip to main content](https://support.buddy.hr/hc/en-mt/articles/4953355914898-Public-Holidays-and-Related-Settings#main-content)\n\n## [![Business and Seriously Accurate Available Plans.png](https://support.buddy.hr/hc/article_attachments/13199094680850)](https://support.buddy.hr/hc/en-mt/articles/12983087609362-Buddy-s-Subscription-Plans-Discovering-Which-Plan-to-Choose)\n\nPublic Holidays can often be a challenge for payroll officers. One of the biggest reasons for this difficulty is due to having the values based on the Wage Regulation Order of the company's industry, as well as differences in contracts. The way Public Holidays are dealt can vary in a multitude of ways.\n\nThis article aims to give you some information on how to deal with Public Holidays in Buddy. It is advised that you inform yourself on how your industry and company should tackle these to select the most appropriate settings for your company.\n\nBuddy Guide: Handling Public Holidays in Time & Attendance\n\n[Buddy Guide: Handling Public Holidays in Time & Attendance](https://www.loom.com/share/c9405cf81412424e8ba93facfc324149 \"Buddy Guide: Handling Public Holidays in Time & Attendance\")\n\nCopy link\n\n[Open video in Loom]\n\n[source: https://support.buddy.hr/hc/en-mt/articles/4953355914898-Public-Holidays-and-Related-Settings]\n(https://www.loom.com/share/c9405cf81412424e8ba93facfc324149)\n\n0\n\n1×\n\n3 min⚡️4 min 13 sec3 min 22 sec2 min 48 sec2 min 15 sec1 min 59 sec1 min 41 sec1 min 21 sec\n\n![](https://cdn.loom.com/sessions/thumbnails/c9405cf81412424e8ba93facfc324149-c8b7fadab6e6a45f.jpg)\n\n[Buddy Guide: Handling Public Holidays in Time & Attendance](https://www.loom.com/share/c9405cf81412424e8ba93facfc324149 \"Buddy Guide: Handling Public Holidays in Time & Attendance\")\n\nCopy link\n\n[Open video in Loom](https://www.loom.com/share/c9405cf81412424e8ba93facfc324149)\n\n0\n\n1×\n\n3 min⚡️4 min 13 sec3 min 22 sec2 min 48 sec2 min 15 sec1 min 59 sec1 min 41 sec1 min 21 sec\n\n- - 😂\n\n\n\n\n\n\n\n\n      joy\n\n      1\n\n  - 😍\n\n\n\n\n\n\n\n\n    love\n\n    2\n\n  - 😮\n\n\n\n\n\n\n\n\n    wow\n\n    3\n\n  - 🙌\n\n\n\n\n\n\n\n\n    yay\n\n    4\n\n  - 👍\n\n\n\n\n\n\n\n\n    up\n\n    5\n\n  - 👎\n\n\n\n\n\n\n\n\n    down\n\n    6\n\n\nMore reactions\n\n7\n\n✋\n\n## Frequently Used\n\n  - 💯\n\n  - 🎉\n\n  - ✅\n\n  - ❌\n\n  - 👀\n\n  - ✨\n\n  - 🚀\n\n  - ➕\n\n  - 🙏\n\n  - 🔥\n\n  - 😆\n\n  - 🤔\n\n  - 😱\n\n  - 👋\n\n  - 🌈\n\n  - ❤️\n\n  - 👏\n\n  - 🐞\n\n\n## Smileys & Emotion\n\n## People & Body\n\n## Animals & Nature\n\n## Food & Drink\n\n## Activities\n\n## Travel & Places\n\n## Objects\n\n## Symbols\n\n## Flags\n\nMake frequently used emojis my defaultOn activating the\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Yes, in Estonia, employees working on a public holiday receive double wages.\",\n  \"evidence_span\": \"Employees working on a public holiday receive double wages\",\n  \"source_url\": \"https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "SUPPORTED",
+        "answer": "Yes, in Estonia, employees working on a public holiday receive double wages.",
+        "evidence_span": "Employees working on a public holiday receive double wages",
+        "source_url": "https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/",
+        "caveats": []
+      },
+      "latency_ms": 2644.2330999998376,
+      "prompt_tokens": 1984,
+      "completion_tokens": 127,
+      "cost_usd": 0.00024920000000000004,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?\nEVIDENCE:\n[source: https://www.papayaglobal.com/countrypedia/country/nepal/]\n![Nepal](https://www.papayaglobal.com/wp-content/uploads/2025/03/nepal-2.png)\n\n[Back](https://www.papayaglobal.com/countrypedia/)\nDisclaimer\n\n[Go to Paymentspedia](https://www.papayaglobal.com/paymentspedia/nepal/)\n\n# Payroll and Benefits Guide  Nepal\n\nLast updated: Mar 03, 2026\n\nCurrency\n\nNepalese Rupee (NPR)\n\nEmployer Taxes\n\n20%\n\nPayroll Frequency\n\nUnknown\n\nEmployee Costs\n\n11%\n\nCapital\n\nKathmandu\n\nDate Format\n\nYYYY/MM/DD\n\nFiscal Year\n\n16 July - 15 July\n\n[Get a Demo](https://www.papayaglobal.com/schedule-a-demo/)\n\n##### Table of contents\n\n- [Contributions](https://www.papayaglobal.com/countrypedia/country/nepal/#country_contribution)\n- [Working Hours](https://www.papayaglobal.com/countrypedia/country/nepal/#country_working_hours)\n- [Payroll](https://www.papayaglobal.com/countrypedia/country/nepal/#country_payroll)\n- [Leave](https://www.papayaglobal.com/countrypedia/country/nepal/#country_leave)\n- [Termination](https://www.papayaglobal.com/countrypedia/country/nepal/#country_termination)\n- [Minimum Wage](https://www.papayaglobal.com/countrypedia/country/nepal/#country_minimum_wage)\n- [Vat](https://www.papayaglobal.com/countrypedia/country/nepal/#country_vat)\n\n![](https://www.papaya\n\n[source: https://www.papayaglobal.com/countrypedia/country/nepal/]\nglobal.com/wp-content/uploads/2023/09/linkedin-icon.svg)![](https://www.papayaglobal.com/wp-content/uploads/2023/09/facebook-icon.svg)![](https://www.papayaglobal.com/wp-content/uploads/2023/09/x-icon.svg)Link Copied!\n\n![video poster](https://www.papayaglobal.com/wp-content/uploads/2025/03/nepal-2.png)\n\nwww.youtube.com\n\n# www.youtube.com is blocked\n\n**www.youtube.com** refused to connect.\n\nERR\\_BLOCKED\\_BY\\_RESPONSE\n\n**www.youtube.com** refused to connect.\n\n![](<Base64-Image-Removed>)![](<Base64-Image-Removed>)\n\n## Contribution\n\n|     |     |\n| --- | --- |\n| **Employer Payroll Contributions** |  |\n| 10.00% | Provident Fund |\n| 8.33% | Social Security Gratuity Fund |\n| 1.67% | Social Security Additional Insurance |\n| **20.00%** | **Total Employers Cost** |\n\n|     |     |\n| --- | --- |\n| **Employee Payroll Contributions** |  |\n| 10.00% | Provident Fund |\n| 1.00% | Social Security Tax |\n| **11.00%** | **Total Employee Cost** |\n| **Income Tax** |  |\n| 1% | Up to 500,000 NPR Annually |\n| 10% | 500,001-700,000 NPR Annually |\n| 20% | 700,001 – 2,00,000 NPR Annually |\n| 30% | Over 2,000,000 NPR Annually |\n\n### Employer taxes\n\nHighest\n\nLowest\n\n## Working Hours\n\n#### General\n\nThe standard wo\n\n[source: https://globalpeoplestrategist.com/nepal/]\n![](https://globalpeoplestrategist.com/wp-content/uploads/2023/01/favicon.svg)[Skip to content](https://globalpeoplestrategist.com/nepal/#content)\n\n# Nepal\n\n[< View all countries](https://globalpeoplestrategist.com/countries/)\n\n### Country Snapshot\n\nThe GPS Country Snapshot includes **25 sections** of information about labor law compliance in Nepal. See a sample of popular sections below.\n\nGet the Full Country Snapshot\n\n### Termination of Employment\n\nBoth employers and employees must provide notice before submitting a letter of employment termination, except in cases of dismissal for misconduct. The notice period correlates with the service period and ranges from 1 day (for employment up to 4 weeks) to 30 days (for more than a year of employment).\n\nIf any party fails to provide an appropriate notice period to the other party, they are liable to pay the remuneration for the period of such notice to the other party.\n\n## Work Permits\n\nForeign nationals hired for work in Nepal must request a work permit from the Department of Labour. Employers must apply for a work permit for their employees. It is also compulsory to produce a written employment agreement in a language understandable b\n\n[source: https://globalpeoplestrategist.com/nepal/]\ny foreign employees or in English. The validity period of a work permit is three years unless otherwise stated in the employment contract.\n\nEmployees who are provided diplomatic immunity, have written arrangements based on a treaty or agreement with the Government of Nepal, or are employed as technicians for 3 months or less to repair machinery or install new technology may proceed without a work permit. Employees also require a working visa from the Department of Immigration.\n\n### Paid Annual Leave\n\nIn Nepal, annual leave (called 'home leave') is granted at the rate of 1 day for 20 days of work, up to a maximum of 18 days per year. It is fully paid. However, as a general principle, leave is not seen as a right but as a privilege.\n\nAnnual leave accumulates up to a maximum of 90 days. Any excess accumulation is cashed in every year.\n\nIf an employee's contract is terminated or they die, the payment for unused leave is made to them or their family members.\n\n## Working Hours\n\nIn Nepal, regular working hours are 8 hours per day and 48 hours per week. Working hours of employees under 16 years of age cannot exceed 6 hours per day and 36 hours per week. Any work carried out in addition to \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1064.5514000207186,
+      "prompt_tokens": 1800,
+      "completion_tokens": 61,
+      "cost_usd": 0.0002044,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\nPROPOSED ANSWER: Yes, in Estonia, employees working on a public holiday receive double wages.\nEVIDENCE SPAN: Employees working on a public holiday receive double wages\nSOURCE: https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \\\"Employees working on a public holiday receive double wages\\\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\", \"SOURCE_INAPPROPRIATE\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.93\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.93
+      },
+      "latency_ms": 3177.4518999736756,
+      "prompt_tokens": 455,
+      "completion_tokens": 543,
+      "cost_usd": 0.000317,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?\nEVIDENCE:\n[source: https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay]\n[Skip to content](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#page-content) [Skip to search](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#search-toggle) [Skip to navigation](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#nav-toggle) [Skip to search](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#search-box) [Skip to main navigation](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#main-nav) [Skip to secondary navigation](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#secondary-nav)\n\nEveryone\n\n# Public holiday pay\n\nEmployees must be paid for a public holiday if it’s a day they would usually work. If they work on a public holiday, they must be paid at least time-and-a-half.\n\n## On this page\n\n- [What employers must do](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#scroll-to-1 \"Scroll to What employers must do\")\n- [Wo\n\n[source: https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay]\nrking on Easter Sunday](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#scroll-to-2 \"Scroll to Working on Easter Sunday\")\n- [Calculating public holiday pay](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#scroll-to-3 \"Scroll to Calculating public holiday pay\")\n- [Pay when employees do not work on a public holiday](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#scroll-to-4 \"Scroll to Pay when employees do not work on a public holiday\")\n- [Pay when employees work on a public holiday](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#scroll-to-5 \"Scroll to Pay when employees work on a public holiday\")\n- [Alternative holiday for employees working on a public holiday](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#scroll-to-6 \"Scroll to  Alternative holiday for employees working on a public holiday\")\n- [Public holiday scenarios](https://www.employment.govt.nz/pay-and-hours/pay-and-wages/leave-and-holiday-pay/public-holiday-pay#scro\n\n[source: https://www.mom.gov.sg/employment-practices/part-time-employment/public-holidays]\nYou are using a version of browser which will not be supported after 27 May 2018. To continue to transact with MOM securely, please follow [these steps](http://www.mom.gov.sg/faq/eservices/how-do-i-enable-tls-for-web-browsers) to enable the Transport Layer Security (TLS) of your web browser, or upgrade to the latest version of your browser.\n\n[Skip to main content](https://www.mom.gov.sg/employment-practices/part-time-employment/public-holidays#MainContent)\n\nSearch\n\n- [About us](https://www.mom.gov.sg/about-us)\n- [Work passes](https://www.mom.gov.sg/passes-and-permits)\n- [Employment practices](https://www.mom.gov.sg/employment-practices)\n- [Workplace safety and health](https://www.mom.gov.sg/workplace-safety-and-health)\n- More\n   - [Statistics and publications](http://stats.mom.gov.sg/)\n  - [eServices](https://www.mom.gov.sg/eservices)\n  - [Calculators](https://www.mom.gov.sg/eservices/calculators)\n  - [Forms](https://www.mom.gov.sg/forms)\n  - [Newsroom](https://www.mom.gov.sg/newsroom)\n\n[Part-time employment](https://www.mom.gov.sg/employment-practices/part-time-employment)\n\nPH pay, COMPASS, Primary Care Plan, myMOM Portal, paying salary, annual leave\n\n# Public holidays for part-ti\n\n[source: https://www.mom.gov.sg/employment-practices/part-time-employment/public-holidays]\nme employees\n\nYou are entitled to paid public holidays if you work part-time. However, you may agree with your employer to encash the public holidays instead.\n\n## Entitlement\n\nAs a part-time employee, you are entitled to paid [public holidays](https://www.mom.gov.sg/employment-practices/public-holidays-entitlement-and-pay). Your public holiday pay should be pro-rated based on the number of hours you work.\n\nYour pay is pro-rated as follows:\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n| No. of working hours per year of a part-time employee<br> <br> --------------------------<br> No. of working hours per year of a similar full-time employee | x | No. of days of public holiday of a similar full-time employee with equal length of service | x | No. of working hours in a day of a similar full-time employee |\n\nA part-timer works 22 hours per week, versus similar full-timer's 44 hours. The part-timer's annual entitlement is:\n\n- \\[(22 hours x 52 weeks) / (44 hours x 52 weeks)\\] x 11 public holidays x 8 hours = 44 hours of pay for all 11 public holidays\n\nTherefore, for every public holiday, the part-time employee should be paid: (44 hours / 11 days) = 4 hours\n\n## Encashin\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1942.1253000036813,
+      "prompt_tokens": 1923,
+      "completion_tokens": 63,
+      "cost_usd": 0.00021750000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne-Latn).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\n  verdict=SUPPORTED answer=Yes, in Estonia, employees working on a public holiday receive double wages.\n  evidence_span=Employees working on a public holiday receive double wages\n  source=https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.', 'confidence': 0.93}\n[C2] (supporting) Q: Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"यस विषयमा कानुनी रूपमा के व्यवस्था छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यसका लागि सम्बन्धित कानुनी विशेषज्ञ वा व्यावसायिक सल्लाहकारसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "यस विषयमा कानुनी रूपमा के व्यवस्था छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यसका लागि सम्बन्धित कानुनी विशेषज्ञ वा व्यावसायिक सल्लाहकारसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1166.9151000096463,
+      "prompt_tokens": 779,
+      "completion_tokens": 64,
+      "cost_usd": 0.0001035,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: यस विषयमा कानुनी रूपमा के व्यवस्था छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यसका लागि सम्बन्धित कानुनी विशेषज्ञ वा व्यावसायिक सल्लाहकारसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\n  verdict=SUPPORTED answer=Yes, in Estonia, employees working on a public holiday receive double wages.\n  evidence_span=Employees working on a public holiday receive double wages\n  source=https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.', 'confidence': 0.93}\n[C2] (supporting) Q: Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"It could not be confirmed what the legal provision is on this subject. Please consult a relevant legal expert or professional advisor for this.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response completely fails to provide the answer regarding Estonia's double pay for public holidays (C1), replacing the factual claim with a refusal/disclaimer.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "It could not be confirmed what the legal provision is on this subject. Please consult a relevant legal expert or professional advisor for this.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response completely fails to provide the answer regarding Estonia's double pay for public holidays (C1), replacing the factual claim with a refusal/disclaimer.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 2014.6251000114717,
+      "prompt_tokens": 675,
+      "completion_tokens": 122,
+      "cost_usd": 0.00011630000000000001,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne-Latn).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\n  verdict=SUPPORTED answer=Yes, in Estonia, employees working on a public holiday receive double wages.\n  evidence_span=Employees working on a public holiday receive double wages\n  source=https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.', 'confidence': 0.93}\n[C2] (supporting) Q: Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n[{\"type\": \"DROPPED\", \"detail\": \"The response completely fails to provide the answer regarding Estonia's double pay for public holidays (C1), replacing the factual claim with a refusal/disclaimer.\", \"severity\": \"high\"}]\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"यस विषयमा आवश्यक कानुनी प्रमाणहरू स्थापना गर्न सकिएन। कृपया यसका लागि योग्य कानुनी विशेषज्ञसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "यस विषयमा आवश्यक कानुनी प्रमाणहरू स्थापना गर्न सकिएन। कृपया यसका लागि योग्य कानुनी विशेषज्ञसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 961.9942000135779,
+      "prompt_tokens": 848,
+      "completion_tokens": 53,
+      "cost_usd": 0.000106,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: यस विषयमा आवश्यक कानुनी प्रमाणहरू स्थापना गर्न सकिएन। कृपया यसका लागि योग्य कानुनी विशेषज्ञसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Do any statutes in the relevant jurisdiction require that employees receive double pay for work performed on a public holiday?\n  verdict=SUPPORTED answer=Yes, in Estonia, employees working on a public holiday receive double wages.\n  evidence_span=Employees working on a public holiday receive double wages\n  source=https://www.grantthornton.ee/en/insights1/2019-working-on-public-holidays-must-be-paid-at-double-the-rate/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The provided evidence is a secondary commentary from a consulting firm, not the actual Estonian statute. The excerpt \"Employees working on a public holiday receive double wages\" does not cite the legal text, nor does it show that the double‑pay rule is mandated by law rather than being a common practice or a collective‑agreement provision. Without a direct reference to the relevant Estonian labour code or other authoritative legislation, the answer that a statute requires double pay is unsupported.', 'confidence': 0.93}\n[C2] (supporting) Q: Is the entitlement to double pay for public holiday work determined by statutory law, or is it left to employer policy or collective agreements?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Can an employee’s individual employment contract or award modify or override a statutory entitlement to double pay on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any categories of workers (e.g., essential services, casual employees) who are exempt from receiving double pay for work on public holidays?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Necessary legal evidence on this subject could not be established. Please consult with a qualified legal expert for this.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response completely omitted the factual answer regarding Estonia's double pay for public holidays (C1) and instead provided a refusal/disclaimer.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Necessary legal evidence on this subject could not be established. Please consult with a qualified legal expert for this.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response completely omitted the factual answer regarding Estonia's double pay for public holidays (C1) and instead provided a refusal/disclaimer.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 2227.150699996855,
+      "prompt_tokens": 664,
+      "completion_tokens": 114,
+      "cost_usd": 0.00011200000000000001,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0021536000000000003,
+  "total_latency_ms": 17161.107200023253,
+  "degraded_nodes": [
+    "N9"
+  ],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

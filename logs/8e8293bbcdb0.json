@@ -1,0 +1,331 @@
+{
+  "run_id": "8e8293bbcdb0",
+  "question": "घरेलु उपायले क्यान्सर निको हुन्छ भन्ने दाबी साँचो हो?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "घरेलु उपचारले क्यान्सर निको पार्छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारी र उपचारका लागि योग्य चिकित्सक वा स्वास्थ्य विशेषज्ञसँग परामर्श गर्नुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Have any home remedies been scientifically proven to cure cancer?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "home remedies",
+        "cancer cure",
+        "clinical trial"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [
+        "no whitelisted evidence found for this claim"
+      ],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "Is there evidence that any specific type of cancer can be cured solely with home remedies?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "cancer type",
+        "home remedy cure",
+        "treatment outcome"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Do major medical organizations state that cancer cannot be cured by home remedies?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "American Cancer Society",
+        "cancer home remedies",
+        "official position"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [
+        "no whitelisted evidence found for this claim"
+      ],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Are there documented cases where patients were cured of cancer using only home remedies?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "case report",
+        "cancer cured",
+        "home remedy only"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [
+        "no whitelisted evidence found for this claim"
+      ],
+      "challenge": null
+    },
+    {
+      "id": "C5",
+      "claim_question": "Has any regulatory agency (e.g., FDA, EMA) approved a home remedy as a cure for cancer?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "FDA",
+        "home remedy",
+        "cancer cure approval"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [
+        "no whitelisted evidence found for this claim"
+      ],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: घरेलु उपायले क्यान्सर निको हुन्छ भन्ने दाबी साँचो हो?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"घरेलु उपायले क्यान्सर निको हुन्छ भन्ने दाबी साँचो हो?\",\n  \"canonical_english\": \"Is the claim that cancer can be cured by home remedies true?\",\n  \"domain\": \"health\",\n  \"entities\": [\"cancer\"],\n  \"implicit_context\": [\"The user is inquiring about the validity of alternative medicine versus conventional medical treatment for cancer.\"],\n  \"ambiguities\": [\"The specific type of cancer is not mentioned.\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "घरेलु उपायले क्यान्सर निको हुन्छ भन्ने दाबी साँचो हो?",
+        "canonical_english": "Is the claim that cancer can be cured by home remedies true?",
+        "domain": "health",
+        "entities": [
+          "cancer"
+        ],
+        "implicit_context": [
+          "The user is inquiring about the validity of alternative medicine versus conventional medical treatment for cancer."
+        ],
+        "ambiguities": [
+          "The specific type of cancer is not mentioned."
+        ]
+      },
+      "latency_ms": 10736.91240005428,
+      "prompt_tokens": 314,
+      "completion_tokens": 123,
+      "cost_usd": 8.060000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: Is the claim that cancer can be cured by home remedies true?\nORIGINAL: घरेलु उपायले क्यान्सर निको हुन्छ भन्ने दाबी साँचो हो?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns the treatment of a chronic, life-threatening disease (cancer), where incorrect information could lead to the avoidance of necessary medical care.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns the treatment of a chronic, life-threatening disease (cancer), where incorrect information could lead to the avoidance of necessary medical care.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1336.3628999795765,
+      "prompt_tokens": 338,
+      "completion_tokens": 64,
+      "cost_usd": 5.94e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: Is the claim that cancer can be cured by home remedies true?\nENTITIES: ['cancer']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Have any home remedies been scientifically proven to cure cancer?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"home remedies\", \"cancer cure\", \"clinical trial\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Is there evidence that any specific type of cancer can be cured solely with home remedies?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"cancer type\", \"home remedy cure\", \"treatment outcome\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Do major medical organizations state that cancer cannot be cured by home remedies?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"American Cancer Society\", \"cancer home remedies\", \"official position\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Are there documented cases where patients were cured of cancer using only home remedies?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"case report\", \"cancer cured\", \"home remedy only\"]\n    },\n    {\n      \"id\": \"C5\",\n      \"claim_question\": \"Has any regulatory agency (e.g., FDA, EMA) approved a home remedy as a cure for cancer?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"FDA\", \"home remedy\", \"cancer cure approval\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Have any home remedies been scientifically proven to cure cancer?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "home remedies",
+              "cancer cure",
+              "clinical trial"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [
+              "no whitelisted evidence found for this claim"
+            ],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "Is there evidence that any specific type of cancer can be cured solely with home remedies?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "cancer type",
+              "home remedy cure",
+              "treatment outcome"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Do major medical organizations state that cancer cannot be cured by home remedies?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "American Cancer Society",
+              "cancer home remedies",
+              "official position"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [
+              "no whitelisted evidence found for this claim"
+            ],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Are there documented cases where patients were cured of cancer using only home remedies?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "case report",
+              "cancer cured",
+              "home remedy only"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [
+              "no whitelisted evidence found for this claim"
+            ],
+            "challenge": null
+          },
+          {
+            "id": "C5",
+            "claim_question": "Has any regulatory agency (e.g., FDA, EMA) approved a home remedy as a cure for cancer?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "FDA",
+              "home remedy",
+              "cancer cure approval"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [
+              "no whitelisted evidence found for this claim"
+            ],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 2643.282699980773,
+      "prompt_tokens": 292,
+      "completion_tokens": 710,
+      "cost_usd": 0.0003842,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is there evidence that any specific type of cancer can be cured solely with home remedies?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1051.037900033407,
+      "prompt_tokens": 446,
+      "completion_tokens": 85,
+      "cost_usd": 7.860000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Have any home remedies been scientifically proven to cure cancer?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C2] (critical) Q: Is there evidence that any specific type of cancer can be cured solely with home remedies?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Do major medical organizations state that cancer cannot be cured by home remedies?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C4] (supporting) Q: Are there documented cases where patients were cured of cancer using only home remedies?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C5] (supporting) Q: Has any regulatory agency (e.g., FDA, EMA) approved a home remedy as a cure for cancer?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"घरेलु उपचारले क्यान्सर निको पार्छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारी र उपचारका लागि योग्य चिकित्सक वा स्वास्थ्य विशेषज्ञसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "घरेलु उपचारले क्यान्सर निको पार्छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारी र उपचारका लागि योग्य चिकित्सक वा स्वास्थ्य विशेषज्ञसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 2002.3164000012912,
+      "prompt_tokens": 655,
+      "completion_tokens": 65,
+      "cost_usd": 9.15e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: घरेलु उपचारले क्यान्सर निको पार्छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारी र उपचारका लागि योग्य चिकित्सक वा स्वास्थ्य विशेषज्ञसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Have any home remedies been scientifically proven to cure cancer?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C2] (critical) Q: Is there evidence that any specific type of cancer can be cured solely with home remedies?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Do major medical organizations state that cancer cannot be cured by home remedies?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C4] (supporting) Q: Are there documented cases where patients were cured of cancer using only home remedies?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C5] (supporting) Q: Has any regulatory agency (e.g., FDA, EMA) approved a home remedy as a cure for cancer?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"It could not be confirmed that home remedies cure cancer. Please consult a qualified doctor or health expert for more information and treatment on this subject.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "It could not be confirmed that home remedies cure cancer. Please consult a qualified doctor or health expert for more information and treatment on this subject.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1612.3346000094898,
+      "prompt_tokens": 555,
+      "completion_tokens": 59,
+      "cost_usd": 7.910000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0007734000000000002,
+  "total_latency_ms": 4032.365499995649,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

@@ -1,0 +1,389 @@
+{
+  "run_id": "8fee1f6d927b",
+  "question": "गर्भावस्थामा आमाले लिएको तनावले पछि बच्चामा अटिज्म (autism) हुन्छ भन्ने कुरा साँचो हो?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "गर्भावस्थाको समयमा आमाको तनाव र बच्चामा अटिजमको जोखिम बीचको सम्बन्धबारे कुनै पनि तथ्यहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्य विशेषज्ञ वा चिकित्सकसँग परामर्श गर्नुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Is there an observed association between maternal stress during pregnancy and an increased risk of autism in the offspring?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "maternal stress pregnancy autism association",
+        "prenatal stress autism risk",
+        "maternal stress child autism"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "Do peer‑reviewed epidemiological studies report a statistically significant link between prenatal maternal stress and autism spectrum disorder in children?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "epidemiological study prenatal stress autism",
+        "significant link maternal stress autism",
+        "maternal stress autism study"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Does the relationship between prenatal maternal stress and autism persist after adjusting for major confounders such as parental age, socioeconomic status, and genetic risk?",
+      "claim_type": "conditional",
+      "criticality": "critical",
+      "search_terms": [
+        "maternal stress autism confounders",
+        "adjusted analysis prenatal stress autism",
+        "maternal age socioeconomic autism stress"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Do meta‑analyses estimate that high maternal stress during pregnancy raises the odds of autism in the child by at least 1.5‑fold?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "meta analysis prenatal stress autism odds ratio",
+        "maternal stress autism risk 1.5",
+        "prenatal stress autism effect size"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C5",
+      "claim_question": "Have biological mechanisms (e.g., elevated glucocorticoids, epigenetic changes) been identified that could explain how maternal stress during pregnancy influences fetal brain development leading to autism?",
+      "claim_type": "procedural",
+      "criticality": "supporting",
+      "search_terms": [
+        "maternal stress glucocorticoid autism",
+        "epigenetic changes prenatal stress autism",
+        "biological mechanism maternal stress fetal brain autism"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [
+        "no whitelisted evidence found for this claim"
+      ],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: गर्भावस्थामा आमाले लिएको तनावले पछि बच्चामा अटिज्म (autism) हुन्छ भन्ने कुरा साँचो हो?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"गर्भावस्थामा आमाले लिएको तनावले पछि बच्चामा अटिज्म (autism) हुन्छ भन्ने कुरा साँचो हो?\",\n  \"canonical_english\": \"Is it true that stress experienced by the mother during pregnancy can cause autism in the child later on?\",\n  \"domain\": \"health\",\n  \"entities\": [\"autism\"],\n  \"implicit_context\": [\"The user is inquiring about the causal relationship between prenatal maternal stress and neurodevelopmental disorders.\"],\n  \"ambiguities\": []\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "गर्भावस्थामा आमाले लिएको तनावले पछि बच्चामा अटिज्म (autism) हुन्छ भन्ने कुरा साँचो हो?",
+        "canonical_english": "Is it true that stress experienced by the mother during pregnancy can cause autism in the child later on?",
+        "domain": "health",
+        "entities": [
+          "autism"
+        ],
+        "implicit_context": [
+          "The user is inquiring about the causal relationship between prenatal maternal stress and neurodevelopmental disorders."
+        ],
+        "ambiguities": []
+      },
+      "latency_ms": 2766.7526999721304,
+      "prompt_tokens": 324,
+      "completion_tokens": 133,
+      "cost_usd": 8.560000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: Is it true that stress experienced by the mother during pregnancy can cause autism in the child later on?\nORIGINAL: गर्भावस्थामा आमाले लिएको तनावले पछि बच्चामा अटिज्म (autism) हुन्छ भन्ने कुरा साँचो हो?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns pregnancy and developmental outcomes, which are high-stakes health topics where inaccuracies could cause significant distress or misinformation.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns pregnancy and developmental outcomes, which are high-stakes health topics where inaccuracies could cause significant distress or misinformation.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1344.4169000140391,
+      "prompt_tokens": 355,
+      "completion_tokens": 59,
+      "cost_usd": 5.91e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: Is it true that stress experienced by the mother during pregnancy can cause autism in the child later on?\nENTITIES: ['autism']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Is there an observed association between maternal stress during pregnancy and an increased risk of autism in the offspring?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"maternal stress pregnancy autism association\", \"prenatal stress autism risk\", \"maternal stress child autism\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Do peer‑reviewed epidemiological studies report a statistically significant link between prenatal maternal stress and autism spectrum disorder in children?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"epidemiological study prenatal stress autism\", \"significant link maternal stress autism\", \"maternal stress autism study\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Does the relationship between prenatal maternal stress and autism persist after adjusting for major confounders such as parental age, socioeconomic status, and genetic risk?\",\n      \"claim_type\": \"conditional\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"maternal stress autism confounders\", \"adjusted analysis prenatal stress autism\", \"maternal age socioeconomic autism stress\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Do meta‑analyses estimate that high maternal stress during pregnancy raises the odds of autism in the child by at least 1.5‑fold?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"meta analysis prenatal stress autism odds ratio\", \"maternal stress autism risk 1.5\", \"prenatal stress autism effect size\"]\n    },\n    {\n      \"id\": \"C5\",\n      \"claim_question\": \"Have biological mechanisms (e.g., elevated glucocorticoids, epigenetic changes) been identified that could explain how maternal stress during pregnancy influences fetal brain development leading to autism?\",\n      \"claim_type\": \"procedural\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"maternal stress glucocorticoid autism\", \"epigenetic changes prenatal stress autism\", \"biological mechanism maternal stress fetal brain autism\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Is there an observed association between maternal stress during pregnancy and an increased risk of autism in the offspring?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "maternal stress pregnancy autism association",
+              "prenatal stress autism risk",
+              "maternal stress child autism"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "Do peer‑reviewed epidemiological studies report a statistically significant link between prenatal maternal stress and autism spectrum disorder in children?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "epidemiological study prenatal stress autism",
+              "significant link maternal stress autism",
+              "maternal stress autism study"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Does the relationship between prenatal maternal stress and autism persist after adjusting for major confounders such as parental age, socioeconomic status, and genetic risk?",
+            "claim_type": "conditional",
+            "criticality": "critical",
+            "search_terms": [
+              "maternal stress autism confounders",
+              "adjusted analysis prenatal stress autism",
+              "maternal age socioeconomic autism stress"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Do meta‑analyses estimate that high maternal stress during pregnancy raises the odds of autism in the child by at least 1.5‑fold?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "meta analysis prenatal stress autism odds ratio",
+              "maternal stress autism risk 1.5",
+              "prenatal stress autism effect size"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C5",
+            "claim_question": "Have biological mechanisms (e.g., elevated glucocorticoids, epigenetic changes) been identified that could explain how maternal stress during pregnancy influences fetal brain development leading to autism?",
+            "claim_type": "procedural",
+            "criticality": "supporting",
+            "search_terms": [
+              "maternal stress glucocorticoid autism",
+              "epigenetic changes prenatal stress autism",
+              "biological mechanism maternal stress fetal brain autism"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [
+              "no whitelisted evidence found for this claim"
+            ],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 4439.232299977448,
+      "prompt_tokens": 299,
+      "completion_tokens": 1246,
+      "cost_usd": 0.0006529,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do peer‑reviewed epidemiological studies report a statistically significant link between prenatal maternal stress and autism spectrum disorder in children?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1209.2804000130855,
+      "prompt_tokens": 451,
+      "completion_tokens": 85,
+      "cost_usd": 7.910000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is there an observed association between maternal stress during pregnancy and an increased risk of autism in the offspring?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1111.6678999969736,
+      "prompt_tokens": 449,
+      "completion_tokens": 85,
+      "cost_usd": 7.890000000000002e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do meta‑analyses estimate that high maternal stress during pregnancy raises the odds of autism in the child by at least 1.5‑fold?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1311.569400015287,
+      "prompt_tokens": 458,
+      "completion_tokens": 85,
+      "cost_usd": 7.980000000000002e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does the relationship between prenatal maternal stress and autism persist after adjusting for major confounders such as parental age, socioeconomic status, and genetic risk?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1251.0929999989457,
+      "prompt_tokens": 457,
+      "completion_tokens": 85,
+      "cost_usd": 7.970000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (supporting) Q: Is there an observed association between maternal stress during pregnancy and an increased risk of autism in the offspring?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Do peer‑reviewed epidemiological studies report a statistically significant link between prenatal maternal stress and autism spectrum disorder in children?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Does the relationship between prenatal maternal stress and autism persist after adjusting for major confounders such as parental age, socioeconomic status, and genetic risk?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Do meta‑analyses estimate that high maternal stress during pregnancy raises the odds of autism in the child by at least 1.5‑fold?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C5] (supporting) Q: Have biological mechanisms (e.g., elevated glucocorticoids, epigenetic changes) been identified that could explain how maternal stress during pregnancy influences fetal brain development leading to autism?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"गर्भावस्थाको समयमा आमाको तनाव र बच्चामा अटिजमको जोखिम बीचको सम्बन्धबारे कुनै पनि तथ्यहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्य विशेषज्ञ वा चिकित्सकसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "गर्भावस्थाको समयमा आमाको तनाव र बच्चामा अटिजमको जोखिम बीचको सम्बन्धबारे कुनै पनि तथ्यहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्य विशेषज्ञ वा चिकित्सकसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1645.7754999864846,
+      "prompt_tokens": 746,
+      "completion_tokens": 74,
+      "cost_usd": 0.00010420000000000001,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: गर्भावस्थाको समयमा आमाको तनाव र बच्चामा अटिजमको जोखिम बीचको सम्बन्धबारे कुनै पनि तथ्यहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्य विशेषज्ञ वा चिकित्सकसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (supporting) Q: Is there an observed association between maternal stress during pregnancy and an increased risk of autism in the offspring?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Do peer‑reviewed epidemiological studies report a statistically significant link between prenatal maternal stress and autism spectrum disorder in children?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Does the relationship between prenatal maternal stress and autism persist after adjusting for major confounders such as parental age, socioeconomic status, and genetic risk?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Do meta‑analyses estimate that high maternal stress during pregnancy raises the odds of autism in the child by at least 1.5‑fold?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C5] (supporting) Q: Have biological mechanisms (e.g., elevated glucocorticoids, epigenetic changes) been identified that could explain how maternal stress during pregnancy influences fetal brain development leading to autism?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"No facts could be established regarding the relationship between the mother's stress during pregnancy and the risk of autism in the child. Please consult a qualified health expert or physician for further information on this subject.\",\n  \"drift\": [\n    {\n      \"type\": \"ADDED\",\n      \"detail\": \"Added a medical disclaimer advising the user to consult a health expert or physician.\",\n      \"severity\": \"low\"\n    }\n  ],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "No facts could be established regarding the relationship between the mother's stress during pregnancy and the risk of autism in the child. Please consult a qualified health expert or physician for further information on this subject.",
+        "drift": [
+          {
+            "type": "ADDED",
+            "detail": "Added a medical disclaimer advising the user to consult a health expert or physician.",
+            "severity": "low"
+          }
+        ],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1086.1060000024736,
+      "prompt_tokens": 655,
+      "completion_tokens": 117,
+      "cost_usd": 0.0001123,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0013316000000000003,
+  "total_latency_ms": 3986.8425999884494,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

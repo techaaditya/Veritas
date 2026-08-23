@@ -104,9 +104,13 @@ def _firecrawl_search(claim_question: str, search_terms: list[str], allowed_doma
     web_results = getattr(result, "web", None) or []
     retrieved_at = time.strftime("%Y-%m-%d")
     for item in web_results[:3]:
-        url = getattr(item, "url", None)
+        metadata = getattr(item, "metadata", None)
+        url = getattr(metadata, "url", None) if metadata else None
+        title = (getattr(metadata, "title", None) or "") if metadata else ""
         markdown = getattr(item, "markdown", None)
         if not url or not markdown:
+            continue
+        if "recaptcha" in title.lower() or "checking your browser" in markdown[:200].lower():
             continue
         for piece in _chunk_text(markdown)[:2]:
             chunks.append(EvidenceChunk(url=url, retrieved_at=retrieved_at, text=piece, source="firecrawl"))

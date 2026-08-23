@@ -1,0 +1,466 @@
+{
+  "run_id": "3822ef13060d",
+  "question": "डेंगु ज्वरोको लागि आइभरमेक्टिन (ivermectin) खानु सुरक्षित हो?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "डेङ्गु ज्वरोको उपचारका लागि आइभरमेक्टिन (ivermectin) को प्रयोग र यसको सुरक्षाका बारेमा आवश्यक जानकारीहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Is ivermectin approved or recommended by major health authorities (e.g., WHO, FDA) for the treatment of dengue fever?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "ivermectin",
+        "dengue fever",
+        "approval",
+        "WHO"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "What are the common adverse effects of ivermectin in humans at standard therapeutic doses?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "ivermectin",
+        "adverse effects",
+        "human",
+        "side effects"
+      ],
+      "verdict": "PARTIAL",
+      "answer": "Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.",
+      "evidence_span": "Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK548921/",
+      "caveats": [
+        "The evidence only specifies effects related to liver function/injury and does not provide a comprehensive list of all common adverse effects."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "falsification_attempt": "The evidence provided only mentions minor, self‑limiting serum aminotransferase elevations and very rare clinically apparent liver injury. It does not establish that these are the *common* adverse effects of ivermectin at standard therapeutic doses, nor does it list other well‑documented common side effects such as dizziness, pruritus, nausea, or diarrhea. Therefore the answer mischaracterizes the typical safety profile and is not supported by the cited source.",
+        "confidence": 0.92
+      }
+    },
+    {
+      "id": "C3",
+      "claim_question": "Are there documented drug‑disease interactions between ivermectin and dengue fever that increase the risk of harm?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "ivermectin",
+        "dengue",
+        "drug interaction",
+        "safety"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Have any clinical trials or studies evaluated the safety of ivermectin in patients with dengue fever?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "ivermectin",
+        "dengue",
+        "clinical trial",
+        "safety"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C5",
+      "claim_question": "Does dengue fever alter the pharmacokinetic profile of ivermectin (e.g., due to liver involvement) in a way that affects safety?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "ivermectin",
+        "dengue",
+        "pharmacokinetics",
+        "liver"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: डेंगु ज्वरोको लागि आइभरमेक्टिन (ivermectin) खानु सुरक्षित हो?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"डेंगु ज्वरोको लागि आइभरमेक्टिन (ivermectin) खानु सुरक्षित हो?\",\n  \"canonical_english\": \"Is it safe to take ivermectin for dengue fever?\",\n  \"domain\": \"health\",\n  \"entities\": [\"dengue fever\", \"ivermectin\"],\n  \"implicit_context\": [\"The user is seeking medical advice regarding the efficacy or safety of an antiparasitic drug for a viral infection.\"],\n  \"ambiguities\": [\"patient age\", \"patient weight\", \"pregnancy status\", \"current symptoms/severity of dengue\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "डेंगु ज्वरोको लागि आइभरमेक्टिन (ivermectin) खानु सुरक्षित हो?",
+        "canonical_english": "Is it safe to take ivermectin for dengue fever?",
+        "domain": "health",
+        "entities": [
+          "dengue fever",
+          "ivermectin"
+        ],
+        "implicit_context": [
+          "The user is seeking medical advice regarding the efficacy or safety of an antiparasitic drug for a viral infection."
+        ],
+        "ambiguities": [
+          "patient age",
+          "patient weight",
+          "pregnancy status",
+          "current symptoms/severity of dengue"
+        ]
+      },
+      "latency_ms": 1609.3375000054948,
+      "prompt_tokens": 318,
+      "completion_tokens": 148,
+      "cost_usd": 9.1e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: Is it safe to take ivermectin for dengue fever?\nORIGINAL: डेंगु ज्वरोको लागि आइभरमेक्टिन (ivermectin) खानु सुरक्षित हो?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question asks about the safety and usage of a specific drug for treating a disease, which falls under drug dosing and medical management.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question asks about the safety and usage of a specific drug for treating a disease, which falls under drug dosing and medical management.",
+        "emergency_signals": []
+      },
+      "latency_ms": 2050.5030999775045,
+      "prompt_tokens": 341,
+      "completion_tokens": 61,
+      "cost_usd": 5.85e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: Is it safe to take ivermectin for dengue fever?\nENTITIES: ['dengue fever', 'ivermectin']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Is ivermectin approved or recommended by major health authorities (e.g., WHO, FDA) for the treatment of dengue fever?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"ivermectin\", \"dengue fever\", \"approval\", \"WHO\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"What are the common adverse effects of ivermectin in humans at standard therapeutic doses?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ivermectin\", \"adverse effects\", \"human\", \"side effects\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Are there documented drug‑disease interactions between ivermectin and dengue fever that increase the risk of harm?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"ivermectin\", \"dengue\", \"drug interaction\", \"safety\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Have any clinical trials or studies evaluated the safety of ivermectin in patients with dengue fever?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ivermectin\", \"dengue\", \"clinical trial\", \"safety\"]\n    },\n    {\n      \"id\": \"C5\",\n      \"claim_question\": \"Does dengue fever alter the pharmacokinetic profile of ivermectin (e.g., due to liver involvement) in a way that affects safety?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ivermectin\", \"dengue\", \"pharmacokinetics\", \"liver\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Is ivermectin approved or recommended by major health authorities (e.g., WHO, FDA) for the treatment of dengue fever?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "ivermectin",
+              "dengue fever",
+              "approval",
+              "WHO"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "What are the common adverse effects of ivermectin in humans at standard therapeutic doses?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "ivermectin",
+              "adverse effects",
+              "human",
+              "side effects"
+            ],
+            "verdict": "PARTIAL",
+            "answer": "Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.",
+            "evidence_span": "Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.",
+            "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK548921/",
+            "caveats": [
+              "The evidence only specifies effects related to liver function/injury and does not provide a comprehensive list of all common adverse effects."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH"
+              ],
+              "falsification_attempt": "The evidence provided only mentions minor, self‑limiting serum aminotransferase elevations and very rare clinically apparent liver injury. It does not establish that these are the *common* adverse effects of ivermectin at standard therapeutic doses, nor does it list other well‑documented common side effects such as dizziness, pruritus, nausea, or diarrhea. Therefore the answer mischaracterizes the typical safety profile and is not supported by the cited source.",
+              "confidence": 0.92
+            }
+          },
+          {
+            "id": "C3",
+            "claim_question": "Are there documented drug‑disease interactions between ivermectin and dengue fever that increase the risk of harm?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "ivermectin",
+              "dengue",
+              "drug interaction",
+              "safety"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Have any clinical trials or studies evaluated the safety of ivermectin in patients with dengue fever?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "ivermectin",
+              "dengue",
+              "clinical trial",
+              "safety"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C5",
+            "claim_question": "Does dengue fever alter the pharmacokinetic profile of ivermectin (e.g., due to liver involvement) in a way that affects safety?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "ivermectin",
+              "dengue",
+              "pharmacokinetics",
+              "liver"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 4257.363000011537,
+      "prompt_tokens": 297,
+      "completion_tokens": 996,
+      "cost_usd": 0.0005277,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is ivermectin approved or recommended by major health authorities (e.g., WHO, FDA) for the treatment of dengue fever?\nEVIDENCE:\n[source: https://pubmed.ncbi.nlm.nih.gov/33462580/]\nClipboard, Search History, and several other advanced features are temporarily unavailable.\n\n\n[Skip to main page content](https://pubmed.ncbi.nlm.nih.gov/33462580/#article-details)\n\n![Dot gov](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-dot-gov.svg)\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before\nsharing sensitive information, make sure you’re on a federal\ngovernment site.\n\n\n![Https](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-https.svg)\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the\nofficial website and that any information you provide is encrypted\nand transmitted securely.\n\n\n[Access keys](https://www.ncbi.nlm.nih.gov/guide/browsers/#ncbi_accesskeys) [NCBI Homepage](https://www.ncbi.nlm.nih.gov/) [MyNCBI Homepage](https://pubmed.ncbi.nlm.nih.gov/myncbi/) [Main Content](https://pubmed.ncbi.nlm.nih.gov/33462580/#maincontent) [Main Navigation](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n\n[![pubmed logo](https://cdn.ncbi.nlm.nih.gov/pubmed/af7de7da-df5d-41c6-8de4-8c266af8ccfb/core/images/pubmed-logo-blue.svg)](https://pubmed.ncbi.nlm.nih.gov/)[Show search bar](https://pubmed.ncbi.n\n\n[source: https://pubmed.ncbi.nlm.nih.gov/33462580/]\nlm.nih.gov/33462580/# \"Show search bar\")\n\nSearch:\n\n\n```\n\n```\n\n[Clear search input](https://pubmed.ncbi.nlm.nih.gov/33462580/# \"Clear search input\") Search\n\n[Advanced](https://pubmed.ncbi.nlm.nih.gov/advanced/) [Clipboard](https://pubmed.ncbi.nlm.nih.gov/clipboard/)\n\n[User Guide](https://pubmed.ncbi.nlm.nih.gov/help/)\n\nSave\n\nEmail\n\n\nSend to\n\n- [Clipboard](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n- [My Bibliography](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F33462580%2F%23open-bibliography-panel)\n- [Collections](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F33462580%2F%23open-collections-panel)\n- [Citation manager](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n\nDisplay options\n\nDisplay options\n\n\nFormat\nAbstractPubMedPMID\n\n## Save citation to file\n\nFormat:\nSummary (text)PubMedPMIDAbstract (text)CSV\n\nCreate file\n\nCancel\n\n\n## Email citation\n\nEmail address has not been verified. Go to\n[My NCBI account settings](https://account.ncbi.nlm.nih.gov/settings/)\nto confirm your email and then refresh this page.\n\n\nTo:\n\n\nSubject:\n\n\nBody:\n\n\nFormat:\nSummarySummary (text)AbstractAbstract (text)\n\nMeSH and other data\n\n\nSend e\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11008553/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC11008553/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journ\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC11008553/]\nal List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.7759/cureus.56025) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11008553/pdf/cureus-0016-00000056025.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![S\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7129059/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC7129059/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7129059/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1016/j.antiviral.2020.104787) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC7129059/pdf/main.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show articl\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1180.79910002416,
+      "prompt_tokens": 3180,
+      "completion_tokens": 61,
+      "cost_usd": 0.00034240000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What are the common adverse effects of ivermectin in humans at standard therapeutic doses?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC5929173/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC5929173/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC5929173/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.4269/ajtmh.17-0042) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5929173/pdf/tpmd170042.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article pe\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK548921/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nLiverTox: Clinical and Research Information on Drug-Induced Liver Injury \\[Internet\\]. Bethesda (MD): National Institute of Diabetes and Digestive and Kidney Diseases; 2012-.\n\n[![Cover of LiverTox](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-livertox-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/livertox/ \"All Drug Records\")\n\n## LiverTox: Clinical and Research Information on Drug-Induced Liver Injury \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK548921/#__NBK548921_dtls__)\n\nBethesda (MD): [National Institute of Diabetes and Digestive and Kidney Diseases](https://www.niddk.nih.gov/); 2012-.\n\n- [Drug Records](https://www.ncbi.nlm.nih.gov/books/n/livertox/)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK548921/#)\n\n# Ivermectin\n\nLast Update: April 9, 2021.\n\n## OVERVIEW\n\n### Introduction\n\nIvermectin is an antiinfective agent with activity against several parasitic nematodes and scabies and is the treatment of choice for onchocerciasis (river blindness). It is typic\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK548921/]\nally given as one or two oral doses. Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\n\n### Background\n\nIvermectin (eye\" ver mek\" tin) is a macrocyclic lactone and semisynthetic derivative of avermectin which is produced by Streptomyces avermitilis. Ivermectin has potent activity against several parasites and arthropods. It believed to act by interference with a glutamate gated chloride channel, which interferes with the parasite's neural and neuromuscular transmission. It has a broad spectrum of activity against several nematodes (Ascaris, Trichuris, Ancylostoma), cestodes (Taenia) and trematodes (Fasciola, Schistosoma). Ivermectin has particularly potent activity against onchocerciasis (river blindness) and lymphatic filariasis, which are important endemic diseases in Africa and South America. Ivermectin was approved for use in the United States in 1996 for strongyloidiasis and onchocerciasis. In other countries it is also approved for use in scabies, lice infestation and ascariasis. Ivermectin is available in tablets of 3 mg under the brand name Stromectol. For treatment\n\n[source: https://www.drugs.com/ivermectin.html]\n[Skip to main content](https://www.drugs.com/ivermectin.html#content)\n\nClose\n\nPrint pageMy Meds\n\n# Ivermectin\n\nPlay pronunciation\n\n**Generic name:** ivermectin (oral) \\[ _EYE-ver-MEK-tin_ \\]\n\n**Brand name:** [Stromectol](https://www.drugs.com/mtm/stromectol.html)\n\n**Drug class:** [Anthelmintics](https://www.drugs.com/drug-class/anthelmintics.html)\n\nMedically reviewed by [Melisa Puckey, BPharm](https://www.drugs.com/support/editor/21/melisa-puckey-bpharm.html). Last updated on Aug 13, 2026.\n\n## What is ivermectin?\n\n**Ivermectin is an anti-parasite medication used to treat parasitic diseases, including parasitic worms, hookworm, whipworm, and external parasites.** Ivermectin tablets ( [Stromectol](https://www.drugs.com/mtm/stromectol.html)) are FDA-approved to treat [strongyloidiasis](https://www.drugs.com/condition/strongyloidiasis.html) of the intestinal tract and onchocerciasis (river blindness). Ivermectin cream (Soolantra) is FDA-approved to treat rosacea, and ivermectin lotion (Sklice) is a treatment for head lice.\n\nIvermectin tablets have also been used off-label for scabies and other parasites.\n\nIvermectin works by paralyzing muscles in parasites, causing them to die. Ivermec\n\n[source: https://www.drugs.com/ivermectin.html]\ntin mechanism of action in parasites is by binding to glutamate-gated chloride channels (GluCl), causing paralysis. It does not affect mammals as it is unable to enter the mammal's central nervous system, where the GluCl channels are located. Ivermectin tablets are also thought to help the human immune response to being able to overcome immature worms and kill them. It is thought that ivermectin tablets may suppress the ability of the parasite to secrete proteins that help it to evade the host’s natural immune defence mechanism.\n\n## Ivermectin and COVID-19 Treatment\n\n**Ivermectin is not FDA-approved for treating or preventing COVID-19 infectio** n, and the [FDA has reported](https://www.fda.gov/consumers/consumer-updates/ivermectin-and-covid-19) “that currently available clinical trial data do not demonstrate that ivermectin is effective against COVID-19 in humans.”\n\nThe CDC does not list ivermectin tablets in [Types of COVID-19 Treatment](https://www.cdc.gov/covid/treatment/).\n\nThe [World Health Organization (WHO)](https://www.who.int/news-room/feature-stories/detail/who-advises-that-ivermectin-only-be-used-to-treat-covid-19-within-clinical-trials) does not recommend ivermectin ta\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"PARTIAL\",\n  \"answer\": \"Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\",\n  \"evidence_span\": \"Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\",\n  \"source_url\": \"https://www.ncbi.nlm.nih.gov/books/NBK548921/\",\n  \"caveats\": [\n    \"The evidence only specifies effects related to liver function/injury and does not provide a comprehensive list of all common adverse effects.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "PARTIAL",
+        "answer": "Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.",
+        "evidence_span": "Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK548921/",
+        "caveats": [
+          "The evidence only specifies effects related to liver function/injury and does not provide a comprehensive list of all common adverse effects."
+        ]
+      },
+      "latency_ms": 1840.5809000250883,
+      "prompt_tokens": 2679,
+      "completion_tokens": 166,
+      "cost_usd": 0.0003343,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Are there documented drug‑disease interactions between ivermectin and dengue fever that increase the risk of harm?\nEVIDENCE:\n[source: https://pubmed.ncbi.nlm.nih.gov/33462580/]\nClipboard, Search History, and several other advanced features are temporarily unavailable.\n\n\n[Skip to main page content](https://pubmed.ncbi.nlm.nih.gov/33462580/#article-details)\n\n![Dot gov](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-dot-gov.svg)\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before\nsharing sensitive information, make sure you’re on a federal\ngovernment site.\n\n\n![Https](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-https.svg)\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the\nofficial website and that any information you provide is encrypted\nand transmitted securely.\n\n\n[Access keys](https://www.ncbi.nlm.nih.gov/guide/browsers/#ncbi_accesskeys) [NCBI Homepage](https://www.ncbi.nlm.nih.gov/) [MyNCBI Homepage](https://pubmed.ncbi.nlm.nih.gov/myncbi/) [Main Content](https://pubmed.ncbi.nlm.nih.gov/33462580/#maincontent) [Main Navigation](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n\n[![pubmed logo](https://cdn.ncbi.nlm.nih.gov/pubmed/af7de7da-df5d-41c6-8de4-8c266af8ccfb/core/images/pubmed-logo-blue.svg)](https://pubmed.ncbi.nlm.nih.gov/)[Show search bar](https://pubmed.ncbi.n\n\n[source: https://pubmed.ncbi.nlm.nih.gov/33462580/]\nlm.nih.gov/33462580/# \"Show search bar\")\n\nSearch:\n\n\n```\n\n```\n\n[Clear search input](https://pubmed.ncbi.nlm.nih.gov/33462580/# \"Clear search input\") Search\n\n[Advanced](https://pubmed.ncbi.nlm.nih.gov/advanced/) [Clipboard](https://pubmed.ncbi.nlm.nih.gov/clipboard/)\n\n[User Guide](https://pubmed.ncbi.nlm.nih.gov/help/)\n\nSave\n\nEmail\n\n\nSend to\n\n- [Clipboard](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n- [My Bibliography](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F33462580%2F%23open-bibliography-panel)\n- [Collections](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F33462580%2F%23open-collections-panel)\n- [Citation manager](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n\nDisplay options\n\nDisplay options\n\n\nFormat\nAbstractPubMedPMID\n\n## Save citation to file\n\nFormat:\nSummary (text)PubMedPMIDAbstract (text)CSV\n\nCreate file\n\nCancel\n\n\n## Email citation\n\nEmail address has not been verified. Go to\n[My NCBI account settings](https://account.ncbi.nlm.nih.gov/settings/)\nto confirm your email and then refresh this page.\n\n\nTo:\n\n\nSubject:\n\n\nBody:\n\n\nFormat:\nSummarySummary (text)AbstractAbstract (text)\n\nMeSH and other data\n\n\nSend e\n\n[source: https://clinicaltrials.gov/study/NCT02045069]\nShow glossary\n\n#### Search for terms\n\nHide glossary\n\nStudy record managers: refer to the [Data Element Definitions](https://clinicaltrials.gov/policy#data-element-definitions) if submitting registration or results information.\n\n\n* * *\n\n- Accepts healthy volunteers\nA type of eligibility criteria that indicates whether people who do not have the condition/disease being studied can participate in that clinical study.\n\n- Active comparator arm\nAn arm type in which a group of participants receives an intervention/treatment considered to be effective (or active) by health care providers.\n\n- Adverse event\nAn unfavorable change in the health of a participant, including abnormal laboratory findings, that happens during a clinical study or within a certain amount of time after the study has ended. This change may or may not be caused by the intervention/treatment being studied.\n\n- Age or age group\nA type of eligibility criteria that indicates the age a person must be to participate in a clinical study. This may be indicated by a specific age or the following age groups:\n\nThe age groups are:\n\n\n\n  - Child (birth-17)\n  - Adult (18-64)\n  - Older Adult (65+)\n\n- All-cause mortality\nA measure of all\n\n[source: https://clinicaltrials.gov/study/NCT02045069]\n deaths, due to any cause, that occur during a clinical study.\n\n- Allocation\nA method used to assign participants to an arm of a clinical study. The types of allocation are randomized allocation and nonrandomized.\n\n- Arm\nA group or subgroup of participants in a clinical trial that receives a specific intervention/treatment, or no intervention, according to the trial's protocol.\n\n- Arm type\nA general description of the clinical trial arm. It identifies the role of the intervention that participants receive. Types of arms include experimental arm, active comparator arm, placebo comparator arm, sham comparator arm, and no intervention arm.\n\n- Baseline characteristics\nData collected at the beginning of a clinical study for all participants and for each arm or comparison group. These data include demographics, such as age, sex/gender, race and ethnicity, and study-specific measures (for example, systolic blood pressure, prior antidepressant treatment).\n\n- Canceled submission\nIndicates that the study sponsor or investigator recalled a submission of study results before quality control (QC) review took place. If the submission was canceled on or after May 8, 2018, the date is shown. After\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1050.7962999981828,
+      "prompt_tokens": 1710,
+      "completion_tokens": 63,
+      "cost_usd": 0.0001962,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C2\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What are the common adverse effects of ivermectin in humans at standard therapeutic doses?\nPROPOSED ANSWER: Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\nEVIDENCE SPAN: Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\nSOURCE: https://www.ncbi.nlm.nih.gov/books/NBK548921/\n",
+      "raw_response": "{\n  \"claim_id\": \"C2\",\n  \"falsification_attempt\": \"The evidence provided only mentions minor, self‑limiting serum aminotransferase elevations and very rare clinically apparent liver injury. It does not establish that these are the *common* adverse effects of ivermectin at standard therapeutic doses, nor does it list other well‑documented common side effects such as dizziness, pruritus, nausea, or diarrhea. Therefore the answer mischaracterizes the typical safety profile and is not supported by the cited source.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.92\n}",
+      "parsed": {
+        "claim_id": "C2",
+        "falsification_attempt": "The evidence provided only mentions minor, self‑limiting serum aminotransferase elevations and very rare clinically apparent liver injury. It does not establish that these are the *common* adverse effects of ivermectin at standard therapeutic doses, nor does it list other well‑documented common side effects such as dizziness, pruritus, nausea, or diarrhea. Therefore the answer mischaracterizes the typical safety profile and is not supported by the cited source.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.92
+      },
+      "latency_ms": 3947.122599987779,
+      "prompt_tokens": 470,
+      "completion_tokens": 597,
+      "cost_usd": 0.0003455,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does dengue fever alter the pharmacokinetic profile of ivermectin (e.g., due to liver involvement) in a way that affects safety?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2751445/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC2751445/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2751445/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1208/s12248-007-9000-9) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2751445/pdf/12248_2007_Article_9000.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK548921/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nLiverTox: Clinical and Research Information on Drug-Induced Liver Injury \\[Internet\\]. Bethesda (MD): National Institute of Diabetes and Digestive and Kidney Diseases; 2012-.\n\n[![Cover of LiverTox](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-livertox-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/livertox/ \"All Drug Records\")\n\n## LiverTox: Clinical and Research Information on Drug-Induced Liver Injury \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK548921/#__NBK548921_dtls__)\n\nBethesda (MD): [National Institute of Diabetes and Digestive and Kidney Diseases](https://www.niddk.nih.gov/); 2012-.\n\n- [Drug Records](https://www.ncbi.nlm.nih.gov/books/n/livertox/)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK548921/#)\n\n# Ivermectin\n\nLast Update: April 9, 2021.\n\n## OVERVIEW\n\n### Introduction\n\nIvermectin is an antiinfective agent with activity against several parasitic nematodes and scabies and is the treatment of choice for onchocerciasis (river blindness). It is typic\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK548921/]\nally given as one or two oral doses. Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\n\n### Background\n\nIvermectin (eye\" ver mek\" tin) is a macrocyclic lactone and semisynthetic derivative of avermectin which is produced by Streptomyces avermitilis. Ivermectin has potent activity against several parasites and arthropods. It believed to act by interference with a glutamate gated chloride channel, which interferes with the parasite's neural and neuromuscular transmission. It has a broad spectrum of activity against several nematodes (Ascaris, Trichuris, Ancylostoma), cestodes (Taenia) and trematodes (Fasciola, Schistosoma). Ivermectin has particularly potent activity against onchocerciasis (river blindness) and lymphatic filariasis, which are important endemic diseases in Africa and South America. Ivermectin was approved for use in the United States in 1996 for strongyloidiasis and onchocerciasis. In other countries it is also approved for use in scabies, lice infestation and ascariasis. Ivermectin is available in tablets of 3 mg under the brand name Stromectol. For treatment\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C5",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1250.9270000155084,
+      "prompt_tokens": 2006,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002258,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Have any clinical trials or studies evaluated the safety of ivermectin in patients with dengue fever?\nEVIDENCE:\n[source: https://pubmed.ncbi.nlm.nih.gov/33462580/]\nClipboard, Search History, and several other advanced features are temporarily unavailable.\n\n\n[Skip to main page content](https://pubmed.ncbi.nlm.nih.gov/33462580/#article-details)\n\n![Dot gov](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-dot-gov.svg)\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before\nsharing sensitive information, make sure you’re on a federal\ngovernment site.\n\n\n![Https](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-https.svg)\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the\nofficial website and that any information you provide is encrypted\nand transmitted securely.\n\n\n[Access keys](https://www.ncbi.nlm.nih.gov/guide/browsers/#ncbi_accesskeys) [NCBI Homepage](https://www.ncbi.nlm.nih.gov/) [MyNCBI Homepage](https://pubmed.ncbi.nlm.nih.gov/myncbi/) [Main Content](https://pubmed.ncbi.nlm.nih.gov/33462580/#maincontent) [Main Navigation](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n\n[![pubmed logo](https://cdn.ncbi.nlm.nih.gov/pubmed/af7de7da-df5d-41c6-8de4-8c266af8ccfb/core/images/pubmed-logo-blue.svg)](https://pubmed.ncbi.nlm.nih.gov/)[Show search bar](https://pubmed.ncbi.n\n\n[source: https://pubmed.ncbi.nlm.nih.gov/33462580/]\nlm.nih.gov/33462580/# \"Show search bar\")\n\nSearch:\n\n\n```\n\n```\n\n[Clear search input](https://pubmed.ncbi.nlm.nih.gov/33462580/# \"Clear search input\") Search\n\n[Advanced](https://pubmed.ncbi.nlm.nih.gov/advanced/) [Clipboard](https://pubmed.ncbi.nlm.nih.gov/clipboard/)\n\n[User Guide](https://pubmed.ncbi.nlm.nih.gov/help/)\n\nSave\n\nEmail\n\n\nSend to\n\n- [Clipboard](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n- [My Bibliography](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F33462580%2F%23open-bibliography-panel)\n- [Collections](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F33462580%2F%23open-collections-panel)\n- [Citation manager](https://pubmed.ncbi.nlm.nih.gov/33462580/#)\n\nDisplay options\n\nDisplay options\n\n\nFormat\nAbstractPubMedPMID\n\n## Save citation to file\n\nFormat:\nSummary (text)PubMedPMIDAbstract (text)CSV\n\nCreate file\n\nCancel\n\n\n## Email citation\n\nEmail address has not been verified. Go to\n[My NCBI account settings](https://account.ncbi.nlm.nih.gov/settings/)\nto confirm your email and then refresh this page.\n\n\nTo:\n\n\nSubject:\n\n\nBody:\n\n\nFormat:\nSummarySummary (text)AbstractAbstract (text)\n\nMeSH and other data\n\n\nSend e\n\n[source: https://clinicaltrials.gov/study/NCT02045069]\nShow glossary\n\n#### Search for terms\n\nHide glossary\n\nStudy record managers: refer to the [Data Element Definitions](https://clinicaltrials.gov/policy#data-element-definitions) if submitting registration or results information.\n\n\n* * *\n\n- Accepts healthy volunteers\nA type of eligibility criteria that indicates whether people who do not have the condition/disease being studied can participate in that clinical study.\n\n- Active comparator arm\nAn arm type in which a group of participants receives an intervention/treatment considered to be effective (or active) by health care providers.\n\n- Adverse event\nAn unfavorable change in the health of a participant, including abnormal laboratory findings, that happens during a clinical study or within a certain amount of time after the study has ended. This change may or may not be caused by the intervention/treatment being studied.\n\n- Age or age group\nA type of eligibility criteria that indicates the age a person must be to participate in a clinical study. This may be indicated by a specific age or the following age groups:\n\nThe age groups are:\n\n\n\n  - Child (birth-17)\n  - Adult (18-64)\n  - Older Adult (65+)\n\n- All-cause mortality\nA measure of all\n\n[source: https://clinicaltrials.gov/study/NCT02045069]\n deaths, due to any cause, that occur during a clinical study.\n\n- Allocation\nA method used to assign participants to an arm of a clinical study. The types of allocation are randomized allocation and nonrandomized.\n\n- Arm\nA group or subgroup of participants in a clinical trial that receives a specific intervention/treatment, or no intervention, according to the trial's protocol.\n\n- Arm type\nA general description of the clinical trial arm. It identifies the role of the intervention that participants receive. Types of arms include experimental arm, active comparator arm, placebo comparator arm, sham comparator arm, and no intervention arm.\n\n- Baseline characteristics\nData collected at the beginning of a clinical study for all participants and for each arm or comparison group. These data include demographics, such as age, sex/gender, race and ethnicity, and study-specific measures (for example, systolic blood pressure, prior antidepressant treatment).\n\n- Canceled submission\nIndicates that the study sponsor or investigator recalled a submission of study results before quality control (QC) review took place. If the submission was canceled on or after May 8, 2018, the date is shown. After\n\n[source: https://ascpt.onlinelibrary.wiley.com/doi/10.1002/psp4.13233]\n[CPT: Pharmacometrics & Systems Pharmacology](https://ascpt.onlinelibrary.wiley.com/journal/21638306 \"CPT: Pharmacometrics & Systems Pharmacology homepage\")\n\n[Volume 13, Issue 12](https://ascpt.onlinelibrary.wiley.com/toc/21638306/2024/13/12) pp. 2196-2209 [![CPT: Pharmacometrics & Systems Pharmacology](https://ascpt.onlinelibrary.wiley.com/pb-assets/journal-banners/21638306-1508834646690.jpg)](https://ascpt.onlinelibrary.wiley.com/journal/21638306 \"CPT: Pharmacometrics & Systems Pharmacology homepage\")\n\nARTICLE\n\nOpen Access\n\n[Creative Commons license information](http://creativecommons.org/licenses/by-nc/4.0/)\n\n# In-host modeling of dengue virus and non-structural protein 1 and the effects of ivermectin in patients with acute dengue fever\n\n[Junjie Ding](https://ascpt.onlinelibrary.wiley.com/authored-by/Ding/Junjie),\n\nJunjie Ding\n\n- [orcid.org/0000-0002-6429-3178](https://orcid.org/0000-0002-6429-3178)\n\nMahidol Oxford Tropical Medicine Research Unit, Faculty of Tropical Medicine, Mahidol University, Bangkok, Thailand\n\nCentre for Tropical Medicine and Global Health, Nuffield Department of Clinical Medicine, University of Oxford, Oxford, UK\n\n[Search for more papers by this author](ht\n\n[source: https://ascpt.onlinelibrary.wiley.com/doi/10.1002/psp4.13233]\ntps://ascpt.onlinelibrary.wiley.com/authored-by/Ding/Junjie)\n[Dumrong Mairiang](https://ascpt.onlinelibrary.wiley.com/authored-by/Mairiang/Dumrong),\n\nDumrong Mairiang\n\n- [orcid.org/0000-0002-2743-0145](https://orcid.org/0000-0002-2743-0145)\n\nSiriraj Center of Research Excellence in Dengue and Emerging Pathogens, Faculty of Medicine Siriraj Hospital, Mahidol University, Bangkok, Thailand\n\nMolecular Biology of Dengue and Flaviviruses Research Team, National Center for Genetic Engineering and Biotechnology (BIOTEC), National Science and Technology Development Agency (NSTDA), Pathumthani, Thailand\n\n[Search for more papers by this author](https://ascpt.onlinelibrary.wiley.com/authored-by/Mairiang/Dumrong)\n[Dararat Prayongkul](https://ascpt.onlinelibrary.wiley.com/authored-by/Prayongkul/Dararat),\n\nDararat Prayongkul\n\nSiriraj Center of Research Excellence in Dengue and Emerging Pathogens, Faculty of Medicine Siriraj Hospital, Mahidol University, Bangkok, Thailand\n\nDivision of Dengue Hemorrhagic Fever Research, Department of Research and Development, Faculty of Medicine Siriraj Hospital, Mahidol University, Bangkok, Thailand\n\n[Search for more papers by this author](https://ascpt.onlinelibr\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 2340.3451000340283,
+      "prompt_tokens": 2534,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002786,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Is ivermectin approved or recommended by major health authorities (e.g., WHO, FDA) for the treatment of dengue fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: What are the common adverse effects of ivermectin in humans at standard therapeutic doses?\n  verdict=PARTIAL answer=Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\n  evidence_span=Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\n  source=https://www.ncbi.nlm.nih.gov/books/NBK548921/\n  caveats=['The evidence only specifies effects related to liver function/injury and does not provide a comprehensive list of all common adverse effects.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence provided only mentions minor, self‑limiting serum aminotransferase elevations and very rare clinically apparent liver injury. It does not establish that these are the *common* adverse effects of ivermectin at standard therapeutic doses, nor does it list other well‑documented common side effects such as dizziness, pruritus, nausea, or diarrhea. Therefore the answer mischaracterizes the typical safety profile and is not supported by the cited source.', 'confidence': 0.92}\n[C3] (critical) Q: Are there documented drug‑disease interactions between ivermectin and dengue fever that increase the risk of harm?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Have any clinical trials or studies evaluated the safety of ivermectin in patients with dengue fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C5] (supporting) Q: Does dengue fever alter the pharmacokinetic profile of ivermectin (e.g., due to liver involvement) in a way that affects safety?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"डेङ्गु ज्वरोको उपचारका लागि आइभरमेक्टिन (ivermectin) को प्रयोग र यसको सुरक्षाका बारेमा आवश्यक जानकारीहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "डेङ्गु ज्वरोको उपचारका लागि आइभरमेक्टिन (ivermectin) को प्रयोग र यसको सुरक्षाका बारेमा आवश्यक जानकारीहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1305.1326000131667,
+      "prompt_tokens": 853,
+      "completion_tokens": 79,
+      "cost_usd": 0.00011690000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: डेङ्गु ज्वरोको उपचारका लागि आइभरमेक्टिन (ivermectin) को प्रयोग र यसको सुरक्षाका बारेमा आवश्यक जानकारीहरू स्थापित गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Is ivermectin approved or recommended by major health authorities (e.g., WHO, FDA) for the treatment of dengue fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: What are the common adverse effects of ivermectin in humans at standard therapeutic doses?\n  verdict=PARTIAL answer=Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\n  evidence_span=Ivermectin therapy has been associated with minor, self-limiting serum aminotransferase elevations and very rare instances of clinically apparent liver injury.\n  source=https://www.ncbi.nlm.nih.gov/books/NBK548921/\n  caveats=['The evidence only specifies effects related to liver function/injury and does not provide a comprehensive list of all common adverse effects.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence provided only mentions minor, self‑limiting serum aminotransferase elevations and very rare clinically apparent liver injury. It does not establish that these are the *common* adverse effects of ivermectin at standard therapeutic doses, nor does it list other well‑documented common side effects such as dizziness, pruritus, nausea, or diarrhea. Therefore the answer mischaracterizes the typical safety profile and is not supported by the cited source.', 'confidence': 0.92}\n[C3] (critical) Q: Are there documented drug‑disease interactions between ivermectin and dengue fever that increase the risk of harm?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Have any clinical trials or studies evaluated the safety of ivermectin in patients with dengue fever?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C5] (supporting) Q: Does dengue fever alter the pharmacokinetic profile of ivermectin (e.g., due to liver involvement) in a way that affects safety?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Necessary information regarding the use of ivermectin for the treatment of dengue fever and its safety could not be established. Please consult a qualified health worker or physician for further information on this subject.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response does not mention the specific adverse effects (liver injury) mentioned in C2, though C2 was marked as 'FAILS' in the challenge, the response opted for a general refusal/lack of information.\",\n      \"severity\": \"low\"\n    }\n  ],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "Necessary information regarding the use of ivermectin for the treatment of dengue fever and its safety could not be established. Please consult a qualified health worker or physician for further information on this subject.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response does not mention the specific adverse effects (liver injury) mentioned in C2, though C2 was marked as 'FAILS' in the challenge, the response opted for a general refusal/lack of information.",
+            "severity": "low"
+          }
+        ],
+        "fidelity_ok": true
+      },
+      "latency_ms": 2335.7640000176616,
+      "prompt_tokens": 768,
+      "completion_tokens": 146,
+      "cost_usd": 0.0001352,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0026520999999999997,
+  "total_latency_ms": 17774.274199968204,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

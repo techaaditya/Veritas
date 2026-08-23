@@ -1,0 +1,293 @@
+{
+  "run_id": "ef28b1bad2b0",
+  "question": "WHO ले नेपालमा प्यारासिटामोललाई प्रतिबन्धित गरेको छ, त्यसैले अब के खाने?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "विश्व स्वास्थ्य संगठन (WHO) ले नेपालमा प्यारासिटामोलको बिक्री वा प्रयोगमा प्रतिबन्ध लगाएको छ कि छैन र यसको विकल्पको रूपमा कुन औषधि सिफारिस गरिएको छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Has the World Health Organization officially banned the sale or use of paracetamol in Nepal?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "WHO",
+        "paracetamol ban Nepal",
+        "World Health Organization Nepal medication restrictions"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "If paracetamol is unavailable in Nepal, what alternative over‑the‑counter analgesic/antipyretic does the WHO or Nepalese health authorities recommend?",
+      "claim_type": "conditional",
+      "criticality": "supporting",
+      "search_terms": [
+        "alternative to paracetamol Nepal",
+        "WHO recommended analgesic Nepal",
+        "over‑the‑counter pain reliever Nepal"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Is ibuprofen considered a safe and effective substitute for paracetamol for pain and fever relief in the Nepali population according to WHO or Nepalese health guidelines?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "ibuprofen safety Nepal",
+        "WHO ibuprofen recommendation Nepal",
+        "analgesic guidelines Nepal"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: WHO ले नेपालमा प्यारासिटामोललाई प्रतिबन्धित गरेको छ, त्यसैले अब के खाने?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"WHO ले नेपालमा प्यारासिटामोललाई प्रतिबन्धित गरेको छ, त्यसैले अब के खाने?\",\n  \"canonical_english\": \"WHO has banned paracetamol in Nepal, so what should I take instead?\",\n  \"domain\": \"health\",\n  \"entities\": [\"WHO\", \"paracetamol\"],\n  \"implicit_context\": [\"The user believes there is a current WHO ban on paracetamol in Nepal.\"],\n  \"ambiguities\": [\"The user's symptoms or the condition they are treating with paracetamol\", \"Age and medical history of the patient\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "WHO ले नेपालमा प्यारासिटामोललाई प्रतिबन्धित गरेको छ, त्यसैले अब के खाने?",
+        "canonical_english": "WHO has banned paracetamol in Nepal, so what should I take instead?",
+        "domain": "health",
+        "entities": [
+          "WHO",
+          "paracetamol"
+        ],
+        "implicit_context": [
+          "The user believes there is a current WHO ban on paracetamol in Nepal."
+        ],
+        "ambiguities": [
+          "The user's symptoms or the condition they are treating with paracetamol",
+          "Age and medical history of the patient"
+        ]
+      },
+      "latency_ms": 2375.740199990105,
+      "prompt_tokens": 319,
+      "completion_tokens": 146,
+      "cost_usd": 9.03e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: WHO has banned paracetamol in Nepal, so what should I take instead?\nORIGINAL: WHO ले नेपालमा प्यारासिटामोललाई प्रतिबन्धित गरेको छ, त्यसैले अब के खाने?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The user is asking for a medication alternative to treat a condition, which involves drug recommendations and potential health risks.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The user is asking for a medication alternative to treat a condition, which involves drug recommendations and potential health risks.",
+        "emergency_signals": []
+      },
+      "latency_ms": 9613.05490002269,
+      "prompt_tokens": 345,
+      "completion_tokens": 57,
+      "cost_usd": 5.73e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: WHO has banned paracetamol in Nepal, so what should I take instead?\nENTITIES: ['WHO', 'paracetamol']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Has the World Health Organization officially banned the sale or use of paracetamol in Nepal?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"WHO\", \"paracetamol ban Nepal\", \"World Health Organization Nepal medication restrictions\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"If paracetamol is unavailable in Nepal, what alternative over‑the‑counter analgesic/antipyretic does the WHO or Nepalese health authorities recommend?\",\n      \"claim_type\": \"conditional\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"alternative to paracetamol Nepal\", \"WHO recommended analgesic Nepal\", \"over‑the‑counter pain reliever Nepal\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Is ibuprofen considered a safe and effective substitute for paracetamol for pain and fever relief in the Nepali population according to WHO or Nepalese health guidelines?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ibuprofen safety Nepal\", \"WHO ibuprofen recommendation Nepal\", \"analgesic guidelines Nepal\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Has the World Health Organization officially banned the sale or use of paracetamol in Nepal?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "WHO",
+              "paracetamol ban Nepal",
+              "World Health Organization Nepal medication restrictions"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "If paracetamol is unavailable in Nepal, what alternative over‑the‑counter analgesic/antipyretic does the WHO or Nepalese health authorities recommend?",
+            "claim_type": "conditional",
+            "criticality": "supporting",
+            "search_terms": [
+              "alternative to paracetamol Nepal",
+              "WHO recommended analgesic Nepal",
+              "over‑the‑counter pain reliever Nepal"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Is ibuprofen considered a safe and effective substitute for paracetamol for pain and fever relief in the Nepali population according to WHO or Nepalese health guidelines?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "ibuprofen safety Nepal",
+              "WHO ibuprofen recommendation Nepal",
+              "analgesic guidelines Nepal"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 2902.2142000030726,
+      "prompt_tokens": 299,
+      "completion_tokens": 536,
+      "cost_usd": 0.00029790000000000003,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: If paracetamol is unavailable in Nepal, what alternative over‑the‑counter analgesic/antipyretic does the WHO or Nepalese health authorities recommend?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1240.354799956549,
+      "prompt_tokens": 460,
+      "completion_tokens": 85,
+      "cost_usd": 8.000000000000002e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Has the World Health Organization officially banned the sale or use of paracetamol in Nepal?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 1368.2351000024937,
+      "prompt_tokens": 446,
+      "completion_tokens": 85,
+      "cost_usd": 7.860000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is ibuprofen considered a safe and effective substitute for paracetamol for pain and fever relief in the Nepali population according to WHO or Nepalese health guidelines?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1185.2394999586977,
+      "prompt_tokens": 458,
+      "completion_tokens": 63,
+      "cost_usd": 7.1e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Has the World Health Organization officially banned the sale or use of paracetamol in Nepal?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: If paracetamol is unavailable in Nepal, what alternative over‑the‑counter analgesic/antipyretic does the WHO or Nepalese health authorities recommend?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is ibuprofen considered a safe and effective substitute for paracetamol for pain and fever relief in the Nepali population according to WHO or Nepalese health guidelines?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"विश्व स्वास्थ्य संगठन (WHO) ले नेपालमा प्यारासिटामोलको बिक्री वा प्रयोगमा प्रतिबन्ध लगाएको छ कि छैन र यसको विकल्पको रूपमा कुन औषधि सिफारिस गरिएको छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "विश्व स्वास्थ्य संगठन (WHO) ले नेपालमा प्यारासिटामोलको बिक्री वा प्रयोगमा प्रतिबन्ध लगाएको छ कि छैन र यसको विकल्पको रूपमा कुन औषधि सिफारिस गरिएको छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1492.8047999856062,
+      "prompt_tokens": 552,
+      "completion_tokens": 92,
+      "cost_usd": 9.2e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: विश्व स्वास्थ्य संगठन (WHO) ले नेपालमा प्यारासिटामोलको बिक्री वा प्रयोगमा प्रतिबन्ध लगाएको छ कि छैन र यसको विकल्पको रूपमा कुन औषधि सिफारिस गरिएको छ भन्ने कुरा पुष्टि गर्न सकिएन। कृपया यस विषयमा थप जानकारीका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Has the World Health Organization officially banned the sale or use of paracetamol in Nepal?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: If paracetamol is unavailable in Nepal, what alternative over‑the‑counter analgesic/antipyretic does the WHO or Nepalese health authorities recommend?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is ibuprofen considered a safe and effective substitute for paracetamol for pain and fever relief in the Nepali population according to WHO or Nepalese health guidelines?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"It could not be confirmed whether the World Health Organization (WHO) has imposed a ban on the sale or use of paracetamol in Nepal and which medicine has been recommended as its alternative. Please consult a qualified health worker or physician for further information on this subject.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "It could not be confirmed whether the World Health Organization (WHO) has imposed a ban on the sale or use of paracetamol in Nepal and which medicine has been recommended as its alternative. Please consult a qualified health worker or physician for further information on this subject.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1925.1940000103787,
+      "prompt_tokens": 480,
+      "completion_tokens": 83,
+      "cost_usd": 8.12e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0008483,
+  "total_latency_ms": 4063.904500042554,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

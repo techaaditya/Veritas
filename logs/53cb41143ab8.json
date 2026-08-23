@@ -1,0 +1,293 @@
+{
+  "run_id": "53cb41143ab8",
+  "question": "एक वर्षभन्दा कमको बच्चालाई प्यारासिटामोल दिन मिल्छ?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "एक वर्षभन्दा कम उमेरका शिशुहरूका लागि प्यारासिटामोलको प्रयोग, यसको मात्रा (dosage), र यसका चेतावनीहरूका बारेमा आधिकारिक जानकारी पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Do major health authorities (e.g., FDA, WHO) permit the use of paracetamol for infants younger than one year?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol infant approval",
+        "FDA paracetamol under 1 year",
+        "WHO paracetamol infant"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "What is the recommended dosage of paracetamol for babies under one year of age?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol dosage infant",
+        "paracetamol mg/kg baby",
+        "infant paracetamol dosing guidelines"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Do any official guidelines list contraindications or warnings that prohibit giving paracetamol to infants under one year?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "paracetamol contraindications infant",
+        "paracetamol safety baby under 1",
+        "paracetamol warning infants"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: एक वर्षभन्दा कमको बच्चालाई प्यारासिटामोल दिन मिल्छ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"एक वर्षभन्दा कमको बच्चालाई प्यारासिटामोल दिन मिल्छ?\",\n  \"canonical_english\": \"Is it permissible to give paracetamol to a baby under one year of age?\",\n  \"domain\": \"health\",\n  \"entities\": [\"paracetamol\"],\n  \"implicit_context\": [\"The user is asking about pediatric medication safety.\"],\n  \"ambiguities\": [\"The baby's exact age (in months)\", \"The baby's weight\", \"The reason for administration (e.g., fever, pain)\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "एक वर्षभन्दा कमको बच्चालाई प्यारासिटामोल दिन मिल्छ?",
+        "canonical_english": "Is it permissible to give paracetamol to a baby under one year of age?",
+        "domain": "health",
+        "entities": [
+          "paracetamol"
+        ],
+        "implicit_context": [
+          "The user is asking about pediatric medication safety."
+        ],
+        "ambiguities": [
+          "The baby's exact age (in months)",
+          "The baby's weight",
+          "The reason for administration (e.g., fever, pain)"
+        ]
+      },
+      "latency_ms": 1790.763999975752,
+      "prompt_tokens": 313,
+      "completion_tokens": 140,
+      "cost_usd": 8.730000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: Is it permissible to give paracetamol to a baby under one year of age?\nORIGINAL: एक वर्षभन्दा कमको बच्चालाई प्यारासिटामोल दिन मिल्छ?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question involves medication dosing for a pediatric patient, which is a high-stakes health scenario.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question involves medication dosing for a pediatric patient, which is a high-stakes health scenario.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1287.2875000466593,
+      "prompt_tokens": 340,
+      "completion_tokens": 54,
+      "cost_usd": 5.560000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: Is it permissible to give paracetamol to a baby under one year of age?\nENTITIES: ['paracetamol']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Do major health authorities (e.g., FDA, WHO) permit the use of paracetamol for infants younger than one year?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\n        \"paracetamol infant approval\",\n        \"FDA paracetamol under 1 year\",\n        \"WHO paracetamol infant\"\n      ]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"What is the recommended dosage of paracetamol for babies under one year of age?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\n        \"paracetamol dosage infant\",\n        \"paracetamol mg/kg baby\",\n        \"infant paracetamol dosing guidelines\"\n      ]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Do any official guidelines list contraindications or warnings that prohibit giving paracetamol to infants under one year?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\n        \"paracetamol contraindications infant\",\n        \"paracetamol safety baby under 1\",\n        \"paracetamol warning infants\"\n      ]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Do major health authorities (e.g., FDA, WHO) permit the use of paracetamol for infants younger than one year?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol infant approval",
+              "FDA paracetamol under 1 year",
+              "WHO paracetamol infant"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "What is the recommended dosage of paracetamol for babies under one year of age?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol dosage infant",
+              "paracetamol mg/kg baby",
+              "infant paracetamol dosing guidelines"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Do any official guidelines list contraindications or warnings that prohibit giving paracetamol to infants under one year?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "paracetamol contraindications infant",
+              "paracetamol safety baby under 1",
+              "paracetamol warning infants"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 3020.04550001584,
+      "prompt_tokens": 297,
+      "completion_tokens": 849,
+      "cost_usd": 0.00045420000000000004,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended dosage of paracetamol for babies under one year of age?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC4329422/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC4329422/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC4329422/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1016/j.curtheres.2014.12.001) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4329422/pdf/main.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show articl\n\n[source: https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html]\n[Skip to main content](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#main-content)\n\n[MSF.org](https://www.msf.org/ \"go to msf.org site\")\n\n[MSF Staff](https://medicalguidelines.msf.org/en/user/login)\n\nEnglish\n\n- [English](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html)\n- [العربية](https://medicalguidelines.msf.org/ar/node/492)\n- [Español](https://medicalguidelines.msf.org/es/viewport/EssDr/spanish/paracetamol-acetaminofen-oral-22282995.html)\n- [Français](https://medicalguidelines.msf.org/fr/viewport/EssDr/francais/paracetamol-acetaminophene-oral-16686016.html)\n\n.هذه الصفحة غير متاحة باللغة العربية\n\nEsta página no está disponible en este idioma.\n\nCette page n’est pas disponible dans cette langue.\n\nThis page is not available in this language.\n\n# PARACETAMOL = ACETAMINOPHEN oral\n\nSelect language:\n\n\nEnglish\n\n\n(Arabic) العربية\n\n\nEspañol (Spanish)\n\n\nFrançais (French)\n\n\n[Enter](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html)\n\n[Permalink](https://medicalguidelines.msf.org/en/node/492)\n\n## Send feedback about this page \n\n[source: https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html]\nor ask a general question\n\nName\n\nEmail\n\nYour message\n\nThis site is protected by reCAPTCHA and the Google\n[Privacy Policy](https://policies.google.com/privacy \"(opens in a new window)\") and\n[Terms of Service](https://policies.google.com/terms \"(opens in a new window)\") apply.\n\n[Path](https://medicalguidelines.msf.org/en/flag/flag/favorite/492/full?destination=/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html&token=cojiTj9d5uRStpSeQF6J8388BGZoy4s19YxwxQws9A0 \"\")\n\nDownload\n\nComment\n\nReturn to top\n\nOn this page\n\n- [Therapeutic action](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-1)\n- [Indications](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-2)\n- [Forms and strengths](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-3)\n- [Dosage](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen-oral-16684400.html#section-target-4)\n- [Duration](https://medicalguidelines.msf.org/en/viewport/EssDr/english/paracetamol-acetaminophen\n\n[source: https://bnfc.nice.org.uk/drugs/paracetamol/]\n# BNFC via NICE is only available to eligible users within the UK\n\nThe NICE British National Formulary for Children (BNFC) site is only available to eligible users in the UK (England, Scotland, Wales and Northern Ireland).\n\n## Content licensing\n\nThe BNF and BNFC is third-party content hosted on the NICE site on behalf of the publishers. It is not [NICE content](https://www.nice.org.uk/re-using-our-content) and is excluded from the NICE UK Open Content Licence. [Please see the licensing terms and conditions for more information](https://bnf.nice.org.uk/eula/).\n\nThis content is only available to NHS and members of the public (for personal reference) within the UK countries of England, Scotland and Wales. Users from countries designated as Crown Dependencies and British Overseas Territories are not permitted to access this content.\n\nPrivate sector/commercial organisations, universities and academic institutions should contact BNF regarding licensing subscriptions [licensing@rpharms.com](mailto:licensing@rpharms.com) or [Medicines Complete](https://www.pharmaceuticalpress.com/contact/sales-and-upgrades-enquiries/).\n\n## Technical support\n\nNICE will only provide technical support on acce\n\n[source: https://bnfc.nice.org.uk/drugs/paracetamol/]\nss to BNF if you are an eligible organisation/individual to access this content.\n\nIP addresses that are not recognised as originating from the UK will be automatically blocked and cannot be granted access. Similarly, data scraping and data mining of the NICE BNF is not permitted and will also result in IP blocking.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1559.4264999963343,
+      "prompt_tokens": 2580,
+      "completion_tokens": 61,
+      "cost_usd": 0.0002824,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do major health authorities (e.g., FDA, WHO) permit the use of paracetamol for infants younger than one year?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1007/s00431-022-04407-w) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/pdf/431_2022_Article_4407.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- !\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journ\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/]\nal List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1007/s40272-023-00562-1) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10019440/pdf/40272_2023_Article_562.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK482369/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nStatPearls \\[Internet\\]. Treasure Island (FL): StatPearls Publishing; 2026 Jan-.\n\n[![Cover of StatPearls](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-statpearls-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/statpearls/ \"Table of Contents Page\")\n\n## StatPearls \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK482369/#__NBK482369_dtls__)\n\nTreasure Island (FL): [StatPearls Publishing](https://www.statpearls.com/); 2026 Jan-.\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK482369/#)\n\n# Acetaminophen\n\nValerie Gerriets; Preeti Patel; Thomas M. Nappe.\n\n[Author Information and Affiliations](https://www.ncbi.nlm.nih.gov/books/NBK482369/#__NBK482369_ai__)\n\n#### Authors\n\nValerie Gerriets1; Preeti Patel; Thomas M. Nappe2.\n\n#### Affiliations\n\n1 California Northstate University College of Medicine\n\n2 University of South Florida/Tampa General Hospital\n\nLast Update: January 11, 2024.\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK482369/# \"Go to other sections in this page\")\n\n## \n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK482369/]\nContinuing Education Activity\n\nAcetaminophen, also known as _N_-acetyl-para-aminophenol (APAP) or paracetamol in many countries, is a non-opioid analgesic and antipyretic agent utilized for treating pain and fever. Numerous diseases and conditions include pain as a significant component of their presentation. Consequently, effective pain management holds great importance for both clinicians and patients. Clinicians can use acetaminophen for their patients as a single agent for mild-to-moderate pain or in conjunction with an opioid analgesic for severe pain. This activity outlines the utilization, indications, administration, contraindications, and toxicity of acetaminophen, emphasizing the integral role of the interprofessional healthcare team in the care of patients using acetaminophen.\n\n**Objectives:**\n\n- Identify appropriate scenarios for acetaminophen use by distinguishing between mild-to-moderate and severe pain and assessing the patient's overall health status.\n\n- Assess patients for pain relief effectiveness by monitoring for any signs of adverse effects or toxicity related to acetaminophen.\n\n- Select appropriate acetaminophen formulations and routes of administration based \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 4117.173100006767,
+      "prompt_tokens": 3021,
+      "completion_tokens": 63,
+      "cost_usd": 0.00032730000000000004,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do any official guidelines list contraindications or warnings that prohibit giving paracetamol to infants under one year?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1007/s00431-022-04407-w) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9056471/pdf/431_2022_Article_4407.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- !\n\n[source: https://pubmed.ncbi.nlm.nih.gov/35175416/]\nClipboard, Search History, and several other advanced features are temporarily unavailable.\n\n\n[Skip to main page content](https://pubmed.ncbi.nlm.nih.gov/35175416/#article-details)\n\n![Dot gov](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-dot-gov.svg)\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before\nsharing sensitive information, make sure you’re on a federal\ngovernment site.\n\n\n![Https](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-https.svg)\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the\nofficial website and that any information you provide is encrypted\nand transmitted securely.\n\n\n[Access keys](https://www.ncbi.nlm.nih.gov/guide/browsers/#ncbi_accesskeys) [NCBI Homepage](https://www.ncbi.nlm.nih.gov/) [MyNCBI Homepage](https://pubmed.ncbi.nlm.nih.gov/myncbi/) [Main Content](https://pubmed.ncbi.nlm.nih.gov/35175416/#maincontent) [Main Navigation](https://pubmed.ncbi.nlm.nih.gov/35175416/#)\n\n[![pubmed logo](https://cdn.ncbi.nlm.nih.gov/pubmed/af7de7da-df5d-41c6-8de4-8c266af8ccfb/core/images/pubmed-logo-blue.svg)](https://pubmed.ncbi.nlm.nih.gov/)[Show search bar](https://pubmed.ncbi.n\n\n[source: https://pubmed.ncbi.nlm.nih.gov/35175416/]\nlm.nih.gov/35175416/# \"Show search bar\")\n\nSearch:\n[Clear search input](https://pubmed.ncbi.nlm.nih.gov/35175416/# \"Clear search input\") Search\n\n[Advanced](https://pubmed.ncbi.nlm.nih.gov/advanced/) [Clipboard](https://pubmed.ncbi.nlm.nih.gov/clipboard/)\n\n[User Guide](https://pubmed.ncbi.nlm.nih.gov/help/)\n\nSave\n\nEmail\n\n\nSend to\n\n- [Clipboard](https://pubmed.ncbi.nlm.nih.gov/35175416/#)\n- [My Bibliography](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F35175416%2F%23open-bibliography-panel)\n- [Collections](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F35175416%2F%23open-collections-panel)\n- [Citation manager](https://pubmed.ncbi.nlm.nih.gov/35175416/#)\n\nDisplay options\n\nDisplay options\n\n\nFormat\nAbstractPubMedPMID\n\n## Save citation to file\n\nFormat:\nSummary (text)PubMedPMIDAbstract (text)CSV\n\nCreate file\n\nCancel\n\n\n## Email citation\n\nEmail address has not been verified. Go to\n[My NCBI account settings](https://account.ncbi.nlm.nih.gov/settings/)\nto confirm your email and then refresh this page.\n\n\nTo:\n\n\nSubject:\n\n\nBody:\n\n\nFormat:\nSummarySummary (text)AbstractAbstract (text)\n\nMeSH and other data\n\n\nSend email\n\nCancel\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1111.1843000398949,
+      "prompt_tokens": 2172,
+      "completion_tokens": 61,
+      "cost_usd": 0.0002416,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Do major health authorities (e.g., FDA, WHO) permit the use of paracetamol for infants younger than one year?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (critical) Q: What is the recommended dosage of paracetamol for babies under one year of age?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Do any official guidelines list contraindications or warnings that prohibit giving paracetamol to infants under one year?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"एक वर्षभन्दा कम उमेरका शिशुहरूका लागि प्यारासिटामोलको प्रयोग, यसको मात्रा (dosage), र यसका चेतावनीहरूका बारेमा आधिकारिक जानकारी पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "एक वर्षभन्दा कम उमेरका शिशुहरूका लागि प्यारासिटामोलको प्रयोग, यसको मात्रा (dosage), र यसका चेतावनीहरूका बारेमा आधिकारिक जानकारी पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1744.5876999991015,
+      "prompt_tokens": 489,
+      "completion_tokens": 80,
+      "cost_usd": 8.09e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: एक वर्षभन्दा कम उमेरका शिशुहरूका लागि प्यारासिटामोलको प्रयोग, यसको मात्रा (dosage), र यसका चेतावनीहरूका बारेमा आधिकारिक जानकारी पुष्टि गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Do major health authorities (e.g., FDA, WHO) permit the use of paracetamol for infants younger than one year?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (critical) Q: What is the recommended dosage of paracetamol for babies under one year of age?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Do any official guidelines list contraindications or warnings that prohibit giving paracetamol to infants under one year?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Official information regarding the use of paracetamol for infants under one year of age, its dosage, and its warnings could not be confirmed. Please consult a qualified health worker or doctor for this.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "Official information regarding the use of paracetamol for infants under one year of age, its dosage, and its warnings could not be confirmed. Please consult a qualified health worker or doctor for this.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1229.9872000003234,
+      "prompt_tokens": 405,
+      "completion_tokens": 69,
+      "cost_usd": 6.81e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0015974000000000001,
+  "total_latency_ms": 15085.902699967846,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

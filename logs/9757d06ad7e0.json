@@ -1,0 +1,281 @@
+{
+  "run_id": "9757d06ad7e0",
+  "question": "श्रम ऐन २०७४ अनुसार एक कर्मचारीले वार्षिक कति दिन बिदा पाउँछ?",
+  "tier": "TIER_1",
+  "domain": "legal",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "श्रम ऐन २०७४ ले कर्मचारीहरूलाई कति दिन वार्षिक बिदा दिने भन्ने कुरा स्पष्ट रूपमा स्थापित गर्न सकिएन। कृपया यस विषयमा आधिकारिक कानुनी सल्लाहका लागि योग्य व्यावसायिक व्यक्ति वा कानुन व्यवसायीसँग परामर्श गर्नुहोस्।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Does the Labor Act 2074 contain a provision that grants annual leave to employees?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "Labor Act 2074 annual leave provision",
+        "श्रम ऐन २०७४ वार्षिक छुट्टी"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "Home leave is Nepal’s equivalent of annual leave, but the accrual method is unique.",
+      "source_url": "https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/",
+      "caveats": [
+        "code override: numeric value(s) ['2074'] in the answer were not found verbatim in evidence_span"
+      ],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "falsification_attempt": "The answer incorrectly claims the Labor Act 2074 does not contain a provision granting annual leave, stating the claim is unsupported. However, the evidence explicitly says \"Home leave is Nepal’s equivalent of annual leave,\" indicating that the Act does provide a leave provision equivalent to annual leave. Therefore the answer is factually wrong.",
+        "confidence": 0.92
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "According to the Labor Act 2074, how many days of annual leave is an employee entitled to?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "Labor Act 2074 annual leave days",
+        "श्रम ऐन २०७४ वार्षिक छुट्टी कति दिन"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: श्रम ऐन २०७४ अनुसार एक कर्मचारीले वार्षिक कति दिन बिदा पाउँछ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"श्रम ऐन २०७४ अनुसार एक कर्मचारीले वार्षिक कति दिन बिदा पाउँछ?\",\n  \"canonical_english\": \"According to the Labor Act 2074, how many days of annual leave is an employee entitled to?\",\n  \"domain\": \"legal\",\n  \"entities\": [\"श्रम ऐन २०७४\", \"Labor Act 2074\"],\n  \"implicit_context\": [\"The user is referring to the laws of Nepal.\"],\n  \"ambiguities\": [\"The type of leave (e.g., annual/home leave, sick leave, mourning leave) is not specified, though 'annual' is mentioned.\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "श्रम ऐन २०७४ अनुसार एक कर्मचारीले वार्षिक कति दिन बिदा पाउँछ?",
+        "canonical_english": "According to the Labor Act 2074, how many days of annual leave is an employee entitled to?",
+        "domain": "legal",
+        "entities": [
+          "श्रम ऐन २०७४",
+          "Labor Act 2074"
+        ],
+        "implicit_context": [
+          "The user is referring to the laws of Nepal."
+        ],
+        "ambiguities": [
+          "The type of leave (e.g., annual/home leave, sick leave, mourning leave) is not specified, though 'annual' is mentioned."
+        ]
+      },
+      "latency_ms": 2542.0932000270113,
+      "prompt_tokens": 316,
+      "completion_tokens": 165,
+      "cost_usd": 9.760000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: According to the Labor Act 2074, how many days of annual leave is an employee entitled to?\nORIGINAL: श्रम ऐन २०७४ अनुसार एक कर्मचारीले वार्षिक कति दिन बिदा पाउँछ?\nDOMAIN: legal\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question asks for specific legal entitlements regarding employee leave, where an incorrect answer could lead to financial harm or legal disputes.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question asks for specific legal entitlements regarding employee leave, where an incorrect answer could lead to financial harm or legal disputes.",
+        "emergency_signals": []
+      },
+      "latency_ms": 3276.648800005205,
+      "prompt_tokens": 350,
+      "completion_tokens": 59,
+      "cost_usd": 5.86e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: According to the Labor Act 2074, how many days of annual leave is an employee entitled to?\nENTITIES: ['श्रम ऐन २०७४', 'Labor Act 2074']\nDOMAIN: legal\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Does the Labor Act 2074 contain a provision that grants annual leave to employees?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"Labor Act 2074 annual leave provision\", \"श्रम ऐन २०७४ वार्षिक छुट्टी\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"According to the Labor Act 2074, how many days of annual leave is an employee entitled to?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"Labor Act 2074 annual leave days\", \"श्रम ऐन २०७४ वार्षिक छुट्टी कति दिन\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Does the Labor Act 2074 contain a provision that grants annual leave to employees?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "Labor Act 2074 annual leave provision",
+              "श्रम ऐन २०७४ वार्षिक छुट्टी"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "Home leave is Nepal’s equivalent of annual leave, but the accrual method is unique.",
+            "source_url": "https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/",
+            "caveats": [
+              "code override: numeric value(s) ['2074'] in the answer were not found verbatim in evidence_span"
+            ],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SOURCE_INAPPROPRIATE"
+              ],
+              "falsification_attempt": "The answer incorrectly claims the Labor Act 2074 does not contain a provision granting annual leave, stating the claim is unsupported. However, the evidence explicitly says \"Home leave is Nepal’s equivalent of annual leave,\" indicating that the Act does provide a leave provision equivalent to annual leave. Therefore the answer is factually wrong.",
+              "confidence": 0.92
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "According to the Labor Act 2074, how many days of annual leave is an employee entitled to?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "Labor Act 2074 annual leave days",
+              "श्रम ऐन २०७४ वार्षिक छुट्टी कति दिन"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 2368.0492999847047,
+      "prompt_tokens": 312,
+      "completion_tokens": 575,
+      "cost_usd": 0.0003187,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: According to the Labor Act 2074, how many days of annual leave is an employee entitled to?\nEVIDENCE:\n[source: https://globalpeoplestrategist.com/labor-law-changes-in-nepal/]\n![](https://globalpeoplestrategist.com/wp-content/uploads/2023/01/favicon.svg)[Skip to content](https://globalpeoplestrategist.com/labor-law-changes-in-nepal/#content)\n\n# Labor Law Changes in Nepal\n\n- [December 2, 2024](https://globalpeoplestrategist.com/2024/12/02/)\n\nThe Labor Act of Nepal, 2048, has been replaced with the new Labor Act, 2074. This New Act has seen changes in provisions for the rights, interests, facilities, and safety of all workers employed in different enterprises or different sectors. Learn about the latest changes to labor and employment law in Nepal.\n\n## **Prohibition of Non-Nepalese People at Work**\n\nThe New Labor Act does not allow non-Nepalese citizens to be engaged in work that was disallowed in the previous Act. A local entity can only hire a foreign national if a Nepalese citizen is not available for any technical post despite multiple advertisements on national public newspapers and journals.\n\nIf foreign nationals do obtain work in Nepal, they need to request a work permit as per section 22 and 23 of the Labor Act (2074). However, if they are provided diplomatic immunity or have some written arrangement based on a treaty or agreement with the Governme\n\n[source: https://globalpeoplestrategist.com/labor-law-changes-in-nepal/]\nnt of Nepal, they may proceed without a work permit.\n\n## **Working Hours**\n\nPreviously, section 16 of the Labor Act (2048) stated that no employees or workers can be employed for more than 8 hours a day and 40 hours a week. If he works for more than 48 hours per week, he is eligible to be paid overtime wages at the rate of one and a half times his ordinary wages. Section 19 of the Act also identifies the maximum overtime an employee can work to 4 hours a day and 20 hours a week.\n\nIn the New Labor Act (2074), working hours continue to be 8 hours a day and 48 hours a week, as shown in section 28 of the new law. The overtime wages also continue to be one and a half times the worker’s ordinary wage rate as per section 31. However, section 30 states that the maximum overtime has been increased to 24 hours per week, as opposed to the previous 20 hours.\n\n## **Leaves**\n\nEach employee is eligible for one weekly holiday. This can be a Sunday, but if the employer cannot have all employees off on the same day, they may provide a break on a rotational basis. All employees are eligible for a total of 13 days off for annual public holidays, including May Day. Women are given an extra day off for \n\n[source: https://nepallaws.com/are-you-getting-the-right-number-of-leaves-in-nepal/]\n![Revisit consent button](https://nepallaws.com/wp-content/plugins/cookie-law-info/lite/frontend/images/revisit.svg)\n\nWe value your privacy\n\nWe use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic. By clicking \"Accept All\", you consent to our use of cookies. [View Privacy Policy](https://nepallaws.com/privacy/)\n\nCustomiseReject AllAccept All\n\nCustomise Consent Preferences![](https://nepallaws.com/wp-content/plugins/cookie-law-info/lite/frontend/images/close.svg)\n\nWe use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.\n\nThe cookies that are categorised as \"Necessary\" are stored on your browser as they are essential for enabling the basic functionalities of the site. ... Show more\n\nNecessaryAlways Active\n\nNecessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data.\n\nNo cookies to display.\n\nFunctional\n\nFunctional cookies help perform certain functionalities like sharing the conte\n\n[source: https://nepallaws.com/are-you-getting-the-right-number-of-leaves-in-nepal/]\nnt of the website on social media platforms, collecting feedback, and other third-party features.\n\nNo cookies to display.\n\nAnalytics\n\nAnalytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.\n\nNo cookies to display.\n\nPerformance\n\nPerformance cookies are used to understand and analyse the key performance indexes of the website which helps in delivering a better user experience for the visitors.\n\nNo cookies to display.\n\nAdvertisement\n\nAdvertisement cookies are used to provide visitors with customised advertisements based on the pages you visited previously and to analyse the effectiveness of the ad campaigns.\n\nNo cookies to display.\n\nReject All  Save My Preferences  Accept All\n\nOpen accessibility menu\n\n[Back to all](https://nepallaws.com/blogs/)\n\n# Are You Getting the Right Number of Leaves in Nepal?\n\n- May 21, 2025\n\n![Picture of Babita Pariyar](https://secure.gravatar.com/avatar/38a4b444e54cd014c3d9ed4253e2e322d7e08bef3cd2fc67006d569de3fae1a8?s=300&d=mm&r=g)\n\n###### Babita Pariyar\n\nBabita is a law student with a keen interest in property account\n\n[source: https://nepalhrm.com/glossary/labour-act-2074/]\nStatutory & compliance\n\n# Labour Act 2074श्रम ऐन २०७४\n\nDefinition\n\nThe Labour Act 2074 is Nepal's principal employment statute, in force since 2074 BS (2017 AD) and applied together with the Labour Rules 2075. It sets employment types, working hours, overtime, leave entitlements, probation and notice, and the funded gratuity and social security model.\n\nAlso called:Labour Act 2017, Labor Act 2074, Nepal labour law, Labour Rules 2075\n\n## Key facts\n\nIn force since2074 BS (2017 AD)Applied with the Labour Rules 2075.\n\nWorking hours8 a day, 48 a weekWith one weekly day off.\n\nOvertime1.5 times basicCapped at 4 hours a day and 24 a week.\n\nProbationSix months maximumConfirmation follows, or the engagement ends.\n\nEmployment typesFiveRegular, work-based, time-bound, casual and part-time.\n\n## What the Act covers\n\nThe Act is the reference point for almost every HR policy question a Nepali company will face. Rather than reading it end to end, most HR teams need the handful of provisions that drive payroll and leave configuration.\n\n- Employment types: regular, work-based, time-bound, casual and part-time, each with its own rules on contracts and termination.\n- Working hours: eight a day and forty\n\n[source: https://nepalhrm.com/glossary/labour-act-2074/]\n-eight a week, with at least one day off each week.\n- Overtime: paid at one and a half times basic remuneration, capped at four hours a day and twenty-four a week.\n- Probation: a maximum of six months, after which the employee is confirmed or the engagement ends.\n- Leave: weekly rest, public holidays, home leave, sick leave, mourning leave, maternity leave and paternity leave, each with a defined entitlement.\n- Festival expense: one month's basic remuneration once a year.\n- Gratuity and social security: funded monthly into the SSF or an approved fund rather than settled at exit.\n\n## Why it matters for how you configure payroll\n\nMost compliance failures in Nepali payroll are configuration failures rather than deliberate ones. A leave policy that grants annual leave as a flat number of days instead of accruing it against days worked, an overtime rate calculated on gross rather than basic, or a probation period quietly running past six months are all ordinary settings that drift out of line with the Act.\n\nWriting the entitlements into the system once, and letting it accrue and calculate rather than doing it by hand, is what keeps the policy and the practice the same document.\n\nCommon \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1024.4168000062928,
+      "prompt_tokens": 2208,
+      "completion_tokens": 63,
+      "cost_usd": 0.000246,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does the Labor Act 2074 contain a provision that grants annual leave to employees?\nEVIDENCE:\n[source: https://nepalhrm.com/glossary/labour-act-2074/]\nStatutory & compliance\n\n# Labour Act 2074श्रम ऐन २०७४\n\nDefinition\n\nThe Labour Act 2074 is Nepal's principal employment statute, in force since 2074 BS (2017 AD) and applied together with the Labour Rules 2075. It sets employment types, working hours, overtime, leave entitlements, probation and notice, and the funded gratuity and social security model.\n\nAlso called:Labour Act 2017, Labor Act 2074, Nepal labour law, Labour Rules 2075\n\n## Key facts\n\nIn force since2074 BS (2017 AD)Applied with the Labour Rules 2075.\n\nWorking hours8 a day, 48 a weekWith one weekly day off.\n\nOvertime1.5 times basicCapped at 4 hours a day and 24 a week.\n\nProbationSix months maximumConfirmation follows, or the engagement ends.\n\nEmployment typesFiveRegular, work-based, time-bound, casual and part-time.\n\n## What the Act covers\n\nThe Act is the reference point for almost every HR policy question a Nepali company will face. Rather than reading it end to end, most HR teams need the handful of provisions that drive payroll and leave configuration.\n\n- Employment types: regular, work-based, time-bound, casual and part-time, each with its own rules on contracts and termination.\n- Working hours: eight a day and forty\n\n[source: https://nepalhrm.com/glossary/labour-act-2074/]\n-eight a week, with at least one day off each week.\n- Overtime: paid at one and a half times basic remuneration, capped at four hours a day and twenty-four a week.\n- Probation: a maximum of six months, after which the employee is confirmed or the engagement ends.\n- Leave: weekly rest, public holidays, home leave, sick leave, mourning leave, maternity leave and paternity leave, each with a defined entitlement.\n- Festival expense: one month's basic remuneration once a year.\n- Gratuity and social security: funded monthly into the SSF or an approved fund rather than settled at exit.\n\n## Why it matters for how you configure payroll\n\nMost compliance failures in Nepali payroll are configuration failures rather than deliberate ones. A leave policy that grants annual leave as a flat number of days instead of accruing it against days worked, an overtime rate calculated on gross rather than basic, or a probation period quietly running past six months are all ordinary settings that drift out of line with the Act.\n\nWriting the entitlements into the system once, and letting it accrue and calculate rather than doing it by hand, is what keeps the policy and the practice the same document.\n\nCommon \n\n[source: https://globalpeoplestrategist.com/labor-law-changes-in-nepal/]\n![](https://globalpeoplestrategist.com/wp-content/uploads/2023/01/favicon.svg)[Skip to content](https://globalpeoplestrategist.com/labor-law-changes-in-nepal/#content)\n\n# Labor Law Changes in Nepal\n\n- [December 2, 2024](https://globalpeoplestrategist.com/2024/12/02/)\n\nThe Labor Act of Nepal, 2048, has been replaced with the new Labor Act, 2074. This New Act has seen changes in provisions for the rights, interests, facilities, and safety of all workers employed in different enterprises or different sectors. Learn about the latest changes to labor and employment law in Nepal.\n\n## **Prohibition of Non-Nepalese People at Work**\n\nThe New Labor Act does not allow non-Nepalese citizens to be engaged in work that was disallowed in the previous Act. A local entity can only hire a foreign national if a Nepalese citizen is not available for any technical post despite multiple advertisements on national public newspapers and journals.\n\nIf foreign nationals do obtain work in Nepal, they need to request a work permit as per section 22 and 23 of the Labor Act (2074). However, if they are provided diplomatic immunity or have some written arrangement based on a treaty or agreement with the Governme\n\n[source: https://globalpeoplestrategist.com/labor-law-changes-in-nepal/]\nnt of Nepal, they may proceed without a work permit.\n\n## **Working Hours**\n\nPreviously, section 16 of the Labor Act (2048) stated that no employees or workers can be employed for more than 8 hours a day and 40 hours a week. If he works for more than 48 hours per week, he is eligible to be paid overtime wages at the rate of one and a half times his ordinary wages. Section 19 of the Act also identifies the maximum overtime an employee can work to 4 hours a day and 20 hours a week.\n\nIn the New Labor Act (2074), working hours continue to be 8 hours a day and 48 hours a week, as shown in section 28 of the new law. The overtime wages also continue to be one and a half times the worker’s ordinary wage rate as per section 31. However, section 30 states that the maximum overtime has been increased to 24 hours per week, as opposed to the previous 20 hours.\n\n## **Leaves**\n\nEach employee is eligible for one weekly holiday. This can be a Sunday, but if the employer cannot have all employees off on the same day, they may provide a break on a rotational basis. All employees are eligible for a total of 13 days off for annual public holidays, including May Day. Women are given an extra day off for \n\n[source: https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/]\n[Skip to content](https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/#main-content)\n\n![Complete Guide to Nepal Labour Act 2074 Leave Rules](https://www.leavebalance.com/images/blog/nepal-labour-act-2074-leave-rules.svg)\n\nThe Labour Act 2074 (2017) is the primary legislation governing employment and leave in Nepal. It applies to all establishments employing one or more workers — from a five-person startup in Kathmandu to a 500-employee manufacturing company in Biratnagar. Getting leave entitlements wrong is not just an administrative inconvenience. It creates legal liability, employee grievances, and potential penalties during labour inspections.\n\nThis guide covers every statutory leave type under the Act, the accumulation and encashment rules that make Nepal’s system uniquely complex, and the overtime and termination provisions that directly affect leave calculations. Whether you are an HR manager, a company founder managing leave in a spreadsheet, or an accountant handling payroll, this is the reference you need.\n\nAll leave entitlements described here are statutory minimums. Companies can offer more generous policies, but they cannot offer less.\n\n## The Eight Stat\n\n[source: https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/]\nutory Leave Types\n\nThe Labour Act 2074 establishes eight distinct leave categories. Each has different accrual rules, accumulation caps, and encashment provisions.\n\n### 1\\. Home Leave (Annual Leave)\n\nHome leave is Nepal’s equivalent of annual leave, but the accrual method is unique.\n\n- **Entitlement:** 1 day of home leave for every 20 days worked\n- **Annual total:** Approximately 18 days per year (based on a standard working year)\n- **Paid/unpaid:** Fully paid\n- **Accumulation cap:** Maximum 90 days\n\n**The encashment rule:** This is where home leave gets complex. Accumulated home leave can build up to 90 days. Any balance exceeding 90 days at the end of the fiscal year must be encashed — the employer is legally required to pay the employee for the excess days at the basic salary rate.\n\nThis means if an employee has accumulated 95 days of home leave by Ashad end (fiscal year end), the employer must cash out 5 days at the basic salary rate. The remaining 90 days carry forward.\n\n**Why this matters for tracking:** Manual spreadsheet tracking frequently gets this wrong. You need to track accrual by days worked (not a fixed annual grant), monitor the 90-day cap, and calculate encashment \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Yes, the Labour Act 2074 provides for annual leave, which is referred to as 'Home Leave'.\",\n  \"evidence_span\": \"Home leave is Nepal’s equivalent of annual leave, but the accrual method is unique.\",\n  \"source_url\": \"https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "Home leave is Nepal’s equivalent of annual leave, but the accrual method is unique.",
+        "source_url": "https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/",
+        "caveats": [
+          "code override: numeric value(s) ['2074'] in the answer were not found verbatim in evidence_span"
+        ]
+      },
+      "latency_ms": 1761.105999990832,
+      "prompt_tokens": 2192,
+      "completion_tokens": 131,
+      "cost_usd": 0.00027160000000000004,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Does the Labor Act 2074 contain a provision that grants annual leave to employees?\nPROPOSED ANSWER: (none — claim was UNSUPPORTED)\nEVIDENCE SPAN: Home leave is Nepal’s equivalent of annual leave, but the accrual method is unique.\nSOURCE: https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The answer incorrectly claims the Labor Act 2074 does not contain a provision granting annual leave, stating the claim is unsupported. However, the evidence explicitly says \\\"Home leave is Nepal’s equivalent of annual leave,\\\" indicating that the Act does provide a leave provision equivalent to annual leave. Therefore the answer is factually wrong.\",\n  \"flags\": [\"SOURCE_INAPPROPRIATE\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.92\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The answer incorrectly claims the Labor Act 2074 does not contain a provision granting annual leave, stating the claim is unsupported. However, the evidence explicitly says \"Home leave is Nepal’s equivalent of annual leave,\" indicating that the Act does provide a leave provision equivalent to annual leave. Therefore the answer is factually wrong.",
+        "flags": [
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.92
+      },
+      "latency_ms": 4395.887599966954,
+      "prompt_tokens": 444,
+      "completion_tokens": 920,
+      "cost_usd": 0.0005044,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (supporting) Q: Does the Labor Act 2074 contain a provision that grants annual leave to employees?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=Home leave is Nepal’s equivalent of annual leave, but the accrual method is unique.\n  source=https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/\n  caveats=[\"code override: numeric value(s) ['2074'] in the answer were not found verbatim in evidence_span\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The answer incorrectly claims the Labor Act 2074 does not contain a provision granting annual leave, stating the claim is unsupported. However, the evidence explicitly says \"Home leave is Nepal’s equivalent of annual leave,\" indicating that the Act does provide a leave provision equivalent to annual leave. Therefore the answer is factually wrong.', 'confidence': 0.92}\n[C2] (critical) Q: According to the Labor Act 2074, how many days of annual leave is an employee entitled to?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"श्रम ऐन २०७४ ले कर्मचारीहरूलाई कति दिन वार्षिक बिदा दिने भन्ने कुरा स्पष्ट रूपमा स्थापित गर्न सकिएन। कृपया यस विषयमा आधिकारिक कानुनी सल्लाहका लागि योग्य व्यावसायिक व्यक्ति वा कानुन व्यवसायीसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "श्रम ऐन २०७४ ले कर्मचारीहरूलाई कति दिन वार्षिक बिदा दिने भन्ने कुरा स्पष्ट रूपमा स्थापित गर्न सकिएन। कृपया यस विषयमा आधिकारिक कानुनी सल्लाहका लागि योग्य व्यावसायिक व्यक्ति वा कानुन व्यवसायीसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1377.7800999814644,
+      "prompt_tokens": 606,
+      "completion_tokens": 79,
+      "cost_usd": 9.22e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: श्रम ऐन २०७४ ले कर्मचारीहरूलाई कति दिन वार्षिक बिदा दिने भन्ने कुरा स्पष्ट रूपमा स्थापित गर्न सकिएन। कृपया यस विषयमा आधिकारिक कानुनी सल्लाहका लागि योग्य व्यावसायिक व्यक्ति वा कानुन व्यवसायीसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (supporting) Q: Does the Labor Act 2074 contain a provision that grants annual leave to employees?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=Home leave is Nepal’s equivalent of annual leave, but the accrual method is unique.\n  source=https://www.leavebalance.com/blog/nepal-labour-act-2074-leave-rules/\n  caveats=[\"code override: numeric value(s) ['2074'] in the answer were not found verbatim in evidence_span\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The answer incorrectly claims the Labor Act 2074 does not contain a provision granting annual leave, stating the claim is unsupported. However, the evidence explicitly says \"Home leave is Nepal’s equivalent of annual leave,\" indicating that the Act does provide a leave provision equivalent to annual leave. Therefore the answer is factually wrong.', 'confidence': 0.92}\n[C2] (critical) Q: According to the Labor Act 2074, how many days of annual leave is an employee entitled to?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"The Labor Act 2074 could not clearly establish how many days of annual leave to give to employees. Please consult with a qualified professional or legal practitioner for official legal advice on this subject.\",\n  \"drift\": [\n    {\n      \"type\": \"ADDED\",\n      \"detail\": \"Added a disclaimer advising the user to seek professional legal counsel.\",\n      \"severity\": \"low\"\n    }\n  ],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "The Labor Act 2074 could not clearly establish how many days of annual leave to give to employees. Please consult with a qualified professional or legal practitioner for official legal advice on this subject.",
+        "drift": [
+          {
+            "type": "ADDED",
+            "detail": "Added a disclaimer advising the user to seek professional legal counsel.",
+            "severity": "low"
+          }
+        ],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1776.993500010576,
+      "prompt_tokens": 520,
+      "completion_tokens": 114,
+      "cost_usd": 9.76e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0016867000000000002,
+  "total_latency_ms": 11771.20759995887,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

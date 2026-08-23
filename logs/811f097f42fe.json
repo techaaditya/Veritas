@@ -1,0 +1,348 @@
+{
+  "run_id": "811f097f42fe",
+  "question": "ORS (मुखीय पुनर्जलीकरण घोल) घरमै कसरी बनाउने?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "mixed",
+  "decision": "REFUSE",
+  "response_text": "Homemade Oral Rehydration Solution बनाउनको लागि पानी, नुन र चिनीको सही मात्रा, कुन प्रकारको नुन प्रयोग गर्ने, पानी उमाल्ने कि नउमाल्ने र यसलाई कति समयसम्म राख्न सकिन्छ भन्ने कुराहरू पुष्टि गर्न सकिएन। कृपया यसको लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोला।",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the recommended amount of water, salt, and sugar to mix for one liter of homemade Oral Rehydration Solution?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "ORS recipe",
+        "water salt sugar ratio",
+        "homemade ORS dosage"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "Which type of salt (e.g., plain sodium chloride, iodized salt) should be used when preparing homemade Oral Rehydration Solution?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "ORS salt type",
+        "plain sodium chloride ORS",
+        "iodized salt ORS"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Should the water be boiled and then cooled before adding salt and sugar when making Oral Rehydration Solution at home?",
+      "claim_type": "procedural",
+      "criticality": "critical",
+      "search_terms": [
+        "boil water ORS preparation",
+        "safe ORS water",
+        "ORS hygiene steps"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "How long can homemade Oral Rehydration Solution be safely stored at room temperature before it should be discarded?",
+      "claim_type": "numeric",
+      "criticality": "supporting",
+      "search_terms": [
+        "ORS storage time",
+        "homemade ORS shelf life",
+        "ORS expiration"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: ORS (मुखीय पुनर्जलीकरण घोल) घरमै कसरी बनाउने?\n",
+      "raw_response": "{\n  \"detected_language\": \"mixed\",\n  \"devanagari_form\": \"ORS (मुखीय पुनर्जलीकरण घोल) घरमै कसरी बनाउने?\",\n  \"canonical_english\": \"How to make Oral Rehydration Solution (ORS) at home?\",\n  \"domain\": \"health\",\n  \"entities\": [\"ORS\", \"Oral Rehydration Solution\"],\n  \"implicit_context\": [\"The user is seeking a homemade alternative to commercial ORS packets\"],\n  \"ambiguities\": [\"The age and condition of the person for whom the ORS is being prepared (e.g., infant vs adult)\"]\n}",
+      "parsed": {
+        "detected_language": "mixed",
+        "devanagari_form": "ORS (मुखीय पुनर्जलीकरण घोल) घरमै कसरी बनाउने?",
+        "canonical_english": "How to make Oral Rehydration Solution (ORS) at home?",
+        "domain": "health",
+        "entities": [
+          "ORS",
+          "Oral Rehydration Solution"
+        ],
+        "implicit_context": [
+          "The user is seeking a homemade alternative to commercial ORS packets"
+        ],
+        "ambiguities": [
+          "The age and condition of the person for whom the ORS is being prepared (e.g., infant vs adult)"
+        ]
+      },
+      "latency_ms": 1425.087200012058,
+      "prompt_tokens": 313,
+      "completion_tokens": 138,
+      "cost_usd": 8.65e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: How to make Oral Rehydration Solution (ORS) at home?\nORIGINAL: ORS (मुखीय पुनर्जलीकरण घोल) घरमै कसरी बनाउने?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"Providing incorrect ratios for a homemade medical solution used to treat dehydration can lead to electrolyte imbalances, posing a physical risk.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "Providing incorrect ratios for a homemade medical solution used to treat dehydration can lead to electrolyte imbalances, posing a physical risk.",
+        "emergency_signals": []
+      },
+      "latency_ms": 2130.083800002467,
+      "prompt_tokens": 337,
+      "completion_tokens": 58,
+      "cost_usd": 5.69e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: How to make Oral Rehydration Solution (ORS) at home?\nENTITIES: ['ORS', 'Oral Rehydration Solution']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the recommended amount of water, salt, and sugar to mix for one liter of homemade Oral Rehydration Solution?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"ORS recipe\", \"water salt sugar ratio\", \"homemade ORS dosage\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Which type of salt (e.g., plain sodium chloride, iodized salt) should be used when preparing homemade Oral Rehydration Solution?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ORS salt type\", \"plain sodium chloride ORS\", \"iodized salt ORS\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Should the water be boiled and then cooled before adding salt and sugar when making Oral Rehydration Solution at home?\",\n      \"claim_type\": \"procedural\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"boil water ORS preparation\", \"safe ORS water\", \"ORS hygiene steps\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"How long can homemade Oral Rehydration Solution be safely stored at room temperature before it should be discarded?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ORS storage time\", \"homemade ORS shelf life\", \"ORS expiration\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the recommended amount of water, salt, and sugar to mix for one liter of homemade Oral Rehydration Solution?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "ORS recipe",
+              "water salt sugar ratio",
+              "homemade ORS dosage"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "Which type of salt (e.g., plain sodium chloride, iodized salt) should be used when preparing homemade Oral Rehydration Solution?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "ORS salt type",
+              "plain sodium chloride ORS",
+              "iodized salt ORS"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Should the water be boiled and then cooled before adding salt and sugar when making Oral Rehydration Solution at home?",
+            "claim_type": "procedural",
+            "criticality": "critical",
+            "search_terms": [
+              "boil water ORS preparation",
+              "safe ORS water",
+              "ORS hygiene steps"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "How long can homemade Oral Rehydration Solution be safely stored at room temperature before it should be discarded?",
+            "claim_type": "numeric",
+            "criticality": "supporting",
+            "search_terms": [
+              "ORS storage time",
+              "homemade ORS shelf life",
+              "ORS expiration"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 2464.916200027801,
+      "prompt_tokens": 300,
+      "completion_tokens": 735,
+      "cost_usd": 0.00039749999999999996,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended amount of water, salt, and sugar to mix for one liter of homemade Oral Rehydration Solution?\nEVIDENCE:\n[source: https://pubmed.ncbi.nlm.nih.gov/2456720/]\nClipboard, Search History, and several other advanced features are temporarily unavailable.\n\n\n[Skip to main page content](https://pubmed.ncbi.nlm.nih.gov/2456720/#article-details)\n\n![Dot gov](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-dot-gov.svg)\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before\nsharing sensitive information, make sure you’re on a federal\ngovernment site.\n\n\n![Https](https://cdn.ncbi.nlm.nih.gov/coreutils/uswds/img/icon-https.svg)\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the\nofficial website and that any information you provide is encrypted\nand transmitted securely.\n\n\n[Access keys](https://www.ncbi.nlm.nih.gov/guide/browsers/#ncbi_accesskeys) [NCBI Homepage](https://www.ncbi.nlm.nih.gov/) [MyNCBI Homepage](https://pubmed.ncbi.nlm.nih.gov/myncbi/) [Main Content](https://pubmed.ncbi.nlm.nih.gov/2456720/#maincontent) [Main Navigation](https://pubmed.ncbi.nlm.nih.gov/2456720/#)\n\n[![pubmed logo](https://cdn.ncbi.nlm.nih.gov/pubmed/af7de7da-df5d-41c6-8de4-8c266af8ccfb/core/images/pubmed-logo-blue.svg)](https://pubmed.ncbi.nlm.nih.gov/)[Show search bar](https://pubmed.ncbi.nlm.\n\n[source: https://pubmed.ncbi.nlm.nih.gov/2456720/]\nnih.gov/2456720/# \"Show search bar\")\n\nSearch:\n\n\n```\n\n```\n\n[Clear search input](https://pubmed.ncbi.nlm.nih.gov/2456720/# \"Clear search input\") Search\n\n[Advanced](https://pubmed.ncbi.nlm.nih.gov/advanced/) [Clipboard](https://pubmed.ncbi.nlm.nih.gov/clipboard/)\n\n[User Guide](https://pubmed.ncbi.nlm.nih.gov/help/)\n\nSave\n\nEmail\n\n\nSend to\n\n- [Clipboard](https://pubmed.ncbi.nlm.nih.gov/2456720/#)\n- [My Bibliography](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F2456720%2F%23open-bibliography-panel)\n- [Collections](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F2456720%2F%23open-collections-panel)\n- [Citation manager](https://pubmed.ncbi.nlm.nih.gov/2456720/#)\n\nDisplay options\n\nDisplay options\n\n\nFormat\nAbstractPubMedPMID\n\n## Save citation to file\n\nFormat:\nSummary (text)PubMedPMIDAbstract (text)CSV\n\nCreate file\n\nCancel\n\n\n## Email citation\n\nEmail address has not been verified. Go to\n[My NCBI account settings](https://account.ncbi.nlm.nih.gov/settings/)\nto confirm your email and then refresh this page.\n\n\nTo:\n\n\nSubject:\n\n\nBody:\n\n\nFormat:\nSummarySummary (text)AbstractAbstract (text)\n\nMeSH and other data\n\n\nSend email\n\nCan\n\n[source: https://www.youtube.com/watch?v=xWyqD_C9YV4]\nError 401 (Bad Request)!!1\n\n**401.** That’s an error.\n\nThe server cannot process the request because it is malformed. It should not be retried. That’s all we know.\n\nBack\n\n\n[![](https://www.youtube.com/watch?v=xWyqD_C9YV4)](https://www.youtube.com/ \"YouTube Home\")\n\nSkip navigation\n\nSearch\n\n\nSearch with your voice\n\n[Sign in](https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DxWyqD_C9YV4&hl=en&ec=65620)\n\nHow to make oral rehydration solutions for diarrhoea\n\nTap to unmute\n\n2x\n\n## How to make oral rehydration solutions for diarrhoea\n\nStanford Center for Health Education 96,053 views 2 years ago\n\nCopy link\n\nInfo\n\nShopping\n\n![](https://i.ytimg.com/an/xdM_BlltGbSjch5BVzrhag/featured_channel.jpg?v=5ca63f17)\n\nIf playback doesn't begin shortly, try restarting your device.\n\n•\n\nYou're signed out\n\nVideos you watch may be added to the TV's watch history and influence TV recommendations. To avoid this, cancel and sign in to YouTube on your computer.\n\nCancelConfirm\n\nUp next\n\nLive\n\nUpcoming\n\nCancelPlay Now\n\n\n[source: https://www.youtube.com/watch?v=xWyqD_C9YV4]\n\nShare\n\nInclude playlist\n\nAn error occurred while retrieving sharing information. Please try again later.\n\n0:00\n\n[Next (SHIFT+n)](https://www.youtube.com/watch?v=suq9ZT3S0nw)\n\n0:00 / 4:24\n\nLive\n\n•Watch full video\n\n•\n\n•\n\n[5:39\\\\\nHow to care for a child with diarrhoeaStanford Center for Health Education7.8K views • 2 years agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=suq9ZT3S0nw) [7:57\\\\\nShe’s 12. She Sings Aretha Franklin… Until Simon TELLS Her to Do It Acapella! 😳Top Talent8.7M views • 9 months agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=HLxDp5rZmIs) [24:53\\\\\nPOOR vs RICH Cruise Battle in Minecraft!PrestonPlayz567K views • 1 day agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=Lx_jIEBFxek) [8:01\\\\\nIf Your Dog Stretches When They See You… This Is What It Really MeansTom Davis Dog Training 2.2M views • 4 months agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=wmhR3ZKRBvw) [29:27\\\\\nTherapist Reacts to CLOUDY WITH A CHANCE OF MEATBALLSCinema Therapy218K views • 6 days agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=Bc9BwKAZB8Y) [42:04\\\\\n50 Ways To Use A WatermelonNick DiGiovanni80M views • 2 years agoLivePlaylist ()M\n\n[source: https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors]\n## Cookie settings\n\nCookies are small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Your browser stores each message in a small file, called cookie. When you request another page from the server, your browser sends the cookie back to the server. Cookies were designed to be a reliable mechanism for websites to remember information or to record the user's browsing activity.\n\n×\n\nStrictly Necessary Cookies✔\n\n### Strictly Necessary Cookies\n\nAffected solutions:\n\n- Google Analytics\n\nSave current settingsAccept all cookies and close\n\nBy entering this website, you consent to the use of technologies, such as cookies and analytics. These will be used to analyse traffic to the website, allowing us to understand visitor preferences and improve our services.\n\n[Learn more](https://www.ifrc.org/disclaimer)I accept\n\n✕\n\nDownloading content for offline mode\n\n\n0%\n\nCancel download\n\n[Skip to main content](https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors#main-content)\n\n09\\. Preparing oral rehydration solution (ORS)\n\n[Download full volunteer action packageDownload icon](https://epidemics.ifrc.\n\n[source: https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors]\norg/pdf/154)\n\n![volunter-message-icon](https://epidemics.ifrc.org/themes/custom/ect_theme/images/svg/actions_related_hydration.svg)\n\n# 09\\. Preparing oral rehydration solution (ORS)\n\nLast update: 2023-03-31\n\n\n[Download full volunteer action packageDownload icon](https://epidemics.ifrc.org/pdf/154)\n\nCommunity messages\n\n\n[![](https://epidemics.ifrc.org/sites/default/files/styles/bounding_box_message_thumbnail/public/volunteer/message/2022-04/IFRC_preparing%20ORS%20illustration.png?itok=E74l1vap)](https://epidemics.ifrc.org/volunteer/community-message/01-preparing-and-giving-oral-rehydration-solution-ors)\n\n[![pdf-download-icon](https://epidemics.ifrc.org/themes/custom/ect_theme/images/svg/pdf.svg)](https://epidemics.ifrc.org/pdf/116)[01\\. Preparing and giving oral rehydration solution (ORS)](https://epidemics.ifrc.org/volunteer/community-message/01-preparing-and-giving-oral-rehydration-solution-ors)\n\n### Overview\n\nOral rehydration solution (ORS) is the first step in managing people suffering from diarrhoea and dehydration. ORS can be prepared:\n\n- Either from packets of ORS or\n- At home from traditional remedies, or water, sugar and salt.\n\n### **What to do and how to do it**\n\n1. _**How\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1153.575899952557,
+      "prompt_tokens": 2772,
+      "completion_tokens": 63,
+      "cost_usd": 0.00030240000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Which type of salt (e.g., plain sodium chloride, iodized salt) should be used when preparing homemade Oral Rehydration Solution?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1002/hsr2.827) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/pdf/HSR2-5-e827.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article permal\n\n[source: https://en.wikipedia.org/wiki/Oral_rehydration_therapy]\n# Oral rehydration therapy\n\nOral rehydration therapy\n\nType of fluid replacement used to prevent and treat dehydration\n\nMedical intervention\n\n| Oral rehydration therapy |\n| --- |\n| [![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Oral_rehydration_solution.xcf/500px-Oral_rehydration_solution.xcf.png)](https://en.wikipedia.org/wiki/File:Oral_rehydration_solution.xcf)<br>An oral rehydration solution (250ml) prepared according to WHO formula. |\n| Other names | oral rehydration solution (ORS), oral rehydration salts (ORS), glucose-salt solution |\n| \\[ [edit on Wikidata](https://www.wikidata.org/wiki/Q1381652 \"d:Q1381652\")\\] |\n\n**Oral rehydration therapy** ( **ORT**) is a type of [fluid replacement](https://en.wikipedia.org/wiki/Fluid_replacement \"Fluid replacement\") used to prevent and treat [dehydration](https://en.wikipedia.org/wiki/Dehydration \"Dehydration\"), especially due to [diarrhea](https://en.wikipedia.org/wiki/Diarrhea \"Diarrhea\").[\\[1\\]](https://en.wikipedia.org/wiki/Oral_rehydration_therapy#cite_note-WHO2008-1) It involves drinking water with modest amounts of sugar and salts, specifically [sodium](https://en.wikipedia.org/wiki/Sodium \"Sodium\") and [potassium](h\n\n[source: https://en.wikipedia.org/wiki/Oral_rehydration_therapy]\nttps://en.wikipedia.org/wiki/Potassium \"Potassium\").[\\[1\\]](https://en.wikipedia.org/wiki/Oral_rehydration_therapy#cite_note-WHO2008-1) Oral rehydration therapy can also be given by a [nasogastric tube](https://en.wikipedia.org/wiki/Nasogastric_tube \"Nasogastric tube\").[\\[1\\]](https://en.wikipedia.org/wiki/Oral_rehydration_therapy#cite_note-WHO2008-1) Therapy can include the use of [zinc supplements](https://en.wikipedia.org/wiki/Zinc_supplements \"Zinc supplements\") to reduce the duration of diarrhea in infants and children under the age of 5.[\\[1\\]](https://en.wikipedia.org/wiki/Oral_rehydration_therapy#cite_note-WHO2008-1) Use of oral rehydration therapy has been estimated to decrease the risk of death from diarrhea by up to 93%.[\\[2\\]](https://en.wikipedia.org/wiki/Oral_rehydration_therapy#cite_note-Mun2010-2)\n\nSide effects may include [vomiting](https://en.wikipedia.org/wiki/Vomiting \"Vomiting\"), [high blood sodium](https://en.wikipedia.org/wiki/High_blood_sodium \"High blood sodium\"), or [high blood potassium](https://en.wikipedia.org/wiki/High_blood_potassium \"High blood potassium\").[\\[1\\]](https://en.wikipedia.org/wiki/Oral_rehydration_therapy#cite_note-WHO2008-1) If vomiting\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 2073.129499971401,
+      "prompt_tokens": 2066,
+      "completion_tokens": 63,
+      "cost_usd": 0.00023180000000000005,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Should the water be boiled and then cooled before adding salt and sugar when making Oral Rehydration Solution at home?\nEVIDENCE:\n[source: https://www.youtube.com/watch?v=xWyqD_C9YV4]\nError 401 (Bad Request)!!1\n\n**401.** That’s an error.\n\nThe server cannot process the request because it is malformed. It should not be retried. That’s all we know.\n\nBack\n\n\n[![](https://www.youtube.com/watch?v=xWyqD_C9YV4)](https://www.youtube.com/ \"YouTube Home\")\n\nSkip navigation\n\nSearch\n\n\nSearch with your voice\n\n[Sign in](https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DxWyqD_C9YV4&hl=en&ec=65620)\n\nHow to make oral rehydration solutions for diarrhoea\n\nTap to unmute\n\n2x\n\n## How to make oral rehydration solutions for diarrhoea\n\nStanford Center for Health Education 96,053 views 2 years ago\n\nCopy link\n\nInfo\n\nShopping\n\n![](https://i.ytimg.com/an/xdM_BlltGbSjch5BVzrhag/featured_channel.jpg?v=5ca63f17)\n\nIf playback doesn't begin shortly, try restarting your device.\n\n•\n\nYou're signed out\n\nVideos you watch may be added to the TV's watch history and influence TV recommendations. To avoid this, cancel and sign in to YouTube on your computer.\n\nCancelConfirm\n\nUp next\n\nLive\n\nUpcoming\n\nCancelPlay Now\n\n\n[source: https://www.youtube.com/watch?v=xWyqD_C9YV4]\n\nShare\n\nInclude playlist\n\nAn error occurred while retrieving sharing information. Please try again later.\n\n0:00\n\n[Next (SHIFT+n)](https://www.youtube.com/watch?v=suq9ZT3S0nw)\n\n0:00 / 4:24\n\nLive\n\n•Watch full video\n\n•\n\n•\n\n[5:39\\\\\nHow to care for a child with diarrhoeaStanford Center for Health Education7.8K views • 2 years agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=suq9ZT3S0nw) [7:57\\\\\nShe’s 12. She Sings Aretha Franklin… Until Simon TELLS Her to Do It Acapella! 😳Top Talent8.7M views • 9 months agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=HLxDp5rZmIs) [24:53\\\\\nPOOR vs RICH Cruise Battle in Minecraft!PrestonPlayz567K views • 1 day agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=Lx_jIEBFxek) [8:01\\\\\nIf Your Dog Stretches When They See You… This Is What It Really MeansTom Davis Dog Training 2.2M views • 4 months agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=wmhR3ZKRBvw) [29:27\\\\\nTherapist Reacts to CLOUDY WITH A CHANCE OF MEATBALLSCinema Therapy218K views • 6 days agoLivePlaylist ()Mix (50+)](https://www.youtube.com/watch?v=Bc9BwKAZB8Y) [42:04\\\\\n50 Ways To Use A WatermelonNick DiGiovanni80M views • 2 years agoLivePlaylist ()M\n\n[source: https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors]\n## Cookie settings\n\nCookies are small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Your browser stores each message in a small file, called cookie. When you request another page from the server, your browser sends the cookie back to the server. Cookies were designed to be a reliable mechanism for websites to remember information or to record the user's browsing activity.\n\n×\n\nStrictly Necessary Cookies✔\n\n### Strictly Necessary Cookies\n\nAffected solutions:\n\n- Google Analytics\n\nSave current settingsAccept all cookies and close\n\nBy entering this website, you consent to the use of technologies, such as cookies and analytics. These will be used to analyse traffic to the website, allowing us to understand visitor preferences and improve our services.\n\n[Learn more](https://www.ifrc.org/disclaimer)I accept\n\n✕\n\nDownloading content for offline mode\n\n\n0%\n\nCancel download\n\n[Skip to main content](https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors#main-content)\n\n09\\. Preparing oral rehydration solution (ORS)\n\n[Download full volunteer action packageDownload icon](https://epidemics.ifrc.\n\n[source: https://epidemics.ifrc.org/volunteer/action/09-preparing-oral-rehydration-solution-ors]\norg/pdf/154)\n\n![volunter-message-icon](https://epidemics.ifrc.org/themes/custom/ect_theme/images/svg/actions_related_hydration.svg)\n\n# 09\\. Preparing oral rehydration solution (ORS)\n\nLast update: 2023-03-31\n\n\n[Download full volunteer action packageDownload icon](https://epidemics.ifrc.org/pdf/154)\n\nCommunity messages\n\n\n[![](https://epidemics.ifrc.org/sites/default/files/styles/bounding_box_message_thumbnail/public/volunteer/message/2022-04/IFRC_preparing%20ORS%20illustration.png?itok=E74l1vap)](https://epidemics.ifrc.org/volunteer/community-message/01-preparing-and-giving-oral-rehydration-solution-ors)\n\n[![pdf-download-icon](https://epidemics.ifrc.org/themes/custom/ect_theme/images/svg/pdf.svg)](https://epidemics.ifrc.org/pdf/116)[01\\. Preparing and giving oral rehydration solution (ORS)](https://epidemics.ifrc.org/volunteer/community-message/01-preparing-and-giving-oral-rehydration-solution-ors)\n\n### Overview\n\nOral rehydration solution (ORS) is the first step in managing people suffering from diarrhoea and dehydration. ORS can be prepared:\n\n- Either from packets of ORS or\n- At home from traditional remedies, or water, sugar and salt.\n\n### **What to do and how to do it**\n\n1. _**How\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1003.9268999826163,
+      "prompt_tokens": 1913,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002165,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: How long can homemade Oral Rehydration Solution be safely stored at room temperature before it should be discarded?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1002/hsr2.827) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9464461/pdf/HSR2-5-e827.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article permal\n\n[source: https://www.medanta.org/patient-education-blog/oral-rehydration-solution-ors-unpacking-the-lifesaving-formula]\n[1068](tel:1068)\n\n[Facebook](https://www.facebook.com/medanta/) [Twitter](https://twitter.com/medanta) [instagram](https://www.instagram.com/medanta/?hl=en) [Youtube](https://www.youtube.com/user/MedantaTheMedicity)\n\n- [Home](https://www.medanta.org/)\n- [Blogs](https://www.medanta.org/patient-education)\n- [Oral Rehydration Solution (ORS): Unpacking the Lifesaving Formula](https://www.medanta.org/patient-education-blog/oral-rehydration-solution-ors-unpacking-the-lifesaving-formula)\n\n# Oral Rehydration Solution (ORS): Unpacking the Lifesaving Formula\n\nMedically Reviewed By\n\n\n**Medanta Medical Team**\n\n\nUpdated on: Feb 27, 2026\n\n\nPublished on: Feb 03, 2023\n\n\n- [Copy to Copy Link](https://www.medanta.org/#shr-copy_link)\nCopy\n\n\n- [Share to Facebook](https://www.medanta.org/#shr-facebook)\nShare\n\n\n- [Share to LinkedIn](https://www.medanta.org/#shr-linkedin)\nShare\n\n\n- [Post to X (Twitter)](https://www.medanta.org/#shr-twitter)\nPost\n\n\n- [Mail to Email This](https://www.medanta.org/#shr-email_this)\nMail\n\n\n- [Share to WhatsApp](https://www.medanta.org/#shr-whatsapp)\nShare\n\n\n\nQuery Form\n\nName \\*\n\nMobile number \\*\n\nSubmit\n\nOral Rehydration Solution (ORS): Unpacking the Lifesaving Formula \\| Dr. \n\n[source: https://www.medanta.org/patient-education-blog/oral-rehydration-solution-ors-unpacking-the-lifesaving-formula]\nNeelam Mohan \\| Medanta - YouTube\n\nTap to unmute\n\nFrom an accredited hospital of India\n\n[Oral Rehydration Solution (ORS): Unpacking the Lifesaving Formula \\| Dr. Neelam Mohan \\| Medanta](https://www.youtube.com/watch?v=r7DalsMnGws) [Medanta](https://www.youtube.com/channel/UCSxY3aIGBg47WJASNYH6mUA)\n\n![thumbnail-image](https://yt3.ggpht.com/6wocICwLdCqgyTwhxcK1VOHjOtDiNo07BbXfrylEJHyStfSYrJqRTuBlTBe1tcEQkHTg53Yr=s68-c-k-c0x00ffffff-no-rj)\n\nMedanta369K subscribers\n\n[Watch on](https://www.youtube.com/watch?v=r7DalsMnGws)\n\n## **What is Oral Rehydration Solution (ORS)?**\n\nOral Rehydration Solution (ORS) is a lifesaving formula that is designed to rehydrate the body in cases of diarrhoea, vomiting, and other conditions that cause dehydration. Oral Rehydration Solution (ORS) is a medical treatment that supplies fluids, electrolytes, and glucose to the body that are lost due to certain conditions. ORS drink is considered to be one of the most effective treatments for dehydration and can be used by people of all ages, including infants and children.\n\nORS is also known as oral rehydration therapy. It is usually taken by mouth and can be consumed in various forms such as packets, sachets or b\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1058.4841000381857,
+      "prompt_tokens": 2122,
+      "completion_tokens": 61,
+      "cost_usd": 0.00023660000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (mixed).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the recommended amount of water, salt, and sugar to mix for one liter of homemade Oral Rehydration Solution?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Which type of salt (e.g., plain sodium chloride, iodized salt) should be used when preparing homemade Oral Rehydration Solution?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Should the water be boiled and then cooled before adding salt and sugar when making Oral Rehydration Solution at home?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: How long can homemade Oral Rehydration Solution be safely stored at room temperature before it should be discarded?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"Homemade Oral Rehydration Solution बनाउनको लागि पानी, नुन र चिनीको सही मात्रा, कुन प्रकारको नुन प्रयोग गर्ने, पानी उमाल्ने कि नउमाल्ने र यसलाई कति समयसम्म राख्न सकिन्छ भन्ने कुराहरू पुष्टि गर्न सकिएन। कृपया यसको लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोला।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "Homemade Oral Rehydration Solution बनाउनको लागि पानी, नुन र चिनीको सही मात्रा, कुन प्रकारको नुन प्रयोग गर्ने, पानी उमाल्ने कि नउमाल्ने र यसलाई कति समयसम्म राख्न सकिन्छ भन्ने कुराहरू पुष्टि गर्न सकिएन। कृपया यसको लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोला।",
+        "citations": []
+      },
+      "latency_ms": 1302.8854000149295,
+      "prompt_tokens": 566,
+      "completion_tokens": 106,
+      "cost_usd": 9.9e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: Homemade Oral Rehydration Solution बनाउनको लागि पानी, नुन र चिनीको सही मात्रा, कुन प्रकारको नुन प्रयोग गर्ने, पानी उमाल्ने कि नउमाल्ने र यसलाई कति समयसम्म राख्न सकिन्छ भन्ने कुराहरू पुष्टि गर्न सकिएन। कृपया यसको लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग सल्लाह लिनुहोला।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the recommended amount of water, salt, and sugar to mix for one liter of homemade Oral Rehydration Solution?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Which type of salt (e.g., plain sodium chloride, iodized salt) should be used when preparing homemade Oral Rehydration Solution?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Should the water be boiled and then cooled before adding salt and sugar when making Oral Rehydration Solution at home?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: How long can homemade Oral Rehydration Solution be safely stored at room temperature before it should be discarded?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"The correct amounts of water, salt, and sugar to make Homemade Oral Rehydration Solution, which type of salt to use, whether to boil the water or not, and how long it can be kept could not be confirmed. Please consult a qualified health worker or doctor for this.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "The correct amounts of water, salt, and sugar to make Homemade Oral Rehydration Solution, which type of salt to use, whether to boil the water or not, and how long it can be kept could not be confirmed. Please consult a qualified health worker or doctor for this.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1030.704400036484,
+      "prompt_tokens": 508,
+      "completion_tokens": 87,
+      "cost_usd": 8.56e-05,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0017127999999999998,
+  "total_latency_ms": 11059.232100029476,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

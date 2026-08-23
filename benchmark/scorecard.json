@@ -1,0 +1,52 @@
+{
+  "n_questions": 30,
+  "metrics": [
+    {
+      "name": "Hallucination rate",
+      "veritas": "n/a (needs adjudication)",
+      "baseline": "100.0%",
+      "veritas_wins": true
+    },
+    {
+      "name": "Citation validity",
+      "veritas": "70.0%",
+      "baseline": "3.3% include a URL",
+      "veritas_wins": true
+    },
+    {
+      "name": "Appropriate refusal rate",
+      "veritas": "71.4%",
+      "baseline": "n/a",
+      "veritas_wins": true
+    },
+    {
+      "name": "Over-refusal rate",
+      "veritas": "84.2%",
+      "baseline": "n/a",
+      "veritas_wins": false
+    },
+    {
+      "name": "TIER-0 escalation recall",
+      "veritas": "100.0%",
+      "baseline": "n/a",
+      "veritas_wins": true
+    },
+    {
+      "name": "Cost per query",
+      "veritas": "$0.00188",
+      "baseline": "$0.00024",
+      "veritas_wins": false
+    },
+    {
+      "name": "Latency per query",
+      "veritas": "19584 ms",
+      "baseline": "9705 ms",
+      "veritas_wins": false
+    }
+  ],
+  "where_veritas_loses": [
+    "Cost: 7.7x the single prompt per query",
+    "Latency: 2.0x as long",
+    "Over-refusal: 16/19 answerable questions wrongly refused (84.2%)"
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "run_id": "c034310ffa21",
+  "question": "मधुमेह (डायबिटिज) भएका बिरामीले के-कस्ता खानेकुरा बेवास्ता गर्नुपर्छ?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "मधुमेहका बिरामीहरूले कुन कुराहरू खानु हुँदैन भन्ने बारेमा निश्चित जानकारी स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्य पेशेवर वा डाक्टरसँग परामर्श गर्नुहोस्।\n\n---\n[Fidelity check could not be satisfied after retry; showing the verified English claim summary alongside the translation for safety.]\n\n[C1] (critical) Q: Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\n  verdict=SUPPORTED answer=Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).\n  evidence_span=The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\n  source=https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.', 'confidence': 0.73}\n[C2] (critical) Q: Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "diabetes foods to avoid simple sugars",
+        "diabetes sugary drinks",
+        "diabetes sweets avoidance"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).",
+      "evidence_span": "The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).",
+      "source_url": "https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SCOPE_DROPPED",
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "falsification_attempt": "The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.",
+        "confidence": 0.73
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "diabetes refined grains avoid",
+        "white bread diabetes",
+        "white rice diabetes recommendation"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "diabetes high fat foods avoid",
+        "processed meats diabetes",
+        "full fat dairy diabetes recommendation"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "diabetes high sodium foods avoid",
+        "diabetes processed foods sodium",
+        "diabetes cardiovascular risk diet"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: मधुमेह (डायबिटिज) भएका बिरामीले के-कस्ता खानेकुरा बेवास्ता गर्नुपर्छ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"मधुमेह (डायबिटिज) भएका बिरामीले के-कस्ता खानेकुरा बेवास्ता गर्नुपर्छ?\",\n  \"canonical_english\": \"What foods should patients with diabetes avoid?\",\n  \"domain\": \"health\",\n  \"entities\": [\"मधुमेह\", \"डायबिटिज\"],\n  \"implicit_context\": [\"The user is seeking dietary restrictions for managing diabetes.\"],\n  \"ambiguities\": [\"Type of diabetes (Type 1, Type 2, or Gestational)\", \"Age of the patient\", \"Current medications or comorbidities\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "मधुमेह (डायबिटिज) भएका बिरामीले के-कस्ता खानेकुरा बेवास्ता गर्नुपर्छ?",
+        "canonical_english": "What foods should patients with diabetes avoid?",
+        "domain": "health",
+        "entities": [
+          "मधुमेह",
+          "डायबिटिज"
+        ],
+        "implicit_context": [
+          "The user is seeking dietary restrictions for managing diabetes."
+        ],
+        "ambiguities": [
+          "Type of diabetes (Type 1, Type 2, or Gestational)",
+          "Age of the patient",
+          "Current medications or comorbidities"
+        ]
+      },
+      "latency_ms": 2266.8958000140265,
+      "prompt_tokens": 322,
+      "completion_tokens": 146,
+      "cost_usd": 9.06e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: What foods should patients with diabetes avoid?\nORIGINAL: मधुमेह (डायबिटिज) भएका बिरामीले के-कस्ता खानेकुरा बेवास्ता गर्नुपर्छ?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns dietary management for a chronic disease (diabetes), where incorrect advice could lead to dangerous blood glucose fluctuations.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns dietary management for a chronic disease (diabetes), where incorrect advice could lead to dangerous blood glucose fluctuations.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1810.9797000070103,
+      "prompt_tokens": 341,
+      "completion_tokens": 58,
+      "cost_usd": 5.7300000000000004e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: What foods should patients with diabetes avoid?\nENTITIES: ['मधुमेह', 'डायबिटिज']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"diabetes foods to avoid simple sugars\", \"diabetes sugary drinks\", \"diabetes sweets avoidance\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"diabetes refined grains avoid\", \"white bread diabetes\", \"white rice diabetes recommendation\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"diabetes high fat foods avoid\", \"processed meats diabetes\", \"full fat dairy diabetes recommendation\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"diabetes high sodium foods avoid\", \"diabetes processed foods sodium\", \"diabetes cardiovascular risk diet\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "diabetes foods to avoid simple sugars",
+              "diabetes sugary drinks",
+              "diabetes sweets avoidance"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).",
+            "evidence_span": "The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).",
+            "source_url": "https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH",
+                "SCOPE_DROPPED",
+                "SOURCE_INAPPROPRIATE"
+              ],
+              "falsification_attempt": "The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.",
+              "confidence": 0.73
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "diabetes refined grains avoid",
+              "white bread diabetes",
+              "white rice diabetes recommendation"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "diabetes high fat foods avoid",
+              "processed meats diabetes",
+              "full fat dairy diabetes recommendation"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "diabetes high sodium foods avoid",
+              "diabetes processed foods sodium",
+              "diabetes cardiovascular risk diet"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 2883.0245999852195,
+      "prompt_tokens": 297,
+      "completion_tokens": 607,
+      "cost_usd": 0.0003332,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?\nEVIDENCE:\n[source: https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes]\n[Skip to main navigation](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#block-diabetes-main-menu) [Skip to content](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#main)\n\nSave for later\nPage saved! You can go back to this later in your [Diabetes and Me](https://www.diabetes.org.uk/diabetes-and-me) Close\n\n# Carbohydrates and diabetes: What you need to know\n\nFor many of us carbohydrates are a key source of energy. Carbohydrate-containing foods also provide important nutrients for good health.\n\nAll the carbohydrates you eat and drink are broken down into glucose. The type, and amount, you consume can make a difference to your [blood glucose levels](https://www.diabetes.org.uk/about-diabetes/symptoms/testing) and diabetes management.\n\nIn this guide:\n\n- [Types of carbohydrates](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#Types%20of%20carbohydrates)\n- [How much carbohydrate do I need?](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#How%20much%20carbohydrate%20do%20I%20need?%C2%A0)\n- [How much carbohydrate does food contain?](https://www.diabet\n\n[source: https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes]\nes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#How%20many%20carbs%20are%20in%20your%20food?)\n- [Quality of carbs](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#What%20about%20the%20quality%20of%20carbs?%E2%80%AF%C2%A0)\n- [Carbohydrate and type 1 diabetes](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#How%20does%20carbohydrate%20affect%20someone%20with%20type%201%20diabetes?%C2%A0)\n- [Carbohydrate and type 2 diabetes](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#How%20does%20carbohydrate%20affect%20people%20with%20type%202%20diabetes?)\n- [Wholegrains and diabetes](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#What%20are%20wholegrains?)\n- [Alternatives to carbs](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#Alternatives%20to%20carbs)\n- [What is resistant starch?](https://www.diabetes.org.uk/living-with-diabetes/eating/carbohydrates-and-diabetes#What%20is%20starch%20and%20resistant%20starch?)\n\n### Types of carbohydrates\n\nThere are different ways to describe carbohydrates. One way of d\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7231599/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC7231599/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC7231599/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1093/advances/nmz114) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC7231599/pdf/nmz114.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article perm\n\n[source: https://www.diabetescarecommunity.ca/diet-and-fitness-articles/diabetes-diet-articles/10-foods-to-avoid-if-you-have-diabetes/]\n![logo](https://www.diabetescarecommunity.ca/wp-content/uploads/2025/02/canadian-maple-leaf-32x32-1.png)\n\nProudly supporting Canadians with diabetes\n\nAdvertisement\n\n- [Skip to primary navigation](https://www.diabetescarecommunity.ca/diet-and-fitness-articles/diabetes-diet-articles/10-foods-to-avoid-if-you-have-diabetes/#genesis-nav-primary)\n- [Skip to main content](https://www.diabetescarecommunity.ca/diet-and-fitness-articles/diabetes-diet-articles/10-foods-to-avoid-if-you-have-diabetes/#genesis-content)\n- [Skip to primary sidebar](https://www.diabetescarecommunity.ca/diet-and-fitness-articles/diabetes-diet-articles/10-foods-to-avoid-if-you-have-diabetes/#genesis-sidebar-primary)\n- [Skip to footer](https://www.diabetescarecommunity.ca/diet-and-fitness-articles/diabetes-diet-articles/10-foods-to-avoid-if-you-have-diabetes/#genesis-footer-widgets)\n\nMenu\n\n[Home](https://www.diabetescarecommunity.ca/) » [Articles and Blogs](https://www.diabetescarecommunity.ca/articles-and-blogs/) » 10 foods to avoid if you have diabetes\n\n![](https://www.diabetescarecommunity.ca/wp-content/uploads/2026/05/Foods-to-avoid-702x360.jpeg)\n\nEating unhealthy foods can have a number of effects on the body, in\n\n[source: https://www.diabetescarecommunity.ca/diet-and-fitness-articles/diabetes-diet-articles/10-foods-to-avoid-if-you-have-diabetes/]\ncluding weight gain and high blood sugar levels. In many cases, there are healthy options to replace unhealthy foods.\n\n## **Article Highlights**\n\n- Cut hidden sugars and refined carbs to help steady blood glucose\n- Swap processed foods for higher-fibre choices that keep you fuller longer\n- Reduce heart and kidney risks by limiting trans fats and excess sodium\n- Spot “healthy” foods that can still trigger blood sugar spikes\n- Make simple food swaps that support more stable energy all day\n\n### **Here are 10 foods to avoid if you have diabetes, along with some healthier replacement options.**\n\n![processed meat](https://www.diabetescarecommunity.ca/wp-content/uploads/2020/02/Processed-meat.jpg)\n\n## **1\\. Processed meats**\n\nProcessed meats – such as bacon, ham, salami or beef jerky – contain many harmful chemicals that are not present in fresh meat. They have also been linked to diseases such as cancer and heart disease in numerous studies.\n\nReplace processed meats with leaner, more natural protein choices, such as chicken, turkey, tuna or hard-boiled eggs.\n\n[Read also about Navigating the grocery store for meats and poultry\\\\\n\\\\\n![Navigating the grocery store for meats and poultry](htt\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1240.1301999925636,
+      "prompt_tokens": 2870,
+      "completion_tokens": 61,
+      "cost_usd": 0.00031140000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\nEVIDENCE:\n[source: https://www.cdc.gov/diabetes/healthy-eating/choosing-healthy-carbs.html]\n[Skip directly to site content](https://www.cdc.gov/diabetes/healthy-eating/choosing-healthy-carbs.html#content) [Skip directly to search](https://www.cdc.gov/diabetes/healthy-eating/choosing-healthy-carbs.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/diabetes/healthy-eating/choosing-healthy-carbs.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/diabetes/healthy-eating/choosing-healthy-carbs.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n# Choosing Healthy Carbs\n\n[May 15, 2024, visit link for details.](https://www.cdc.gov/diabetes/healthy-eating/choosing-healthy-carbs.html#content-sources)\n\n[Español]\n\n[source: https://www.cdc.gov/diabetes/healthy-eating/choosing-healthy-carbs.html]\n(https://www.cdc.gov/diabetes/es/healthy-eating/como-elegir-carbohidratos-saludables.html)\n\nFor Everyone\n\n## What to know\n\nIn recent years, carbohydrates (carbs) have gotten a bad reputation. But carbs can be part of a healthy diet for people with diabetes. The key is to know how to portion and choose carbs so you get the most nutrition from your food with the least impact on your blood sugar.\n\n![Wooden sign with the word \"carbs\" surrounded by various carbs discussed in the article](https://www.cdc.gov/diabetes/media/images/2024/05/Diabetes-and-carbs-thumbnail.jpg)\n\n## Types of carbs\n\n### Simple carbs\n\nThese increase your blood sugar quickly and can make it harder to manage your diabetes. Common sources of simple carbs include table sugar, honey, fruit juice, and syrup. These are often major ingredients of highly processed and packaged foods like soda, cookies, cakes, candies, and other foods with added sugars.\n\nSome types of simple carbs are found in healthy foods like whole fruit and dairy foods. These foods have beneficial vitamins and minerals, which are key to a balanced diet.\n\n### Refined grains\n\nRefined grains are simple carbs that have been processed to remove the fiber. Th\n\n[source: https://diabetes.org/food-nutrition/food-and-blood-sugar/diabetes-superstar-foods]\n[Skip to Main content](https://diabetes.org/food-nutrition/food-and-blood-sugar/diabetes-superstar-foods#main-content)\n\nmain content start\n\nFood & Nutrition\n\n\n# What superstar foods are good for diabetes?\n\nYou may have seen the word “superfood” used on social media, on food packages, or in advertisements. It is a marketing term used to promote a food thought to have “extra” health benefits. However, there is no official definition of the word by the Food and Drug Administration (FDA). The FDA regulates the health claims allowed on food labels to ensure there is scientific research to support the claims.\n\nHowever, our list of “superstar” foods for diabetes are essential for a healthy diabetes meal plan. These foods are rich in protein, healthy fats, vitamins, minerals, antioxidants, and fiber. They are good for overall health and may also help prevent diseases like diabetes.\n\n## Superstar Non-Starchy Vegetables\n\nImage\n\n![Non-starchy vegetables plate](https://diabetes.org/sites/default/files/styles/large/public/2024-06/DiabetesPlate_Veggie.png.webp?itok=KZe6R0-0)\n\n_According to the_ [_Diabetes Plate_](https://www.diabetesfoodhub.org/articles/what-is-the-diabetes-plate-method.html \"(o\n\n[source: https://diabetes.org/food-nutrition/food-and-blood-sugar/diabetes-superstar-foods]\npens in a new window)\") _, non-starchy vegetables should make up half of your meal._\n\n#### Dark green leafy vegetables\n\nPacked with vitamins and minerals such as vitamins A, C, K, and folate; iron; calcium; and potassium, these foods are low in calories and carbohydrates and fit on the non-starchy vegetables section of the Diabetes Plate. Additionally, try adding dark leafy vegetables like spinach, collards, and kale to salads, soups, and stews.\n\nRecipe Inspiration:\n\n- [Garlic Sauteed Spinach and Kale](https://www.diabetesfoodhub.org/recipes/garlic-saut%C3%A9ed-spinach-and-kale.html \"(opens in a new window)\")\n- [Southern Collard Greens](https://www.diabetesfoodhub.org/recipes/southern-collard-greens.html \"(opens in a new window)\")\n- [Spinach Yogurt Dip](https://www.diabetesfoodhub.org/recipes/spinach-yogurt-dip.html \"(opens in a new window)\")\n\n#### Avocado\n\nThis nutrient-packed food is important for contributing fat-soluble vitamins and fiber and can help you feel full. Avocados are not only versatile and delicious, they also provide a heart-healthy source of fat to the Diabetes Plate.\n\nRecipe Inspiration:\n\n- [Avocado Toast with Turkey Bacon and Tomato](https://www.diabetesfoodhub.\n\n[source: https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html]\n[![Walgreens The Thread](https://blog.walgreens.com/content/dam/content-hub/logos/thread-logo-desktop.svg)![Walgreens The Thread](https://blog.walgreens.com/content/dam/content-hub/logos/thread-logo-mobile.svg)](https://blog.walgreens.com/content/content-hub/us/en/homepage.html)\n\nSearch\n\nclose\n\n![By Walgreens](https://blog.walgreens.com/content/dam/content-hub/logos/by-walgreens.svg)\n\n![foods to avoid with diabetes](https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes/_jcr_content/root/container/imagearticlepage.coreimg.jpeg/1681919558855/ch-foodsavoiddiabetes-1490x600.jpeg)\n\nWellness\n\n# What are foods to avoid with diabetes?\n\nBy Michelle Katz, MS, RD, certified diabetes care and education specialist\nApr 28, 2025 • 7 min\n\n\n* * *\n\nIf you have [prediabetes](https://blog.walgreens.com/health/diabetes/what-is-pre-diabetes.html) or [diabetes](https://blog.walgreens.com/health/diabetes.html), following a healthy eating plan can lead to better [blood sugar control](https://blog.walgreens.com/health/diabetes/keep-blood-sugar-under-control.html) and a lower risk of complications associated with these conditions. Some foods are better choices to include in y\n\n[source: https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html]\nour eating plan than others.\n\nThe following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level. If you have a sweet tooth and would like to indulge occasionally, look for alternatives made with low- and no-calorie sweeteners. Keep in mind that it’s also important to limit portion size. You can also enjoy sweet fruits with a low glycemic index like apples, oranges, pears, blueberries and strawberries. These are much healthier options.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\n\n**3\\. Foods high in sodium**: Consuming too much sodium can contribute\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).\",\n  \"evidence_span\": \"The following are all foods you should generally avoid or limit in order to support your health and well-being:\\n\\n**1\\\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\\n\\n**2\\\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\",\n  \"source_url\": \"https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "SUPPORTED",
+        "answer": "Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).",
+        "evidence_span": "The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).",
+        "source_url": "https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html",
+        "caveats": []
+      },
+      "latency_ms": 2352.1517000044696,
+      "prompt_tokens": 2419,
+      "completion_tokens": 337,
+      "cost_usd": 0.0003767,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?\nEVIDENCE:\n[source: https://www.webmd.com/diabetes/diabetic-food-list-best-worst-foods]\n- [Diabetes](https://www.webmd.com/diabetes/default.htm)/\n- [Reference](https://www.webmd.com/diabetes/medical-reference/default.htm)/\n\n![](https://img.lb.wbmdstatic.com/webmd_v1_static_vue/091e9c5e81e4870f/client/img/library_books-DwdAvWZz.svg)Diabetes Guide\n\n- [Overview & Types](https://www.webmd.com/diabetes/diabetes-basics)\n- [Symptoms & Diagnosis](https://www.webmd.com/diabetes/understanding-diabetes-symptoms)\n- [Treatment](https://www.webmd.com/diabetes/understanding-diabetes-detection-treatment)\n- Living With\n  - [Understanding Blood Sugar](https://www.webmd.com/diabetes/diabetes-hyperglycemia)\n  - [Diet & Exercise](https://www.webmd.com/diabetes/understanding-carbohydrates-fiber)\n  - [Better Living](https://www.webmd.com/diabetes/managing-sick-days)\n  - [Complications](https://www.webmd.com/diabetes/risks-complications-uncontrolled-diabetes)\n- [Related Conditions](https://www.webmd.com/diabetes/peripheral-neuropathy-treating-nerve-pain)\n- Type 2 Diabetes\n  - [Overview](https://www.webmd.com/diabetes/type-2-diabetes)\n  - [Symptoms & Causes](https://www.webmd.com/diabetes/type-2-diabetes-symptoms)\n  - [Diagnosis & Tests](https://www.webmd.com/diabetes/type-2-diabetes-screenin\n\n[source: https://www.webmd.com/diabetes/diabetic-food-list-best-worst-foods]\ng)\n  - [Prevention & Treatment](https://www.webmd.com/diabetes/preventing-type-2-diabetes)\n  - [Living & Managing](https://www.webmd.com/diabetes/exercise-guidelines)\n  - [Complications & Related Diseases](https://www.webmd.com/diabetes/uncontrolled-blood-sugar-risks)\n- Type 1 Diabetes\n  - [Overview](https://www.webmd.com/diabetes/type-1-diabetes)\n  - [Treating & Managing](https://www.webmd.com/diabetes/give-yourself-insulin-shot)\n  - [Complications & Related Conditions](https://www.webmd.com/diabetes/ketoacidosis)\n- [Gestational Diabetes](https://www.webmd.com/diabetes/cm/what-causes-gestational-diabetes)\n- [Appointment Prep](https://www.webmd.com/apptprep/your-dme-journey/cm/toc)\n- [View Full Guide](https://www.webmd.com/diabetes/default.htm)\n\nEnglish [Español](https://www.webmd.com/es/diabetes/lista-mejores-peores-alimentos-diabetes)\n\n![](https://img.lb.wbmdstatic.com/vim/live/webmd/consumer_assets/site_images/articles/biographies/lori_king_382x382.jpg?resize=51px:51px&output-quality=75)![](https://img.lb.wbmdstatic.com/vim/live/webmd/consumer_assets/Bruni_Nazario.jpg?resize=51px:51px&output-quality=75)\n\nWritten by [Lori M. King, PhD](https://www.webmd.com/bio/lori-m-king), [Ale\n\n[source: https://www.mayoclinic.org/diseases-conditions/diabetes/in-depth/diabetes-diet/art-20044295]\n# Diabetes diet: Create your healthy-eating plan\n\nA diabetes diet is a healthy-eating plan that helps manage blood sugar. Use this guide to get started, from meal planning to counting carbohydrates.\n\n[By Mayo Clinic Staff](https://www.mayoclinic.org/about-this-site/meet-our-medical-editors)\n\nApril 20, 2026\n\nA diabetes diet simply means eating the healthiest foods in moderate amounts and sticking to regular mealtimes. It's a healthy-eating plan that's naturally rich in nutrients and low in fat and calories. Key elements are fruits, vegetables and whole grains. In fact, this type of healthy-eating plan can be good for most people.\n\n## Why do you need to develop a healthy-eating plan?\n\nIf you have diabetes or prediabetes, your healthcare professional will likely recommend that you see a dietitian to help you develop a healthy-eating plan. The plan helps you manage your blood sugar, also called blood glucose, manage your weight and heart disease risk factors. These factors include high blood pressure and high cholesterol.\n\nWhen you eat extra calories and carbohydrates, your blood sugar level rises. If blood sugar isn't managed, it can lead to serious issues. These issues include a high\n\n[source: https://www.mayoclinic.org/diseases-conditions/diabetes/in-depth/diabetes-diet/art-20044295]\n blood sugar level, called hyperglycemia. If this high level lasts for a long time, it may lead to long-term complications, such as nerve, kidney and heart damage.\n\nYou can help keep your blood sugar level in a safe range. Make healthy food choices and track your eating habits.\n\nFor most people with type 2 diabetes, weight loss also can make it easier to manage blood sugar. Weight loss offers a host of other health benefits. If you need to lose weight, a healthy-eating plan provides a well-organized, nutritious way to reach your goal safely.\n\n## What does a diet for people with diabetes involve?\n\nA diet for people living with diabetes is based on eating healthy meals at regular times. Eating meals at regular times helps your body better use insulin that it makes or gets through medicine.\n\nA registered dietitian can help you put together a diet based on your health goals, tastes and lifestyle. The dietitian also can talk with you about how to improve your eating habits. Options include choosing portion sizes that suit your needs for your size and activity level.\n\n## Recommended foods\n\nMake your calories count with nutritious foods. Choose healthy carbohydrates, fiber-rich foods, fis\n\n[source: https://prodigymeter.com/diabetes-education/healthy-eating/]\n![](https://prodigymeter.com/wp-content/uploads/2012/06/Healthy-eating-photo.png)\n\n# **Foods for Diabetics**\n\n##### **Nutrition**\n\nOne of the most important ways to manage diabetes is by eating the right foods in the right amounts. Everyone with diabetes should have a meal plan. Knowing how much to eat, what to eat, and when to eat is also important. Your doctor, dietitian or certified diabetes educator can help you develop a meal plan that works for you.\n\n# Foods for Diabetics\n\n# **Nutrition**\n\nOne of the most important ways to manage diabetes is by eating the right foods in the right amounts. Everyone with diabetes should have a meal plan. Knowing how much to eat, what to eat, and when to eat is also important. Your doctor, dietitian or certified diabetes educator can help you develop a meal plan that works for you.\n\n##### **Some guidelines to eating healthy are:**\n\n• Plan your meals• Do not skip meals\n\n• Eat when you are hungry and stop when you are satisfied\n\n• Eat meals and snacks at regular times every day\n\n• Eat three balanced meals a day plus snacks, spread them out during the day\n\n• Eat a variety of foods\n\n• Add color to meals with fresh fruits and vegetables\n\n• Enjoy plen\n\n[source: https://prodigymeter.com/diabetes-education/healthy-eating/]\nty of whole grains\n\n• Make sure you get enough fiber every day\n\n• Watch portion sizes\n\n• Slow down and enjoy the flavor of each bite of food\n\n##### **The three major nutrients in food are:**\n\n• Carbohydrates\n\n• Proteins\n\n• Fats\n\n![](https://prodigymeter.com/wp-content/uploads/2012/06/food-pyramid3.png)\n\n# Some guidelines to eating healthy are:\n\n• Plan your meals\n\n• Do not skip meals\n\n• Eat when you are hungry and stop when you are satisfied\n\n• Eat meals and snacks at regular times every day\n\n• Eat three balanced meals a day plus snacks, spread them out\n\nduring the day\n\n• Eat a variety of foods\n\n• Add color to meals with fresh fruits and vegetables\n\n• Enjoy plenty of whole grains\n\n• Make sure you get enough fiber every day\n\n• Watch portion sizes\n\n• Slow down and enjoy the flavor of each bite of food\n\n# The three major nutrients in food are:\n\n• Carbohydrates\n\n• Proteins\n\n• Fats\n\n##### **Carbohydrates**\n\nCarbohydrates are the body’s main energy source. The majority of the carbohydrates we eat are in the form of starch or sugar. Carbohydrates increase blood sugar the most. Almost 100% of carbohydrates are absorbed as sugar or glucose. On average, 50% of calories each day come from carb\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1787.1184999821708,
+      "prompt_tokens": 2394,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002646,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\nPROPOSED ANSWER: Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).\nEVIDENCE SPAN: The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\nSOURCE: https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\", \"SCOPE_DROPPED\", \"SOURCE_INAPPROPRIATE\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.73\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SCOPE_DROPPED",
+          "SOURCE_INAPPROPRIATE"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.73
+      },
+      "latency_ms": 3984.5042999950238,
+      "prompt_tokens": 661,
+      "completion_tokens": 600,
+      "cost_usd": 0.00036609999999999995,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?\nEVIDENCE:\n[source: https://www.mayoclinic.org/diseases-conditions/heart-disease/in-depth/heart-healthy-diet/art-20047702]\n# Heart-healthy diet: 8 steps to prevent heart disease\n\nReady to start your heart-healthy diet? Here are eight tips to get you started.\n\n[By Mayo Clinic Staff](https://www.mayoclinic.org/about-this-site/meet-our-medical-editors)\n\nJune 03, 2026\n\nYou might know that eating some foods can raise your heart disease risk. Even though changing your eating habits can be tough, you can take simple steps to start eating healthier. Whether you haven't followed a healthy diet for years or you simply want to fine-tune your diet, here are eight heart-healthy diet tips. Find out which foods to eat more of and which foods to eat less of or not eat at all. You'll soon be on your way toward a healthier diet for your heart.\n\n## 1\\. Manage portion sizes\n\nHow much you eat is just as important as what you eat. Overloading your plate, taking seconds and eating until you feel too full can lead to eating more calories than you should. Portions served in restaurants often are larger than anyone needs.\n\nFollow a few simple tips to manage food portion size. These tips can help you improve your heart health:\n\n- Use a small plate or bowl to help manage your portions.\n- Eat more low-calorie, nutritious foods suc\n\n[source: https://www.mayoclinic.org/diseases-conditions/heart-disease/in-depth/heart-healthy-diet/art-20047702]\nh as fruits and vegetables.\n- Eat smaller amounts of high-calorie, high-sodium foods. These include refined, processed and fast foods.\n\nIt's also important to keep track of the number of servings you eat. Keep this information in mind:\n\n- A serving size is a specific amount of food. It's defined by common measurements such as cups, ounces or pieces. For example, one serving of pasta is about 1/3 to 1/2 cup, or about the size of a hockey puck. A serving of meat, fish or chicken is about 2 to 3 ounces. That's about the size and thickness of a deck of cards.\n- The recommended number of servings in a food group may vary. It depends on the specific diet or guidelines you're following.\n- Learning to tell what one serving looks like takes practice. You may need to use measuring cups, measuring spoons or a food scale until you get used to it.\n\n## 2\\. Eat more vegetables and fruits\n\nVegetables and fruits are good sources of vitamins and minerals. They're also low in calories and rich in fiber. Vegetables and fruits, like other plants or plant-based foods, have substances that may help prevent heart disease. Eating more fruits and vegetables also may help you eat less higher calorie food. So\n\n[source: https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html]\n[![Walgreens The Thread](https://blog.walgreens.com/content/dam/content-hub/logos/thread-logo-desktop.svg)![Walgreens The Thread](https://blog.walgreens.com/content/dam/content-hub/logos/thread-logo-mobile.svg)](https://blog.walgreens.com/content/content-hub/us/en/homepage.html)\n\nSearch\n\nclose\n\n![By Walgreens](https://blog.walgreens.com/content/dam/content-hub/logos/by-walgreens.svg)\n\n![foods to avoid with diabetes](https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes/_jcr_content/root/container/imagearticlepage.coreimg.jpeg/1681919558855/ch-foodsavoiddiabetes-1490x600.jpeg)\n\nWellness\n\n# What are foods to avoid with diabetes?\n\nBy Michelle Katz, MS, RD, certified diabetes care and education specialist\nApr 28, 2025 • 7 min\n\n\n* * *\n\nIf you have [prediabetes](https://blog.walgreens.com/health/diabetes/what-is-pre-diabetes.html) or [diabetes](https://blog.walgreens.com/health/diabetes.html), following a healthy eating plan can lead to better [blood sugar control](https://blog.walgreens.com/health/diabetes/keep-blood-sugar-under-control.html) and a lower risk of complications associated with these conditions. Some foods are better choices to include in y\n\n[source: https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html]\nour eating plan than others.\n\nThe following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level. If you have a sweet tooth and would like to indulge occasionally, look for alternatives made with low- and no-calorie sweeteners. Keep in mind that it’s also important to limit portion size. You can also enjoy sweet fruits with a low glycemic index like apples, oranges, pears, blueberries and strawberries. These are much healthier options.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\n\n**3\\. Foods high in sodium**: Consuming too much sodium can contribute\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 949.4690999854356,
+      "prompt_tokens": 1706,
+      "completion_tokens": 61,
+      "cost_usd": 0.00019500000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\n  verdict=SUPPORTED answer=Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).\n  evidence_span=The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\n  source=https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.', 'confidence': 0.73}\n[C2] (critical) Q: Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"मधुमेहका रोगीहरूले कुन कुन खानेकुराहरू खानु हुँदैन भन्ने कुरा स्पष्ट रूपमा स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्य पेशेवर वा डाक्टरसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "मधुमेहका रोगीहरूले कुन कुन खानेकुराहरू खानु हुँदैन भन्ने कुरा स्पष्ट रूपमा स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्य पेशेवर वा डाक्टरसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1117.5138999824412,
+      "prompt_tokens": 978,
+      "completion_tokens": 69,
+      "cost_usd": 0.00012539999999999999,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: मधुमेहका रोगीहरूले कुन कुन खानेकुराहरू खानु हुँदैन भन्ने कुरा स्पष्ट रूपमा स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्य पेशेवर वा डाक्टरसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\n  verdict=SUPPORTED answer=Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).\n  evidence_span=The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\n  source=https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.', 'confidence': 0.73}\n[C2] (critical) Q: Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"It could not be clearly established which foods diabetes patients should not eat. Please consult a qualified health professional or doctor for this.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response completely omits the specific lists of sugary foods and drinks mentioned in the verified claim set (C1), opting instead for a refusal/disclaimer.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "It could not be clearly established which foods diabetes patients should not eat. Please consult a qualified health professional or doctor for this.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response completely omits the specific lists of sugary foods and drinks mentioned in the verified claim set (C1), opting instead for a refusal/disclaimer.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 1731.9526000064798,
+      "prompt_tokens": 881,
+      "completion_tokens": 121,
+      "cost_usd": 0.0001365,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\n  verdict=SUPPORTED answer=Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).\n  evidence_span=The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\n  source=https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.', 'confidence': 0.73}\n[C2] (critical) Q: Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n[{\"type\": \"DROPPED\", \"detail\": \"The response completely omits the specific lists of sugary foods and drinks mentioned in the verified claim set (C1), opting instead for a refusal/disclaimer.\", \"severity\": \"high\"}]\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"मधुमेहका बिरामीहरूले कुन कुराहरू खानु हुँदैन भन्ने बारेमा निश्चित जानकारी स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्य पेशेवर वा डाक्टरसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "मधुमेहका बिरामीहरूले कुन कुराहरू खानु हुँदैन भन्ने बारेमा निश्चित जानकारी स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्य पेशेवर वा डाक्टरसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 6147.687099990435,
+      "prompt_tokens": 1047,
+      "completion_tokens": 67,
+      "cost_usd": 0.0001315,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: मधुमेहका बिरामीहरूले कुन कुराहरू खानु हुँदैन भन्ने बारेमा निश्चित जानकारी स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्य पेशेवर वा डाक्टरसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Which foods high in simple sugars (e.g., sugary drinks, candies, desserts) should patients with diabetes avoid?\n  verdict=SUPPORTED answer=Patients with diabetes should generally avoid or limit sugary foods (such as cookies, cakes, candies, chocolate bars, doughnuts, and some breakfast cereals) and sugary drinks (such as regular soda, fruit juice, energy drinks, sports drinks, and coffee drinks prepared with sugar or syrups).\n  evidence_span=The following are all foods you should generally avoid or limit in order to support your health and well-being:\n\n**1\\. Sugary foods:** Foods sweetened with sugar, like cookies, cakes, candies, chocolate bars, doughnuts and even some breakfast cereals, can cause significant spikes in your blood sugar (glucose) level.\n\n**2\\. Sugary drinks:** Like sweets, sugary drinks can also cause your blood sugar levels to rise rapidly. Water, [diet soda](https://blog.walgreens.com/wellness/diet-fitness/diabetes-and-diet-sodas-what-you-need-to-know.html), and unsweetened tea and coffee are considered better choices compared to regular soda, fruit juice, energy drinks, sports drinks and coffee drinks prepared with sugar or syrups (e.g., high-fructose corn syrup).\n  source=https://blog.walgreens.com/wellness/diet-fitness/what-are-foods-to-avoid-with-diabetes.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED', 'SOURCE_INAPPROPRIATE'], 'falsification_attempt': 'The evidence passage lists sugary foods and drinks that should be limited for general health, but it never explicitly states that patients with diabetes must avoid them. The source is a Walgreens blog, which is not a primary medical authority on diabetes nutrition. Therefore the evidence does not directly establish the answer for the diabetic population and relies on a non‑authoritative source.', 'confidence': 0.73}\n[C2] (critical) Q: Which refined grain products (such as white bread, white rice, pastries, and crackers) should patients with diabetes avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (critical) Q: Which high‑fat processed meats and full‑fat dairy products (e.g., bacon, sausage, whole‑milk cheese) should patients with diabetes limit or avoid?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (critical) Q: Which high‑sodium processed foods (e.g., canned soups, snack chips, fast‑food meals) should patients with diabetes avoid to reduce cardiovascular risk?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Definitive information could not be established regarding which things diabetes patients should not eat. Please consult a qualified health professional or doctor for this.\",\n  \"drift\": [\n    {\n      \"type\": \"ALTERED\",\n      \"detail\": \"The response is a refusal/disclaimer stating information could not be established, whereas the verified claim set contains a supported (though challenged) answer for sugary foods (C1) and unsupported answers for others.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Definitive information could not be established regarding which things diabetes patients should not eat. Please consult a qualified health professional or doctor for this.",
+        "drift": [
+          {
+            "type": "ALTERED",
+            "detail": "The response is a refusal/disclaimer stating information could not be established, whereas the verified claim set contains a supported (though challenged) answer for sugary foods (C1) and unsupported answers for others.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 8085.656399955042,
+      "prompt_tokens": 879,
+      "completion_tokens": 132,
+      "cost_usd": 0.0001407,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.002529,
+  "total_latency_ms": 30376.937599969096,
+  "degraded_nodes": [
+    "N9"
+  ],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

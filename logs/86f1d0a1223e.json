@@ -1,0 +1,397 @@
+{
+  "run_id": "86f1d0a1223e",
+  "question": "इबुप्रोफेन वयस्क मान्छेले दिनको कति पटकसम्म खान सक्छ?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "एक वयस्कले आइबुप्रोफेन (ibuprofen) को दुई खुराकहरू बीच कम्तिमा ४ घण्टाको अन्तराल राख्नुपर्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- २४ घण्टामा एक वयस्कले सुरक्षित रूपमा लिन सक्ने आइबुप्रोफेनको अधिकतम खुराक कति हो।\n- वयस्कका लागि आइबुप्रोफेनको मानक सिफारिस गरिएको एकल खुराक कति हो।\n- के विशिष्ट स्वास्थ्य अवस्थाहरू वा औषधिहरूले एक वयस्कले प्रति दिन लिन सक्ने आइबुप्रोफेनको खुराकको संख्यालाई परिवर्तन गर्छन्।",
+  "citations": [
+    {
+      "marker": "[1]",
+      "url": "https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the maximum number of ibuprofen doses an adult can safely take in a 24‑hour period?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "adult ibuprofen maximum daily doses",
+        "ibuprofen dosing frequency adult",
+        "ibuprofen daily limit"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "What is the standard recommended single dose of ibuprofen for an adult?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "adult ibuprofen standard dose",
+        "ibuprofen recommended dose adult",
+        "ibuprofen dosage mg adult"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "What is the minimum interval recommended between successive ibuprofen doses for an adult?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "ibuprofen dosing interval adult",
+        "minimum time between ibuprofen doses",
+        "ibuprofen dose spacing"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "4 hours",
+      "evidence_span": "Minimum interval: 4 hours between doses",
+      "source_url": "https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "HOLDS",
+        "flags": [
+          "NONE"
+        ],
+        "falsification_attempt": "",
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "C4",
+      "claim_question": "Do specific health conditions or medications alter the recommended number of ibuprofen doses an adult may take per day?",
+      "claim_type": "conditional",
+      "criticality": "supporting",
+      "search_terms": [
+        "ibuprofen contraindications dosing frequency",
+        "ibuprofen dose adjustments chronic illness",
+        "drug interactions ibuprofen dosing"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: इबुप्रोफेन वयस्क मान्छेले दिनको कति पटकसम्म खान सक्छ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"इबुप्रोफेन वयस्क मान्छेले दिनको कति पटकसम्म खान सक्छ?\",\n  \"canonical_english\": \"How many times a day can an adult take Ibuprofen?\",\n  \"domain\": \"health\",\n  \"entities\": [\"Ibuprofen\"],\n  \"implicit_context\": [\"The user is asking about the maximum safe dosage frequency for an adult.\"],\n  \"ambiguities\": [\"dosage strength (mg per pill)\", \"underlying health conditions\", \"concurrent medications\", \"weight\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "इबुप्रोफेन वयस्क मान्छेले दिनको कति पटकसम्म खान सक्छ?",
+        "canonical_english": "How many times a day can an adult take Ibuprofen?",
+        "domain": "health",
+        "entities": [
+          "Ibuprofen"
+        ],
+        "implicit_context": [
+          "The user is asking about the maximum safe dosage frequency for an adult."
+        ],
+        "ambiguities": [
+          "dosage strength (mg per pill)",
+          "underlying health conditions",
+          "concurrent medications",
+          "weight"
+        ]
+      },
+      "latency_ms": 1247.5081000011414,
+      "prompt_tokens": 315,
+      "completion_tokens": 132,
+      "cost_usd": 8.430000000000002e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: How many times a day can an adult take Ibuprofen?\nORIGINAL: इबुप्रोफेन वयस्क मान्छेले दिनको कति पटकसम्म खान सक्छ?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question asks for drug dosing information, where an incorrect answer could lead to physical harm or overdose.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question asks for drug dosing information, where an incorrect answer could lead to physical harm or overdose.",
+        "emergency_signals": []
+      },
+      "latency_ms": 2199.1579000023194,
+      "prompt_tokens": 338,
+      "completion_tokens": 55,
+      "cost_usd": 5.58e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: How many times a day can an adult take Ibuprofen?\nENTITIES: ['Ibuprofen']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the maximum number of ibuprofen doses an adult can safely take in a 24‑hour period?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"adult ibuprofen maximum daily doses\", \"ibuprofen dosing frequency adult\", \"ibuprofen daily limit\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"What is the standard recommended single dose of ibuprofen for an adult?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"adult ibuprofen standard dose\", \"ibuprofen recommended dose adult\", \"ibuprofen dosage mg adult\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"What is the minimum interval recommended between successive ibuprofen doses for an adult?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ibuprofen dosing interval adult\", \"minimum time between ibuprofen doses\", \"ibuprofen dose spacing\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Do specific health conditions or medications alter the recommended number of ibuprofen doses an adult may take per day?\",\n      \"claim_type\": \"conditional\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"ibuprofen contraindications dosing frequency\", \"ibuprofen dose adjustments chronic illness\", \"drug interactions ibuprofen dosing\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the maximum number of ibuprofen doses an adult can safely take in a 24‑hour period?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "adult ibuprofen maximum daily doses",
+              "ibuprofen dosing frequency adult",
+              "ibuprofen daily limit"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "What is the standard recommended single dose of ibuprofen for an adult?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "adult ibuprofen standard dose",
+              "ibuprofen recommended dose adult",
+              "ibuprofen dosage mg adult"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "What is the minimum interval recommended between successive ibuprofen doses for an adult?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "ibuprofen dosing interval adult",
+              "minimum time between ibuprofen doses",
+              "ibuprofen dose spacing"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "4 hours",
+            "evidence_span": "Minimum interval: 4 hours between doses",
+            "source_url": "https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "HOLDS",
+              "flags": [
+                "NONE"
+              ],
+              "falsification_attempt": "",
+              "confidence": 0.85
+            }
+          },
+          {
+            "id": "C4",
+            "claim_question": "Do specific health conditions or medications alter the recommended number of ibuprofen doses an adult may take per day?",
+            "claim_type": "conditional",
+            "criticality": "supporting",
+            "search_terms": [
+              "ibuprofen contraindications dosing frequency",
+              "ibuprofen dose adjustments chronic illness",
+              "drug interactions ibuprofen dosing"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 3309.489900013432,
+      "prompt_tokens": 291,
+      "completion_tokens": 640,
+      "cost_usd": 0.00034910000000000003,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the standard recommended single dose of ibuprofen for an adult?\nEVIDENCE:\n[source: https://www.goodrx.com/ibuprofen/dosage]\n[Skip to main content](https://www.goodrx.com/ibuprofen/dosage#skip-to-content)\n\nAre you a healthcare professional? [Join GoodRx for HCPs](https://www.goodrx.com/hcp/join?redirectTo=%2Fibuprofen%2Fdosage%3Fsrsltid%3DAfmBOor4Va9iJYw48bN7sIFis7P3DlQRuAs6xL41sASgd6q18IrWvvcY)\n\n## Key takeaways:\n\nIbuprofen (Advil, Motrin) is a popular prescription and over-the-counter (OTC) pain reliever and fever reducer. It’s usually taken as needed, but you might take it on a schedule if you’re directed to by a healthcare professional. It’s common to take ibuprofen every 4 to 6 hours. The maximum dose for OTC ibuprofen is 1,200 mg per day. The maximum dose for prescription ibuprofen is up to 3,200 mg per day, depending on what you’re taking it for. Talk to your healthcare team before taking ibuprofen to make sure it’s safe for you. This is especially important for people living with kidney or liver problems or during pregnancy. Ibuprofen is available as a brand-name medication. But you can also find it as a lower-cost generic. GoodRx can help make your medication [more affordable](https://www.goodrx.com/ibuprofen/dosage#how-to-save \"\").\n\n#### Save on related medications\n\nPromotional Disclosure\n\n[ibu\n\n[source: https://www.goodrx.com/ibuprofen/dosage]\nprofen](https://www.goodrx.com/ibuprofen \"ibuprofen cost and coupons\") [motrin](https://www.goodrx.com/motrin \"motrin cost and coupons\") [advil](https://www.goodrx.com/advil \"advil cost and coupons\") [motrin-ib](https://www.goodrx.com/motrin-ib \"motrin-ib cost and coupons\")\n\n[Ibuprofen](https://www.goodrx.com/ibuprofen/what-is \"\") (Advil, Motrin) is a popular prescription and [over-the-counter (OTC) pain reliever](https://www.goodrx.com/conditions/pain/popular-over-the-counter-pain-relievers \"\"). It’s a [nonsteroidal anti-inflammatory drug](https://www.goodrx.com/classes/nsaids/nsaid-list \"\") (NSAID) that treats pain, fever, and swelling in adults and children.\n\nWhen self-treating, it’s important to know how much ibuprofen to take. Even though it’s sold OTC, ibuprofen can have side effects and [interactions](https://www.goodrx.com/ibuprofen/interactions \"\") that may affect your dosage. And it [isn’t an appropriate medication](https://www.goodrx.com/classes/nsaids/who-should-not-take \"\") for everyone. So it’s a good idea to check with a healthcare professional before taking it.\n\nHere, we’ll cover what you need to know about adult ibuprofen dosages. Generally, most people self-treati\n\n[source: https://www.motrin.com/safety-dosing/adult-dosing-chart]\n[Skip to main content](https://www.motrin.com/safety-dosing/adult-dosing-chart#accessibilitySkipLink)\n\n# MOTRIN® (Ibuprofen) Dosage for Adults\n\nIf you have questions about MOTRIN® dosage, Ibuprofen dosage, and how much Ibuprofen you can take in a day, our adult dosage chart is here to help.\n\n![Pharmacist showing a medication bottle to a customer](https://images.ctfassets.net/txsayi32vr8v/1ZhKuqFWHXj76EIquZkKfQ/973568041e71741d5391f312983a0a6f/Adult_Dosing.webp?fm=jpg&w=1920&q=80)\n\n## What Is Ibuprofen for Adults?\n\nWhether you’re experiencing back pain, headache or symptoms of the cold and flu, Ibuprofen is is an ingredient that relieves minor aches and pains and reduces fever.\n\nMOTRIN® contains ibuprofen, a non-steroidal anti-inflammatory drug, or (NSAID). The Ibuprofen in MOTRIN® works by disrupting the release of prostaglandins, which the body produces in response to injury. These can cause pain and inflammation.\n\nMOTRIN® temporarily reduces [fever](https://www.motrin.com/adults/cold-flu/managing-fever), but also temporarily relieves minor aches and pains due to:\n\n- [Minor arthritis pain](https://www.motrin.com/adults/arthritis/tips-remedies)\n\n- [Menstrual cramps](https://www.mot\n\n[source: https://www.motrin.com/safety-dosing/adult-dosing-chart]\nrin.com/adults/period/period-pain-relief)\n\n- Common cold\n\n- Backache\n\n- Muscular aches\n\n- Headache\n\n\n## Adult MOTRIN® (Ibuprofen) Dosage Chart\n\nUse our handy MOTRIN® adult dosage chart to find the correct ibuprofen dosage.\n\nFilters\n\nSort by\n\nFilters\n\nSort by\n\n### Age\n\nAdults (5)\n\n### Features\n\nBest Sellers (3)\n\nDye Free (3)\n\nFSA/HSA Eligible (5)\n\n### Form\n\nLiquid Gels (2)\n\nPill (3)\n\nClear filters5Items\n\n### ![MOTRIN® IB Ibuprofen Tablets](https://images.ctfassets.net/txsayi32vr8v/3oar6b2cX8cCBpgQ3tbmZv/38d6096960501b29cfdc8ca5a57f6f5c/Motrin_IB_Coated_Caplets.webp) MOTRIN® IB Ibuprofen TabletsUse product only as directed\n\n### ![MOTRIN® Dual Action with TYLENOL®](https://images.ctfassets.net/txsayi32vr8v/7qnaPmC8toJSu5bqepuWN4/9a75f6c9bacdff95e11c045ed3ed67f0/Motrin_Dual_Action_with_Tylenol.webp) MOTRIN® Dual Action with TYLENOL®Use product only as directed\n\n### ![MOTRIN® IB Liquid Gels](https://images.ctfassets.net/txsayi32vr8v/3qYhbUaIwrtsPKL3ZcCMqV/8c15ce48c8818cb8094ffa2eebd53461/Motrin_IB_Liquid_Gels.webp) MOTRIN® IB Liquid GelsUse product only as directed\n\n### ![MOTRIN® PM Pain Relief Caplets](https://images.ctfassets.net/txsayi32vr8v/1vDQLLnspMkXrlTdUcuaTy/ea9458946281ccc7814\n\n[source: https://www.drugs.com/dosage/ibuprofen.html]\n[Skip to main content](https://www.drugs.com/dosage/ibuprofen.html#content)\n\nClose\n\nPrint pageMy Meds\n\n# Ibuprofen Dosage\n\n[Medically reviewed](https://www.drugs.com/support/editorial-policy.html#editorial-staff) by Drugs.com. Last updated on Sep 10, 2025.\n\nApplies to the following strengths: 100 mg/5 mL; 800 mg; 300 mg; 600 mg; 400 mg; 200 mg; 50 mg/1.25 mL; 50 mg; 100 mg; (as lysine) 10 mg/mL; 100 mg/mL; 800 mg/200 mL\n\n### Usual Adult Dose for:\n\n- [Dysmenorrhea](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Dysmenorrhea)\n- [Osteoarthritis](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Osteoarthritis)\n- [Rheumatoid Arthritis](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Rheumatoid_Arthritis)\n- [Pain](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Pain)\n- [Fever](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Fever)\n\n### Usual Pediatric Dose for:\n\n- [Fever](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Fever)\n- [Pain](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Pain)\n- [Juvenile Rheumatoid Arthritis](https://www.drugs.com/dosage/ibuprofen.htm\n\n[source: https://www.drugs.com/dosage/ibuprofen.html]\nl#Usual_Pediatric_Dose_for_Juvenile_Rheumatoid_Arthritis)\n- [Patent Ductus Arteriosus](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Patent_Ductus_Arteriosus)\n- [Dysmenorrhea](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Dysmenorrhea)\n\n#### Additional dosage information:\n\n- [Renal Dose Adjustments](https://www.drugs.com/dosage/ibuprofen.html#Renal_Dose_Adjustments)\n- [Liver Dose Adjustments](https://www.drugs.com/dosage/ibuprofen.html#Liver_Dose_Adjustments)\n- [Precautions](https://www.drugs.com/dosage/ibuprofen.html#Precautions)\n- [Dialysis](https://www.drugs.com/dosage/ibuprofen.html#Dialysis)\n- [Other Comments](https://www.drugs.com/dosage/ibuprofen.html#Other_Comments)\n\n## Usual Adult Dose for Dysmenorrhea\n\n200 to 400 mg orally every 4 hours as needed\n\nMaximum dose: 3200 mg/day (prescription strength); 1200 mg/day (over-the-counter)\n\n**Comment:**\n\n- Treatment should begin at the earliest onset of pain.\n\n**Use:** For the relief of signs and symptoms of primary dysmenorrhea\n\n## Usual Adult Dose for Osteoarthritis\n\n**For minor pains of arthritis:**\n\nInitial dose: 200 mg orally every 4 to 6 hours; may increase to 400 mg orally every 4 \n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1061.4907999988645,
+      "prompt_tokens": 2805,
+      "completion_tokens": 63,
+      "cost_usd": 0.00030570000000000006,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the maximum number of ibuprofen doses an adult can safely take in a 24‑hour period?\nEVIDENCE:\n[source: https://www.goodrx.com/ibuprofen/dosage]\n[Skip to main content](https://www.goodrx.com/ibuprofen/dosage#skip-to-content)\n\nAre you a healthcare professional? [Join GoodRx for HCPs](https://www.goodrx.com/hcp/join?redirectTo=%2Fibuprofen%2Fdosage%3Fsrsltid%3DAfmBOor4Va9iJYw48bN7sIFis7P3DlQRuAs6xL41sASgd6q18IrWvvcY)\n\n## Key takeaways:\n\nIbuprofen (Advil, Motrin) is a popular prescription and over-the-counter (OTC) pain reliever and fever reducer. It’s usually taken as needed, but you might take it on a schedule if you’re directed to by a healthcare professional. It’s common to take ibuprofen every 4 to 6 hours. The maximum dose for OTC ibuprofen is 1,200 mg per day. The maximum dose for prescription ibuprofen is up to 3,200 mg per day, depending on what you’re taking it for. Talk to your healthcare team before taking ibuprofen to make sure it’s safe for you. This is especially important for people living with kidney or liver problems or during pregnancy. Ibuprofen is available as a brand-name medication. But you can also find it as a lower-cost generic. GoodRx can help make your medication [more affordable](https://www.goodrx.com/ibuprofen/dosage#how-to-save \"\").\n\n#### Save on related medications\n\nPromotional Disclosure\n\n[ibu\n\n[source: https://www.goodrx.com/ibuprofen/dosage]\nprofen](https://www.goodrx.com/ibuprofen \"ibuprofen cost and coupons\") [motrin](https://www.goodrx.com/motrin \"motrin cost and coupons\") [advil](https://www.goodrx.com/advil \"advil cost and coupons\") [motrin-ib](https://www.goodrx.com/motrin-ib \"motrin-ib cost and coupons\")\n\n[Ibuprofen](https://www.goodrx.com/ibuprofen/what-is \"\") (Advil, Motrin) is a popular prescription and [over-the-counter (OTC) pain reliever](https://www.goodrx.com/conditions/pain/popular-over-the-counter-pain-relievers \"\"). It’s a [nonsteroidal anti-inflammatory drug](https://www.goodrx.com/classes/nsaids/nsaid-list \"\") (NSAID) that treats pain, fever, and swelling in adults and children.\n\nWhen self-treating, it’s important to know how much ibuprofen to take. Even though it’s sold OTC, ibuprofen can have side effects and [interactions](https://www.goodrx.com/ibuprofen/interactions \"\") that may affect your dosage. And it [isn’t an appropriate medication](https://www.goodrx.com/classes/nsaids/who-should-not-take \"\") for everyone. So it’s a good idea to check with a healthcare professional before taking it.\n\nHere, we’ll cover what you need to know about adult ibuprofen dosages. Generally, most people self-treati\n\n[source: https://www.drugs.com/dosage/ibuprofen.html]\n[Skip to main content](https://www.drugs.com/dosage/ibuprofen.html#content)\n\nClose\n\nPrint pageMy Meds\n\n# Ibuprofen Dosage\n\n[Medically reviewed](https://www.drugs.com/support/editorial-policy.html#editorial-staff) by Drugs.com. Last updated on Sep 10, 2025.\n\nApplies to the following strengths: 100 mg/5 mL; 800 mg; 300 mg; 600 mg; 400 mg; 200 mg; 50 mg/1.25 mL; 50 mg; 100 mg; (as lysine) 10 mg/mL; 100 mg/mL; 800 mg/200 mL\n\n### Usual Adult Dose for:\n\n- [Dysmenorrhea](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Dysmenorrhea)\n- [Osteoarthritis](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Osteoarthritis)\n- [Rheumatoid Arthritis](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Rheumatoid_Arthritis)\n- [Pain](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Pain)\n- [Fever](https://www.drugs.com/dosage/ibuprofen.html#Usual_Adult_Dose_for_Fever)\n\n### Usual Pediatric Dose for:\n\n- [Fever](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Fever)\n- [Pain](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Pain)\n- [Juvenile Rheumatoid Arthritis](https://www.drugs.com/dosage/ibuprofen.htm\n\n[source: https://www.drugs.com/dosage/ibuprofen.html]\nl#Usual_Pediatric_Dose_for_Juvenile_Rheumatoid_Arthritis)\n- [Patent Ductus Arteriosus](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Patent_Ductus_Arteriosus)\n- [Dysmenorrhea](https://www.drugs.com/dosage/ibuprofen.html#Usual_Pediatric_Dose_for_Dysmenorrhea)\n\n#### Additional dosage information:\n\n- [Renal Dose Adjustments](https://www.drugs.com/dosage/ibuprofen.html#Renal_Dose_Adjustments)\n- [Liver Dose Adjustments](https://www.drugs.com/dosage/ibuprofen.html#Liver_Dose_Adjustments)\n- [Precautions](https://www.drugs.com/dosage/ibuprofen.html#Precautions)\n- [Dialysis](https://www.drugs.com/dosage/ibuprofen.html#Dialysis)\n- [Other Comments](https://www.drugs.com/dosage/ibuprofen.html#Other_Comments)\n\n## Usual Adult Dose for Dysmenorrhea\n\n200 to 400 mg orally every 4 hours as needed\n\nMaximum dose: 3200 mg/day (prescription strength); 1200 mg/day (over-the-counter)\n\n**Comment:**\n\n- Treatment should begin at the earliest onset of pain.\n\n**Use:** For the relief of signs and symptoms of primary dysmenorrhea\n\n## Usual Adult Dose for Osteoarthritis\n\n**For minor pains of arthritis:**\n\nInitial dose: 200 mg orally every 4 to 6 hours; may increase to 400 mg orally every 4 \n\n[source: https://www.motrin.com/safety-dosing/adult-dosing-chart]\n[Skip to main content](https://www.motrin.com/safety-dosing/adult-dosing-chart#accessibilitySkipLink)\n\n# MOTRIN® (Ibuprofen) Dosage for Adults\n\nIf you have questions about MOTRIN® dosage, Ibuprofen dosage, and how much Ibuprofen you can take in a day, our adult dosage chart is here to help.\n\n![Pharmacist showing a medication bottle to a customer](https://images.ctfassets.net/txsayi32vr8v/1ZhKuqFWHXj76EIquZkKfQ/973568041e71741d5391f312983a0a6f/Adult_Dosing.webp?fm=jpg&w=1920&q=80)\n\n## What Is Ibuprofen for Adults?\n\nWhether you’re experiencing back pain, headache or symptoms of the cold and flu, Ibuprofen is is an ingredient that relieves minor aches and pains and reduces fever.\n\nMOTRIN® contains ibuprofen, a non-steroidal anti-inflammatory drug, or (NSAID). The Ibuprofen in MOTRIN® works by disrupting the release of prostaglandins, which the body produces in response to injury. These can cause pain and inflammation.\n\nMOTRIN® temporarily reduces [fever](https://www.motrin.com/adults/cold-flu/managing-fever), but also temporarily relieves minor aches and pains due to:\n\n- [Minor arthritis pain](https://www.motrin.com/adults/arthritis/tips-remedies)\n\n- [Menstrual cramps](https://www.mot\n\n[source: https://www.motrin.com/safety-dosing/adult-dosing-chart]\nrin.com/adults/period/period-pain-relief)\n\n- Common cold\n\n- Backache\n\n- Muscular aches\n\n- Headache\n\n\n## Adult MOTRIN® (Ibuprofen) Dosage Chart\n\nUse our handy MOTRIN® adult dosage chart to find the correct ibuprofen dosage.\n\nFilters\n\nSort by\n\nFilters\n\nSort by\n\n### Age\n\nAdults (5)\n\n### Features\n\nBest Sellers (3)\n\nDye Free (3)\n\nFSA/HSA Eligible (5)\n\n### Form\n\nLiquid Gels (2)\n\nPill (3)\n\nClear filters5Items\n\n### ![MOTRIN® IB Ibuprofen Tablets](https://images.ctfassets.net/txsayi32vr8v/3oar6b2cX8cCBpgQ3tbmZv/38d6096960501b29cfdc8ca5a57f6f5c/Motrin_IB_Coated_Caplets.webp) MOTRIN® IB Ibuprofen TabletsUse product only as directed\n\n### ![MOTRIN® Dual Action with TYLENOL®](https://images.ctfassets.net/txsayi32vr8v/7qnaPmC8toJSu5bqepuWN4/9a75f6c9bacdff95e11c045ed3ed67f0/Motrin_Dual_Action_with_Tylenol.webp) MOTRIN® Dual Action with TYLENOL®Use product only as directed\n\n### ![MOTRIN® IB Liquid Gels](https://images.ctfassets.net/txsayi32vr8v/3qYhbUaIwrtsPKL3ZcCMqV/8c15ce48c8818cb8094ffa2eebd53461/Motrin_IB_Liquid_Gels.webp) MOTRIN® IB Liquid GelsUse product only as directed\n\n### ![MOTRIN® PM Pain Relief Caplets](https://images.ctfassets.net/txsayi32vr8v/1vDQLLnspMkXrlTdUcuaTy/ea9458946281ccc7814\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1936.4465000107884,
+      "prompt_tokens": 2815,
+      "completion_tokens": 61,
+      "cost_usd": 0.0003059,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do specific health conditions or medications alter the recommended number of ibuprofen doses an adult may take per day?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journa\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/]\nl List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.5001/omj.2010.49) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3191627/pdf/OMJ-D-09-00160.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article \n\n[source: https://www.goodrx.com/ibuprofen/dosage]\n[Skip to main content](https://www.goodrx.com/ibuprofen/dosage#skip-to-content)\n\nAre you a healthcare professional? [Join GoodRx for HCPs](https://www.goodrx.com/hcp/join?redirectTo=%2Fibuprofen%2Fdosage%3Fsrsltid%3DAfmBOor4Va9iJYw48bN7sIFis7P3DlQRuAs6xL41sASgd6q18IrWvvcY)\n\n## Key takeaways:\n\nIbuprofen (Advil, Motrin) is a popular prescription and over-the-counter (OTC) pain reliever and fever reducer. It’s usually taken as needed, but you might take it on a schedule if you’re directed to by a healthcare professional. It’s common to take ibuprofen every 4 to 6 hours. The maximum dose for OTC ibuprofen is 1,200 mg per day. The maximum dose for prescription ibuprofen is up to 3,200 mg per day, depending on what you’re taking it for. Talk to your healthcare team before taking ibuprofen to make sure it’s safe for you. This is especially important for people living with kidney or liver problems or during pregnancy. Ibuprofen is available as a brand-name medication. But you can also find it as a lower-cost generic. GoodRx can help make your medication [more affordable](https://www.goodrx.com/ibuprofen/dosage#how-to-save \"\").\n\n#### Save on related medications\n\nPromotional Disclosure\n\n[ibu\n\n[source: https://www.goodrx.com/ibuprofen/dosage]\nprofen](https://www.goodrx.com/ibuprofen \"ibuprofen cost and coupons\") [motrin](https://www.goodrx.com/motrin \"motrin cost and coupons\") [advil](https://www.goodrx.com/advil \"advil cost and coupons\") [motrin-ib](https://www.goodrx.com/motrin-ib \"motrin-ib cost and coupons\")\n\n[Ibuprofen](https://www.goodrx.com/ibuprofen/what-is \"\") (Advil, Motrin) is a popular prescription and [over-the-counter (OTC) pain reliever](https://www.goodrx.com/conditions/pain/popular-over-the-counter-pain-relievers \"\"). It’s a [nonsteroidal anti-inflammatory drug](https://www.goodrx.com/classes/nsaids/nsaid-list \"\") (NSAID) that treats pain, fever, and swelling in adults and children.\n\nWhen self-treating, it’s important to know how much ibuprofen to take. Even though it’s sold OTC, ibuprofen can have side effects and [interactions](https://www.goodrx.com/ibuprofen/interactions \"\") that may affect your dosage. And it [isn’t an appropriate medication](https://www.goodrx.com/classes/nsaids/who-should-not-take \"\") for everyone. So it’s a good idea to check with a healthcare professional before taking it.\n\nHere, we’ll cover what you need to know about adult ibuprofen dosages. Generally, most people self-treati\n\n[source: https://www.drugs.com/ibuprofen.html]\n[Skip to main content](https://www.drugs.com/ibuprofen.html#content)\n\nClose\n\nPrint pageMy Meds\n\n# Ibuprofen\n\nPlay pronunciation\n\n**Pronunciation:** _EYE-bue-PROE-fen_\n\n**Generic name:** ibuprofen\n\n**Brand names:** [Advil](https://www.drugs.com/advil.html), [Genpril](https://www.drugs.com/mtm/genpril.html), [IBU](https://www.drugs.com/mtm/ibu.html), [Midol IB](https://www.drugs.com/mtm/midol-ib.html), [Motrin IB](https://www.drugs.com/motrin.html), [Proprinal](https://www.drugs.com/mtm/proprinal.html), Smart Sense Children's Ibuprofen\n\n**Dosage forms:** oral capsule (200 mg), oral suspension (100 mg/5 mL; 50 mg/1.25 mL), oral tablet (100 mg; 200 mg; 400 mg; 600 mg; 800 mg),\n[... show all 4 dosage forms](https://www.drugs.com/ibuprofen.html#)\noral tablet, chewable (100 mg; 50 mg)\n\n**Drug class:** [Nonsteroidal anti-inflammatories (NSAIDs)](https://www.drugs.com/drug-class/nonsteroidal-anti-inflammatory-agents.html)\n\nMedically reviewed by [Philip Thornton, DipPharm](https://www.drugs.com/support/editor/9/philip-thornton-dippharm.html). Last updated on Aug 13, 2026.\n\n## What is ibuprofen?\n\n[Ibuprofen](https://www.drugs.com/monograph/ibuprofen.html) is a nonsteroidal anti-inflammatory d\n\n[source: https://www.drugs.com/ibuprofen.html]\nrug (NSAID). It works by reducing hormones that cause inflammation and pain in the body.\n\nIbuprofen is used to reduce fever and treat pain or inflammation caused by many conditions such as [headache](https://www.drugs.com/cg/acute-headache.html), [toothache](https://www.drugs.com/cg/dental-cavities.html), [back pain](https://www.drugs.com/cg/back-pain.html), arthritis, menstrual cramps, or minor injury.\n\nIbuprofen is used in adults and children who are at least 6 months old.\n\n## Warnings\n\nIbuprofen can increase your risk of fatal [heart attack](https://www.drugs.com/cg/heart-attack.html), heart failure, or stroke. Do not use this medicine just before or after heart bypass surgery (coronary artery bypass graft, or CABG).\n\nIbuprofen may also cause stomach or intestinal bleeding, which can be fatal. These conditions can occur without warning while you are using this medicine, especially in older adults.\n\nDo not take more than your recommended dose. **An ibuprofen overdose can damage your stomach or intestines.** Use only the smallest amount of medication needed to get relief from your pain, swelling, or fever.\n\n[Starting Ibuprofen? Read this first](https://www.drugs.com/tips/ibuprofen\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1324.1502000018954,
+      "prompt_tokens": 2778,
+      "completion_tokens": 63,
+      "cost_usd": 0.00030300000000000005,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the minimum interval recommended between successive ibuprofen doses for an adult?\nEVIDENCE:\n[source: https://www.goodrx.com/ibuprofen/dosage]\n[Skip to main content](https://www.goodrx.com/ibuprofen/dosage#skip-to-content)\n\nAre you a healthcare professional? [Join GoodRx for HCPs](https://www.goodrx.com/hcp/join?redirectTo=%2Fibuprofen%2Fdosage%3Fsrsltid%3DAfmBOor4Va9iJYw48bN7sIFis7P3DlQRuAs6xL41sASgd6q18IrWvvcY)\n\n## Key takeaways:\n\nIbuprofen (Advil, Motrin) is a popular prescription and over-the-counter (OTC) pain reliever and fever reducer. It’s usually taken as needed, but you might take it on a schedule if you’re directed to by a healthcare professional. It’s common to take ibuprofen every 4 to 6 hours. The maximum dose for OTC ibuprofen is 1,200 mg per day. The maximum dose for prescription ibuprofen is up to 3,200 mg per day, depending on what you’re taking it for. Talk to your healthcare team before taking ibuprofen to make sure it’s safe for you. This is especially important for people living with kidney or liver problems or during pregnancy. Ibuprofen is available as a brand-name medication. But you can also find it as a lower-cost generic. GoodRx can help make your medication [more affordable](https://www.goodrx.com/ibuprofen/dosage#how-to-save \"\").\n\n#### Save on related medications\n\nPromotional Disclosure\n\n[ibu\n\n[source: https://www.goodrx.com/ibuprofen/dosage]\nprofen](https://www.goodrx.com/ibuprofen \"ibuprofen cost and coupons\") [motrin](https://www.goodrx.com/motrin \"motrin cost and coupons\") [advil](https://www.goodrx.com/advil \"advil cost and coupons\") [motrin-ib](https://www.goodrx.com/motrin-ib \"motrin-ib cost and coupons\")\n\n[Ibuprofen](https://www.goodrx.com/ibuprofen/what-is \"\") (Advil, Motrin) is a popular prescription and [over-the-counter (OTC) pain reliever](https://www.goodrx.com/conditions/pain/popular-over-the-counter-pain-relievers \"\"). It’s a [nonsteroidal anti-inflammatory drug](https://www.goodrx.com/classes/nsaids/nsaid-list \"\") (NSAID) that treats pain, fever, and swelling in adults and children.\n\nWhen self-treating, it’s important to know how much ibuprofen to take. Even though it’s sold OTC, ibuprofen can have side effects and [interactions](https://www.goodrx.com/ibuprofen/interactions \"\") that may affect your dosage. And it [isn’t an appropriate medication](https://www.goodrx.com/classes/nsaids/who-should-not-take \"\") for everyone. So it’s a good idea to check with a healthcare professional before taking it.\n\nHere, we’ll cover what you need to know about adult ibuprofen dosages. Generally, most people self-treati\n\n[source: https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/]\n[Skip to main content](https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/#content)\n\nClose\n\n# How much ibuprofen can I take and how often?\n\nMedically reviewed by [Carmen Pope, Senior Medical Editor, B. Pharm](https://www.drugs.com/support/editor/19/carmen-pope-senior-medical-editor-b-pharm.html). Last updated on July 18, 2025.\n\n**Official Answer** by Drugs.com\n\n\n**Adults can safely take [ibuprofen](https://www.drugs.com/ibuprofen.html) 200 mg to 400 mg (one or two tablets) every 4-6 hours as needed for pain relief.** The maximum dose in one day (24 hours) for over-the-counter ibuprofen is 1200 mg (6 tablets of 200 mg each).\n\nIbuprofen is **also available on a prescription from a doctor** and may be prescribed at a higher strength (600 mg or 800 mg every 6 hours) for severe pain. If you are taking ibuprofen under doctor supervision, then the maximum dose in 24 hours is 3200 mg.\n\nYou should always try and take the smallest dose needed that gives you relief.\n\n### Safe Ibuprofen Dosing Schedule:\n\n- **Standard dose:** 200-400 mg every 4-6 hours\n- **Maximum frequency:** Every 4 hours\n- **Daily limit (OTC):** 1200 mg maximum\n- **Daily limit (Prescription):** Up\n\n[source: https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/]\n to 3200 mg under medical supervision.\n\n### Ibuprofen Timing Guidelines:\n\n- **Minimum interval:** 4 hours between doses\n- **Recommended interval:** 6 hours for regular use\n- **With food:** Taking ibuprofen with food may reduce stomach irritation\n- **Duration:** Use for the shortest time needed.\n\n## FAQs about Ibuprofen\n\n### How often can you take ibuprofen?\n\n**You can take ibuprofen every 4 to 6 hours for pain and inflammation relief.** Never take ibuprofen more frequently than every 4 hours because taking ibuprofen too often increases the risk of side effects.\n\n### How much ibuprofen is in a single dose?\n\nA single dose of ibuprofen that has been brought over-the-counter (OTC) **usually contains 200 mg**. **Extra strength OTC ibuprofen tablets usually contain 400 mg.**\n\nSome **prescription strengths** of ibuprofen contain an even higher dose, such as 600 mg or 800 mg. A **lways check the label on the packet to make sure you know what strength your ibuprofen tablet is.**\n\n### How much ibuprofen can you take in a day?\n\n**You should not take more than 6 tablets (1200mg) in 1 day** if you are not under the supervision of a doctor and **you have brought your ibuprofen over the counter**\n\n[source: https://www.motrin.com/safety-dosing/adult-dosing-chart]\n[Skip to main content](https://www.motrin.com/safety-dosing/adult-dosing-chart#accessibilitySkipLink)\n\n# MOTRIN® (Ibuprofen) Dosage for Adults\n\nIf you have questions about MOTRIN® dosage, Ibuprofen dosage, and how much Ibuprofen you can take in a day, our adult dosage chart is here to help.\n\n![Pharmacist showing a medication bottle to a customer](https://images.ctfassets.net/txsayi32vr8v/1ZhKuqFWHXj76EIquZkKfQ/973568041e71741d5391f312983a0a6f/Adult_Dosing.webp?fm=jpg&w=1920&q=80)\n\n## What Is Ibuprofen for Adults?\n\nWhether you’re experiencing back pain, headache or symptoms of the cold and flu, Ibuprofen is is an ingredient that relieves minor aches and pains and reduces fever.\n\nMOTRIN® contains ibuprofen, a non-steroidal anti-inflammatory drug, or (NSAID). The Ibuprofen in MOTRIN® works by disrupting the release of prostaglandins, which the body produces in response to injury. These can cause pain and inflammation.\n\nMOTRIN® temporarily reduces [fever](https://www.motrin.com/adults/cold-flu/managing-fever), but also temporarily relieves minor aches and pains due to:\n\n- [Minor arthritis pain](https://www.motrin.com/adults/arthritis/tips-remedies)\n\n- [Menstrual cramps](https://www.mot\n\n[source: https://www.motrin.com/safety-dosing/adult-dosing-chart]\nrin.com/adults/period/period-pain-relief)\n\n- Common cold\n\n- Backache\n\n- Muscular aches\n\n- Headache\n\n\n## Adult MOTRIN® (Ibuprofen) Dosage Chart\n\nUse our handy MOTRIN® adult dosage chart to find the correct ibuprofen dosage.\n\nFilters\n\nSort by\n\nFilters\n\nSort by\n\n### Age\n\nAdults (5)\n\n### Features\n\nBest Sellers (3)\n\nDye Free (3)\n\nFSA/HSA Eligible (5)\n\n### Form\n\nLiquid Gels (2)\n\nPill (3)\n\nClear filters5Items\n\n### ![MOTRIN® IB Ibuprofen Tablets](https://images.ctfassets.net/txsayi32vr8v/3oar6b2cX8cCBpgQ3tbmZv/38d6096960501b29cfdc8ca5a57f6f5c/Motrin_IB_Coated_Caplets.webp) MOTRIN® IB Ibuprofen TabletsUse product only as directed\n\n### ![MOTRIN® Dual Action with TYLENOL®](https://images.ctfassets.net/txsayi32vr8v/7qnaPmC8toJSu5bqepuWN4/9a75f6c9bacdff95e11c045ed3ed67f0/Motrin_Dual_Action_with_Tylenol.webp) MOTRIN® Dual Action with TYLENOL®Use product only as directed\n\n### ![MOTRIN® IB Liquid Gels](https://images.ctfassets.net/txsayi32vr8v/3qYhbUaIwrtsPKL3ZcCMqV/8c15ce48c8818cb8094ffa2eebd53461/Motrin_IB_Liquid_Gels.webp) MOTRIN® IB Liquid GelsUse product only as directed\n\n### ![MOTRIN® PM Pain Relief Caplets](https://images.ctfassets.net/txsayi32vr8v/1vDQLLnspMkXrlTdUcuaTy/ea9458946281ccc7814\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"4 hours\",\n  \"evidence_span\": \"Minimum interval: 4 hours between doses\",\n  \"source_url\": \"https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "SUPPORTED",
+        "answer": "4 hours",
+        "evidence_span": "Minimum interval: 4 hours between doses",
+        "source_url": "https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/",
+        "caveats": []
+      },
+      "latency_ms": 1377.1548999939114,
+      "prompt_tokens": 2647,
+      "completion_tokens": 104,
+      "cost_usd": 0.0003063,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What is the minimum interval recommended between successive ibuprofen doses for an adult?\nPROPOSED ANSWER: 4 hours\nEVIDENCE SPAN: Minimum interval: 4 hours between doses\nSOURCE: https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/\n",
+      "raw_response": "{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"\",\n  \"flags\": [\"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\",\n  \"confidence\": 0.85\n}",
+      "parsed": {
+        "claim_id": "C3",
+        "falsification_attempt": "",
+        "flags": [
+          "NONE"
+        ],
+        "verdict_after_challenge": "HOLDS",
+        "confidence": 0.85
+      },
+      "latency_ms": 2292.943899985403,
+      "prompt_tokens": 432,
+      "completion_tokens": 464,
+      "cost_usd": 0.0002752,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the maximum number of ibuprofen doses an adult can safely take in a 24‑hour period?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: What is the standard recommended single dose of ibuprofen for an adult?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What is the minimum interval recommended between successive ibuprofen doses for an adult?\n  verdict=SUPPORTED answer=4 hours\n  evidence_span=Minimum interval: 4 hours between doses\n  source=https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.85}\n[C4] (supporting) Q: Do specific health conditions or medications alter the recommended number of ibuprofen doses an adult may take per day?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"एक वयस्कले आइबुप्रोफेन (ibuprofen) को दुई खुराकहरू बीच कम्तिमा ४ घण्टाको अन्तराल राख्नुपर्छ [1] ।\\n\\nयो कुरा पुष्टि गर्न सकिएन:\\n- २४ घण्टामा एक वयस्कले सुरक्षित रूपमा लिन सक्ने आइबुप्रोफेनको अधिकतम खुराक कति हो।\\n- वयस्कका लागि आइबुप्रोफेनको मानक सिफारिस गरिएको एकल खुराक कति हो।\\n- के विशिष्ट स्वास्थ्य अवस्थाहरू वा औषधिहरूले एक वयस्कले प्रति दिन लिन सक्ने आइबुप्रोफेनको खुराकको संख्यालाई परिवर्तन गर्छन्।\",\n  \"citations\": [\n    {\n      \"marker\": \"[1]\",\n      \"url\": \"https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/\"\n    }\n  ]\n}\n```",
+      "parsed": {
+        "response_text": "एक वयस्कले आइबुप्रोफेन (ibuprofen) को दुई खुराकहरू बीच कम्तिमा ४ घण्टाको अन्तराल राख्नुपर्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- २४ घण्टामा एक वयस्कले सुरक्षित रूपमा लिन सक्ने आइबुप्रोफेनको अधिकतम खुराक कति हो।\n- वयस्कका लागि आइबुप्रोफेनको मानक सिफारिस गरिएको एकल खुराक कति हो।\n- के विशिष्ट स्वास्थ्य अवस्थाहरू वा औषधिहरूले एक वयस्कले प्रति दिन लिन सक्ने आइबुप्रोफेनको खुराकको संख्यालाई परिवर्तन गर्छन्।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/"
+          }
+        ]
+      },
+      "latency_ms": 1573.5152999986894,
+      "prompt_tokens": 613,
+      "completion_tokens": 219,
+      "cost_usd": 0.00014890000000000004,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: एक वयस्कले आइबुप्रोफेन (ibuprofen) को दुई खुराकहरू बीच कम्तिमा ४ घण्टाको अन्तराल राख्नुपर्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- २४ घण्टामा एक वयस्कले सुरक्षित रूपमा लिन सक्ने आइबुप्रोफेनको अधिकतम खुराक कति हो।\n- वयस्कका लागि आइबुप्रोफेनको मानक सिफारिस गरिएको एकल खुराक कति हो।\n- के विशिष्ट स्वास्थ्य अवस्थाहरू वा औषधिहरूले एक वयस्कले प्रति दिन लिन सक्ने आइबुप्रोफेनको खुराकको संख्यालाई परिवर्तन गर्छन्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the maximum number of ibuprofen doses an adult can safely take in a 24‑hour period?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: What is the standard recommended single dose of ibuprofen for an adult?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: What is the minimum interval recommended between successive ibuprofen doses for an adult?\n  verdict=SUPPORTED answer=4 hours\n  evidence_span=Minimum interval: 4 hours between doses\n  source=https://www.drugs.com/medical-answers/how-often-can-you-take-ibuprofen-3016181/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.85}\n[C4] (supporting) Q: Do specific health conditions or medications alter the recommended number of ibuprofen doses an adult may take per day?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"An adult should keep at least a 4-hour interval between two doses of ibuprofen [1].\\n\\nThis could not be confirmed:\\n- What is the maximum dose of ibuprofen an adult can safely take in 24 hours.\\n- What is the standard recommended single dose of ibuprofen for adults.\\n- Whether specific health conditions or medications change the number of ibuprofen doses an adult can take per day.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "An adult should keep at least a 4-hour interval between two doses of ibuprofen [1].\n\nThis could not be confirmed:\n- What is the maximum dose of ibuprofen an adult can safely take in 24 hours.\n- What is the standard recommended single dose of ibuprofen for adults.\n- Whether specific health conditions or medications change the number of ibuprofen doses an adult can take per day.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 2174.4783999747597,
+      "prompt_tokens": 607,
+      "completion_tokens": 116,
+      "cost_usd": 0.0001071,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0022413000000000003,
+  "total_latency_ms": 22845.822099945508,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

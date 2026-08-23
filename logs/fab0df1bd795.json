@@ -1,0 +1,452 @@
+{
+  "run_id": "fab0df1bd795",
+  "question": "पक्राउ परेको व्यक्तिलाई पक्राउ भएको कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?",
+  "tier": "TIER_1",
+  "domain": "legal",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "पक्राउ परेको व्यक्तिलाई न्यायिक अधिकारी समक्ष पेश गर्दा यात्राका लागि आवश्यक समयलाई बाहेक गरिन्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- पक्राउ परेको व्यक्तिलाई कति अधिकतम समयभित्र अदालतमा पेश गर्नुपर्छ।\n- अदालतमा पेश गर्ने समय सीमा पक्राउ भएको क्षणदेखि गणना हुन्छ कि हुँदैन।\n- सबै प्रकारका अपराधहरूमा (जस्तै: सामान्य र गम्भीर) एउटै समय सीमा लागू हुन्छ कि हुँदैन।\n\nकृपया यस विषयमा थप स्पष्ट जानकारीका लागि योग्य कानूनी व्यवसायी वा अधिवक्तासँग परामर्श गर्नुहोस्।",
+  "citations": [
+    {
+      "marker": "[1]",
+      "url": "https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the maximum number of hours within which an arrested person must be presented before a court?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "arrest presentation time limit",
+        "hours before court",
+        "detention period law"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C2",
+      "claim_question": "Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?",
+      "claim_type": "procedural",
+      "criticality": "supporting",
+      "search_terms": [
+        "detention clock start arrest",
+        "when does arrest time limit begin",
+        "court presentation timing"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "court presentation time limit offenses",
+        "detention period misdemeanor felony",
+        "arrest to court timeline"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?",
+      "claim_type": "conditional",
+      "criticality": "supporting",
+      "search_terms": [
+        "court presentation exceptions weekends",
+        "detention time limit holidays",
+        "arrest presentation legal exceptions"
+      ],
+      "verdict": "PARTIAL",
+      "answer": "The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.",
+      "evidence_span": "An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.",
+      "source_url": "https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours",
+      "caveats": [
+        "The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "WEAKENED",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "falsification_attempt": "The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.",
+        "confidence": 0.71
+      }
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: पक्राउ परेको व्यक्तिलाई पक्राउ भएको कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"पक्राउ परेको व्यक्तिलाई पक्राउ भएको कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?\",\n  \"canonical_english\": \"Within how many hours must an arrested person be presented before a court?\",\n  \"domain\": \"legal\",\n  \"entities\": [],\n  \"implicit_context\": [\n    \"The user is referring to the legal procedures and human rights protections under Nepali law.\"\n  ],\n  \"ambiguities\": [\n    \"The specific jurisdiction or legal code (though implied as Nepal).\"\n  ]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "पक्राउ परेको व्यक्तिलाई पक्राउ भएको कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?",
+        "canonical_english": "Within how many hours must an arrested person be presented before a court?",
+        "domain": "legal",
+        "entities": [],
+        "implicit_context": [
+          "The user is referring to the legal procedures and human rights protections under Nepali law."
+        ],
+        "ambiguities": [
+          "The specific jurisdiction or legal code (though implied as Nepal)."
+        ]
+      },
+      "latency_ms": 1330.7913999888115,
+      "prompt_tokens": 321,
+      "completion_tokens": 142,
+      "cost_usd": 8.89e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: Within how many hours must an arrested person be presented before a court?\nORIGINAL: पक्राउ परेको व्यक्तिलाई पक्राउ भएको कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?\nDOMAIN: legal\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns legal deadlines and the fundamental rights of an arrested person, where an incorrect answer could lead to legal harm or wrongful detention.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns legal deadlines and the fundamental rights of an arrested person, where an incorrect answer could lead to legal harm or wrongful detention.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1075.9516999823973,
+      "prompt_tokens": 346,
+      "completion_tokens": 62,
+      "cost_usd": 5.940000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: Within how many hours must an arrested person be presented before a court?\nENTITIES: []\nDOMAIN: legal\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the maximum number of hours within which an arrested person must be presented before a court?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"arrest presentation time limit\", \"hours before court\", \"detention period law\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?\",\n      \"claim_type\": \"procedural\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"detention clock start arrest\", \"when does arrest time limit begin\", \"court presentation timing\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"court presentation time limit offenses\", \"detention period misdemeanor felony\", \"arrest to court timeline\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?\",\n      \"claim_type\": \"conditional\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"court presentation exceptions weekends\", \"detention time limit holidays\", \"arrest presentation legal exceptions\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the maximum number of hours within which an arrested person must be presented before a court?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "arrest presentation time limit",
+              "hours before court",
+              "detention period law"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C2",
+            "claim_question": "Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?",
+            "claim_type": "procedural",
+            "criticality": "supporting",
+            "search_terms": [
+              "detention clock start arrest",
+              "when does arrest time limit begin",
+              "court presentation timing"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "court presentation time limit offenses",
+              "detention period misdemeanor felony",
+              "arrest to court timeline"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?",
+            "claim_type": "conditional",
+            "criticality": "supporting",
+            "search_terms": [
+              "court presentation exceptions weekends",
+              "detention time limit holidays",
+              "arrest presentation legal exceptions"
+            ],
+            "verdict": "PARTIAL",
+            "answer": "The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.",
+            "evidence_span": "An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.",
+            "source_url": "https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours",
+            "caveats": [
+              "The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "WEAKENED",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH"
+              ],
+              "falsification_attempt": "The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.",
+              "confidence": 0.71
+            }
+          }
+        ]
+      },
+      "latency_ms": 3961.1613000161014,
+      "prompt_tokens": 290,
+      "completion_tokens": 718,
+      "cost_usd": 0.000388,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the maximum number of hours within which an arrested person must be presented before a court?\nEVIDENCE:\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\n## Preparations to enact a law requiring notification of presence before arrest\n\nThe previous draft proposal that allowed a person to apply for anticipatory bail from the court before being arrested by the police on any charge has been removed.\n\nAshad 13, 2083\n\n[Rajesh Mishra](https://ekantipur.com/author/author-8950)\n\n![Preparations to enact a law requiring notification of presence before arrest](https://assets-cdn-api.ekantipur.com/thumb.php?src=https://assets-cdn.ekantipur.com/uploads/source/news/kantipur/2026/miscellaneous/kaidi-dillibazar-2762026053226-1000x0.png&w=1001&h=0)[Read In Nepali](https://ekantipur.com/news/2026/06/27/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html)\n\n- Facebook\n\n- Messenger\n\n- Twitter\n\n- Whatsapp\n\n- Viber\n\n- Copy Link\n\n\n#### AI-Assisted Translation\n\nThis translation has been generated using artificial intelligence (AI). Every effort has been made to translate the meaning of the original Nepali content as accurately as possible. However, errors may occur in sensitive content or complex terminology — please refer to the original article for context.\n\nThis article was translated using premium AI models.\n\nPreparati\n\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\nons are underway to include a provision in the law requiring the police to give notice of the presence of those accused of crimes other than heinous or serious crimes before arresting them. There is such a proposal in the draft bill prepared to amend the Criminal Procedure Code, 2074 BS. However, the provision for anticipatory bail is not in the draft. The private sector has long been demanding that the law should include a provision for anticipatory bail.\n\nThere is a proposal to amend the current Section 14(6) provision that allows for detention for a maximum of 25 days for investigation on the order of the court.  In April last year, the Ministry of Law, Justice and Parliamentary Affairs prepared a draft bill to amend the Criminal Procedure Code, which included a provision for anticipatory bail. However, the parliament was dissolved before the draft bill was presented in the form of a bill. The Ministry of Law has now prepared draft amendments to five laws related to civil and criminal offenses. The Ministry has prepared a draft bill to amend the Civil Code, Civil Procedure Code, Civil Criminal Procedure Code, Criminal Offences (Determination and Implementation of Punishment) Act\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 993.4331999975257,
+      "prompt_tokens": 987,
+      "completion_tokens": 63,
+      "cost_usd": 0.00012390000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?\nEVIDENCE:\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\n## Preparations to enact a law requiring notification of presence before arrest\n\nThe previous draft proposal that allowed a person to apply for anticipatory bail from the court before being arrested by the police on any charge has been removed.\n\nAshad 13, 2083\n\n[Rajesh Mishra](https://ekantipur.com/author/author-8950)\n\n![Preparations to enact a law requiring notification of presence before arrest](https://assets-cdn-api.ekantipur.com/thumb.php?src=https://assets-cdn.ekantipur.com/uploads/source/news/kantipur/2026/miscellaneous/kaidi-dillibazar-2762026053226-1000x0.png&w=1001&h=0)[Read In Nepali](https://ekantipur.com/news/2026/06/27/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html)\n\n- Facebook\n\n- Messenger\n\n- Twitter\n\n- Whatsapp\n\n- Viber\n\n- Copy Link\n\n\n#### AI-Assisted Translation\n\nThis translation has been generated using artificial intelligence (AI). Every effort has been made to translate the meaning of the original Nepali content as accurately as possible. However, errors may occur in sensitive content or complex terminology — please refer to the original article for context.\n\nThis article was translated using premium AI models.\n\nPreparati\n\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\nons are underway to include a provision in the law requiring the police to give notice of the presence of those accused of crimes other than heinous or serious crimes before arresting them. There is such a proposal in the draft bill prepared to amend the Criminal Procedure Code, 2074 BS. However, the provision for anticipatory bail is not in the draft. The private sector has long been demanding that the law should include a provision for anticipatory bail.\n\nThere is a proposal to amend the current Section 14(6) provision that allows for detention for a maximum of 25 days for investigation on the order of the court.  In April last year, the Ministry of Law, Justice and Parliamentary Affairs prepared a draft bill to amend the Criminal Procedure Code, which included a provision for anticipatory bail. However, the parliament was dissolved before the draft bill was presented in the form of a bill. The Ministry of Law has now prepared draft amendments to five laws related to civil and criminal offenses. The Ministry has prepared a draft bill to amend the Civil Code, Civil Procedure Code, Civil Criminal Procedure Code, Criminal Offences (Determination and Implementation of Punishment) Act\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1193.2576000108384,
+      "prompt_tokens": 988,
+      "completion_tokens": 61,
+      "cost_usd": 0.0001232,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?\nEVIDENCE:\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\n## Preparations to enact a law requiring notification of presence before arrest\n\nThe previous draft proposal that allowed a person to apply for anticipatory bail from the court before being arrested by the police on any charge has been removed.\n\nAshad 13, 2083\n\n[Rajesh Mishra](https://ekantipur.com/author/author-8950)\n\n![Preparations to enact a law requiring notification of presence before arrest](https://assets-cdn-api.ekantipur.com/thumb.php?src=https://assets-cdn.ekantipur.com/uploads/source/news/kantipur/2026/miscellaneous/kaidi-dillibazar-2762026053226-1000x0.png&w=1001&h=0)[Read In Nepali](https://ekantipur.com/news/2026/06/27/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html)\n\n- Facebook\n\n- Messenger\n\n- Twitter\n\n- Whatsapp\n\n- Viber\n\n- Copy Link\n\n\n#### AI-Assisted Translation\n\nThis translation has been generated using artificial intelligence (AI). Every effort has been made to translate the meaning of the original Nepali content as accurately as possible. However, errors may occur in sensitive content or complex terminology — please refer to the original article for context.\n\nThis article was translated using premium AI models.\n\nPreparati\n\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\nons are underway to include a provision in the law requiring the police to give notice of the presence of those accused of crimes other than heinous or serious crimes before arresting them. There is such a proposal in the draft bill prepared to amend the Criminal Procedure Code, 2074 BS. However, the provision for anticipatory bail is not in the draft. The private sector has long been demanding that the law should include a provision for anticipatory bail.\n\nThere is a proposal to amend the current Section 14(6) provision that allows for detention for a maximum of 25 days for investigation on the order of the court.  In April last year, the Ministry of Law, Justice and Parliamentary Affairs prepared a draft bill to amend the Criminal Procedure Code, which included a provision for anticipatory bail. However, the parliament was dissolved before the draft bill was presented in the form of a bill. The Ministry of Law has now prepared draft amendments to five laws related to civil and criminal offenses. The Ministry has prepared a draft bill to amend the Civil Code, Civil Procedure Code, Civil Criminal Procedure Code, Criminal Offences (Determination and Implementation of Punishment) Act\n\n[source: https://english.nepalnews.com/s/politics/new-bill-mandates-summons-before-arrest-approves-settlements-for-eight-offenses/]\n[![](https://english.nepalnews.com/wp-content/uploads/2025/01/Nepal-news-white.png)](https://english.nepalnews.com/)\n\n![](https://openweathermap.org/img/wn/10n@2x.png)\n\n## 22.15°C\n\nKathmandu\n\nSunday, August 23, 2026\n\n[bookmark\\_border](https://english.nepalnews.com/saved-posts)\n\n![](https://english.nepalnews.com/wp-content/uploads/2025/01/Nepal-news-white.png)\n\n![](https://english.nepalnews.com/wp-content/uploads/2025/01/close.png)\n\n- [home\\\\\nHome](https://english.nepalnews.com/)\n- [tooltip\\_2\\\\\nExplainer](https://english.nepalnews.com/?cat=123741)\n- [receipt\\_long\\\\\nLong Read](https://english.nepalnews.com/?cat=123743)\n- [things\\_to\\_do\\\\\n\\\\\nPolitics](https://english.nepalnews.com/?cat=3)\n- [finance\\_mode\\\\\nEconomy](https://english.nepalnews.com/?cat=2)\n- [money\\_bag\\\\\nCAPITAL](https://english.nepalnews.com/?cat=16)\n- [interpreter\\_mode\\\\\nINTERVIEW](https://english.nepalnews.com/?cat=123744)\n- [public\\\\\nWORLD](https://english.nepalnews.com/?cat=8)\n- [gallery\\_thumbnail\\\\\nGALLERY](https://english.nepalnews.com/?cat=17)\n- [stethoscope\\\\\nHEALTH](https://english.nepalnews.com/?cat=7)\n- [comedy\\_mask\\\\\nENTERTAINMENT](https://english.nepalnews.com/?cat=5)\n- [cool\\_to\\_dry\\\\\nCLIMATE](htt\n\n[source: https://english.nepalnews.com/s/politics/new-bill-mandates-summons-before-arrest-approves-settlements-for-eight-offenses/]\nps://english.nepalnews.com/?cat=123747)\n- [biotech\\\\\nSCIENCE & TECHNOLOGY](https://english.nepalnews.com/?cat=19)\n- [partly\\_cloudy\\_day\\\\\nWEATHER](https://english.nepalnews.com/?cat=123748)\n- [travel\\\\\nTRAVEL](https://english.nepalnews.com/?cat=9)\n- [inbox\\_text\\\\\nARCHIVE](https://archive.nepalnews.com/)\n- [Nepali](https://nepalnews.com/)\n- [Utilities](https://english.nepalnews.com/s/politics/new-bill-mandates-summons-before-arrest-approves-settlements-for-eight-offenses/#)\n\n[![](https://english.nepalnews.com/wp-content/uploads/2025/01/direct-flight.png)](https://english.nepalnews.com/flight-information)[![](https://english.nepalnews.com/wp-content/uploads/2025/01/cloudy-day.png)](https://english.nepalnews.com/weather)[![](https://english.nepalnews.com/wp-content/uploads/2025/01/air-quality.png)](https://english.nepalnews.com/aqi)[![](https://english.nepalnews.com/wp-content/uploads/2025/01/change.png)](https://english.nepalnews.com/forex)[![](https://english.nepalnews.com/wp-content/uploads/2025/01/gold.png)](https://english.nepalnews.com/gold-silver)\n\n[ABOUT US](https://english.nepalnews.com/about-us) [PRIVACY POLICY](https://english.nepalnews.com/privacy-policy) [ADVERTISING](h\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1576.1015000171028,
+      "prompt_tokens": 2005,
+      "completion_tokens": 63,
+      "cost_usd": 0.0002257,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?\nEVIDENCE:\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\n## Preparations to enact a law requiring notification of presence before arrest\n\nThe previous draft proposal that allowed a person to apply for anticipatory bail from the court before being arrested by the police on any charge has been removed.\n\nAshad 13, 2083\n\n[Rajesh Mishra](https://ekantipur.com/author/author-8950)\n\n![Preparations to enact a law requiring notification of presence before arrest](https://assets-cdn-api.ekantipur.com/thumb.php?src=https://assets-cdn.ekantipur.com/uploads/source/news/kantipur/2026/miscellaneous/kaidi-dillibazar-2762026053226-1000x0.png&w=1001&h=0)[Read In Nepali](https://ekantipur.com/news/2026/06/27/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html)\n\n- Facebook\n\n- Messenger\n\n- Twitter\n\n- Whatsapp\n\n- Viber\n\n- Copy Link\n\n\n#### AI-Assisted Translation\n\nThis translation has been generated using artificial intelligence (AI). Every effort has been made to translate the meaning of the original Nepali content as accurately as possible. However, errors may occur in sensitive content or complex terminology — please refer to the original article for context.\n\nThis article was translated using premium AI models.\n\nPreparati\n\n[source: https://ekantipur.com/news/2026/06/27/en/preparations-to-enact-a-law-requiring-notification-of-presence-before-arrest-30-41.html]\nons are underway to include a provision in the law requiring the police to give notice of the presence of those accused of crimes other than heinous or serious crimes before arresting them. There is such a proposal in the draft bill prepared to amend the Criminal Procedure Code, 2074 BS. However, the provision for anticipatory bail is not in the draft. The private sector has long been demanding that the law should include a provision for anticipatory bail.\n\nThere is a proposal to amend the current Section 14(6) provision that allows for detention for a maximum of 25 days for investigation on the order of the court.  In April last year, the Ministry of Law, Justice and Parliamentary Affairs prepared a draft bill to amend the Criminal Procedure Code, which included a provision for anticipatory bail. However, the parliament was dissolved before the draft bill was presented in the form of a bill. The Ministry of Law has now prepared draft amendments to five laws related to civil and criminal offenses. The Ministry has prepared a draft bill to amend the Civil Code, Civil Procedure Code, Civil Criminal Procedure Code, Criminal Offences (Determination and Implementation of Punishment) Act\n\n[source: https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours]\n# Supreme Court Mandates 24-Hour Court Appearance for Detainees Even on Public Holidays\n\n![ratopati](https://npcdn.ratopati.com/media/authors/ratopati_science_RGmmSpmAnu.jpg)\n\nRatopati\n\nApril 10, 2026\n\n\n[Read in Nepali](https://www.ratopati.com/story/556200)\n\nShares\n\n\n![facebook sharing button](https://platform-cdn.sharethis.com/img/facebook.svg)\n\n![twitter sharing button](https://platform-cdn.sharethis.com/img/twitter.svg)\n\n![messenger sharing button](https://platform-cdn.sharethis.com/img/messenger.svg)\n\n![email sharing button](https://platform-cdn.sharethis.com/img/email.svg)\n\n![sharethis sharing button](https://platform-cdn.sharethis.com/img/sharethis.svg)\n\n![Supreme Court Mandates 24-Hour Court Appearance for Detainees Even on Public Holidays](https://npcdn.ratopati.com/media/news/court-suprem_q4ARkL8b8x.jpg)\n\nKathmandu. The Supreme Court has issued a circular to all subordinate courts, mandating that individuals arrested must be presented before the judicial authority within the 24-hour period stipulated by the Constitution, even on public holidays.\n\nThe Supreme Court stated that this measure is intended to ensure the constitutional rights of citizens and prevent any obstruct\n\n[source: https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours]\nion in the judicial process.\n\nFollowing a full court meeting on Friday, the circular was dispatched to all judicial bodies, including High Courts, benches, temporary benches, administrative courts, tribunals, special courts, labor courts, the Directorate of Judgment Execution, district courts, consumer courts, and juvenile courts.\n\nArticle 20, Clause (3) of the Constitution of Nepal states, 'An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.'\n\nHowever, with the government's recent decision to declare Saturdays and Sundays as public holidays, concerns were raised at the Supreme Court regarding the difficulty of presenting detainees in court within the specified timeframe during holidays. The Supreme Court issued this circular to address these practical challenges.\n\nSubordinate courts have been directed to make necessary arrangements during holidays for arrest warrant permissions, approval of issued warrants, custody remand orders, and bail hearings. The Supreme Court has instructed these courts to make the necessary arrangements\n\n[source: http://defensewiki.ibj.org/index.php/Nepal]\n# Nepal\n\nFrom Criminal Defense Wiki\n\n[Jump to navigation](http://defensewiki.ibj.org/index.php/Nepal#column-one) [Jump to search](http://defensewiki.ibj.org/index.php/Nepal#searchInput)\n\n| **[![](http://defensewiki.ibj.org/images/7/7f/Globe3.png)](http://defensewiki.ibj.org/index.php?title=Criminal_Defense_Wiki:Language_policy \"Criminal Defense Wiki:Language policy\")** | **[English](http://defensewiki.ibj.org/index.php?title=English \"English\")** |\n\n```\n   ⚠️ THIS PAGE IS CURRENTLY UNDER LEGAL REVIEW.\nIf you are a practicing attorney in this jurisdiction and can provide corrections, please get in touch with us at internationalbridges@ibj.org.\n```\n\n|     |\n| --- |\n| ## Contents<br>- [1Legal Resources for Nepal](http://defensewiki.ibj.org/index.php/Nepal#Legal_Resources_for_Nepal)<br>- [2E-Learning Resources](http://defensewiki.ibj.org/index.php/Nepal#E-Learning_Resources)<br>- [3Background](http://defensewiki.ibj.org/index.php/Nepal#Background)<br>- [4The Legal system](http://defensewiki.ibj.org/index.php/Nepal#The_Legal_system)<br>- [5Legal Aid](http://defensewiki.ibj.org/index.php/Nepal#Legal_Aid)<br>- [6Source of Defendants Rights](http://defensewiki.ibj.org/index.php/Nepal#Source\n\n[source: http://defensewiki.ibj.org/index.php/Nepal]\n_of_Defendants_Rights)<br>- [7Rights of the Accused](http://defensewiki.ibj.org/index.php/Nepal#Rights_of_the_Accused)<br>- [8Rights of Counsel](http://defensewiki.ibj.org/index.php/Nepal#Rights_of_Counsel)<br>- [9Means of Protecting and Enforcing Rights](http://defensewiki.ibj.org/index.php/Nepal#Means_of_Protecting_and_Enforcing_Rights)<br>- [10Pre-Trial Procedure](http://defensewiki.ibj.org/index.php/Nepal#Pre-Trial_Procedure)<br>- [11Court Procedures](http://defensewiki.ibj.org/index.php/Nepal#Court_Procedures)<br>- [12Rights in Prison](http://defensewiki.ibj.org/index.php/Nepal#Rights_in_Prison)<br>- [13Resources](http://defensewiki.ibj.org/index.php/Nepal#Resources)<br>## Legal Resources for Nepal<br>- The Constitution of Nepal [\\[1\\]](http://defensewiki.ibj.org/index.php/Nepal#cite_note-1)<br>## E-Learning Resources<br>- [eLearning Courses for Criminal Defense lawyers](http://elearning.ibj.org/) |\n\n## Background\n\nNepal, a landlocked nation in South Asia, is renowned for its rich cultural heritage and diverse geography, encompassing the Himalayan mountain range. In 2008, following a decade-long civil war and subsequent peace process, Nepal transitioned from a monarchy to a fe\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"PARTIAL\",\n  \"answer\": \"The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.\",\n  \"evidence_span\": \"An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.\",\n  \"source_url\": \"https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\",\n  \"caveats\": [\n    \"The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "PARTIAL",
+        "answer": "The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.",
+        "evidence_span": "An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.",
+        "source_url": "https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours",
+        "caveats": [
+          "The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception."
+        ]
+      },
+      "latency_ms": 3701.609499985352,
+      "prompt_tokens": 2435,
+      "completion_tokens": 215,
+      "cost_usd": 0.00032950000000000004,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C4\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?\nPROPOSED ANSWER: The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.\nEVIDENCE SPAN: An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.\nSOURCE: https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\n",
+      "raw_response": "{\n  \"claim_id\": \"C4\",\n  \"falsification_attempt\": \"The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\"],\n  \"verdict_after_challenge\": \"WEAKENED\",\n  \"confidence\": 0.71\n}",
+      "parsed": {
+        "claim_id": "C4",
+        "falsification_attempt": "The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "verdict_after_challenge": "WEAKENED",
+        "confidence": 0.71
+      },
+      "latency_ms": 4549.749099998735,
+      "prompt_tokens": 515,
+      "completion_tokens": 769,
+      "cost_usd": 0.000436,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the maximum number of hours within which an arrested person must be presented before a court?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?\n  verdict=PARTIAL answer=The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.\n  evidence_span=An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.\n  source=https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\n  caveats=['The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception.']\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.', 'confidence': 0.71}\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"पक्राउ परेका व्यक्तिलाई अदालतमा पेश गर्ने २४ घण्टाको समयसीमामा यात्राका लागि लाग्ने समयलाई बाहेक गरिएको छ [1] ।\\n\\nयो कुरा पुष्टि गर्न सकिएन:\\n- पक्राउ परेका व्यक्तिलाई अधिकतम कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?\\n- अदालतमा पेश गर्ने समयसीमा पक्राउ गरेको क्षणदेखि गणना हुन्छ कि हुँदैन?\\n- के सबै प्रकारका अपराधहरूमा अदालतमा पेश गर्ने समयसीमा एउटै हुन्छ?\\n\\nसावधानी:\\nप्रमाणले विशेष गरी सार्वजनिक बिदाहरूको बारेमा उल्लेख गर्दै २४ घण्टाको नियम ती दिनहरूमा पनि लागू हुने बताएको छ, जसको अर्थ बिदाहरू अपवाद होइनन्।\",\n  \"citations\": [\n    {\n      \"marker\": \"[1]\",\n      \"url\": \"https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\"\n    }\n  ]\n}\n```",
+      "parsed": {
+        "response_text": "पक्राउ परेका व्यक्तिलाई अदालतमा पेश गर्ने २४ घण्टाको समयसीमामा यात्राका लागि लाग्ने समयलाई बाहेक गरिएको छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- पक्राउ परेका व्यक्तिलाई अधिकतम कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?\n- अदालतमा पेश गर्ने समयसीमा पक्राउ गरेको क्षणदेखि गणना हुन्छ कि हुँदैन?\n- के सबै प्रकारका अपराधहरूमा अदालतमा पेश गर्ने समयसीमा एउटै हुन्छ?\n\nसावधानी:\nप्रमाणले विशेष गरी सार्वजनिक बिदाहरूको बारेमा उल्लेख गर्दै २४ घण्टाको नियम ती दिनहरूमा पनि लागू हुने बताएको छ, जसको अर्थ बिदाहरू अपवाद होइनन्।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours"
+          }
+        ]
+      },
+      "latency_ms": 2256.3655999838375,
+      "prompt_tokens": 824,
+      "completion_tokens": 260,
+      "cost_usd": 0.00018639999999999998,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: पक्राउ परेका व्यक्तिलाई अदालतमा पेश गर्ने २४ घण्टाको समयसीमामा यात्राका लागि लाग्ने समयलाई बाहेक गरिएको छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- पक्राउ परेका व्यक्तिलाई अधिकतम कति घण्टाभित्र अदालतमा पेश गर्नुपर्छ?\n- अदालतमा पेश गर्ने समयसीमा पक्राउ गरेको क्षणदेखि गणना हुन्छ कि हुँदैन?\n- के सबै प्रकारका अपराधहरूमा अदालतमा पेश गर्ने समयसीमा एउटै हुन्छ?\n\nसावधानी:\nप्रमाणले विशेष गरी सार्वजनिक बिदाहरूको बारेमा उल्लेख गर्दै २४ घण्टाको नियम ती दिनहरूमा पनि लागू हुने बताएको छ, जसको अर्थ बिदाहरू अपवाद होइनन्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the maximum number of hours within which an arrested person must be presented before a court?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?\n  verdict=PARTIAL answer=The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.\n  evidence_span=An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.\n  source=https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\n  caveats=['The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception.']\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.', 'confidence': 0.71}\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"The time required for travel is excluded from the 24-hour time limit for presenting the arrested person in court [1].\\n\\nThis could not be confirmed:\\n- Within how many maximum hours must an arrested person be presented in court?\\n- Does the time limit for presenting in court start counting from the moment of arrest or not?\\n- Is the time limit for presenting in court the same for all types of crimes?\\n\\nCaution:\\nThe evidence specifically mentions public holidays, stating that the 24-hour rule applies even on those days, which means holidays are not exceptions.\",\n  \"drift\": [\n    {\n      \"type\": \"ALTERED\",\n      \"detail\": \"The response presents the 24-hour limit as a fact in the first sentence, whereas C1 (the maximum hours) is marked as UNSUPPORTED in the verified claims.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "The time required for travel is excluded from the 24-hour time limit for presenting the arrested person in court [1].\n\nThis could not be confirmed:\n- Within how many maximum hours must an arrested person be presented in court?\n- Does the time limit for presenting in court start counting from the moment of arrest or not?\n- Is the time limit for presenting in court the same for all types of crimes?\n\nCaution:\nThe evidence specifically mentions public holidays, stating that the 24-hour rule applies even on those days, which means holidays are not exceptions.",
+        "drift": [
+          {
+            "type": "ALTERED",
+            "detail": "The response presents the 24-hour limit as a fact in the first sentence, whereas C1 (the maximum hours) is marked as UNSUPPORTED in the verified claims.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 2489.1991000040434,
+      "prompt_tokens": 841,
+      "completion_tokens": 225,
+      "cost_usd": 0.0001741,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the maximum number of hours within which an arrested person must be presented before a court?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?\n  verdict=PARTIAL answer=The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.\n  evidence_span=An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.\n  source=https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\n  caveats=['The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception.']\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.', 'confidence': 0.71}\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n[{\"type\": \"ALTERED\", \"detail\": \"The response presents the 24-hour limit as a fact in the first sentence, whereas C1 (the maximum hours) is marked as UNSUPPORTED in the verified claims.\", \"severity\": \"high\"}]\n",
+      "raw_response": "```json\n{\n \"response_text\": \"पक्राउ परेको व्यक्तिलाई न्यायिक अधिकारी समक्ष पेश गर्दा यात्राका लागि आवश्यक समयलाई बाहेक गरिन्छ [1] ।\\n\\nयो कुरा पुष्टि गर्न सकिएन:\\n- पक्राउ परेको व्यक्तिलाई कति अधिकतम समयभित्र अदालतमा पेश गर्नुपर्छ।\\n- अदालतमा पेश गर्ने समय सीमा पक्राउ भएको क्षणदेखि गणना हुन्छ कि हुँदैन।\\n- सबै प्रकारका अपराधहरूमा (जस्तै: सामान्य र गम्भीर) एउटै समय सीमा लागू हुन्छ कि हुँदैन।\\n\\nकृपया यस विषयमा थप स्पष्ट जानकारीका लागि योग्य कानूनी व्यवसायी वा अधिवक्तासँग परामर्श गर्नुहोस्।\",\n \"citations\": [\n  {\n   \"marker\": \"[1]\",\n   \"url\": \"https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\"\n  }\n ]\n}\n```",
+      "parsed": {
+        "response_text": "पक्राउ परेको व्यक्तिलाई न्यायिक अधिकारी समक्ष पेश गर्दा यात्राका लागि आवश्यक समयलाई बाहेक गरिन्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- पक्राउ परेको व्यक्तिलाई कति अधिकतम समयभित्र अदालतमा पेश गर्नुपर्छ।\n- अदालतमा पेश गर्ने समय सीमा पक्राउ भएको क्षणदेखि गणना हुन्छ कि हुँदैन।\n- सबै प्रकारका अपराधहरूमा (जस्तै: सामान्य र गम्भीर) एउटै समय सीमा लागू हुन्छ कि हुँदैन।\n\nकृपया यस विषयमा थप स्पष्ट जानकारीका लागि योग्य कानूनी व्यवसायी वा अधिवक्तासँग परामर्श गर्नुहोस्।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours"
+          }
+        ]
+      },
+      "latency_ms": 2243.2499999995343,
+      "prompt_tokens": 898,
+      "completion_tokens": 236,
+      "cost_usd": 0.00018420000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: पक्राउ परेको व्यक्तिलाई न्यायिक अधिकारी समक्ष पेश गर्दा यात्राका लागि आवश्यक समयलाई बाहेक गरिन्छ [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- पक्राउ परेको व्यक्तिलाई कति अधिकतम समयभित्र अदालतमा पेश गर्नुपर्छ।\n- अदालतमा पेश गर्ने समय सीमा पक्राउ भएको क्षणदेखि गणना हुन्छ कि हुँदैन।\n- सबै प्रकारका अपराधहरूमा (जस्तै: सामान्य र गम्भीर) एउटै समय सीमा लागू हुन्छ कि हुँदैन।\n\nकृपया यस विषयमा थप स्पष्ट जानकारीका लागि योग्य कानूनी व्यवसायी वा अधिवक्तासँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the maximum number of hours within which an arrested person must be presented before a court?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C2] (supporting) Q: Does the time limit for presenting an arrested person before a court start counting from the moment of arrest?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Is the same time limit for presenting an arrested person before a court applied to all types of offenses (e.g., misdemeanors and felonies)?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there any statutory exceptions (such as weekends, holidays, or emergencies) to the standard time limit for presenting an arrested person before a court?\n  verdict=PARTIAL answer=The only statutory exception mentioned to the 24-hour time limit for producing an arrested person before a judicial authority is the time required for travel.\n  evidence_span=An arrested person must be produced before the judicial authority within 24 hours of the arrest, excluding the time required for travel, and shall not be kept in custody without an order from such authority.\n  source=https://english.ratopati.com/story/58397/supreme-court-circular-people-arrested-on-holidays-should-be-produced-in-court-within-24-hours\n  caveats=['The evidence specifically addresses public holidays by stating that the 24-hour mandate applies even on those days, meaning holidays are not an exception.']\n  challenge={'verdict_after_challenge': 'WEAKENED', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The evidence only states that the 24‑hour production limit excludes time required for travel; it does not say that travel is the sole statutory exception. Therefore the answer overreaches by asserting that no other exceptions (e.g., weekends, holidays, emergencies) exist, which is not established by the provided source.', 'confidence': 0.71}\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"When presenting an arrested person before a judicial officer, the time necessary for travel is excluded [1].\\n\\nThis could not be confirmed:\\n- Within what maximum time an arrested person must be presented in court.\\n- Whether the time limit for presenting in court is calculated from the moment of arrest or not.\\n- Whether the same time limit applies to all types of crimes (e.g.: general and serious) or not.\\n\\nPlease consult a qualified legal professional or advocate for further clear information on this subject.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response does not mention the specific '24-hour' time limit mentioned in the evidence for C4, only that travel time is excluded.\",\n      \"severity\": \"low\"\n    }\n  ],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "When presenting an arrested person before a judicial officer, the time necessary for travel is excluded [1].\n\nThis could not be confirmed:\n- Within what maximum time an arrested person must be presented in court.\n- Whether the time limit for presenting in court is calculated from the moment of arrest or not.\n- Whether the same time limit applies to all types of crimes (e.g.: general and serious) or not.\n\nPlease consult a qualified legal professional or advocate for further clear information on this subject.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response does not mention the specific '24-hour' time limit mentioned in the evidence for C4, only that travel time is excluded.",
+            "severity": "low"
+          }
+        ],
+        "fidelity_ok": true
+      },
+      "latency_ms": 3649.2729000165127,
+      "prompt_tokens": 817,
+      "completion_tokens": 202,
+      "cost_usd": 0.00016250000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0024817999999999997,
+  "total_latency_ms": 26140.39930002764,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

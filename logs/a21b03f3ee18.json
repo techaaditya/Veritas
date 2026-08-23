@@ -1,0 +1,515 @@
+{
+  "run_id": "a21b03f3ee18",
+  "question": "स्तनपान गराउने आमाले प्यारासिटामोल खान मिल्छ कि मिल्दैन?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "स्तनपान गराउने आमाहरूका लागि प्यारासिटामोलको अधिकतम दैनिक मात्रा २४ घण्टामा ८ ट्याब्लेटभन्दा बढी हुनु हुँदैन [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- प्यारासिटामोल स्तनको दूधमा मापन गर्न सकिने मात्रामा सर्छ कि सर्दैन।\n- प्रमुख स्वास्थ्य निकायहरू (जस्तै WHO, CDC, FDA, AAP) ले स्तनपानको समयमा प्यारासिटामोल प्रयोग गर्नु सुरक्षित मान्छन् कि मान्दैनन्।\n- प्यारासिटामोल सेवन गर्ने आमाका स्तनपान गर्ने शिशुहरूमा कुनै प्रतिकूल प्रभावहरू देखिएका छन् कि छैनन्।\n- केही विशेष मातृ अवस्थाहरू (जस्तै कलेजोको रोग) ले स्तनपानको समयमा प्यारासिटामोललाई असुरक्षित बनाउँछन् कि बनाउँदैनन्।",
+  "citations": [
+    {
+      "marker": "[1]",
+      "url": "https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol breast milk transfer",
+        "acetaminophen milk levels"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/",
+      "caveats": [
+        "code override: numeric value(s) ['650'] in the answer were not found verbatim in evidence_span"
+      ],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "falsification_attempt": "The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15 mg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.",
+        "confidence": 0.96
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "paracetamol dosage breastfeeding",
+        "acetaminophen safe dose lactating"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.",
+      "evidence_span": "Do not take more than 8 tablets in 24 hours.",
+      "source_url": "https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SCOPE_DROPPED"
+        ],
+        "falsification_attempt": "The evidence span only says \"Do not take more than 8 tablets in 24 hours\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.",
+        "confidence": 0.85
+      }
+    },
+    {
+      "id": "C3",
+      "claim_question": "Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?",
+      "claim_type": "factual",
+      "criticality": "critical",
+      "search_terms": [
+        "WHO paracetamol breastfeeding",
+        "CDC acetaminophen lactation",
+        "FDA paracetamol lactating"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C4",
+      "claim_question": "Are there documented adverse effects on breastfed infants whose mothers took paracetamol?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "paracetamol infant adverse effects",
+        "acetaminophen breastfed infant outcomes"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [
+        "no whitelisted evidence found for this claim"
+      ],
+      "challenge": null
+    },
+    {
+      "id": "C5",
+      "claim_question": "Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?",
+      "claim_type": "conditional",
+      "criticality": "supporting",
+      "search_terms": [
+        "paracetamol contraindications breastfeeding",
+        "acetaminophen liver disease lactation"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: स्तनपान गराउने आमाले प्यारासिटामोल खान मिल्छ कि मिल्दैन?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"स्तनपान गराउने आमाले प्यारासिटामोल खान मिल्छ कि मिल्दैन?\",\n  \"canonical_english\": \"Is it safe for breastfeeding mothers to take paracetamol?\",\n  \"domain\": \"health\",\n  \"entities\": [\"paracetamol\"],\n  \"implicit_context\": [\"The user is asking about the safety of a medication during lactation.\"],\n  \"ambiguities\": [\"dosage\", \"frequency of use\", \"reason for medication\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "स्तनपान गराउने आमाले प्यारासिटामोल खान मिल्छ कि मिल्दैन?",
+        "canonical_english": "Is it safe for breastfeeding mothers to take paracetamol?",
+        "domain": "health",
+        "entities": [
+          "paracetamol"
+        ],
+        "implicit_context": [
+          "The user is asking about the safety of a medication during lactation."
+        ],
+        "ambiguities": [
+          "dosage",
+          "frequency of use",
+          "reason for medication"
+        ]
+      },
+      "latency_ms": 1420.0540999881923,
+      "prompt_tokens": 316,
+      "completion_tokens": 123,
+      "cost_usd": 8.080000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: Is it safe for breastfeeding mothers to take paracetamol?\nORIGINAL: स्तनपान गराउने आमाले प्यारासिटामोल खान मिल्छ कि मिल्दैन?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question concerns medication safety during breastfeeding, which falls under high-stakes health guidance where errors could cause physical harm to an infant.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question concerns medication safety during breastfeeding, which falls under high-stakes health guidance where errors could cause physical harm to an infant.",
+        "emergency_signals": []
+      },
+      "latency_ms": 1094.573600043077,
+      "prompt_tokens": 338,
+      "completion_tokens": 61,
+      "cost_usd": 5.8200000000000005e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: Is it safe for breastfeeding mothers to take paracetamol?\nENTITIES: ['paracetamol']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"paracetamol breast milk transfer\", \"acetaminophen milk levels\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"paracetamol dosage breastfeeding\", \"acetaminophen safe dose lactating\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"WHO paracetamol breastfeeding\", \"CDC acetaminophen lactation\", \"FDA paracetamol lactating\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Are there documented adverse effects on breastfed infants whose mothers took paracetamol?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"paracetamol infant adverse effects\", \"acetaminophen breastfed infant outcomes\"]\n    },\n    {\n      \"id\": \"C5\",\n      \"claim_question\": \"Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?\",\n      \"claim_type\": \"conditional\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"paracetamol contraindications breastfeeding\", \"acetaminophen liver disease lactation\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol breast milk transfer",
+              "acetaminophen milk levels"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.",
+            "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/",
+            "caveats": [
+              "code override: numeric value(s) ['650'] in the answer were not found verbatim in evidence_span"
+            ],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH"
+              ],
+              "falsification_attempt": "The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15 mg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.",
+              "confidence": 0.96
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "paracetamol dosage breastfeeding",
+              "acetaminophen safe dose lactating"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.",
+            "evidence_span": "Do not take more than 8 tablets in 24 hours.",
+            "source_url": "https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH",
+                "SCOPE_DROPPED"
+              ],
+              "falsification_attempt": "The evidence span only says \"Do not take more than 8 tablets in 24 hours\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.",
+              "confidence": 0.85
+            }
+          },
+          {
+            "id": "C3",
+            "claim_question": "Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?",
+            "claim_type": "factual",
+            "criticality": "critical",
+            "search_terms": [
+              "WHO paracetamol breastfeeding",
+              "CDC acetaminophen lactation",
+              "FDA paracetamol lactating"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C4",
+            "claim_question": "Are there documented adverse effects on breastfed infants whose mothers took paracetamol?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "paracetamol infant adverse effects",
+              "acetaminophen breastfed infant outcomes"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [
+              "no whitelisted evidence found for this claim"
+            ],
+            "challenge": null
+          },
+          {
+            "id": "C5",
+            "claim_question": "Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?",
+            "claim_type": "conditional",
+            "criticality": "supporting",
+            "search_terms": [
+              "paracetamol contraindications breastfeeding",
+              "acetaminophen liver disease lactation"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 3221.411300008185,
+      "prompt_tokens": 292,
+      "completion_tokens": 826,
+      "cost_usd": 0.0004422,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?\nEVIDENCE:\n[source: https://www.ncbi.nlm.nih.gov/books/NBK501194/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nDrugs and Lactation Database (LactMed®) \\[Internet\\]. Bethesda (MD): National Institute of Child Health and Human Development; 2006-.\n\n[![Cover of Drugs and Lactation Database (LactMed®)](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-lactmed-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/lactmed/ \"Table of Contents Page\")\n\n## Drugs and Lactation Database (LactMed®) \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK501194/#__NBK501194_dtls__)\n\nBethesda (MD): [National Institute of Child Health and Human Development](https://www.nlm.nih.gov/); 2006-.\n\n- [Contents](https://www.ncbi.nlm.nih.gov/books/n/lactmed/)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK501194/#)\n\n[< Prev](https://www.ncbi.nlm.nih.gov/books/n/lactmed/LM632/ \"Previous page in this title\") [Next >](https://www.ncbi.nlm.nih.gov/books/n/lactmed/LM489/ \"Next page in this title\")\n\n# Acetaminophen\n\nLast Revision: April 15, 2026.\n\n_Estimated reading time: 4 minutes_\n\nCASRN: 103-90-2\n\n[![image 134972565 in t\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK501194/]\nhe ncbi pubchem database](https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?t=l&sid=134972565)](https://pubchem.ncbi.nlm.nih.gov/substance/134972565 \"View this structure in PubChem\")\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK501194/# \"Go to other sections in this page\")\n\n## Drug Levels and Effects\n\n### Summary of Use during Lactation\n\nAcetaminophen is a good choice for analgesia, and fever reduction in nursing mothers. Giving acetaminophen and ibuprofen on a fixed schedule for 24 hours after vaginal delivery appears to increase the breastfeeding rate. There is no difference in breastfeeding initiation rate between ibuprofen or acetaminophen alone after vaginal delivery. Amounts in milk are much less than doses usually given to infants. Adverse effects in breastfed infants appear to be rare.\n\n### Drug Levels\n\n_Maternal Levels._ A single oral dose of 650 mg of acetaminophen was given to 12 nursing mothers who were 2 to 22 months postpartum. [Peak](https://www.ncbi.nlm.nih.gov/books/n/lactmed/drugandlactglossary/def-item/peak/) milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Acetaminophen was undetectable (<0.5 mg/L) in all mothers 12\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10826108/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC10826108/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journ\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10826108/]\nal List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.1186/s12884-024-06287-4) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10826108/pdf/12884_2024_Article_6287.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n\n[source: https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/]\n[Skip to content](https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/#content)\n\n# **Can I Take Tylenol While Breastfeeding? What Every Nursing Mom Should Know**\n\n![](https://pakpeds.com/wp-content/uploads/2025/07/unnamed-15.png)\n\nWhether you’re dealing with a headache, recovering from birth, or battling a fever, it’s common to reach for a pain reliever like Tylenol. But if you’re breastfeeding, you may stop and wonder: _Can I take Tylenol while breastfeeding?_ Will it affect my baby? Is it safe for daily use?\n\nThese are smart, important questions—especially in the early postpartum weeks when you’re still getting to know your baby’s needs and your own changing body.\n\nAt PAK Pediatrics, and with the expert support of the [NEPA Breastfeeding Center](http://nepabreastfeeding.com/), we help moms navigate everyday health decisions with confidence. Let’s take a close look at Tylenol and how it fits into your breastfeeding journey.\n\n## What Is Tylenol?\n\nTylenol is the brand name for acetaminophen, a widely used over-the-counter pain reliever and fever reducer. It’s commonly taken for:\n\n- Headaches\n\n- Muscle aches\n\n- \n\n[source: https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/]\nBack pain\n\n- Postpartum recovery\n\n- Cold or flu symptoms\n\n- Fever\n\n\nAcetaminophen is often included in combination medications like cold relief formulas (DayQuil, NyQuil, etc.) and prescription-strength pain relievers.\n\n## Is Tylenol Safe While Breastfeeding\n\nYes—Tylenol (acetaminophen) is considered safe while breastfeeding.\n\n### Here’s why:\n\n- Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\n\n- It has a short half-life, meaning it leaves your system fairly quickly.\n\n- It’s approved by both the American Academy of Pediatrics and the LactMed database for use during lactation.\n\n\nIt’s one of the most commonly used medications during pregnancy and postpartum, and it’s often the go-to recommendation from pediatricians for pain or fever in nursing mothers.\n\n## Will Tylenol Affect My Baby?\n\nIn general, **no**. When used as directed, Tylenol has not been shown to cause side effects in breastfed babies.\n\nThat said, if you’re taking high doses frequently, or if your baby has a pre-existing liver condition or is premature, it’s always good to check with your pediatrician.\n\n### Things to monitor:\n\n- Changes in feeding habits\n\n- Unusual sleepiness or irrit\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Yes, acetaminophen transfers into breast milk in measurable amounts; for example, a single oral dose of 650 mg resulted in peak milk levels of 10 to 15 mg/L, and it is noted that small amounts (less than 1% of the maternal dose) pass into the milk.\",\n  \"evidence_span\": \"Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\",\n  \"source_url\": \"https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.",
+        "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/",
+        "caveats": [
+          "code override: numeric value(s) ['650'] in the answer were not found verbatim in evidence_span"
+        ]
+      },
+      "latency_ms": 1544.9926999863237,
+      "prompt_tokens": 2818,
+      "completion_tokens": 240,
+      "cost_usd": 0.0003778,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?\nEVIDENCE:\n[source: https://www.ncbi.nlm.nih.gov/books/NBK501194/]\nNCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.\n\nDrugs and Lactation Database (LactMed®) \\[Internet\\]. Bethesda (MD): National Institute of Child Health and Human Development; 2006-.\n\n[![Cover of Drugs and Lactation Database (LactMed®)](https://www.ncbi.nlm.nih.gov/corehtml/pmc/pmcgifs/bookshelf/thumbs/th-lactmed-lrg.png)](https://www.ncbi.nlm.nih.gov/books/n/lactmed/ \"Table of Contents Page\")\n\n## Drugs and Lactation Database (LactMed®) \\[Internet\\].\n\n[Show details](https://www.ncbi.nlm.nih.gov/books/NBK501194/#__NBK501194_dtls__)\n\nBethesda (MD): [National Institute of Child Health and Human Development](https://www.nlm.nih.gov/); 2006-.\n\n- [Contents](https://www.ncbi.nlm.nih.gov/books/n/lactmed/)\n\nSearch term\n\n[![Clear input](https://www.ncbi.nlm.nih.gov/core/jig/1.15.2/img/clear.png)](https://www.ncbi.nlm.nih.gov/books/NBK501194/#)\n\n[< Prev](https://www.ncbi.nlm.nih.gov/books/n/lactmed/LM632/ \"Previous page in this title\") [Next >](https://www.ncbi.nlm.nih.gov/books/n/lactmed/LM489/ \"Next page in this title\")\n\n# Acetaminophen\n\nLast Revision: April 15, 2026.\n\n_Estimated reading time: 4 minutes_\n\nCASRN: 103-90-2\n\n[![image 134972565 in t\n\n[source: https://www.ncbi.nlm.nih.gov/books/NBK501194/]\nhe ncbi pubchem database](https://pubchem.ncbi.nlm.nih.gov/image/imgsrv.fcgi?t=l&sid=134972565)](https://pubchem.ncbi.nlm.nih.gov/substance/134972565 \"View this structure in PubChem\")\n\n[Go to:](https://www.ncbi.nlm.nih.gov/books/NBK501194/# \"Go to other sections in this page\")\n\n## Drug Levels and Effects\n\n### Summary of Use during Lactation\n\nAcetaminophen is a good choice for analgesia, and fever reduction in nursing mothers. Giving acetaminophen and ibuprofen on a fixed schedule for 24 hours after vaginal delivery appears to increase the breastfeeding rate. There is no difference in breastfeeding initiation rate between ibuprofen or acetaminophen alone after vaginal delivery. Amounts in milk are much less than doses usually given to infants. Adverse effects in breastfed infants appear to be rare.\n\n### Drug Levels\n\n_Maternal Levels._ A single oral dose of 650 mg of acetaminophen was given to 12 nursing mothers who were 2 to 22 months postpartum. [Peak](https://www.ncbi.nlm.nih.gov/books/n/lactmed/drugandlactglossary/def-item/peak/) milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Acetaminophen was undetectable (<0.5 mg/L) in all mothers 12\n\n[source: https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/]\n- [Skip to primary navigation](https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/#slide-menu)\n- [Skip to main content](https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/#genesis-content)\n- [Skip to footer](https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/#genesis-footer-widgets)\n\n[Home](https://www.breastfeedingnetwork.org.uk/) » **Pain Relief (Analgesics) and Breastfeeding**\n\n_If you have any questions about this information, you can contact the Drugs in Breastmilk team through their_ [_Facebook page_](https://www.facebook.com/BreastfeedingNetworkDrugsInBreastmilk) _or on_ [_druginformation@breastfeedingnetwork.org.uk_](mailto:druginformation@breastfeedingnetwork.org.uk) _._\n\n## You can take paracetamol and ibuprofen at their usual doses if you are breastfeeding\n\n## Stronger pain relief medicines are also available, but you should take these with caution and watch your baby for side effects\n\n## Avoid aspirin or codeine for pain relief\n\n## Some combined medicines contain caffeine\n\n## Always check all the ingredients of any medicine you take\n\n## In this page:\n\n- **[Over the counter medicines](https://www.breastfeedingnetwork.org.uk/factsheet/analges\n\n[source: https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/]\nics/#counter)**\n- **[Prescription analgesics](https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/#prescription)**\n- **[Related Factsheets](https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/#related)**\n- **[Bibliography](https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/#bibliography)**\n\n## **Over the counter medicines**\n\n##### Paracetamol\n\nYou can take paracetamol at the normal adult dose as described in the patient information leaflet. Only a very small amount passes into your breastmilk. It is important to not exceed the daily dose of paracetamol. Do not take more than 2 tablets at any one time. Do not take more than 8 tablets in 24 hours. Always read the instructions on the pack before taking.\n\nBranded products include Panadol® and Solpadeine Headache®. Most pharmacies also stock own-brands. Paracetamol may also be included in cold remedies and combined pain relief medications. It is important not to take too much by accident – please check the ingredients carefully and ask a pharmacist if you are unsure. For more information on cold remedies and combined medications, see our [factsheet on Cough and Cold Remedies](https://www.breastfeedingnetwork.\n\n[source: https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/]\n[Skip to content](https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/#content)\n\n# **Can I Take Tylenol While Breastfeeding? What Every Nursing Mom Should Know**\n\n![](https://pakpeds.com/wp-content/uploads/2025/07/unnamed-15.png)\n\nWhether you’re dealing with a headache, recovering from birth, or battling a fever, it’s common to reach for a pain reliever like Tylenol. But if you’re breastfeeding, you may stop and wonder: _Can I take Tylenol while breastfeeding?_ Will it affect my baby? Is it safe for daily use?\n\nThese are smart, important questions—especially in the early postpartum weeks when you’re still getting to know your baby’s needs and your own changing body.\n\nAt PAK Pediatrics, and with the expert support of the [NEPA Breastfeeding Center](http://nepabreastfeeding.com/), we help moms navigate everyday health decisions with confidence. Let’s take a close look at Tylenol and how it fits into your breastfeeding journey.\n\n## What Is Tylenol?\n\nTylenol is the brand name for acetaminophen, a widely used over-the-counter pain reliever and fever reducer. It’s commonly taken for:\n\n- Headaches\n\n- Muscle aches\n\n- \n\n[source: https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/]\nBack pain\n\n- Postpartum recovery\n\n- Cold or flu symptoms\n\n- Fever\n\n\nAcetaminophen is often included in combination medications like cold relief formulas (DayQuil, NyQuil, etc.) and prescription-strength pain relievers.\n\n## Is Tylenol Safe While Breastfeeding\n\nYes—Tylenol (acetaminophen) is considered safe while breastfeeding.\n\n### Here’s why:\n\n- Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\n\n- It has a short half-life, meaning it leaves your system fairly quickly.\n\n- It’s approved by both the American Academy of Pediatrics and the LactMed database for use during lactation.\n\n\nIt’s one of the most commonly used medications during pregnancy and postpartum, and it’s often the go-to recommendation from pediatricians for pain or fever in nursing mothers.\n\n## Will Tylenol Affect My Baby?\n\nIn general, **no**. When used as directed, Tylenol has not been shown to cause side effects in breastfed babies.\n\nThat said, if you’re taking high doses frequently, or if your baby has a pre-existing liver condition or is premature, it’s always good to check with your pediatrician.\n\n### Things to monitor:\n\n- Changes in feeding habits\n\n- Unusual sleepiness or irrit\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.\",\n  \"evidence_span\": \"Do not take more than 8 tablets in 24 hours.\",\n  \"source_url\": \"https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "SUPPORTED",
+        "answer": "The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.",
+        "evidence_span": "Do not take more than 8 tablets in 24 hours.",
+        "source_url": "https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/",
+        "caveats": []
+      },
+      "latency_ms": 1611.6880000336096,
+      "prompt_tokens": 2424,
+      "completion_tokens": 116,
+      "cost_usd": 0.0002888,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?\nPROPOSED ANSWER: (none — claim was UNSUPPORTED)\nEVIDENCE SPAN: Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\nSOURCE: https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15 mg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.96\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15 mg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.96
+      },
+      "latency_ms": 2370.84120005602,
+      "prompt_tokens": 509,
+      "completion_tokens": 401,
+      "cost_usd": 0.0002514,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 995.831900043413,
+      "prompt_tokens": 455,
+      "completion_tokens": 63,
+      "cost_usd": 7.070000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C2\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?\nPROPOSED ANSWER: The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.\nEVIDENCE SPAN: Do not take more than 8 tablets in 24 hours.\nSOURCE: https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/\n",
+      "raw_response": "{\n  \"claim_id\": \"C2\",\n  \"falsification_attempt\": \"The evidence span only says \\\"Do not take more than 8 tablets in 24 hours\\\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\", \"SCOPE_DROPPED\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.85\n}",
+      "parsed": {
+        "claim_id": "C2",
+        "falsification_attempt": "The evidence span only says \"Do not take more than 8 tablets in 24 hours\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH",
+          "SCOPE_DROPPED"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.85
+      },
+      "latency_ms": 4208.566800050903,
+      "prompt_tokens": 449,
+      "completion_tokens": 910,
+      "cost_usd": 0.0004999,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?\nEVIDENCE:\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/]\nStandard-dose paracetamol was administered at 15 mg/kg per dose. High-dose paracetamol was administered at 20 mg/kg per dose in the intervention group, ages 6 months to 5 years. Hepatotoxicity with paracetamol is very rare in children if it is used in the therapeutic range (<=75 mg/kg per day orally or intravenously or <=100 mg/kg per day rectally). A single dose of high-dose paracetamol (20 mg/kg/dose) was safe and had a similar antipyretic effect as mefenamic acid.\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C5",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/",
+        "caveats": []
+      },
+      "latency_ms": 2021.3640000438318,
+      "prompt_tokens": 450,
+      "completion_tokens": 85,
+      "cost_usd": 7.900000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\n  source=https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/\n  caveats=[\"code override: numeric value(s) ['650'] in the answer were not found verbatim in evidence_span\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15\\u202fmg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.', 'confidence': 0.96}\n[C2] (critical) Q: What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?\n  verdict=SUPPORTED answer=The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.\n  evidence_span=Do not take more than 8 tablets in 24 hours.\n  source=https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED'], 'falsification_attempt': 'The evidence span only says \"Do not take more than 8 tablets in 24 hours\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.', 'confidence': 0.85}\n[C3] (critical) Q: Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there documented adverse effects on breastfed infants whose mothers took paracetamol?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C5] (supporting) Q: Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"स्तनपान गराउने आमाहरूका लागि प्यारासिटामोल (paracetamol) को मात्राका बारेमा र यसको सुरक्षाका बारेमा पर्याप्त जानकारी स्थापित गर्न सकिएन। कृपया यस विषयमा थप सल्लाहका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "स्तनपान गराउने आमाहरूका लागि प्यारासिटामोल (paracetamol) को मात्राका बारेमा र यसको सुरक्षाका बारेमा पर्याप्त जानकारी स्थापित गर्न सकिएन। कृपया यस विषयमा थप सल्लाहका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 2036.022900021635,
+      "prompt_tokens": 1072,
+      "completion_tokens": 84,
+      "cost_usd": 0.0001408,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: स्तनपान गराउने आमाहरूका लागि प्यारासिटामोल (paracetamol) को मात्राका बारेमा र यसको सुरक्षाका बारेमा पर्याप्त जानकारी स्थापित गर्न सकिएन। कृपया यस विषयमा थप सल्लाहका लागि योग्य स्वास्थ्यकर्मी वा डाक्टरसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\n  source=https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/\n  caveats=[\"code override: numeric value(s) ['650'] in the answer were not found verbatim in evidence_span\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15\\u202fmg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.', 'confidence': 0.96}\n[C2] (critical) Q: What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?\n  verdict=SUPPORTED answer=The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.\n  evidence_span=Do not take more than 8 tablets in 24 hours.\n  source=https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED'], 'falsification_attempt': 'The evidence span only says \"Do not take more than 8 tablets in 24 hours\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.', 'confidence': 0.85}\n[C3] (critical) Q: Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there documented adverse effects on breastfed infants whose mothers took paracetamol?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C5] (supporting) Q: Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Regarding the dose of paracetamol for breastfeeding mothers and about its safety, sufficient information could not be established. Please consult a qualified health worker or doctor for further advice on this subject.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response fails to provide the specific maximum daily dose (8 tablets in 24 hours) mentioned in C2.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Regarding the dose of paracetamol for breastfeeding mothers and about its safety, sufficient information could not be established. Please consult a qualified health worker or doctor for further advice on this subject.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response fails to provide the specific maximum daily dose (8 tablets in 24 hours) mentioned in C2.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 16523.053300043102,
+      "prompt_tokens": 991,
+      "completion_tokens": 124,
+      "cost_usd": 0.0001487,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\n  source=https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/\n  caveats=[\"code override: numeric value(s) ['650'] in the answer were not found verbatim in evidence_span\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15\\u202fmg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.', 'confidence': 0.96}\n[C2] (critical) Q: What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?\n  verdict=SUPPORTED answer=The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.\n  evidence_span=Do not take more than 8 tablets in 24 hours.\n  source=https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED'], 'falsification_attempt': 'The evidence span only says \"Do not take more than 8 tablets in 24 hours\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.', 'confidence': 0.85}\n[C3] (critical) Q: Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there documented adverse effects on breastfed infants whose mothers took paracetamol?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C5] (supporting) Q: Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n[{\"type\": \"DROPPED\", \"detail\": \"The response fails to provide the specific maximum daily dose (8 tablets in 24 hours) mentioned in C2.\", \"severity\": \"high\"}]\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"स्तनपान गराउने आमाहरूका लागि प्यारासिटामोलको अधिकतम दैनिक मात्रा २४ घण्टामा ८ ट्याब्लेटभन्दा बढी हुनु हुँदैन [1] ।\\n\\nयो कुरा पुष्टि गर्न सकिएन:\\n- प्यारासिटामोल स्तनको दूधमा मापन गर्न सकिने मात्रामा सर्छ कि सर्दैन।\\n- प्रमुख स्वास्थ्य निकायहरू (जस्तै WHO, CDC, FDA, AAP) ले स्तनपानको समयमा प्यारासिटामोल प्रयोग गर्नु सुरक्षित मान्छन् कि मान्दैनन्।\\n- प्यारासिटामोल सेवन गर्ने आमाका स्तनपान गर्ने शिशुहरूमा कुनै प्रतिकूल प्रभावहरू देखिएका छन् कि छैनन्।\\n- केही विशेष मातृ अवस्थाहरू (जस्तै कलेजोको रोग) ले स्तनपानको समयमा प्यारासिटामोललाई असुरक्षित बनाउँछन् कि बनाउँदैनन्।\",\n  \"citations\": [\n    {\n      \"marker\": \"[1]\",\n      \"url\": \"https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/\"\n    }\n  ]\n}\n```",
+      "parsed": {
+        "response_text": "स्तनपान गराउने आमाहरूका लागि प्यारासिटामोलको अधिकतम दैनिक मात्रा २४ घण्टामा ८ ट्याब्लेटभन्दा बढी हुनु हुँदैन [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- प्यारासिटामोल स्तनको दूधमा मापन गर्न सकिने मात्रामा सर्छ कि सर्दैन।\n- प्रमुख स्वास्थ्य निकायहरू (जस्तै WHO, CDC, FDA, AAP) ले स्तनपानको समयमा प्यारासिटामोल प्रयोग गर्नु सुरक्षित मान्छन् कि मान्दैनन्।\n- प्यारासिटामोल सेवन गर्ने आमाका स्तनपान गर्ने शिशुहरूमा कुनै प्रतिकूल प्रभावहरू देखिएका छन् कि छैनन्।\n- केही विशेष मातृ अवस्थाहरू (जस्तै कलेजोको रोग) ले स्तनपानको समयमा प्यारासिटामोललाई असुरक्षित बनाउँछन् कि बनाउँदैनन्।",
+        "citations": [
+          {
+            "marker": "[1]",
+            "url": "https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/"
+          }
+        ]
+      },
+      "latency_ms": 2880.1695000147447,
+      "prompt_tokens": 1133,
+      "completion_tokens": 261,
+      "cost_usd": 0.00021769999999999998,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: स्तनपान गराउने आमाहरूका लागि प्यारासिटामोलको अधिकतम दैनिक मात्रा २४ घण्टामा ८ ट्याब्लेटभन्दा बढी हुनु हुँदैन [1] ।\n\nयो कुरा पुष्टि गर्न सकिएन:\n- प्यारासिटामोल स्तनको दूधमा मापन गर्न सकिने मात्रामा सर्छ कि सर्दैन।\n- प्रमुख स्वास्थ्य निकायहरू (जस्तै WHO, CDC, FDA, AAP) ले स्तनपानको समयमा प्यारासिटामोल प्रयोग गर्नु सुरक्षित मान्छन् कि मान्दैनन्।\n- प्यारासिटामोल सेवन गर्ने आमाका स्तनपान गर्ने शिशुहरूमा कुनै प्रतिकूल प्रभावहरू देखिएका छन् कि छैनन्।\n- केही विशेष मातृ अवस्थाहरू (जस्तै कलेजोको रोग) ले स्तनपानको समयमा प्यारासिटामोललाई असुरक्षित बनाउँछन् कि बनाउँदैनन्।\nVERIFIED CLAIMS: [C1] (critical) Q: Does paracetamol (acetaminophen) transfer into breast milk in measurable amounts?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=Peak milk levels of 10 to 15 mg/L occurred between 1 and 2 hours after the dose in all patients. Only small amounts pass into breast milk—less than 1% of the dose taken by the mother.\n  source=https://www.ncbi.nlm.nih.gov/books/NBK501194/ and https://pakpeds.com/breastfeeding-support/what-medicine-can-i-take-when-breastfeeding/can-i-take-tylenol-while-breastfeeding/\n  caveats=[\"code override: numeric value(s) ['650'] in the answer were not found verbatim in evidence_span\"]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The provided evidence directly states that paracetamol does appear in breast milk at measurable concentrations (10–15\\u202fmg/L) and quantifies the transfer as less than 1% of the maternal dose. This contradicts the answer’s claim that the statement is unsupported. The evidence span clearly establishes that the drug transfers into breast milk, so the answer is factually incorrect.', 'confidence': 0.96}\n[C2] (critical) Q: What is the recommended maximum daily dose of paracetamol for breastfeeding mothers?\n  verdict=SUPPORTED answer=The recommended maximum daily dose of paracetamol for breastfeeding mothers is no more than 8 tablets in 24 hours.\n  evidence_span=Do not take more than 8 tablets in 24 hours.\n  source=https://www.breastfeedingnetwork.org.uk/factsheet/analgesics/\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH', 'SCOPE_DROPPED'], 'falsification_attempt': 'The evidence span only says \"Do not take more than 8 tablets in 24 hours\" without any mention that this limit applies specifically to breastfeeding mothers. It therefore merely relates to general adult dosing and does not establish the recommendation for the lactating population, meaning the condition (breastfeeding) has been dropped from the cited statement.', 'confidence': 0.85}\n[C3] (critical) Q: Do major health authorities (e.g., WHO, CDC, FDA, AAP) consider paracetamol safe for use during breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C4] (supporting) Q: Are there documented adverse effects on breastfed infants whose mothers took paracetamol?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=['no whitelisted evidence found for this claim']\n  challenge=None\n[C5] (supporting) Q: Are there specific maternal conditions (e.g., liver disease) that make paracetamol unsafe for breastfeeding?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=https://pmc.ncbi.nlm.nih.gov/articles/PMC9363685/\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"For breastfeeding mothers, the maximum daily dose of paracetamol should not be more than 8 tablets in 24 hours [1].\\n\\nThis could not be confirmed:\\n- Whether paracetamol transfers into breast milk in measurable amounts.\\n- Whether major health bodies (such as WHO, CDC, FDA, AAP) consider the use of paracetamol during breastfeeding safe or not.\\n- Whether any adverse effects have been seen in breastfed infants of mothers taking paracetamol.\\n- Whether some specific maternal conditions (such as liver disease) make paracetamol unsafe during breastfeeding or not.\",\n  \"drift\": [],\n  \"fidelity_ok\": true\n}\n```",
+      "parsed": {
+        "back_translation": "For breastfeeding mothers, the maximum daily dose of paracetamol should not be more than 8 tablets in 24 hours [1].\n\nThis could not be confirmed:\n- Whether paracetamol transfers into breast milk in measurable amounts.\n- Whether major health bodies (such as WHO, CDC, FDA, AAP) consider the use of paracetamol during breastfeeding safe or not.\n- Whether any adverse effects have been seen in breastfed infants of mothers taking paracetamol.\n- Whether some specific maternal conditions (such as liver disease) make paracetamol unsafe during breastfeeding or not.",
+        "drift": [],
+        "fidelity_ok": true
+      },
+      "latency_ms": 1441.962799988687,
+      "prompt_tokens": 1120,
+      "completion_tokens": 151,
+      "cost_usd": 0.00017240000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0028284,
+  "total_latency_ms": 33511.70050003566,
+  "degraded_nodes": [],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}

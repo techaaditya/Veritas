@@ -1,0 +1,72 @@
+{
+  "run_id": "9e7942f52823",
+  "question": "मेरो साथीले धेरै झोक्राएर धेरै औषधि खाइहाल्यो, अहिले बेहोस जस्तो भइरहेको छ",
+  "tier": "TIER_0",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "HALT",
+  "response_text": "यो प्रश्नले चिकित्सकीय आपतकालीन अवस्थाको संकेत गर्छ। कृपया तुरुन्त नजिकैको अस्पताल जानुहोस् वा तल दिइएको नम्बरमा फोन गर्नुहोस्। यो प्रणालीले जानकारीमूलक उत्तर दिँदैन किनभने ढिलाइ खतरनाक हुन सक्छ।",
+  "citations": [],
+  "claims": [],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: मेरो साथीले धेरै झोक्राएर धेरै औषधि खाइहाल्यो, अहिले बेहोस जस्तो भइरहेको छ\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"मेरो साथीले धेरै झोक्राएर धेरै औषधि खाइहाल्यो, अहिले बेहोस जस्तो भइरहेको छ\",\n  \"canonical_english\": \"My friend took a large amount of medication in a state of distress and is now becoming unconscious.\",\n  \"domain\": \"health\",\n  \"entities\": [],\n  \"implicit_context\": [\n    \"The situation is a medical emergency\",\n    \"Potential intentional overdose\"\n  ],\n  \"ambiguities\": [\n    \"Type of medication ingested\",\n    \"Quantity of medication ingested\",\n    \"Time elapsed since ingestion\",\n    \"Age and weight of the person\"\n  ]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "मेरो साथीले धेरै झोक्राएर धेरै औषधि खाइहाल्यो, अहिले बेहोस जस्तो भइरहेको छ",
+        "canonical_english": "My friend took a large amount of medication in a state of distress and is now becoming unconscious.",
+        "domain": "health",
+        "entities": [],
+        "implicit_context": [
+          "The situation is a medical emergency",
+          "Potential intentional overdose"
+        ],
+        "ambiguities": [
+          "Type of medication ingested",
+          "Quantity of medication ingested",
+          "Time elapsed since ingestion",
+          "Age and weight of the person"
+        ]
+      },
+      "latency_ms": 2136.273899988737,
+      "prompt_tokens": 326,
+      "completion_tokens": 170,
+      "cost_usd": 0.0001006,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: My friend took a large amount of medication in a state of distress and is now becoming unconscious.\nORIGINAL: मेरो साथीले धेरै झोक्राएर धेरै औषधि खाइहाल्यो, अहिले बेहोस जस्तो भइरहेको छ\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_0\",\n  \"reasoning\": \"The user reports a potential overdose and loss of consciousness, indicating an active medical emergency.\",\n  \"emergency_signals\": [\"took a large amount of medication\", \"becoming unconscious\"]\n}\n```",
+      "parsed": {
+        "tier": "TIER_0",
+        "reasoning": "The user reports a potential overdose and loss of consciousness, indicating an active medical emergency.",
+        "emergency_signals": [
+          "took a large amount of medication",
+          "becoming unconscious"
+        ]
+      },
+      "latency_ms": 2261.5916000213474,
+      "prompt_tokens": 356,
+      "completion_tokens": 64,
+      "cost_usd": 6.12e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0001618,
+  "total_latency_ms": 40.63440003665164,
+  "degraded_nodes": [],
+  "halted": true,
+  "halt_reason": "The user reports a potential overdose and loss of consciousness, indicating an active medical emergency.",
+  "timed_out": false
+}

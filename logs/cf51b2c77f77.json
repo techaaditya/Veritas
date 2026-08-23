@@ -1,0 +1,573 @@
+{
+  "run_id": "cf51b2c77f77",
+  "question": "पोलियो खोप कति पटक दिनुपर्छ?",
+  "tier": "TIER_1",
+  "domain": "health",
+  "detected_language": "ne",
+  "decision": "REFUSE",
+  "response_text": "यो विषयमा आवश्यक जानकारीहरू पूर्ण रूपमा स्थापित गर्न सकिएन। कृपया आधिकारिक स्वास्थ्यकर्मी वा योग्य चिकित्सकसँग परामर्श गर्नुहोस्।\n\n---\n[Fidelity check could not be satisfied after retry; showing the verified English claim summary alongside the translation for safety.]\n\n[C1] (critical) Q: What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\n  verdict=SUPPORTED answer=4 doses\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SCOPE_DROPPED'], 'falsification_attempt': 'The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.', 'confidence': 0.86}\n[C2] (critical) Q: What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Does the recommended number of polio vaccine doses differ for adults compared to children?\n  verdict=SUPPORTED answer=Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=['The adult recommendation specifically applies to those with increased risk of exposure to poliovirus.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C4] (supporting) Q: Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\n  verdict=SUPPORTED answer=Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.\n  evidence_span=Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\n  source=https://wwwnc.cdc.gov/travel/notices/level2/global-polio\n  caveats=['The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.', 'confidence': 0.86}\n[C5] (supporting) Q: According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None",
+  "citations": [],
+  "claims": [
+    {
+      "id": "C1",
+      "claim_question": "What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "IPV",
+        "polio vaccine doses",
+        "routine schedule"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "4 doses",
+      "evidence_span": "CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.",
+      "source_url": "https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html",
+      "caveats": [],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SCOPE_DROPPED"
+        ],
+        "falsification_attempt": "The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.",
+        "confidence": 0.86
+      }
+    },
+    {
+      "id": "C2",
+      "claim_question": "What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?",
+      "claim_type": "numeric",
+      "criticality": "critical",
+      "search_terms": [
+        "OPV",
+        "polio vaccine doses",
+        "routine schedule"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": null,
+      "source_url": null,
+      "caveats": [],
+      "challenge": null
+    },
+    {
+      "id": "C3",
+      "claim_question": "Does the recommended number of polio vaccine doses differ for adults compared to children?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "adult polio vaccine schedule",
+        "polio vaccine doses adults"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.",
+      "evidence_span": "CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.",
+      "source_url": "https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html",
+      "caveats": [
+        "The adult recommendation specifically applies to those with increased risk of exposure to poliovirus."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "HOLDS",
+        "flags": [
+          "NONE"
+        ],
+        "falsification_attempt": "",
+        "confidence": 0.95
+      }
+    },
+    {
+      "id": "C4",
+      "claim_question": "Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "polio vaccine booster travel",
+        "polio vaccine travelers"
+      ],
+      "verdict": "SUPPORTED",
+      "answer": "Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.",
+      "evidence_span": "Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.",
+      "source_url": "https://wwwnc.cdc.gov/travel/notices/level2/global-polio",
+      "caveats": [
+        "The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series."
+      ],
+      "challenge": {
+        "verdict_after_challenge": "FAILS",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "falsification_attempt": "The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.",
+        "confidence": 0.86
+      }
+    },
+    {
+      "id": "C5",
+      "claim_question": "According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?",
+      "claim_type": "factual",
+      "criticality": "supporting",
+      "search_terms": [
+        "WHO polio vaccine supplemental dose",
+        "polio vaccine booster WHO"
+      ],
+      "verdict": "UNSUPPORTED",
+      "answer": null,
+      "evidence_span": "",
+      "source_url": "",
+      "caveats": [],
+      "challenge": null
+    }
+  ],
+  "node_log": [
+    {
+      "node": "N1",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "You are a query normalizer for a Nepali/English health-and-legal information system.\n\nINPUT: a user question that may be in Devanagari Nepali, romanized Nepali\n(Nepali written in Latin script), English, or code-mixed.\n\nReturn ONLY a JSON object, no prose, no markdown fences:\n{\n  \"detected_language\": \"ne\" | \"en\" | \"ne-Latn\" | \"mixed\",\n  \"devanagari_form\": \"<the question in Devanagari, or null if source is English>\",\n  \"canonical_english\": \"<a precise English restatement of the question>\",\n  \"domain\": \"health\" | \"legal\" | \"agriculture\" | \"other\",\n  \"entities\": [\"<named drugs, laws, conditions, crops mentioned>\"],\n  \"implicit_context\": [\"<facts the user assumed but did not state>\"],\n  \"ambiguities\": [\"<anything genuinely unclear that changes the answer>\"]\n}\n\nRules:\n- Do NOT answer the question.\n- If the question omits information that materially changes a safe answer\n  (age, weight, pregnancy status, jurisdiction, date), list it in \"ambiguities\".\n- Preserve the user's exact intent. Do not make the question safer or broader.\n\nQUESTION: पोलियो खोप कति पटक दिनुपर्छ?\n",
+      "raw_response": "{\n  \"detected_language\": \"ne\",\n  \"devanagari_form\": \"पोलियो खोप कति पटक दिनुपर्छ?\",\n  \"canonical_english\": \"How many doses of the polio vaccine should be administered?\",\n  \"domain\": \"health\",\n  \"entities\": [\"polio vaccine\"],\n  \"implicit_context\": [\"The user is likely asking about the standard pediatric immunization schedule.\"],\n  \"ambiguities\": [\"Age of the recipient\", \"Whether they are asking about the OPV or IPV schedule\", \"Country/Jurisdiction for specific health guidelines\"]\n}",
+      "parsed": {
+        "detected_language": "ne",
+        "devanagari_form": "पोलियो खोप कति पटक दिनुपर्छ?",
+        "canonical_english": "How many doses of the polio vaccine should be administered?",
+        "domain": "health",
+        "entities": [
+          "polio vaccine"
+        ],
+        "implicit_context": [
+          "The user is likely asking about the standard pediatric immunization schedule."
+        ],
+        "ambiguities": [
+          "Age of the recipient",
+          "Whether they are asking about the OPV or IPV schedule",
+          "Country/Jurisdiction for specific health guidelines"
+        ]
+      },
+      "latency_ms": 2263.262400054373,
+      "prompt_tokens": 307,
+      "completion_tokens": 131,
+      "cost_usd": 8.310000000000001e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N2",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Classify the risk tier of a health/legal question. Return ONLY JSON.\n\nTIER_0 — Emergency. Any indication of an in-progress medical emergency,\n  self-harm, poisoning, severe bleeding, breathing difficulty, chest pain,\n  stroke signs, or a child in acute distress.\n  -> The system must STOP and escalate. No informational answer.\n\nTIER_1 — High stakes. Answer errors could cause physical, legal, or financial\n  harm: drug dosing, drug interactions, pregnancy, paediatrics, chronic disease\n  management, legal deadlines, rights on arrest, contract obligations,\n  pesticide application rates.\n  -> Requires full grounding; refuse if evidence is insufficient.\n\nTIER_2 — General information. Definitions, general processes, background.\n  -> Grounded answer preferred; a clearly-labelled ungrounded answer is acceptable.\n\n{\n  \"tier\": \"TIER_0\" | \"TIER_1\" | \"TIER_2\",\n  \"reasoning\": \"<one sentence>\",\n  \"emergency_signals\": [\"<if TIER_0, the specific phrases that triggered it>\"]\n}\n\nBias: when genuinely uncertain between two tiers, choose the HIGHER-risk tier.\nAn unnecessary escalation costs the user a minute. A missed one can cost more.\n\nCANONICAL QUESTION: How many doses of the polio vaccine should be administered?\nORIGINAL: पोलियो खोप कति पटक दिनुपर्छ?\nDOMAIN: health\n",
+      "raw_response": "```json\n{\n  \"tier\": \"TIER_1\",\n  \"reasoning\": \"The question asks for specific drug dosing/vaccination schedules, where errors could lead to improper immunization.\",\n  \"emergency_signals\": []\n}\n```",
+      "parsed": {
+        "tier": "TIER_1",
+        "reasoning": "The question asks for specific drug dosing/vaccination schedules, where errors could lead to improper immunization.",
+        "emergency_signals": []
+      },
+      "latency_ms": 984.2747999937274,
+      "prompt_tokens": 329,
+      "completion_tokens": 55,
+      "cost_usd": 5.4900000000000006e-05,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N3",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "Decompose a question into atomic, independently verifiable sub-claims.\n\nAn atomic claim is one that a single authoritative source could confirm or\ndeny on its own. If a claim needs two different facts, split it.\n\nReturn ONLY JSON:\n{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"<the sub-question, in English>\",\n      \"claim_type\": \"factual\" | \"procedural\" | \"numeric\" | \"conditional\",\n      \"criticality\": \"critical\" | \"supporting\",\n      \"search_terms\": [\"<2-4 terms for retrieving evidence>\"]\n    }\n  ]\n}\n\nRules:\n- Produce between 2 and 6 claims. Never one.\n- Mark a claim \"critical\" if a wrong answer to it makes the whole response\n  harmful, not merely incomplete.\n- NUMERIC claims (doses, deadlines, thresholds, rates) are always \"critical\".\n- Do NOT answer any claim.\n\nQUESTION: How many doses of the polio vaccine should be administered?\nENTITIES: ['polio vaccine']\nDOMAIN: health\n",
+      "raw_response": "{\n  \"claims\": [\n    {\n      \"id\": \"C1\",\n      \"claim_question\": \"What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"IPV\", \"polio vaccine doses\", \"routine schedule\"]\n    },\n    {\n      \"id\": \"C2\",\n      \"claim_question\": \"What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?\",\n      \"claim_type\": \"numeric\",\n      \"criticality\": \"critical\",\n      \"search_terms\": [\"OPV\", \"polio vaccine doses\", \"routine schedule\"]\n    },\n    {\n      \"id\": \"C3\",\n      \"claim_question\": \"Does the recommended number of polio vaccine doses differ for adults compared to children?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"adult polio vaccine schedule\", \"polio vaccine doses adults\"]\n    },\n    {\n      \"id\": \"C4\",\n      \"claim_question\": \"Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"polio vaccine booster travel\", \"polio vaccine travelers\"]\n    },\n    {\n      \"id\": \"C5\",\n      \"claim_question\": \"According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?\",\n      \"claim_type\": \"factual\",\n      \"criticality\": \"supporting\",\n      \"search_terms\": [\"WHO polio vaccine supplemental dose\", \"polio vaccine booster WHO\"]\n    }\n  ]\n}",
+      "parsed": {
+        "claims": [
+          {
+            "id": "C1",
+            "claim_question": "What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "IPV",
+              "polio vaccine doses",
+              "routine schedule"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "4 doses",
+            "evidence_span": "CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.",
+            "source_url": "https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html",
+            "caveats": [],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SCOPE_DROPPED"
+              ],
+              "falsification_attempt": "The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.",
+              "confidence": 0.86
+            }
+          },
+          {
+            "id": "C2",
+            "claim_question": "What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?",
+            "claim_type": "numeric",
+            "criticality": "critical",
+            "search_terms": [
+              "OPV",
+              "polio vaccine doses",
+              "routine schedule"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": null,
+            "source_url": null,
+            "caveats": [],
+            "challenge": null
+          },
+          {
+            "id": "C3",
+            "claim_question": "Does the recommended number of polio vaccine doses differ for adults compared to children?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "adult polio vaccine schedule",
+              "polio vaccine doses adults"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.",
+            "evidence_span": "CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.",
+            "source_url": "https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html",
+            "caveats": [
+              "The adult recommendation specifically applies to those with increased risk of exposure to poliovirus."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "HOLDS",
+              "flags": [
+                "NONE"
+              ],
+              "falsification_attempt": "",
+              "confidence": 0.95
+            }
+          },
+          {
+            "id": "C4",
+            "claim_question": "Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "polio vaccine booster travel",
+              "polio vaccine travelers"
+            ],
+            "verdict": "SUPPORTED",
+            "answer": "Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.",
+            "evidence_span": "Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.",
+            "source_url": "https://wwwnc.cdc.gov/travel/notices/level2/global-polio",
+            "caveats": [
+              "The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series."
+            ],
+            "challenge": {
+              "verdict_after_challenge": "FAILS",
+              "flags": [
+                "SPAN_DOES_NOT_ESTABLISH"
+              ],
+              "falsification_attempt": "The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.",
+              "confidence": 0.86
+            }
+          },
+          {
+            "id": "C5",
+            "claim_question": "According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?",
+            "claim_type": "factual",
+            "criticality": "supporting",
+            "search_terms": [
+              "WHO polio vaccine supplemental dose",
+              "polio vaccine booster WHO"
+            ],
+            "verdict": "UNSUPPORTED",
+            "answer": null,
+            "evidence_span": "",
+            "source_url": "",
+            "caveats": [],
+            "challenge": null
+          }
+        ]
+      },
+      "latency_ms": 3874.022000003606,
+      "prompt_tokens": 292,
+      "completion_tokens": 874,
+      "cost_usd": 0.0004662,
+      "cached": true,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\nEVIDENCE:\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n[September 6, 2024, visit link for details.](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content-sources)\n\nFor Health Care Providers\n\n# Polio Vaccine Recommendations\n\n## Key poi\n\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\nnts\n\n- CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n- Most adults born and raised in the United States can assume they were vaccinated for polio.\n- Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n\n![A mother holds her baby while a health care provider prepares to give the baby a vaccination.](https://www.cdc.gov/polio/images/vaccine-provider-child-mother.jpg)\n\n## Introduction\n\nPolio vaccination has been part of the routine childhood immunization schedule in the United States for decades. Adults who received any childhood vaccines in the United States almost certainly were vaccinated for polio.\n\nInactivated polio vaccine (IPV) is the **only** polio vaccine that has been given in the United States since 2000. It is given by shot in the arm or leg, depending on the person's age.\n\nThis page summarizes CDC's current polio vaccine recommendations. Access the official, full text below:\n\n[ACIP Recommendations: Polio Vaccine](https://www.cdc.gov/acip-recs/hcp/vaccine-specific/polio.html)\n\nAccess articles highlighting ACIP polio vaccine recommendations.\n\nJuly 29, 2024\n\n### IPV v\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/vaccines/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/vaccines/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/vaccines/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/vaccines/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n# Polio Vaccination\n\n[July 9, 2024, visit link for details.](https://www.cdc.gov/polio/vaccines/index.html#content-sources)\n\n[Español](https://www.cdc.gov/polio/es/vaccines/vacunacion-contra-la-poliomielitis.html)\n\nFor Everyone\n\n## Key points\n\n- There is no cure for po\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\nlio (or poliomyelitis), but it can be prevented with safe and effective vaccination.\n- CDC recommends that children get 4 doses of polio vaccine to protect them against severe polio disease, including paralysis.\n- Most adults in the United States were vaccinated as children and are therefore likely to be protected from getting polio.\n\n![Smiling mother holding infant at the doctor's office.](https://www.cdc.gov/polio/media/images/2024/07/Smiling-Mother-holds-infant-with-bandaid_1.jpg)\n\n## Introduction\n\nThe best way to protect against [polio](https://www.cdc.gov/polio/about/index.html), or poliomyelitis, is to get vaccinated. Polio vaccination has been part of the routine childhood immunization schedule in the United States for decades. It's still part of the routine childhood immunization schedule.\n\nInactivated polio vaccine (IPV) is the **only polio vaccine** that has been given in the United States since 2000. Oral polio vaccine (OPV) is used in other countries.\n\n## Available vaccines\n\nThere are two types of vaccines that protect against polio.\n\n### Inactivated polio vaccine (IPV)\n\n- The only polio vaccine that has been used in the United States since 2000.\n- It is given by shot i\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C1\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"4 doses\",\n  \"evidence_span\": \"CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\",\n  \"source_url\": \"https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C1",
+        "verdict": "SUPPORTED",
+        "answer": "4 doses",
+        "evidence_span": "CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.",
+        "source_url": "https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html",
+        "caveats": []
+      },
+      "latency_ms": 1159.1911999857984,
+      "prompt_tokens": 1731,
+      "completion_tokens": 107,
+      "cost_usd": 0.00021590000000000002,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?\nEVIDENCE:\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n[September 6, 2024, visit link for details.](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content-sources)\n\nFor Health Care Providers\n\n# Polio Vaccine Recommendations\n\n## Key poi\n\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\nnts\n\n- CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n- Most adults born and raised in the United States can assume they were vaccinated for polio.\n- Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n\n![A mother holds her baby while a health care provider prepares to give the baby a vaccination.](https://www.cdc.gov/polio/images/vaccine-provider-child-mother.jpg)\n\n## Introduction\n\nPolio vaccination has been part of the routine childhood immunization schedule in the United States for decades. Adults who received any childhood vaccines in the United States almost certainly were vaccinated for polio.\n\nInactivated polio vaccine (IPV) is the **only** polio vaccine that has been given in the United States since 2000. It is given by shot in the arm or leg, depending on the person's age.\n\nThis page summarizes CDC's current polio vaccine recommendations. Access the official, full text below:\n\n[ACIP Recommendations: Polio Vaccine](https://www.cdc.gov/acip-recs/hcp/vaccine-specific/polio.html)\n\nAccess articles highlighting ACIP polio vaccine recommendations.\n\nJuly 29, 2024\n\n### IPV v\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/vaccines/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/vaccines/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/vaccines/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/vaccines/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n# Polio Vaccination\n\n[July 9, 2024, visit link for details.](https://www.cdc.gov/polio/vaccines/index.html#content-sources)\n\n[Español](https://www.cdc.gov/polio/es/vaccines/vacunacion-contra-la-poliomielitis.html)\n\nFor Everyone\n\n## Key points\n\n- There is no cure for po\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\nlio (or poliomyelitis), but it can be prevented with safe and effective vaccination.\n- CDC recommends that children get 4 doses of polio vaccine to protect them against severe polio disease, including paralysis.\n- Most adults in the United States were vaccinated as children and are therefore likely to be protected from getting polio.\n\n![Smiling mother holding infant at the doctor's office.](https://www.cdc.gov/polio/media/images/2024/07/Smiling-Mother-holds-infant-with-bandaid_1.jpg)\n\n## Introduction\n\nThe best way to protect against [polio](https://www.cdc.gov/polio/about/index.html), or poliomyelitis, is to get vaccinated. Polio vaccination has been part of the routine childhood immunization schedule in the United States for decades. It's still part of the routine childhood immunization schedule.\n\nInactivated polio vaccine (IPV) is the **only polio vaccine** that has been given in the United States since 2000. Oral polio vaccine (OPV) is used in other countries.\n\n## Available vaccines\n\nThere are two types of vaccines that protect against polio.\n\n### Inactivated polio vaccine (IPV)\n\n- The only polio vaccine that has been used in the United States since 2000.\n- It is given by shot i\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C2\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": null,\n  \"source_url\": null,\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C2",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": null,
+        "source_url": null,
+        "caveats": []
+      },
+      "latency_ms": 1222.079700033646,
+      "prompt_tokens": 1732,
+      "completion_tokens": 63,
+      "cost_usd": 0.0001984,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\nPROPOSED ANSWER: 4 doses\nEVIDENCE SPAN: CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\nSOURCE: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n",
+      "raw_response": "{\n  \"claim_id\": \"C1\",\n  \"falsification_attempt\": \"The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.\",\n  \"flags\": [\"SCOPE_DROPPED\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.86\n}",
+      "parsed": {
+        "claim_id": "C1",
+        "falsification_attempt": "The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.",
+        "flags": [
+          "SCOPE_DROPPED"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.86
+      },
+      "latency_ms": 4257.960200018715,
+      "prompt_tokens": 448,
+      "completion_tokens": 825,
+      "cost_usd": 0.0004573,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Does the recommended number of polio vaccine doses differ for adults compared to children?\nEVIDENCE:\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n[September 6, 2024, visit link for details.](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content-sources)\n\nFor Health Care Providers\n\n# Polio Vaccine Recommendations\n\n## Key poi\n\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\nnts\n\n- CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n- Most adults born and raised in the United States can assume they were vaccinated for polio.\n- Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n\n![A mother holds her baby while a health care provider prepares to give the baby a vaccination.](https://www.cdc.gov/polio/images/vaccine-provider-child-mother.jpg)\n\n## Introduction\n\nPolio vaccination has been part of the routine childhood immunization schedule in the United States for decades. Adults who received any childhood vaccines in the United States almost certainly were vaccinated for polio.\n\nInactivated polio vaccine (IPV) is the **only** polio vaccine that has been given in the United States since 2000. It is given by shot in the arm or leg, depending on the person's age.\n\nThis page summarizes CDC's current polio vaccine recommendations. Access the official, full text below:\n\n[ACIP Recommendations: Polio Vaccine](https://www.cdc.gov/acip-recs/hcp/vaccine-specific/polio.html)\n\nAccess articles highlighting ACIP polio vaccine recommendations.\n\nJuly 29, 2024\n\n### IPV v\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/vaccines/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/vaccines/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/vaccines/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/vaccines/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n# Polio Vaccination\n\n[July 9, 2024, visit link for details.](https://www.cdc.gov/polio/vaccines/index.html#content-sources)\n\n[Español](https://www.cdc.gov/polio/es/vaccines/vacunacion-contra-la-poliomielitis.html)\n\nFor Everyone\n\n## Key points\n\n- There is no cure for po\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\nlio (or poliomyelitis), but it can be prevented with safe and effective vaccination.\n- CDC recommends that children get 4 doses of polio vaccine to protect them against severe polio disease, including paralysis.\n- Most adults in the United States were vaccinated as children and are therefore likely to be protected from getting polio.\n\n![Smiling mother holding infant at the doctor's office.](https://www.cdc.gov/polio/media/images/2024/07/Smiling-Mother-holds-infant-with-bandaid_1.jpg)\n\n## Introduction\n\nThe best way to protect against [polio](https://www.cdc.gov/polio/about/index.html), or poliomyelitis, is to get vaccinated. Polio vaccination has been part of the routine childhood immunization schedule in the United States for decades. It's still part of the routine childhood immunization schedule.\n\nInactivated polio vaccine (IPV) is the **only polio vaccine** that has been given in the United States since 2000. Oral polio vaccine (OPV) is used in other countries.\n\n## Available vaccines\n\nThere are two types of vaccines that protect against polio.\n\n### Inactivated polio vaccine (IPV)\n\n- The only polio vaccine that has been used in the United States since 2000.\n- It is given by shot i\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10715822/]\n[Skip to main content](https://pmc.ncbi.nlm.nih.gov/articles/PMC10715822/#main-content)\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA\n**.gov** website belongs to an official\ngovernment organization in the United States.\n\n\n![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (\nLock\nLocked padlock icon\n) or **https://** means you've safely\nconnected to the .gov website. Share sensitive\ninformation only on official, secure websites.\n\n\n[Home](https://pmc.ncbi.nlm.nih.gov/ \"Home\")\n\n![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/search.svg)![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/close.svg)\n\nSearch PMC Full-Text Archive\n\nSearch in PMC![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons-bg/search--white.svg)\n\n- [Journ\n\n[source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10715822/]\nal List](https://pmc.ncbi.nlm.nih.gov/journals/)\n- [User Guide](https://pmc.ncbi.nlm.nih.gov/about/userguide/)\n\n- ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/more_vert.svg)\n- [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/launch.svg)](https://doi.org/10.15585/mmwr.mm7249a3) View on publisher site\n- [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/file_download.svg)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10715822/pdf/mm7249a3.pdf) Download PDF\n- ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-full.svg)![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/action-bookmark-empty.svg)Add to Collections\n- ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/bb3d0162/var/data/static/img/usa-icons/format_quote.svg)Cite\n- ![Show article p\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C3\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.\",\n  \"evidence_span\": \"CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\",\n  \"source_url\": \"https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\",\n  \"caveats\": [\n    \"The adult recommendation specifically applies to those with increased risk of exposure to poliovirus.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C3",
+        "verdict": "SUPPORTED",
+        "answer": "Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.",
+        "evidence_span": "CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.",
+        "source_url": "https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html",
+        "caveats": [
+          "The adult recommendation specifically applies to those with increased risk of exposure to poliovirus."
+        ]
+      },
+      "latency_ms": 2207.1620000060648,
+      "prompt_tokens": 2729,
+      "completion_tokens": 178,
+      "cost_usd": 0.0003441,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Does the recommended number of polio vaccine doses differ for adults compared to children?\nPROPOSED ANSWER: Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.\nEVIDENCE SPAN: CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\nSOURCE: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n",
+      "raw_response": "{\n  \"claim_id\": \"C3\",\n  \"falsification_attempt\": \"\",\n  \"flags\": [\"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\",\n  \"confidence\": 0.95\n}",
+      "parsed": {
+        "claim_id": "C3",
+        "falsification_attempt": "",
+        "flags": [
+          "NONE"
+        ],
+        "verdict_after_challenge": "HOLDS",
+        "confidence": 0.95
+      },
+      "latency_ms": 2501.061099988874,
+      "prompt_tokens": 483,
+      "completion_tokens": 570,
+      "cost_usd": 0.00033329999999999997,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\nEVIDENCE:\n[source: https://wwwnc.cdc.gov/travel/notices/level2/global-polio]\n[Skip directly to site content](https://wwwnc.cdc.gov/travel/notices/level2/global-polio#content) [Skip directly to page options](https://wwwnc.cdc.gov/travel/notices/level2/global-polio#share-nav) [Skip directly to A-Z link](https://wwwnc.cdc.gov/travel/notices/level2/global-polio#az-large) [Skip directly to A-Z link](https://wwwnc.cdc.gov/travel/notices/level2/global-polio#az-medium) [Skip directly to A-Z link](https://wwwnc.cdc.gov/travel/notices/level2/global-polio#az-small)\n\n![](https://wwwnc.cdc.gov/TemplatePackage/4.0/assets/imgs/uswds/us_flag_small.png)An official website of the United States government Here's how you know\n\n![](https://wwwnc.cdc.gov/TemplatePackage/4.0/assets/imgs/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA .gov website belongs to an official government organization in the United States.\n\n![](https://wwwnc.cdc.gov/TemplatePackage/4.0/assets/imgs/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA lock (  ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n[Travelers' Health](https://wwwnc.cdc.gov/travel/)\n\n### Global Polio\n\nLevel 4 - Avoid All Travel\n\nLevel \n\n[source: https://wwwnc.cdc.gov/travel/notices/level2/global-polio]\n3 - Reconsider Nonessential Travel\n\nLevel 2 - Practice Enhanced Precautions\n\nLevel 1 - Practice Usual Precautions\n\n_This Travel Health Notice (THN) was originally posted on September 26, 2022, and is updated regularly based on the most current data._\n\n### Key points\n\n- Some international destinations have circulating poliovirus (listed below and shown in map).\n- The list of countries in the THN is informed by the latest global epidemiological data and used to make recommendations regarding required measures to support polio eradication. This list is comprised of countries that have detected poliovirus in humans or environmental samples in the past 13 months.\n- Before any international travel, make sure you are [up to date](https://www.cdc.gov/vaccines/vpd/polio/public/) on your polio vaccines.\n- Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\n\n![Map: Countries where poliovirus has been detected within last 13 months](https://wwwnc.cdc.gov/travel/images/polio-global-map.png)\n\n**Map: Countries where poliovirus has been detected within last 13 months** ( \n\n[source: https://www.cdc.gov/polio/vaccines/international-travelers.html]\n[Skip directly to site content](https://www.cdc.gov/polio/vaccines/international-travelers.html#content) [Skip directly to search](https://www.cdc.gov/polio/vaccines/international-travelers.html#cdc-search__input)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/vaccines/international-travelers.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n[July 9, 2024, visit link for details.](https://www.cdc.gov/polio/vaccines/international-travelers.html#content-sources)\n\n[Español](https://www.cdc.gov/polio/es/vaccines/vacunacion-contra-la-poliomielitis-para-los-viajeros-internacionales.html)\n\nFor Everyone\n\n# Polio Vaccination for International Travelers\n\n## K\n\n[source: https://www.cdc.gov/polio/vaccines/international-travelers.html]\ney points\n\n- Polio, also called poliomyelitis, has been eliminated from most of the world, but it still occurs in some countries.\n- Some travelers may be eligible for a one-time booster vaccine before traveling.\n- Check the recommendations and make sure you and your family, including children, are fully vaccinated before traveling internationally.\n\n![Woman using computer on airplane](https://www.cdc.gov/polio/media/images/woman-plane.jpg)\n\n## Introduction\n\nPeople who plan to travel internationally should make sure they are fully vaccinated against polio before departure.\n\nWhen visiting a country where there is increased risk of exposure to poliovirus, the government of that country may require you to show proof of polio vaccination on your yellow International Certificate of Vaccination or Prophylaxis (ICVP) when departing that country.\n\n## Recommendations\n\n### Adults\n\nAdults who are unvaccinated against polio should complete a primary vaccination series of 3 doses:\n\n- The first dose at any time.\n- The second dose 1 to 2 months later.\n- A third dose 6 to 12 months after the second dose.\n\nIf an adult cannot complete the above series before traveling, an accelerated schedule (3 doses\n\n[source: https://www.vaccineadvisor.com/news/going-abroad-cdc-warns-travelers-about-polio-risk-in-several-countries/]\n![](https://www.vaccineadvisor.com/wp-content/themes/hm-advisor-child/assets/svg/key-point_icon.svg)The detection of poliovirus in several countries underscores the need for international travelers to remain up to date with their vaccinations.\n\nHealthDay News — Travelers heading overseas may want to check their vaccination records first.\n\nThe [U.S. Centers for Disease Control and Prevention](https://wwwnc.cdc.gov/travel/notices/level2/global-polio) (CDC) urges people to make sure their polio vaccines are up to date before traveling internationally.\n\nThe warning comes after the virus has been detected in several parts of the world during the past year, including the United Kingdom and Germany.\n\nOn March 3, the [CDC](https://www.vaccineadvisor.com/news/new-cdc-guidance-cuts-the-number-of-recommended-vaccines-for-kids/) issued a Level 2 travel notice, advising travelers to take extra precautions. The agency says poliovirus is circulating in countries across Africa, the Middle East and Europe.\n\nThe full list includes:\n\n- Afghanistan\n- Algeria\n- Angola\n- Benin\n- Burkina Faso\n- Cameroon\n- Central African Republic\n- Chad\n- Côte d’Ivoire\n- Democratic Republic of the Congo\n- Djibouti\n- Ethi\n\n[source: https://www.vaccineadvisor.com/news/going-abroad-cdc-warns-travelers-about-polio-risk-in-several-countries/]\nopia\n- Gaza\n- Germany\n- Guinea\n- Israel\n- Laos\n- Namibia\n- Niger\n- Nigeria\n- Pakistan\n- Papua New Guinea\n- Poland\n- Senegal\n- Somalia\n- South Sudan\n- Sudan\n- Tanzania\n- United Kingdom\n- Yemen\n\nPolio is a serious disease that affects the nervous system and can cause permanent disability, officials say.\n\nMany people infected with the virus may not feel sick. But some develop symptoms such as fever, tiredness, nausea, headaches and muscle stiffness.\n\nIn severe cases, the disease can cause paralysis or death, especially if the muscles used to breathe stop functioning.\n\nThe virus spreads mainly through contaminated food or water. It can also spread when people do not wash their hands properly after using the bathroom, since the virus lives in infected stool.\n\nThe CDC says vaccination is the most effective way to prevent polio.\n\nKids and adults should make sure they are fully vaccinated before traveling abroad, the agency says.\n\nAdults who have already completed the [recommended vaccine](https://www.vaccineadvisor.com/news/cdc-pentavalent-meningococcal-vaccine-guidance/) series may also receive one lifetime booster shot if they are traveling to a place where the virus is circulating.\n\nTr\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C4\",\n  \"verdict\": \"SUPPORTED\",\n  \"answer\": \"Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.\",\n  \"evidence_span\": \"Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\",\n  \"source_url\": \"https://wwwnc.cdc.gov/travel/notices/level2/global-polio\",\n  \"caveats\": [\n    \"The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series.\"\n  ]\n}\n```",
+      "parsed": {
+        "claim_id": "C4",
+        "verdict": "SUPPORTED",
+        "answer": "Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.",
+        "evidence_span": "Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.",
+        "source_url": "https://wwwnc.cdc.gov/travel/notices/level2/global-polio",
+        "caveats": [
+          "The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series."
+        ]
+      },
+      "latency_ms": 1576.2665999936871,
+      "prompt_tokens": 2331,
+      "completion_tokens": 173,
+      "cost_usd": 0.00030230000000000003,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N5",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.\n\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"SUPPORTED\" | \"PARTIAL\" | \"UNSUPPORTED\" | \"CONTRADICTED\",\n  \"answer\": \"<the answer, or null if not SUPPORTED/PARTIAL>\",\n  \"evidence_span\": \"<VERBATIM sentence(s) from the evidence that establish this>\",\n  \"source_url\": \"<url of the chunk the span came from>\",\n  \"caveats\": [\"<conditions under which this answer does not hold>\"]\n}\n\nABSOLUTE RULES:\n- If the evidence does not contain the answer, verdict is UNSUPPORTED and\n  answer is null. Do NOT use your own knowledge to fill the gap. Do NOT\n  reason from general principles. Absence of evidence is a valid result.\n- \"evidence_span\" must be copied verbatim from the evidence. If you cannot\n  copy a span that establishes the claim, the verdict is not SUPPORTED.\n- Numbers must appear literally in the evidence. Never compute, convert,\n  interpolate, or round a value that is not stated.\n\nCLAIM: According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?\nEVIDENCE:\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n[September 6, 2024, visit link for details.](https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html#content-sources)\n\nFor Health Care Providers\n\n# Polio Vaccine Recommendations\n\n## Key poi\n\n[source: https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html]\nnts\n\n- CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n- Most adults born and raised in the United States can assume they were vaccinated for polio.\n- Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n\n![A mother holds her baby while a health care provider prepares to give the baby a vaccination.](https://www.cdc.gov/polio/images/vaccine-provider-child-mother.jpg)\n\n## Introduction\n\nPolio vaccination has been part of the routine childhood immunization schedule in the United States for decades. Adults who received any childhood vaccines in the United States almost certainly were vaccinated for polio.\n\nInactivated polio vaccine (IPV) is the **only** polio vaccine that has been given in the United States since 2000. It is given by shot in the arm or leg, depending on the person's age.\n\nThis page summarizes CDC's current polio vaccine recommendations. Access the official, full text below:\n\n[ACIP Recommendations: Polio Vaccine](https://www.cdc.gov/acip-recs/hcp/vaccine-specific/polio.html)\n\nAccess articles highlighting ACIP polio vaccine recommendations.\n\nJuly 29, 2024\n\n### IPV v\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\n[Skip directly to site content](https://www.cdc.gov/polio/vaccines/index.html#content) [Skip directly to search](https://www.cdc.gov/polio/vaccines/index.html#cdc-search__input) [Skip directly to On This Page](https://www.cdc.gov/polio/vaccines/index.html#first-on-this-page)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/vaccines/index.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n# Polio Vaccination\n\n[July 9, 2024, visit link for details.](https://www.cdc.gov/polio/vaccines/index.html#content-sources)\n\n[Español](https://www.cdc.gov/polio/es/vaccines/vacunacion-contra-la-poliomielitis.html)\n\nFor Everyone\n\n## Key points\n\n- There is no cure for po\n\n[source: https://www.cdc.gov/polio/vaccines/index.html]\nlio (or poliomyelitis), but it can be prevented with safe and effective vaccination.\n- CDC recommends that children get 4 doses of polio vaccine to protect them against severe polio disease, including paralysis.\n- Most adults in the United States were vaccinated as children and are therefore likely to be protected from getting polio.\n\n![Smiling mother holding infant at the doctor's office.](https://www.cdc.gov/polio/media/images/2024/07/Smiling-Mother-holds-infant-with-bandaid_1.jpg)\n\n## Introduction\n\nThe best way to protect against [polio](https://www.cdc.gov/polio/about/index.html), or poliomyelitis, is to get vaccinated. Polio vaccination has been part of the routine childhood immunization schedule in the United States for decades. It's still part of the routine childhood immunization schedule.\n\nInactivated polio vaccine (IPV) is the **only polio vaccine** that has been given in the United States since 2000. Oral polio vaccine (OPV) is used in other countries.\n\n## Available vaccines\n\nThere are two types of vaccines that protect against polio.\n\n### Inactivated polio vaccine (IPV)\n\n- The only polio vaccine that has been used in the United States since 2000.\n- It is given by shot i\n\n[source: https://www.cdc.gov/polio/vaccines/international-travelers.html]\n[Skip directly to site content](https://www.cdc.gov/polio/vaccines/international-travelers.html#content) [Skip directly to search](https://www.cdc.gov/polio/vaccines/international-travelers.html#cdc-search__input)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/us_flag_small.png)An official website of the United States government\n\n[Here's how you know](https://www.cdc.gov/polio/vaccines/international-travelers.html#gov-notice)\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-dot-gov.svg)\n\n**Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the United States.\n\n![](https://www.cdc.gov/TemplatePackage/5.0/img/uswds/icon-https.svg)\n\n**Secure .gov websites use HTTPS**\n\nA **lock** (  ) or **https://** means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\n[July 9, 2024, visit link for details.](https://www.cdc.gov/polio/vaccines/international-travelers.html#content-sources)\n\n[Español](https://www.cdc.gov/polio/es/vaccines/vacunacion-contra-la-poliomielitis-para-los-viajeros-internacionales.html)\n\nFor Everyone\n\n# Polio Vaccination for International Travelers\n\n## K\n\n[source: https://www.cdc.gov/polio/vaccines/international-travelers.html]\ney points\n\n- Polio, also called poliomyelitis, has been eliminated from most of the world, but it still occurs in some countries.\n- Some travelers may be eligible for a one-time booster vaccine before traveling.\n- Check the recommendations and make sure you and your family, including children, are fully vaccinated before traveling internationally.\n\n![Woman using computer on airplane](https://www.cdc.gov/polio/media/images/woman-plane.jpg)\n\n## Introduction\n\nPeople who plan to travel internationally should make sure they are fully vaccinated against polio before departure.\n\nWhen visiting a country where there is increased risk of exposure to poliovirus, the government of that country may require you to show proof of polio vaccination on your yellow International Certificate of Vaccination or Prophylaxis (ICVP) when departing that country.\n\n## Recommendations\n\n### Adults\n\nAdults who are unvaccinated against polio should complete a primary vaccination series of 3 doses:\n\n- The first dose at any time.\n- The second dose 1 to 2 months later.\n- A third dose 6 to 12 months after the second dose.\n\nIf an adult cannot complete the above series before traveling, an accelerated schedule (3 doses\n",
+      "raw_response": "```json\n{\n  \"claim_id\": \"C5\",\n  \"verdict\": \"UNSUPPORTED\",\n  \"answer\": null,\n  \"evidence_span\": \"\",\n  \"source_url\": \"\",\n  \"caveats\": []\n}\n```",
+      "parsed": {
+        "claim_id": "C5",
+        "verdict": "UNSUPPORTED",
+        "answer": null,
+        "evidence_span": "",
+        "source_url": "",
+        "caveats": []
+      },
+      "latency_ms": 1145.3025999944657,
+      "prompt_tokens": 2403,
+      "completion_tokens": 61,
+      "cost_usd": 0.00026470000000000004,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N6",
+      "provider": "ollama",
+      "model": "gpt-oss:120b",
+      "prompt": "You are a hostile fact-checker. Your job is to FALSIFY the claim below,\nnot to confirm it. Assume the answerer made a mistake and find it.\n\nCheck specifically for:\n1. Does the evidence_span actually establish the answer, or merely relate to it?\n2. Is any number in the answer absent from, or different in, the evidence span?\n3. Has a condition, population, or jurisdiction limit been dropped?\n   (e.g. adult dose presented as if universal; a rule that applies only to\n   one province presented as national)\n4. Is the source authoritative for THIS claim, or merely a reputable site\n   that happens to mention it?\n5. Is the evidence stale in a way that matters?\n\nReturn ONLY JSON:\n{\n  \"claim_id\": \"C4\",\n  \"falsification_attempt\": \"<your strongest argument that this is wrong>\",\n  \"flags\": [\"NUMBER_MISMATCH\" | \"SPAN_DOES_NOT_ESTABLISH\" |\n            \"SCOPE_DROPPED\" | \"SOURCE_INAPPROPRIATE\" | \"STALE\" | \"NONE\"],\n  \"verdict_after_challenge\": \"HOLDS\" | \"WEAKENED\" | \"FAILS\",\n  \"confidence\": 0.0-1.0\n}\n\nIf after genuine effort you cannot falsify it, say so — return flags [\"NONE\"]\nand verdict \"HOLDS\". Do not manufacture objections.\n\nCLAIM: Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\nPROPOSED ANSWER: Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.\nEVIDENCE SPAN: Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\nSOURCE: https://wwwnc.cdc.gov/travel/notices/level2/global-polio\n",
+      "raw_response": "{\n  \"claim_id\": \"C4\",\n  \"falsification_attempt\": \"The CDC source states that adults who have completed the routine polio series \\\"may receive\\\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.\",\n  \"flags\": [\"SPAN_DOES_NOT_ESTABLISH\"],\n  \"verdict_after_challenge\": \"FAILS\",\n  \"confidence\": 0.86\n}",
+      "parsed": {
+        "claim_id": "C4",
+        "falsification_attempt": "The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.",
+        "flags": [
+          "SPAN_DOES_NOT_ESTABLISH"
+        ],
+        "verdict_after_challenge": "FAILS",
+        "confidence": 0.86
+      },
+      "latency_ms": 3372.686199960299,
+      "prompt_tokens": 485,
+      "completion_tokens": 562,
+      "cost_usd": 0.0003295,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\n  verdict=SUPPORTED answer=4 doses\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SCOPE_DROPPED'], 'falsification_attempt': 'The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.', 'confidence': 0.86}\n[C2] (critical) Q: What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Does the recommended number of polio vaccine doses differ for adults compared to children?\n  verdict=SUPPORTED answer=Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=['The adult recommendation specifically applies to those with increased risk of exposure to poliovirus.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C4] (supporting) Q: Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\n  verdict=SUPPORTED answer=Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.\n  evidence_span=Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\n  source=https://wwwnc.cdc.gov/travel/notices/level2/global-polio\n  caveats=['The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.', 'confidence': 0.86}\n[C5] (supporting) Q: According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n",
+      "raw_response": "```json\n{\n  \"response_text\": \"खोपको मात्रा र तालिकाका बारेमा आधिकारिक जानकारी स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।\",\n  \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "खोपको मात्रा र तालिकाका बारेमा आधिकारिक जानकारी स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 1058.5718999500386,
+      "prompt_tokens": 1117,
+      "completion_tokens": 54,
+      "cost_usd": 0.00013330000000000001,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: खोपको मात्रा र तालिकाका बारेमा आधिकारिक जानकारी स्थापित गर्न सकिएन। कृपया यसका लागि योग्य स्वास्थ्यकर्मी वा चिकित्सकसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\n  verdict=SUPPORTED answer=4 doses\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SCOPE_DROPPED'], 'falsification_attempt': 'The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.', 'confidence': 0.86}\n[C2] (critical) Q: What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Does the recommended number of polio vaccine doses differ for adults compared to children?\n  verdict=SUPPORTED answer=Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=['The adult recommendation specifically applies to those with increased risk of exposure to poliovirus.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C4] (supporting) Q: Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\n  verdict=SUPPORTED answer=Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.\n  evidence_span=Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\n  source=https://wwwnc.cdc.gov/travel/notices/level2/global-polio\n  caveats=['The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.', 'confidence': 0.86}\n[C5] (supporting) Q: According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Official information regarding the amount and schedule of the vaccine could not be established. Please consult a qualified health worker or physician for this.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response completely omits all specific data from the verified claims (e.g., the 4-dose recommendation for children, adult booster info), replacing the factual answers with a refusal/disclaimer.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Official information regarding the amount and schedule of the vaccine could not be established. Please consult a qualified health worker or physician for this.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response completely omits all specific data from the verified claims (e.g., the 4-dose recommendation for children, adult booster info), replacing the factual answers with a refusal/disclaimer.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 2193.1113000027835,
+      "prompt_tokens": 1007,
+      "completion_tokens": 131,
+      "cost_usd": 0.0001531,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N8",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Compose the final response in the user's original language (ne).\n\nStructure, in this order:\n1. The direct answer, built ONLY from claims with verdict SUPPORTED or PARTIAL.\n2. Inline citation markers [1] [2] mapped to source URLs.\n3. A section titled \"यो कुरा पुष्टि गर्न सकिएन\" / \"Could not be verified\"\n   listing every UNSUPPORTED or CONTRADICTED claim in plain language.\n   NEVER omit this section when such claims exist.\n4. Any caveats from the claim caveats fields.\n5. If arbiter_decision is REFUSE: do not answer at all. State plainly what\n   could not be established and direct the user to a qualified professional.\n\nRules:\n- Add NOTHING that is not in the supported claims. No helpful context, no\n  general advice, no \"additionally you should\".\n- Match the user's register. If they wrote informal romanized Nepali, reply\n  in accessible Nepali, not bureaucratic Nepali.\n- Do not soften a refusal into a hedged answer.\n\nARBITER DECISION: REFUSE\nCLAIMS: [C1] (critical) Q: What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\n  verdict=SUPPORTED answer=4 doses\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SCOPE_DROPPED'], 'falsification_attempt': 'The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.', 'confidence': 0.86}\n[C2] (critical) Q: What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Does the recommended number of polio vaccine doses differ for adults compared to children?\n  verdict=SUPPORTED answer=Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=['The adult recommendation specifically applies to those with increased risk of exposure to poliovirus.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C4] (supporting) Q: Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\n  verdict=SUPPORTED answer=Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.\n  evidence_span=Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\n  source=https://wwwnc.cdc.gov/travel/notices/level2/global-polio\n  caveats=['The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.', 'confidence': 0.86}\n[C5] (supporting) Q: According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n\nReturn ONLY JSON:\n{\n  \"response_text\": \"<the full composed response in the user's language>\",\n  \"citations\": [{\"marker\": \"[1]\", \"url\": \"<source url>\"}]\n}\n\n\nPREVIOUS ATTEMPT HAD FIDELITY DRIFT — FIX THIS:\n[{\"type\": \"DROPPED\", \"detail\": \"The response completely omits all specific data from the verified claims (e.g., the 4-dose recommendation for children, adult booster info), replacing the factual answers with a refusal/disclaimer.\", \"severity\": \"high\"}]\n",
+      "raw_response": "```json\n{\n \"response_text\": \"यो विषयमा आवश्यक जानकारीहरू पूर्ण रूपमा स्थापित गर्न सकिएन। कृपया आधिकारिक स्वास्थ्यकर्मी वा योग्य चिकित्सकसँग परामर्श गर्नुहोस्।\",\n \"citations\": []\n}\n```",
+      "parsed": {
+        "response_text": "यो विषयमा आवश्यक जानकारीहरू पूर्ण रूपमा स्थापित गर्न सकिएन। कृपया आधिकारिक स्वास्थ्यकर्मी वा योग्य चिकित्सकसँग परामर्श गर्नुहोस्।",
+        "citations": []
+      },
+      "latency_ms": 955.6340000126511,
+      "prompt_tokens": 1195,
+      "completion_tokens": 48,
+      "cost_usd": 0.0001387,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    },
+    {
+      "node": "N9",
+      "provider": "ollama",
+      "model": "gemma4:31b",
+      "prompt": "Translate the Nepali response below back into English, literally.\nThen compare it against the verified claim set.\n\nReturn ONLY JSON:\n{\n  \"back_translation\": \"<literal English>\",\n  \"drift\": [\n    {\"type\": \"ADDED\" | \"DROPPED\" | \"ALTERED\",\n     \"detail\": \"<what changed>\",\n     \"severity\": \"high\" | \"low\"}\n  ],\n  \"fidelity_ok\": true | false\n}\n\nfidelity_ok is false if ANY high-severity drift exists, especially:\na number that changed, a caveat that vanished, or a refusal that became\nan answer in translation.\n\nNEPALI RESPONSE: यो विषयमा आवश्यक जानकारीहरू पूर्ण रूपमा स्थापित गर्न सकिएन। कृपया आधिकारिक स्वास्थ्यकर्मी वा योग्य चिकित्सकसँग परामर्श गर्नुहोस्।\nVERIFIED CLAIMS: [C1] (critical) Q: What is the recommended number of doses of inactivated polio vaccine (IPV) in the routine childhood immunization schedule?\n  verdict=SUPPORTED answer=4 doses\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=[]\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SCOPE_DROPPED'], 'falsification_attempt': 'The answer cites the US CDC recommendation of four IPV doses, but the claim does not specify a jurisdiction. Globally, the WHO and many national immunization programs recommend three IPV doses in the routine childhood schedule. By presenting the US schedule as the universal answer, the response drops the jurisdictional scope and misleads the reader into thinking four doses are universally recommended.', 'confidence': 0.86}\n[C2] (critical) Q: What is the recommended number of doses of oral polio vaccine (OPV) in the routine childhood immunization schedule?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=None\n  source=None\n  caveats=[]\n  challenge=None\n[C3] (supporting) Q: Does the recommended number of polio vaccine doses differ for adults compared to children?\n  verdict=SUPPORTED answer=Yes, the recommended number of doses differs: children are recommended to get 4 doses, while adults with increased risk of exposure may receive one lifetime IPV booster.\n  evidence_span=CDC recommends that all children get 4 doses of polio vaccine as part of the routine childhood vaccination schedule. Adults with increased risk of exposure to poliovirus may receive one lifetime IPV booster.\n  source=https://www.cdc.gov/polio/hcp/vaccine-considerations/index.html\n  caveats=['The adult recommendation specifically applies to those with increased risk of exposure to poliovirus.']\n  challenge={'verdict_after_challenge': 'HOLDS', 'flags': ['NONE'], 'falsification_attempt': '', 'confidence': 0.95}\n[C4] (supporting) Q: Is a booster dose of polio vaccine recommended for travelers to polio-endemic regions?\n  verdict=SUPPORTED answer=Adults who have previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine before traveling to destinations where poliovirus has been detected.\n  evidence_span=Before travel to any destination listed below, adults who previously completed the full, routine polio vaccine series may receive a single, lifetime booster dose of polio vaccine.\n  source=https://wwwnc.cdc.gov/travel/notices/level2/global-polio\n  caveats=['The recommendation applies specifically to adults who have already completed the full, routine polio vaccine series.']\n  challenge={'verdict_after_challenge': 'FAILS', 'flags': ['SPAN_DOES_NOT_ESTABLISH'], 'falsification_attempt': 'The CDC source states that adults who have completed the routine polio series \"may receive\" a single, lifetime booster before travel, which is permissive language, not a recommendation. The evidence does not establish that a booster dose is recommended for travelers to polio‑endemic regions, only that it is allowed. Therefore the answer misrepresents the guidance by implying a recommendation.', 'confidence': 0.86}\n[C5] (supporting) Q: According to WHO, is a supplemental dose of polio vaccine recommended after the primary series?\n  verdict=UNSUPPORTED answer=None\n  evidence_span=\n  source=\n  caveats=[]\n  challenge=None\n",
+      "raw_response": "```json\n{\n  \"back_translation\": \"Necessary information on this subject could not be fully established. Please consult with an official health worker or a qualified physician.\",\n  \"drift\": [\n    {\n      \"type\": \"DROPPED\",\n      \"detail\": \"The response provides a refusal/disclaimer instead of answering any of the specific claims (C1-C5) regarding polio vaccine dosages.\",\n      \"severity\": \"high\"\n    }\n  ],\n  \"fidelity_ok\": false\n}\n```",
+      "parsed": {
+        "back_translation": "Necessary information on this subject could not be fully established. Please consult with an official health worker or a qualified physician.",
+        "drift": [
+          {
+            "type": "DROPPED",
+            "detail": "The response provides a refusal/disclaimer instead of answering any of the specific claims (C1-C5) regarding polio vaccine dosages.",
+            "severity": "high"
+          }
+        ],
+        "fidelity_ok": false
+      },
+      "latency_ms": 1443.7843000050634,
+      "prompt_tokens": 1003,
+      "completion_tokens": 115,
+      "cost_usd": 0.0001463,
+      "cached": false,
+      "degraded": false,
+      "degraded_reason": null
+    }
+  ],
+  "total_cost_usd": 0.0036211,
+  "total_latency_ms": 22823.23139999062,
+  "degraded_nodes": [
+    "N9"
+  ],
+  "halted": false,
+  "halt_reason": null,
+  "timed_out": false
+}
