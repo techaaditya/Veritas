@@ -1,7 +1,7 @@
-"""N8 — Synthesizer. gemini-3.6-flash, temp 0.3."""
+"""N8 — Synthesizer. gemini-2.5-flash, temp 0.3."""
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-3.6-flash"
+MODEL = "gemini-2.5-flash"
 TEMPERATURE = 0.3
 
 PROMPT_TEMPLATE = """Compose the final response in the user's original language ({detected_language}).

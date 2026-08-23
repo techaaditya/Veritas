@@ -1,7 +1,7 @@
-"""N2 — Risk Tier Gate. gemini-3.6-flash, temp 0.0."""
+"""N2 — Risk Tier Gate. gemini-2.5-flash, temp 0.0."""
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-3.6-flash"
+MODEL = "gemini-2.5-flash"
 TEMPERATURE = 0.0
 
 PROMPT_TEMPLATE = """Classify the risk tier of a health/legal question. Return ONLY JSON.

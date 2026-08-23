@@ -1,7 +1,7 @@
-"""N1 — Language & Intent Normalizer. gemini-3.6-flash, temp 0.1."""
+"""N1 — Language & Intent Normalizer. gemini-2.5-flash, temp 0.1."""
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-3.6-flash"
+MODEL = "gemini-2.5-flash"
 TEMPERATURE = 0.1
 
 PROMPT_TEMPLATE = """You are a query normalizer for a Nepali/English health-and-legal information system.

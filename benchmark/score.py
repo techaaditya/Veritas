@@ -204,7 +204,7 @@ def main() -> None:
     # ---- scorecard.md ----
     lines = []
     lines.append("# VERITAS Benchmark Scorecard\n")
-    lines.append(f"n = {len(questions)} questions · baseline arm: `gemini-3.6-flash` single prompt · VERITAS: full nine-node pipeline\n")
+    lines.append(f"n = {len(questions)} questions · baseline arm: `gemini-2.5-flash` single prompt · VERITAS: full nine-node pipeline\n")
     lines.append("## Six metrics, both arms\n")
     lines.append("| Metric | VERITAS | Single Prompt |")
     lines.append("|---|---|---|")

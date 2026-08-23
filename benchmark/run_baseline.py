@@ -1,8 +1,9 @@
 """
 Runs the fair single-prompt baseline over benchmark/questions.jsonl and writes
-benchmark/results_single_prompt.jsonl. Resumable: already-answered question
-ids are skipped on rerun (the underlying LLM call is also disk-cached, so
-reruns are cheap either way).
+benchmark/results_single_prompt.jsonl. Resumable: only questions with a
+successful prior result are skipped on rerun — a question that previously
+errored (e.g. hit a rate limit) is retried, not permanently marked done. The
+underlying LLM call is also disk-cached, so successful reruns are cheap.
 """
 import io
 import json
@@ -24,46 +25,55 @@ def load_questions() -> list[dict]:
     return [json.loads(line) for line in QUESTIONS_PATH.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
-def already_done() -> set[str]:
+def load_existing() -> dict[str, dict]:
+    """Returns id -> record for every question already attempted, success or error."""
     if not RESULTS_PATH.exists():
-        return set()
-    done = set()
+        return {}
+    existing: dict[str, dict] = {}
     for line in RESULTS_PATH.read_text(encoding="utf-8").splitlines():
         if line.strip():
-            done.add(json.loads(line)["id"])
-    return done
+            d = json.loads(line)
+            existing[d["id"]] = d
+    return existing
+
+
+def write_all(records: dict[str, dict]) -> None:
+    with open(RESULTS_PATH, "w", encoding="utf-8") as out:
+        for d in records.values():
+            out.write(json.dumps(d, ensure_ascii=False) + "\n")
 
 
 def main() -> None:
     questions = load_questions()
-    done = already_done()
-    mode = "a" if RESULTS_PATH.exists() else "w"
+    records = load_existing()
 
-    with open(RESULTS_PATH, mode, encoding="utf-8") as out:
-        for q in questions:
-            if q["id"] in done:
-                print(f"[skip] {q['id']} (already answered)")
-                continue
-            print(f"[run]  {q['id']}: {q['question'][:60]}")
-            try:
-                result = baseline.run(q["question"])
-                record = {
-                    "id": q["id"],
-                    "question": q["question"],
-                    "bucket": q["bucket"],
-                    "tier": q["tier"],
-                    "answerable": q["answerable"],
-                    "response_text": result.text,
-                    "latency_ms": result.latency_ms,
-                    "cost_usd": result.cost_usd,
-                    "cached": result.cached,
-                }
-            except Exception as e:  # noqa: BLE001 - a single failed question must not kill the whole run
-                record = {"id": q["id"], "question": q["question"], "bucket": q["bucket"], "tier": q["tier"], "answerable": q["answerable"], "error": str(e)}
-            out.write(json.dumps(record, ensure_ascii=False) + "\n")
-            out.flush()
+    for q in questions:
+        existing = records.get(q["id"])
+        if existing and "error" not in existing:
+            print(f"[skip] {q['id']} (already answered)")
+            continue
+        print(f"[run]  {q['id']}: {q['question'][:60]}")
+        try:
+            result = baseline.run(q["question"])
+            record = {
+                "id": q["id"],
+                "question": q["question"],
+                "bucket": q["bucket"],
+                "tier": q["tier"],
+                "answerable": q["answerable"],
+                "response_text": result.text,
+                "latency_ms": result.latency_ms,
+                "cost_usd": result.cost_usd,
+                "cached": result.cached,
+            }
+        except Exception as e:  # noqa: BLE001 - a single failed question must not kill the whole run
+            record = {"id": q["id"], "question": q["question"], "bucket": q["bucket"], "tier": q["tier"], "answerable": q["answerable"], "error": str(e)}
+            print(f"       -> error: {e}")
+        records[q["id"]] = record
+        write_all(records)
 
-    print(f"\nDone. Results -> {RESULTS_PATH}")
+    n_ok = sum(1 for d in records.values() if "error" not in d)
+    print(f"\nDone. {n_ok}/{len(questions)} succeeded. Results -> {RESULTS_PATH}")
 
 
 if __name__ == "__main__":

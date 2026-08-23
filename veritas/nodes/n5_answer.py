@@ -1,5 +1,5 @@
 """
-N5 — Grounded Answerer (per claim). gemini-3.6-flash, temp 0.0.
+N5 — Grounded Answerer (per claim). gemini-2.5-flash, temp 0.0.
 
 Beyond the prompt's own instruction not to fabricate numbers, we enforce it in
 code: any number appearing in `answer` that is not literally present in
@@ -14,7 +14,7 @@ import re
 
 from veritas.clients import LLMResult, call_llm
 
-MODEL = "gemini-3.6-flash"
+MODEL = "gemini-2.5-flash"
 TEMPERATURE = 0.0
 
 PROMPT_TEMPLATE = """Answer ONE sub-claim using ONLY the evidence provided. Return ONLY JSON.

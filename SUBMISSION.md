@@ -18,15 +18,15 @@ VERITAS takes a health or legal question in Nepali, romanized Nepali, or English
 
 Nine nodes, nine distinct jobs:
 
-1. **N1** normalizes language and intent (`gemini-3.6-flash`)
-2. **N2** gates risk tier — TIER_0 emergencies halt the pipeline entirely (`gemini-3.6-flash`)
+1. **N1** normalizes language and intent (`gemini-2.5-flash`)
+2. **N2** gates risk tier — TIER_0 emergencies halt the pipeline entirely (`gemini-2.5-flash`)
 3. **N3** decomposes the question into 2–6 atomic claims (`gpt-oss:120b`, Ollama Cloud)
 4. **N4** retrieves evidence only from a whitelisted domain list (Firecrawl, not an LLM)
-5. **N5** answers each claim from evidence alone, with numeric grounding enforced in code (`gemini-3.6-flash`)
+5. **N5** answers each claim from evidence alone, with numeric grounding enforced in code (`gemini-2.5-flash`)
 6. **N6** — a *different model family* — tries to falsify each answer (`gpt-oss:120b`, Ollama Cloud)
 7. **N7** makes the ANSWER / PARTIAL_ANSWER / REFUSE decision deterministically, in plain Python, unit-tested
-8. **N8** synthesizes the final response in the user's own language (`gemini-3.6-flash`)
-9. **N9** back-translates the response to catch drift that only appears in translation, retrying once (`gemini-3.6-flash`)
+8. **N8** synthesizes the final response in the user's own language (`gemini-2.5-flash`)
+9. **N9** back-translates the response to catch drift that only appears in translation, retrying once (`gemini-2.5-flash`)
 
 ## How we built it
 

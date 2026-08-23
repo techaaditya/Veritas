@@ -22,16 +22,16 @@ Built for Reverie Hacks 2026 — ML Prompt Engineering track.
 ```mermaid
 flowchart TD
     H[Human: question ne/en/romanized + domain] --> N1
-    N1[N1 Language & Intent Normalizer<br/>gemini-3.6-flash] --> N2
-    N2[N2 Risk Tier Gate<br/>gemini-3.6-flash] -->|TIER_1 / TIER_2| N3
+    N1[N1 Language & Intent Normalizer<br/>gemini-2.5-flash] --> N2
+    N2[N2 Risk Tier Gate<br/>gemini-2.5-flash] -->|TIER_1 / TIER_2| N3
     N2 -->|TIER_0 emergency| HALT[HALT: escalation card]
     N3[N3 Claim Decomposer<br/>gpt-oss:120b] --> N4
     N4[N4 Evidence Retrieval<br/>Firecrawl, whitelisted sources] --> N5
-    N5[N5 Grounded Answerer per claim<br/>gemini-3.6-flash] --> N6
+    N5[N5 Grounded Answerer per claim<br/>gemini-2.5-flash] --> N6
     N6[N6 Adversarial Verifier<br/>gpt-oss:120b, different family] --> N7
     N7[N7 Refusal Arbiter<br/>deterministic Python, no LLM] --> N8
-    N8[N8 Synthesizer<br/>gemini-3.6-flash] --> N9
-    N9[N9 Back-Translation Fidelity Check<br/>gemini-3.6-flash]
+    N8[N8 Synthesizer<br/>gemini-2.5-flash] --> N9
+    N9[N9 Back-Translation Fidelity Check<br/>gemini-2.5-flash]
     N9 -->|drift detected, one retry| N8
     N9 --> OUT[Output: answer + citations + confidence + UNVERIFIED section]
     HALT --> OUT
@@ -39,7 +39,7 @@ flowchart TD
 
 Three design decisions that make this a *workflow* and not a chain:
 
-1. **Cross-model verification (N6)** — the verifier (`gpt-oss:120b` via Ollama Cloud) is a different model family from the answerer (`gemini-3.6-flash`). A model asked to check its own work agrees with itself; a single prompt structurally cannot do this.
+1. **Cross-model verification (N6)** — the verifier (`gpt-oss:120b` via Ollama Cloud) is a different model family from the answerer (`gemini-2.5-flash`). A model asked to check its own work agrees with itself; a single prompt structurally cannot do this.
 2. **Deterministic refusal arbitration (N7)** — the decision to refuse is made by Python, not an LLM. Refusal behaviour is auditable, testable, and identical every run.
 3. **Atomic claim decomposition (N3)** — a compound question is split into independently-verifiable sub-claims, so partial knowledge produces a partial, honest answer instead of a single confident wrong one.
 

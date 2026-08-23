@@ -26,7 +26,7 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 # USD per 1M tokens (input, output). Approximate published rates; used only
 # for the benchmark's relative cost comparison, not billing.
 RATE_TABLE = {
-    "gemini-3.6-flash": (0.10, 0.40),
+    "gemini-2.5-flash": (0.10, 0.40),
     "gpt-oss:120b": (0.10, 0.50),
     "llama-3.3-70b": (0.13, 0.40),
 }
