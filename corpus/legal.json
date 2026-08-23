@@ -1,0 +1,29 @@
+[
+  {
+    "id": "legal-001",
+    "url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+    "domain": "lawcommission.gov.np",
+    "title": "Child Labour (Prohibition and Regulation) Rules, 2062 (2006) - Rule 8, Public Holiday",
+    "retrieved_at": "2026-08-23",
+    "tags": ["child labour", "public holiday", "leave", "rules 2062"],
+    "text": "Rule 8. Public Holiday: (1) A child working in an Enterprise shall get at least Thirteen days public holiday with full salary each year. (2) The annual public holiday of a child so provided pursuant to Sub-rule (1) shall be determined at the beginning of each year."
+  },
+  {
+    "id": "legal-002",
+    "url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+    "domain": "lawcommission.gov.np",
+    "title": "Child Labour (Prohibition and Regulation) Rules, 2062 (2006) - Rule 9, Home Leave",
+    "retrieved_at": "2026-08-23",
+    "tags": ["child labour", "home leave", "rules 2062"],
+    "text": "Rule 9. Home Leave: (1) A child working in an Enterprise shall be entitled to paid home leave at the rate of One day for every twenty days of the period of work performed by him/her. The child shall have to take prior approval from the Manager before going for such a leave. The home leave to be enjoyed pursuant to Sub-rule (1) may be accumulated for a maximum period of Thirty Six days."
+  },
+  {
+    "id": "legal-003",
+    "url": "https://faolex.fao.org/docs/pdf/nep187179.pdf",
+    "domain": "lawcommission.gov.np",
+    "title": "Child Labour (Prohibition and Regulation) Rules, 2062 (2006) - Rule 4, Certificate of Eligibility",
+    "retrieved_at": "2026-08-23",
+    "tags": ["child labour", "eligibility", "medical certificate", "rules 2062"],
+    "text": "Rule 4. Certificate of Eligibility: (1) Before employing a child as a Labour, an application shall be filed in the Labour office to examine his/her health in relation to his/her ability and inability to do the work, mentioning about the nature of the work and the age of the child. (2) After obtaining an application pursuant to Sub-rule (1), the Labour Office shall cause a doctor to examine the health of the child. (3) If on an examination done pursuant to Sub-rule (1), the child is found to be capable for the work, the doctor shall provide a certificate of eligibility pursuant to the Schedule."
+  }
+]
