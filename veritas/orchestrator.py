@@ -36,8 +36,8 @@ from veritas.nodes.n7_arbiter import ChallengeResult, ClaimResult, arbitrate
 LOGS_DIR = Path(__file__).resolve().parent.parent / "logs"
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
-GLOBAL_TIMEOUT_S = 90
-CLAIM_CONCURRENCY = 4
+GLOBAL_TIMEOUT_S = 180  # generous enough to absorb one real rate-limit wait on Gemini's free tier (5 req/min)
+CLAIM_CONCURRENCY = 2  # lower burst pressure against that same per-minute quota
 
 EMERGENCY_CARD = {
     "ne": {

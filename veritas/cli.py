@@ -1,8 +1,12 @@
 """End-to-end CLI: runs a question through the full N1..N9 pipeline, printing
 each node's event live and writing the full trace to logs/<run_id>.json."""
 import asyncio
+import io
 import json
 import sys
+
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 from veritas.orchestrator import run_stream
 

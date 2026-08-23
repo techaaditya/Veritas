@@ -1,7 +1,7 @@
 """
 N6 — Adversarial Verifier. gpt-oss:120b via Ollama Cloud, temp 0.3.
 
-Deliberately a different model family from N5 (gemini-2.0-flash). A model
+Deliberately a different model family from N5 (gemini-3.6-flash). A model
 asked to check its own work agrees with itself far too often (shared-prior
 failure); routing the falsification attempt through an unrelated model
 family (OpenAI's gpt-oss vs. Google's Gemini, no shared training lineage)

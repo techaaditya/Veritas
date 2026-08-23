@@ -5,7 +5,7 @@ it is a real result, not a strawman comparison.
 """
 from veritas.clients import RawResult, call_llm_raw, stream_gemini_raw
 
-MODEL = "gemini-2.0-flash"
+MODEL = "gemini-3.6-flash"
 TEMPERATURE = 0.7
 
 PROMPT_TEMPLATE = """You are a helpful health and legal information assistant for users in Nepal.

@@ -26,10 +26,23 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 # USD per 1M tokens (input, output). Approximate published rates; used only
 # for the benchmark's relative cost comparison, not billing.
 RATE_TABLE = {
-    "gemini-2.0-flash": (0.10, 0.40),
+    "gemini-3.6-flash": (0.10, 0.40),
     "gpt-oss:120b": (0.10, 0.50),
     "llama-3.3-70b": (0.13, 0.40),
 }
+
+
+_RETRY_DELAY_RE = re.compile(r"retryDelay['\"]?\s*:\s*['\"]?(\d+(?:\.\d+)?)s")
+
+
+def _retry_delay_seconds(e: Exception, attempt: int, cap: float = 65.0) -> float:
+    """Honor the API's own rate-limit retry hint (e.g. Gemini free-tier 429s carry a
+    retryDelay) instead of a blind exponential backoff that's far too short for a
+    per-minute quota. Falls back to exponential backoff when no hint is present."""
+    match = _RETRY_DELAY_RE.search(str(e))
+    if match:
+        return min(float(match.group(1)) + 1, cap)
+    return min(2**attempt, 8)
 
 
 class NodeParseError(Exception):
@@ -226,7 +239,7 @@ def call_llm(
         except Exception as e:  # noqa: BLE001 - broad on purpose, provider SDKs vary
             last_err = e
             if attempt < max_retries - 1:
-                time.sleep(min(2**attempt, 8))
+                time.sleep(_retry_delay_seconds(e, attempt))
                 continue
 
     if fallback is not None:
@@ -263,28 +276,37 @@ class RawResult:
     cached: bool
 
 
-def call_llm_raw(provider: str, model: str, prompt: str, *, temperature: float, node: str) -> RawResult:
+def call_llm_raw(provider: str, model: str, prompt: str, *, temperature: float, node: str, max_retries: int = 3) -> RawResult:
     """Blocking free-text call, cached to disk like call_llm but without JSON parsing."""
     key = "raw:" + _cache_key(provider, model, temperature, prompt)
     cached = _read_cache(key)
     if cached is not None:
         return RawResult(node=node, cached=True, **cached)
 
-    start = time.monotonic()
-    text, ptoks, ctoks = _dispatch(provider, model, prompt, temperature)
-    latency_ms = (time.monotonic() - start) * 1000
-    payload = dict(
-        provider=provider,
-        model=model,
-        prompt=prompt,
-        text=text,
-        latency_ms=latency_ms,
-        prompt_tokens=ptoks,
-        completion_tokens=ctoks,
-        cost_usd=_cost(model, ptoks, ctoks),
-    )
-    _write_cache(key, payload)
-    return RawResult(node=node, cached=False, **payload)
+    last_err: Exception | None = None
+    for attempt in range(max_retries):
+        start = time.monotonic()
+        try:
+            text, ptoks, ctoks = _dispatch(provider, model, prompt, temperature)
+        except Exception as e:  # noqa: BLE001 - broad on purpose, provider SDKs vary
+            last_err = e
+            if attempt < max_retries - 1:
+                time.sleep(_retry_delay_seconds(e, attempt))
+                continue
+            raise RuntimeError(f"[{node}] {provider}/{model} failed after {max_retries} attempts: {last_err}") from e
+        latency_ms = (time.monotonic() - start) * 1000
+        payload = dict(
+            provider=provider,
+            model=model,
+            prompt=prompt,
+            text=text,
+            latency_ms=latency_ms,
+            prompt_tokens=ptoks,
+            completion_tokens=ctoks,
+            cost_usd=_cost(model, ptoks, ctoks),
+        )
+        _write_cache(key, payload)
+        return RawResult(node=node, cached=False, **payload)
 
 
 def stream_gemini_raw(model: str, prompt: str, temperature: float):

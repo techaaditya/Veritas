@@ -117,15 +117,15 @@ def build() -> str:
     y += 90 + GAP_Y
 
     nodes = [
-        ("N1", "Language & Intent Normalizer", "Detects language, normalizes to Devanagari + canonical English, flags ambiguities", "gemini-2.0-flash", "gemini"),
-        ("N2", "Risk Tier Gate", "Classifies TIER_0 / TIER_1 / TIER_2 risk", "gemini-2.0-flash", "gemini"),
+        ("N1", "Language & Intent Normalizer", "Detects language, normalizes to Devanagari + canonical English, flags ambiguities", "gemini-3.6-flash", "gemini"),
+        ("N2", "Risk Tier Gate", "Classifies TIER_0 / TIER_1 / TIER_2 risk", "gemini-3.6-flash", "gemini"),
         ("N3", "Claim Decomposer", "Splits question into 2–6 atomic, independently verifiable claims", "gpt-oss:120b (Ollama Cloud)", "ollama"),
         ("N4", "Evidence Retrieval", "Site-restricted search + scrape over whitelisted domains, per claim. Not an LLM.", "Firecrawl (tool)", "tool"),
-        ("N5", "Grounded Answerer", "Answers each claim from evidence only; numeric grounding enforced in code", "gemini-2.0-flash", "gemini"),
+        ("N5", "Grounded Answerer", "Answers each claim from evidence only; numeric grounding enforced in code", "gemini-3.6-flash", "gemini"),
         ("N6", "Adversarial Verifier", "A DIFFERENT model family tries to falsify each claim's answer", "gpt-oss:120b (Ollama Cloud)", "ollama"),
         ("N7", "Refusal Arbiter", "ANSWER / PARTIAL_ANSWER / REFUSE — deterministic rules, no LLM, unit-tested", "deterministic Python", "python"),
-        ("N8", "Synthesizer", "Composes final response in user's language from verified claims only", "gemini-2.0-flash", "gemini"),
-        ("N9", "Back-Translation Fidelity Check", "Translates answer back to English to catch drift; one retry on failure", "gemini-2.0-flash", "gemini"),
+        ("N8", "Synthesizer", "Composes final response in user's language from verified claims only", "gemini-3.6-flash", "gemini"),
+        ("N9", "Back-Translation Fidelity Check", "Translates answer back to English to catch drift; one retry on failure", "gemini-3.6-flash", "gemini"),
     ]
 
     positions = {}
@@ -189,7 +189,7 @@ def build() -> str:
     parts.append(f'<text x="{MAIN_X}" y="{ly}" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#111">Legend</text>')
     ly += 34
     legend_items = [
-        ("gemini", "Gemini node (gemini-2.0-flash)"),
+        ("gemini", "Gemini node (gemini-3.6-flash)"),
         ("ollama", "gpt-oss:120b via Ollama Cloud — different model family from Gemini"),
         ("tool", "Non-LLM tool (Firecrawl retrieval)"),
         ("python", "Deterministic Python (no LLM)"),

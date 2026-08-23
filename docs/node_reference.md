@@ -10,7 +10,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Without this node, every downstream prompt has to individually handle Devanagari, romanized Nepali, and code-mixed input — and every one of them will handle it slightly differently, which is exactly the kind of inconsistency this project exists to eliminate. Centralizing normalization means N2 onward can assume clean, canonical English plus a Devanagari form for the final response.
 
-**Model & parameters.** `gemini-2.0-flash`, temperature 0.1. Low but non-zero — normalization is close to deterministic, but a touch of flexibility helps with genuinely ambiguous romanized spelling. Gemini was chosen here for its strong multilingual grounding, including Devanagari.
+**Model & parameters.** `gemini-3.6-flash`, temperature 0.1. Low but non-zero — normalization is close to deterministic, but a touch of flexibility helps with genuinely ambiguous romanized spelling. Gemini was chosen here for its strong multilingual grounding, including Devanagari.
 
 **Prompt.** See [veritas/nodes/n1_normalize.py](../veritas/nodes/n1_normalize.py).
 
@@ -26,7 +26,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Not every question deserves the same scrutiny. A definitional question ("what is a labour tribunal") doesn't need the same evidentiary bar as a paediatric dosing question, and an in-progress emergency needs the pipeline to get out of the way entirely rather than spend 8 seconds retrieving evidence. This node exists to route those three cases differently before any expensive work happens.
 
-**Model & parameters.** `gemini-2.0-flash`, temperature 0.0. Classification should be as close to deterministic as an LLM gets; temperature 0 minimizes tier-flapping across identical inputs.
+**Model & parameters.** `gemini-3.6-flash`, temperature 0.0. Classification should be as close to deterministic as an LLM gets; temperature 0 minimizes tier-flapping across identical inputs.
 
 **Prompt.** See [veritas/nodes/n2_risk_gate.py](../veritas/nodes/n2_risk_gate.py). Notably instructs the model to bias toward the *higher*-risk tier under genuine uncertainty — an unnecessary escalation costs a user a minute of reading an emergency card; a missed one can cost more.
 
@@ -72,7 +72,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Answers exactly one claim, using only the evidence retrieved for it. This is the node most directly responsible for suppressing hallucination: it is explicitly forbidden from using the model's own world knowledge, forbidden from reasoning "from general principles," and required to copy a verbatim `evidence_span` as proof of grounding.
 
-**Model & parameters.** `gemini-2.0-flash`, temperature 0.0. Zero temperature because this is an extraction task, not a generative one — any creativity here manifests as fabrication.
+**Model & parameters.** `gemini-3.6-flash`, temperature 0.0. Zero temperature because this is an extraction task, not a generative one — any creativity here manifests as fabrication.
 
 **Prompt.** See [veritas/nodes/n5_answer.py](../veritas/nodes/n5_answer.py).
 
@@ -122,7 +122,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Composes the final response in the user's own language, built strictly from claims with verdict `SUPPORTED` or `PARTIAL`. Everything not in the verified claim set is explicitly forbidden — no "additionally you should," no helpful general context, because that's exactly the kind of ungrounded addition that reintroduces hallucination one layer downstream of where the rest of the pipeline was fighting it.
 
-**Model & parameters.** `gemini-2.0-flash`, temperature 0.3 — the only generative node in the pipeline with meaningfully above-zero temperature, because natural, register-appropriate Nepali phrasing benefits from it, and the content it's allowed to draw from is already fully constrained.
+**Model & parameters.** `gemini-3.6-flash`, temperature 0.3 — the only generative node in the pipeline with meaningfully above-zero temperature, because natural, register-appropriate Nepali phrasing benefits from it, and the content it's allowed to draw from is already fully constrained.
 
 **Prompt.** See [veritas/nodes/n8_synthesize.py](../veritas/nodes/n8_synthesize.py). Requires an explicit "Could not be verified" section whenever unsupported claims exist, and forbids softening a `REFUSE` decision into a hedged answer.
 
@@ -138,7 +138,7 @@ Cost figures below use published per-1M-token rates as a relative comparison, no
 
 **Purpose.** Translation is where safety guarantees quietly die. A pipeline can verify every claim perfectly in English and then produce a Nepali sentence that drops the word "not." Almost no comparable system checks this, because it requires a second, independent verification pass *after* the content is already believed to be finished.
 
-**Model & parameters.** `gemini-2.0-flash`, temperature 0.0 — literal back-translation, not creative restatement.
+**Model & parameters.** `gemini-3.6-flash`, temperature 0.0 — literal back-translation, not creative restatement.
 
 **Prompt.** See [veritas/nodes/n9_fidelity.py](../veritas/nodes/n9_fidelity.py). `fidelity_ok` is forced false on any high-severity drift, with three named danger cases: a changed number, a vanished caveat, or a refusal that became an answer in translation.
 

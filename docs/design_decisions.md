@@ -20,7 +20,7 @@ Five decisions carry the whole argument for why this is a *workflow* and not a s
 
 **Why it fails.** A model checking its own work shares the same training-induced blind spots, the same confident-but-wrong priors, and often the same specific error, as the model that produced the answer in the first place. This is a well-documented failure mode: self-critique tends to rubber-stamp rather than genuinely falsify, especially on the exact class of question where the model was already confidently wrong.
 
-**What VERITAS does instead.** N5 (the answerer) runs on `gemini-2.0-flash`; N6 (the verifier) runs on `gpt-oss:120b` via Ollama Cloud — a genuinely different model family with no shared training lineage, explicitly instructed to try to falsify rather than confirm. A single prompt has no mechanism to do this at all. Even a multi-step chain gains little if every step runs on the same underlying model.
+**What VERITAS does instead.** N5 (the answerer) runs on `gemini-3.6-flash`; N6 (the verifier) runs on `gpt-oss:120b` via Ollama Cloud — a genuinely different model family with no shared training lineage, explicitly instructed to try to falsify rather than confirm. A single prompt has no mechanism to do this at all. Even a multi-step chain gains little if every step runs on the same underlying model.
 
 ---
 

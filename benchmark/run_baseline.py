@@ -4,9 +4,13 @@ benchmark/results_single_prompt.jsonl. Resumable: already-answered question
 ids are skipped on rerun (the underlying LLM call is also disk-cached, so
 reruns are cheap either way).
 """
+import io
 import json
 import sys
 from pathlib import Path
+
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
