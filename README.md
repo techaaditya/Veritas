@@ -43,7 +43,7 @@ Three design decisions that make this a *workflow* and not a chain:
 2. **Deterministic refusal arbitration (N7)** — the decision to refuse is made by Python, not an LLM. Refusal behaviour is auditable, testable, and identical every run.
 3. **Atomic claim decomposition (N3)** — a compound question is split into independently-verifiable sub-claims, so partial knowledge produces a partial, honest answer instead of a single confident wrong one.
 
-Full node-by-node reasoning: [docs/node_reference.md](docs/node_reference.md) · Design decisions: [docs/design_decisions.md](docs/design_decisions.md) · Comparison samples: [docs/samples.md](docs/samples.md)
+Full node-by-node reasoning: [docs/node_reference.md](docs/node_reference.md) · Design decisions: [docs/design_decisions.md](docs/design_decisions.md) · Comparison samples: [docs/samples.md](docs/samples.md) · Workflow diagram: [docs/workflow.png](docs/workflow.png)
 
 ## Quickstart
 
@@ -60,14 +60,29 @@ uvicorn server:app --reload   # live split-screen UI at http://localhost:8000
 
 ## Benchmark
 
-30 questions, both arms, six metrics. See [benchmark/scorecard.md](benchmark/scorecard.md) once generated.
+30 questions across seven buckets (answerable health facts, unanswerable health claims, legal lookups, romanized Nepali, numeric dosing, TIER-0 emergencies, false-premise traps). Both arms run and scored on six metrics: hallucination rate, citation validity, appropriate refusal rate, over-refusal rate, TIER-0 escalation recall, and cost/latency per query.
 
 ```bash
 python benchmark/run_baseline.py
 python benchmark/run_veritas.py
 python benchmark/score.py
+python docs/build_samples.py    # fills the comparison deep-dives into docs/samples.md
+```
+
+Every LLM call is cached to disk, so reruns after an interrupted benchmark are cheap and resumable — both runner scripts skip questions already answered.
+
+## Project structure
+
+```text
+veritas/            orchestrator, clients.py (cached multi-provider LLM calls), nodes/ (N1–N9), whitelist.py
+web/                 the live split-screen UI ("The Tribunal") — vanilla JS, no build step
+server.py            FastAPI app serving the UI and streaming both arms over SSE
+corpus/              offline evidence fallback, used if Firecrawl is unavailable
+benchmark/           30 questions, both-arm runners, scorer, scorecard
+docs/                workflow diagram + generator, node reference, design decisions, samples
+tests/               unit tests for the deterministic refusal arbiter (N7)
 ```
 
 ## Status
 
-Work in progress — build phases tracked in commit history.
+All nine nodes, the orchestrator, the web UI, the benchmark harness, and all three graded deliverables (workflow PNG, node documentation, comparison samples) are built and tested against mocked pipeline runs. A live run with real `GEMINI_API_KEY` / `OLLAMA_API_KEY` / `FIRECRAWL_API_KEY` values in `.env` is the one remaining step to populate `benchmark/scorecard.md` and the deep-dive samples with real numbers. Build phases are tracked in commit history.
