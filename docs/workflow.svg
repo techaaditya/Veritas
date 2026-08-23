@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2350" viewBox="0 0 2200 2350">
+<rect x="0" y="0" width="2200" height="2350" fill="#FFFFFF"/>
+<defs>
+<marker id="arrowhead-2F6FED" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#2F6FED"/></marker>
+<marker id="arrowhead-1E9E5A" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#1E9E5A"/></marker>
+<marker id="arrowhead-6B7280" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#6B7280"/></marker>
+<marker id="arrowhead-C77D18" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#C77D18"/></marker>
+<marker id="arrowhead-E07A1F" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#E07A1F"/></marker>
+<marker id="arrowhead-D03A2C" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#D03A2C"/></marker>
+<marker id="arrowhead-3A3A3A" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#3A3A3A"/></marker>
+<marker id="arrowhead-333333" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#333333"/></marker>
+<marker id="arrowhead-8A5A00" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 9 3, 0 6" fill="#8A5A00"/></marker>
+</defs>
+<text x="1100.0" y="70" font-family="Georgia, serif" font-size="34" font-weight="700" text-anchor="middle" fill="#111">VERITAS — Nine-Node Workflow</text>
+<text x="1100.0" y="98" font-family="Segoe UI, sans-serif" font-size="17" text-anchor="middle" fill="#555">Refusal-aware grounded answering for low-resource languages — human input, every LLM query, model, and action</text>
+<rect x="260" y="140" width="760" height="90" rx="14" fill="#E07A1F" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="180" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">H1 · Human Input</text>
+<text x="284" y="212" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Question in Nepali / romanized Nepali / English + domain</text>
+<rect x="260" y="285" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="325" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N1 · Language &amp; Intent Normalizer</text>
+<rect x="284" y="335" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="355" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.0-flash</text>
+<text x="284" y="387" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Detects language, normalizes to Devanagari + canonical English, flags ambiguities</text>
+<line x1="640.0" y1="230" x2="640.0" y2="285" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="460" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="500" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N2 · Risk Tier Gate</text>
+<rect x="284" y="510" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="530" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.0-flash</text>
+<text x="284" y="562" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Classifies TIER_0 / TIER_1 / TIER_2 risk</text>
+<line x1="640.0" y1="405" x2="640.0" y2="460" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="635" width="760" height="120" rx="14" fill="#1E9E5A" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="675" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N3 · Claim Decomposer</text>
+<rect x="284" y="685" width="290" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="705" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gpt-oss:120b (Ollama Cloud)</text>
+<text x="284" y="737" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Splits question into 2–6 atomic, independently verifiable claims</text>
+<line x1="640.0" y1="580" x2="640.0" y2="635" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="810" width="760" height="120" rx="14" fill="#C77D18" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="850" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N4 · Evidence Retrieval</text>
+<rect x="284" y="860" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="880" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">Firecrawl (tool)</text>
+<text x="284" y="912" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Site-restricted search + scrape over whitelisted domains, per claim. Not an LLM.</text>
+<line x1="640.0" y1="755" x2="640.0" y2="810" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="985" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="1025" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N5 · Grounded Answerer</text>
+<rect x="284" y="1035" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1055" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.0-flash</text>
+<text x="284" y="1087" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Answers each claim from evidence only; numeric grounding enforced in code</text>
+<line x1="640.0" y1="930" x2="640.0" y2="985" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="1160" width="760" height="120" rx="14" fill="#1E9E5A" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="1200" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N6 · Adversarial Verifier</text>
+<rect x="284" y="1210" width="290" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1230" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gpt-oss:120b (Ollama Cloud)</text>
+<text x="284" y="1262" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">A DIFFERENT model family tries to falsify each claim's answer</text>
+<line x1="640.0" y1="1105" x2="640.0" y2="1160" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="1335" width="760" height="120" rx="14" fill="#6B7280" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="1375" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N7 · Refusal Arbiter</text>
+<rect x="284" y="1385" width="220" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1405" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">deterministic Python</text>
+<text x="284" y="1437" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">ANSWER / PARTIAL_ANSWER / REFUSE — deterministic rules, no LLM, unit-tested</text>
+<line x1="640.0" y1="1280" x2="640.0" y2="1335" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="1510" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="1550" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N8 · Synthesizer</text>
+<rect x="284" y="1560" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1580" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.0-flash</text>
+<text x="284" y="1612" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Composes final response in user's language from verified claims only</text>
+<line x1="640.0" y1="1455" x2="640.0" y2="1510" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="1685" width="760" height="120" rx="14" fill="#2F6FED" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="1725" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">N9 · Back-Translation Fidelity Check</text>
+<rect x="284" y="1735" width="180" height="28" rx="6" fill="#FFFFFF" fill-opacity="0.16" stroke="#FFFFFF" stroke-width="1"/>
+<text x="294" y="1755" font-family="Consolas, monospace" font-size="16" fill="#FFFFFF">gemini-2.0-flash</text>
+<text x="284" y="1787" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Translates answer back to English to catch drift; one retry on failure</text>
+<line x1="640.0" y1="1630" x2="640.0" y2="1685" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="260" y="1860" width="760" height="100" rx="14" fill="#3A3A3A" stroke="#1a1a1a" stroke-width="2"/>
+<text x="284" y="1900" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">OUTPUT</text>
+<text x="284" y="1932" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Answer + citations + confidence + UNVERIFIED section (+ escalation card if TIER-0)</text>
+<line x1="640.0" y1="1805" x2="640.0" y2="1860" stroke="#333333" stroke-width="3"  marker-end="url(#arrowhead-333333)"/>
+<rect x="1160" y="470" width="620" height="150" rx="14" fill="#D03A2C" stroke="#1a1a1a" stroke-width="2"/>
+<text x="1184" y="510" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#FFFFFF">HALT · TIER_0 Emergency</text>
+<text x="1184" y="542" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">Escalation card: nearest emergency numbers, the danger signals</text>
+<text x="1184" y="564" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">detected, 'seek immediate in-person care'. No informational answer is</text>
+<text x="1184" y="586" font-family="Segoe UI, sans-serif" font-size="16" fill="#FFFFFF">attempted.</text>
+<path d="M 1020 520.0 L 1100 520.0 L 1160 540" fill="none" stroke="#D03A2C" stroke-width="3"  marker-end="url(#arrowhead-D03A2C)"/>
+<text x="1102.0" y="522.0" font-family="Segoe UI, sans-serif" font-size="15" font-style="italic" fill="#D03A2C">TIER_0</text>
+<path d="M 1780 600 L 1840 600 L 1840 1910 L 1020 1910" fill="none" stroke="#D03A2C" stroke-width="3"  marker-end="url(#arrowhead-D03A2C)"/>
+<path d="M 260 1745.0 L 170 1745.0 L 170 1570.0 L 260 1570.0" fill="none" stroke="#8A5A00" stroke-width="3"  marker-end="url(#arrowhead-8A5A00)"/>
+<text x="90.0" y="1649.5" font-family="Segoe UI, sans-serif" font-size="15" font-style="italic" fill="#8A5A00">fidelity drift → retry ×1</text>
+<text x="260" y="2030" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#111">Legend</text>
+<rect x="260" y="2064" width="28" height="28" rx="6" fill="#2F6FED"/>
+<text x="300" y="2085" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Gemini node (gemini-2.0-flash)</text>
+<rect x="260" y="2106" width="28" height="28" rx="6" fill="#1E9E5A"/>
+<text x="300" y="2127" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">gpt-oss:120b via Ollama Cloud — different model family from Gemini</text>
+<rect x="260" y="2148" width="28" height="28" rx="6" fill="#C77D18"/>
+<text x="300" y="2169" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Non-LLM tool (Firecrawl retrieval)</text>
+<rect x="1160" y="2064" width="28" height="28" rx="6" fill="#6B7280"/>
+<text x="1200" y="2085" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Deterministic Python (no LLM)</text>
+<rect x="1160" y="2106" width="28" height="28" rx="6" fill="#E07A1F"/>
+<text x="1200" y="2127" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Human input</text>
+<rect x="1160" y="2148" width="28" height="28" rx="6" fill="#D03A2C"/>
+<text x="1200" y="2169" font-family="Segoe UI, sans-serif" font-size="16" fill="#222">Safety halt (TIER-0 emergency)</text>
+<text x="260" y="2220" font-family="Segoe UI, sans-serif" font-size="14" font-style="italic" fill="#555">Solid arrows = control flow. The TIER-0 branch and the N9→N8 loop are the two points where this is a workflow</text>
+<text x="260" y="2242" font-family="Segoe UI, sans-serif" font-size="14" font-style="italic" fill="#555">with real control flow, not a linear chain.</text>
+</svg>
