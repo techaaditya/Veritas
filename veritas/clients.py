@@ -47,6 +47,7 @@ class LLMResult:
     node: str
     provider: str
     model: str
+    prompt: str
     data: dict[str, Any]
     raw_text: str
     latency_ms: float
@@ -208,6 +209,7 @@ def call_llm(
             payload = dict(
                 provider=provider,
                 model=model,
+                prompt=prompt,
                 data=data,
                 raw_text=text,
                 latency_ms=latency_ms,
