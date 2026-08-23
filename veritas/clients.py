@@ -245,3 +245,58 @@ def call_llm(
         return result
 
     raise RuntimeError(f"[{node}] {provider}/{model} failed after {max_retries} attempts: {last_err}")
+
+
+@dataclass
+class RawResult:
+    """Like LLMResult but for free-text generation (no JSON coercion) — used by the baseline arm."""
+
+    node: str
+    provider: str
+    model: str
+    prompt: str
+    text: str
+    latency_ms: float
+    prompt_tokens: int
+    completion_tokens: int
+    cost_usd: float
+    cached: bool
+
+
+def call_llm_raw(provider: str, model: str, prompt: str, *, temperature: float, node: str) -> RawResult:
+    """Blocking free-text call, cached to disk like call_llm but without JSON parsing."""
+    key = "raw:" + _cache_key(provider, model, temperature, prompt)
+    cached = _read_cache(key)
+    if cached is not None:
+        return RawResult(node=node, cached=True, **cached)
+
+    start = time.monotonic()
+    text, ptoks, ctoks = _dispatch(provider, model, prompt, temperature)
+    latency_ms = (time.monotonic() - start) * 1000
+    payload = dict(
+        provider=provider,
+        model=model,
+        prompt=prompt,
+        text=text,
+        latency_ms=latency_ms,
+        prompt_tokens=ptoks,
+        completion_tokens=ctoks,
+        cost_usd=_cost(model, ptoks, ctoks),
+    )
+    _write_cache(key, payload)
+    return RawResult(node=node, cached=False, **payload)
+
+
+def stream_gemini_raw(model: str, prompt: str, temperature: float):
+    """Yield text chunks from Gemini as they arrive. Not cached — used for the live UI race."""
+    from google import genai
+    from google.genai import types
+
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    for chunk in client.models.generate_content_stream(
+        model=model,
+        contents=prompt,
+        config=types.GenerateContentConfig(temperature=temperature),
+    ):
+        if chunk.text:
+            yield chunk.text

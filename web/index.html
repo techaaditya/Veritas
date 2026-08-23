@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VERITAS — The Tribunal</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="wordmark">
+    <span class="wordmark-glyph">✓</span>
+    <span class="wordmark-text">VERITAS</span>
+  </div>
+  <div class="tagline">Refusal-aware grounded answering for low-resource languages</div>
+  <button class="tab-toggle" id="scorecard-toggle" type="button" aria-pressed="false">Scorecard</button>
+</header>
+
+<main id="courtroom">
+
+  <section class="query-bar" aria-label="Ask a question">
+    <div class="chips" id="example-chips" role="group" aria-label="Example questions"></div>
+    <form id="query-form" autocomplete="off">
+      <input
+        id="question-input"
+        type="text"
+        name="question"
+        placeholder="Type a health or legal question in Nepali, romanized Nepali, or English…"
+        aria-label="Question"
+      />
+      <button type="submit" id="run-button">Run the Tribunal</button>
+    </form>
+  </section>
+
+  <section class="arena" id="arena">
+
+    <article class="dock baseline-dock" aria-label="Single prompt baseline">
+      <header class="dock-head">
+        <h2>Single Prompt</h2>
+        <span class="dock-sub">gemini-2.0-flash · one shot, no verification</span>
+      </header>
+      <div class="baseline-body" id="baseline-body">
+        <p class="placeholder">The baseline's answer will stream in here — fast, fluent, and unsourced.</p>
+      </div>
+    </article>
+
+    <article class="dock veritas-dock" aria-label="VERITAS nine-node pipeline">
+      <header class="dock-head">
+        <h2>VERITAS</h2>
+        <span class="dock-sub">nine-node workflow · cross-model verified · refusal-aware</span>
+      </header>
+
+      <div class="veritas-body" id="veritas-body">
+        <ol class="node-spine" id="node-spine" aria-label="Pipeline nodes"></ol>
+
+        <div class="claims-panel" id="claims-panel" hidden>
+          <h3>Atomic Claims</h3>
+          <div class="claims-grid" id="claims-grid"></div>
+          <div class="graveyard" id="graveyard" hidden>
+            <h4>Did not survive verification</h4>
+            <div class="graveyard-grid" id="graveyard-grid"></div>
+          </div>
+        </div>
+
+        <div class="arbiter-stamp" id="arbiter-stamp" hidden></div>
+
+        <div class="final-answer" id="final-answer" hidden></div>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="tier0-overlay" id="tier0-overlay" hidden role="alertdialog" aria-live="assertive"></div>
+
+  <section class="scorecard-panel" id="scorecard-panel" hidden aria-label="Benchmark scorecard">
+    <div id="scorecard-content">
+      <p class="placeholder">Benchmark not yet run. Once <code>benchmark/score.py</code> has produced
+      <code>benchmark/scorecard.json</code>, the six-metric comparison will appear here — including
+      where VERITAS loses.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>
